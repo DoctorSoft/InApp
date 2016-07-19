@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using InstagramApp.Engines;
+using InstagramApp.Engines.LikeFriendsPostsEngine;
+using InstagramApp.Engines.LikeHashTagEngine;
+using InstagramApp.Engines.RegistrationEngine;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -10,67 +14,29 @@ namespace InstagramApp
     {
         public static void Main(string[] args)
         {
+            var hashTag = "#Коложа";
+
             var driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://www.instagram.com/");
-
-            IList<IWebElement> links = driver.FindElements(By.TagName("a"));
-            links.First(element => element.Text == "Вход").Click();
-
-            Thread.Sleep(500);
-
-            IList<IWebElement> userNameInputs = driver.FindElements(By.Name("username"));
-            userNameInputs.FirstOrDefault().SendKeys("mydevpage");
-
-            Thread.Sleep(500);
-
-            IList<IWebElement> passwordInuts = driver.FindElements(By.Name("password"));
-            passwordInuts.FirstOrDefault().SendKeys("Ntvyjnf123");
-
-            Thread.Sleep(500);
-
-            IList<IWebElement> buttons = driver.FindElements(By.TagName("button"));
-            buttons.FirstOrDefault(element => element.Text == "Войти").Click();
-
-            Thread.Sleep(2000);
-
-            IList<IWebElement> inputs = driver.FindElements(By.ClassName("_9x5sw"));
-            inputs.FirstOrDefault().SendKeys("#Grodno");
-
-            Thread.Sleep(3000);
-
-            IList<IWebElement> hashLinks = driver.FindElements(By.ClassName("_k2vj6"));
-            hashLinks.FirstOrDefault().Click();
-
-            Thread.Sleep(3000);
-            IList<IWebElement> images = driver.FindElements(By.ClassName("_8mlbc"));
-
-            foreach (var image in images)
+            
+            var registrationEngine = new RegistrationEngine();
+            var registrationModel = new RegistrationModel
             {
-                Thread.Sleep(500);
-                image.Click();
+                UserName = "mydevpage",
+                Password = "Ntvyjnf123"
+            };
+            registrationEngine.Execute(driver, registrationModel);
 
-                Thread.Sleep(500);
+            var likeFriendsPostsEngine = new LikeFriendsPostsEngine();
+            likeFriendsPostsEngine.Execute(driver, new LikeFriendsPostsModel());
 
-                IList<IWebElement> likeSpans = driver.FindElements(By.ClassName("_1tv0k"));
-                var text = likeSpans.FirstOrDefault().Text;
+            /*var likeHashTagEngine = new LikeHashTagEngine();
+            var likeHashTagModel = new LikeHashTagModel
+            {
+                HashTag = "#ПаркЖилибера"
+            };
+            likeHashTagEngine.Execute(driver, likeHashTagModel);*/
 
-                Thread.Sleep(500);
-
-                if (text == "Нравится")
-                {
-                    IList<IWebElement> likeButtons = driver.FindElements(By.ClassName("_ebwb5"));
-                    likeButtons.FirstOrDefault().Click();
-                }
-                else
-                {
-                    driver.Keyboard.SendKeys(Keys.Escape);
-                    break;
-                }
-
-                Thread.Sleep(500);
-
-                driver.Keyboard.SendKeys(Keys.Escape);
-            }
+            //driver.Close(); 
         }
     }
 }

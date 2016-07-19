@@ -47,6 +47,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engines\IEngine.cs" />
+    <Compile Include="Engines\LikeFriendsPostsEngine\LikeFriendsPostsEngine.cs" />
+    <Compile Include="Engines\LikeFriendsPostsEngine\LikeFriendsPostsModel.cs" />
+    <Compile Include="Engines\LikeHashTagEngine\LikeHashTagEngine.cs" />
+    <Compile Include="Engines\LikeHashTagEngine\LikeHashTagModel.cs" />
+    <Compile Include="Engines\RegistrationEngine\RegistrationEngine.cs" />
+    <Compile Include="Engines\RegistrationEngine\RegistrationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,6 +61,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
