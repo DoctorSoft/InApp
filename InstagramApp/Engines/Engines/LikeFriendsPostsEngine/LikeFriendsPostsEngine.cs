@@ -4,7 +4,7 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace InstagramApp.Engines.LikeFriendsPostsEngine
+namespace Engines.Engines.LikeFriendsPostsEngine
 {
     public class LikeFriendsPostsEngine : IEngine<LikeFriendsPostsModel>
     {

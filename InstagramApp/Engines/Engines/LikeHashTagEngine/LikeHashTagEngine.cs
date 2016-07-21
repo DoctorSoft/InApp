@@ -4,7 +4,7 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace InstagramApp.Engines.LikeHashTagEngine
+namespace Engines.Engines.LikeHashTagEngine
 {
     public class LikeHashTagEngine : IEngine<LikeHashTagModel>
     {

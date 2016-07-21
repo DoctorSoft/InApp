@@ -1,4 +1,4 @@
-﻿namespace InstagramApp.Engines.LikeHashTagEngine
+﻿namespace Engines.Engines.LikeHashTagEngine
 {
     public class LikeHashTagModel
     {

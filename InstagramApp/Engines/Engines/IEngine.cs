@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium.Remote;
 
-namespace InstagramApp.Engines
+namespace Engines.Engines
 {
     public interface IEngine<TModel>
     {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using InstagramApp.Engines;
-using InstagramApp.Engines.LikeFriendsPostsEngine;
-using InstagramApp.Engines.LikeHashTagEngine;
-using InstagramApp.Engines.RegistrationEngine;
+using Engines.Engines.LikeFriendsPostsEngine;
+using Engines.Engines.LikeHashTagEngine;
+using Engines.Engines.RegistrationEngine;
+using Engines.Engines.SearchUserFriendsEngine;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -26,15 +26,12 @@ namespace InstagramApp
             };
             registrationEngine.Execute(driver, registrationModel);
 
-            var likeFriendsPostsEngine = new LikeFriendsPostsEngine();
-            likeFriendsPostsEngine.Execute(driver, new LikeFriendsPostsModel());
-
-            /*var likeHashTagEngine = new LikeHashTagEngine();
-            var likeHashTagModel = new LikeHashTagModel
+            var likeHashTagEngine = new SearchUserFriendsEngine();
+            var likeHashTagModel = new SearchUserFriendsModel
             {
-                HashTag = "#ПаркЖилибера"
+                UserPageLink = "https://www.instagram.com/s13.ru/"
             };
-            likeHashTagEngine.Execute(driver, likeHashTagModel);*/
+            likeHashTagEngine.Execute(driver, likeHashTagModel);
 
             //driver.Close(); 
         }

@@ -4,7 +4,7 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace InstagramApp.Engines.RegistrationEngine
+namespace Engines.Engines.RegistrationEngine
 {
     public class RegistrationEngine : IEngine<RegistrationModel>
     {
@@ -31,6 +31,10 @@ namespace InstagramApp.Engines.RegistrationEngine
             buttons.FirstOrDefault(element => element.Text == "Войти").Click();
 
             Thread.Sleep(2000);
+
+            driver.Navigate().GoToUrl("https://www.instagram.com/");
+
+            Thread.Sleep(1000);
         }
     }
 }

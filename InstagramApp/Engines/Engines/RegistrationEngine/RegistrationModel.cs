@@ -1,4 +1,4 @@
-﻿namespace InstagramApp.Engines.RegistrationEngine
+﻿namespace Engines.Engines.RegistrationEngine
 {
     public class RegistrationModel
     {
