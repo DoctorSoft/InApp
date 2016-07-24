@@ -29,7 +29,7 @@ namespace InstagramApp
             var likeHashTagEngine = new SearchUserFriendsEngine();
             var likeHashTagModel = new SearchUserFriendsModel
             {
-                UserPageLink = "https://www.instagram.com/s13.ru/"
+                UserPageLink = "https://www.instagram.com/grodnoin/"
             };
             likeHashTagEngine.Execute(driver, likeHashTagModel);
 
