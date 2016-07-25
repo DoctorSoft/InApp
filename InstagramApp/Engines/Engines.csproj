@@ -59,6 +59,8 @@
     <Compile Include="Engines\RegistrationEngine\RegistrationModel.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFriendsEngine.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFriendsModel.cs" />
+    <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesEngine.cs" />
+    <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
