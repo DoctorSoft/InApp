@@ -6,14 +6,20 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.RegistrationEngine
 {
-    public class RegistrationEngine : IEngine<RegistrationModel>
+    public class RegistrationEngine : IEngine<RegistrationModel, VoidResult>
     {
-        public void Execute(RemoteWebDriver driver, RegistrationModel model)
+        public VoidResult Execute(RemoteWebDriver driver, RegistrationModel model)
         {
             driver.Navigate().GoToUrl("https://www.instagram.com/");
 
             IList<IWebElement> links = driver.FindElements(By.TagName("a"));
-            links.First(element => element.Text == "Вход").Click();
+
+            var registrtionData = links.FirstOrDefault(element => element.Text == "Вход");
+            if (registrtionData == null)
+            {
+                return new VoidResult();
+            }
+            registrtionData.Click();
 
             Thread.Sleep(500);
 
@@ -35,6 +41,8 @@ namespace Engines.Engines.RegistrationEngine
             driver.Navigate().GoToUrl("https://www.instagram.com/");
 
             Thread.Sleep(1000);
+
+            return new VoidResult();
         }
     }
 }

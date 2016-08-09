@@ -9,9 +9,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.SearchUserFriendsEngine
 {
-    public class SearchUserFriendsEngine : IEngine<SearchUserFriendsModel, List<string>>
+    public class SearchUserUnAddedFriendsEngine : IEngine<SearchUserUnAddedFriendsModel, List<string>>
     {
-        public List<string> Execute(RemoteWebDriver driver, SearchUserFriendsModel model)
+        public List<string> Execute(RemoteWebDriver driver, SearchUserUnAddedFriendsModel model)
         {
             driver.Navigate().GoToUrl(model.UserPageLink);
 
@@ -28,7 +28,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
             {
                 if (element.GetAttribute("href") != null)
                 {
-                    return element.GetAttribute("href").ToLower().Contains("followers");
+                    return element.GetAttribute("href").ToLower().Contains("following");
                 }
                 return false;
             })
@@ -59,9 +59,13 @@ namespace Engines.Engines.SearchUserFriendsEngine
             .Select(element => element.GetAttribute("href"))
             .ToList();
 
-            driver.Keyboard.SendKeys(Keys.Escape);
-
             return userList;
+
+            var addUserListCommand = new AddUserListCommand
+            {
+                Users = userList
+            };
+            new AddUserListCommandHandler(new DataBaseContext()).Handle(addUserListCommand);
         }
     }
 }

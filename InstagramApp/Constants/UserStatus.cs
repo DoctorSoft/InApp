@@ -3,9 +3,9 @@
     public enum UserStatus
     {
         ToCheck = 1,
-        ToInclude = 2,
-        Included = 3,
-        Confirmed = 4,
+        ToFollow = 2,
+        Following = 3,
+        Added = 4,
         Banned = 5,
         Technical = 6
     }

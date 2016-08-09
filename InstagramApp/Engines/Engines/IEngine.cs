@@ -2,8 +2,8 @@
 
 namespace Engines.Engines
 {
-    public interface IEngine<TModel>
+    public interface IEngine<TModel, TResult>
     {
-        void Execute(RemoteWebDriver driver, TModel model);
+        TResult Execute(RemoteWebDriver driver, TModel model);
     }
 }

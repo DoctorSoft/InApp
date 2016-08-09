@@ -6,9 +6,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.LikeHashTagEngine
 {
-    public class LikeHashTagEngine : IEngine<LikeHashTagModel>
+    public class LikeHashTagEngine : IEngine<LikeHashTagModel, VoidResult>
     {
-        public void Execute(RemoteWebDriver driver, LikeHashTagModel model)
+        public VoidResult Execute(RemoteWebDriver driver, LikeHashTagModel model)
         {
             driver.Navigate().GoToUrl("https://www.instagram.com/");
 
@@ -58,6 +58,8 @@ namespace Engines.Engines.LikeHashTagEngine
 
                 driver.Keyboard.SendKeys(Keys.Escape);
             }
+
+            return new VoidResult();
         }
     }
 }

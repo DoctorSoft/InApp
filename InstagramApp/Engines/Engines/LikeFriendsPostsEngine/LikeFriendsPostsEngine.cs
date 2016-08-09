@@ -6,9 +6,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.LikeFriendsPostsEngine
 {
-    public class LikeFriendsPostsEngine : IEngine<LikeFriendsPostsModel>
+    public class LikeFriendsPostsEngine : IEngine<LikeFriendsPostsModel, VoidResult>
     {
-        public void Execute(RemoteWebDriver driver, LikeFriendsPostsModel model)
+        public VoidResult Execute(RemoteWebDriver driver, LikeFriendsPostsModel model)
         {
             driver.Navigate().GoToUrl("https://www.instagram.com/");
 
@@ -36,6 +36,8 @@ namespace Engines.Engines.LikeFriendsPostsEngine
 
                 Thread.Sleep(1000);
             }
+
+            return new VoidResult();
         }
     }
 }
