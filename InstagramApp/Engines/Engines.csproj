@@ -75,6 +75,8 @@
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserUnAddedFriendsModel.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFriendsModel.cs" />
     <Compile Include="Engines\VoidResult.cs" />
+    <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesEngine.cs" />
+    <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
