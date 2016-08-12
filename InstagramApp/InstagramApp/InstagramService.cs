@@ -27,7 +27,7 @@ namespace InstagramApp
         {
             Registration(driver);
 
-            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 10 });
+            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 100 });
 
             foreach (var user in users)
             {
@@ -47,7 +47,7 @@ namespace InstagramApp
         {
             Registration(driver);
 
-            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 10 });
+            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 100 });
 
             foreach (var user in users)
             {
@@ -63,9 +63,9 @@ namespace InstagramApp
             }
         }
 
-        public void FollowNewUsers(RemoteWebDriver driver, DataBaseContext context)
+        public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            List<string> users = new List<string>();
+            List<string> users = new List<string> { "https://www.instagram.com/giroskuter.up/" };
 
             List<string> results = new List<string>();
 
