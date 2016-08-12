@@ -11,7 +11,7 @@ namespace InstagramApp
             {
                 var service = new InstagramService();
 
-                using (var context = new MyDevPageContext())
+                using (var context = new SecondPageContext())
                 {
                     service.ApproveUsers(driver, context);
                 }

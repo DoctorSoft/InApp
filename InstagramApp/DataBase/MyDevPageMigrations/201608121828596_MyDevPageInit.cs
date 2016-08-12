@@ -1,14 +1,14 @@
-namespace DataBase.Migrations
+namespace DataBase.MyDevPageMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class MyDevPageInit : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Language",
+                "dbo.MyDevPage_Language",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -17,7 +17,7 @@ namespace DataBase.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Region",
+                "dbo.MyDevPage_Region",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -29,11 +29,11 @@ namespace DataBase.Migrations
                         LanguageId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Language", t => t.LanguageId, cascadeDelete: true)
+                .ForeignKey("dbo.MyDevPage_Language", t => t.LanguageId, cascadeDelete: true)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.User",
+                "dbo.MyDevPage_User",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -45,13 +45,13 @@ namespace DataBase.Migrations
                         IncludingTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Region", t => t.RegionId)
-                .ForeignKey("dbo.Language", t => t.LanguageId)
+                .ForeignKey("dbo.MyDevPage_Region", t => t.RegionId)
+                .ForeignKey("dbo.MyDevPage_Language", t => t.LanguageId)
                 .Index(t => t.RegionId)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Media",
+                "dbo.MyDevPage_Media",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -62,25 +62,25 @@ namespace DataBase.Migrations
                         UserId = c.Long(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.User", t => t.UserId)
+                .ForeignKey("dbo.MyDevPage_User", t => t.UserId)
                 .Index(t => t.UserId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.User", "LanguageId", "dbo.Language");
-            DropForeignKey("dbo.Region", "LanguageId", "dbo.Language");
-            DropForeignKey("dbo.User", "RegionId", "dbo.Region");
-            DropForeignKey("dbo.Media", "UserId", "dbo.User");
-            DropIndex("dbo.Media", new[] { "UserId" });
-            DropIndex("dbo.User", new[] { "LanguageId" });
-            DropIndex("dbo.User", new[] { "RegionId" });
-            DropIndex("dbo.Region", new[] { "LanguageId" });
-            DropTable("dbo.Media");
-            DropTable("dbo.User");
-            DropTable("dbo.Region");
-            DropTable("dbo.Language");
+            DropForeignKey("dbo.MyDevPage_User", "LanguageId", "dbo.MyDevPage_Language");
+            DropForeignKey("dbo.MyDevPage_Region", "LanguageId", "dbo.MyDevPage_Language");
+            DropForeignKey("dbo.MyDevPage_User", "RegionId", "dbo.MyDevPage_Region");
+            DropForeignKey("dbo.MyDevPage_Media", "UserId", "dbo.MyDevPage_User");
+            DropIndex("dbo.MyDevPage_Media", new[] { "UserId" });
+            DropIndex("dbo.MyDevPage_User", new[] { "LanguageId" });
+            DropIndex("dbo.MyDevPage_User", new[] { "RegionId" });
+            DropIndex("dbo.MyDevPage_Region", new[] { "LanguageId" });
+            DropTable("dbo.MyDevPage_Media");
+            DropTable("dbo.MyDevPage_User");
+            DropTable("dbo.MyDevPage_Region");
+            DropTable("dbo.MyDevPage_Language");
         }
     }
 }

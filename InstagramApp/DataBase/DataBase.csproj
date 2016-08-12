@@ -55,15 +55,15 @@
     <Compile Include="Contexts\DataBaseContext.cs" />
     <Compile Include="Contexts\MyDevPageContext.cs" />
     <Compile Include="Contexts\SecondPageContext.cs" />
-    <Compile Include="Migrations\201607242204197_Init.cs" />
-    <Compile Include="Migrations\201607242204197_Init.Designer.cs">
-      <DependentUpon>201607242204197_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MediaDbModel.cs" />
     <Compile Include="Models\UserDbModel.cs" />
     <Compile Include="Models\LanguageDbModel.cs" />
     <Compile Include="Models\RegionDbModel.cs" />
+    <Compile Include="MyDevPageMigrations\201608121828596_MyDevPageInit.cs" />
+    <Compile Include="MyDevPageMigrations\201608121828596_MyDevPageInit.Designer.cs">
+      <DependentUpon>201608121828596_MyDevPageInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyDevPageMigrations\MyDevPageConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueriesAndCommands\AddUserListCommand.cs" />
     <Compile Include="QueriesAndCommands\AddUserListCommandHandler.cs" />
@@ -88,6 +88,11 @@
     <Compile Include="QueriesAndCommands\MarkUserAsBannedCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsFollowingCommand.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsFollowingCommandHandler.cs" />
+    <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.cs" />
+    <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.Designer.cs">
+      <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondPageMigrations\SecondPageConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -100,11 +105,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201607242204197_Init.resx">
-      <DependentUpon>201607242204197_Init.cs</DependentUpon>
+    <EmbeddedResource Include="MyDevPageMigrations\201608121828596_MyDevPageInit.resx">
+      <DependentUpon>201608121828596_MyDevPageInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondPageMigrations\201608121828370_SecondPageInit.resx">
+      <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
