@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
+using Constants;
 using DataBase.Models;
 
 namespace DataBase.Configurations
 {
     public class UserConfiguration: EntityTypeConfiguration<UserDbModel>
     {
-        public UserConfiguration()
+        public UserConfiguration(AccountName accountName)
         {
-            ToTable("User");
+            ToTable(accountName.ToString("G") + "User");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

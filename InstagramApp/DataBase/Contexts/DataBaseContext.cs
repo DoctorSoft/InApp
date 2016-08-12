@@ -5,7 +5,7 @@ using DataBase.Models;
 
 namespace DataBase.Contexts
 {
-    public class DataBaseContext : DbContext
+    public abstract class DataBaseContext : DbContext
     {
         public DataBaseContext()
             :base("DefaultConnection")
@@ -19,14 +19,16 @@ namespace DataBase.Contexts
 
         public DbSet<RegionDbModel> Regions { get; set; }
 
-        public DbSet<UserDbModel> Users { get; set; } 
+        public DbSet<UserDbModel> Users { get; set; }
+
+        protected abstract AccountName GetAccountName(); 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new LanguageConfiguration());
-            modelBuilder.Configurations.Add(new MediaConfiguration());
-            modelBuilder.Configurations.Add(new RegionConfiguration());
-            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new LanguageConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new MediaConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new RegionConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new UserConfiguration(GetAccountName()));
 
             base.OnModelCreating(modelBuilder);
         }

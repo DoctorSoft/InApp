@@ -23,11 +23,11 @@ namespace InstagramApp
             });
         }
 
-        public void UnfollowUsers(RemoteWebDriver driver)
+        public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver);
 
-            var users = new GetUsersToUnFollowQueryHandler(new DataBaseContext()).Handle(new GetUsersToUnFollowQuery { MaxCount = 10 });
+            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 10 });
 
             foreach (var user in users)
             {
@@ -36,18 +36,18 @@ namespace InstagramApp
                     UserLink = user
                 });
 
-                new MarkUserAsBannedCommandHandler(new DataBaseContext()).Handle(new MarkUserAsBannedCommand
+                new MarkUserAsBannedCommandHandler(context).Handle(new MarkUserAsBannedCommand
                 {
                     User = user
                 });
             }
         }
 
-        public void FollowUsers(RemoteWebDriver driver)
+        public void FollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver);
 
-            var users = new GetUsersToFollowQueryHandler(new DataBaseContext()).Handle(new GetUsersToFollowQuery { MaxCount = 10 });
+            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 10 });
 
             foreach (var user in users)
             {
@@ -56,14 +56,14 @@ namespace InstagramApp
                     UserLink = user
                 });
 
-                new MarkUserAsFollowingCommandHandler(new DataBaseContext()).Handle(new MarkUserAsFollowingCommand
+                new MarkUserAsFollowingCommandHandler(context).Handle(new MarkUserAsFollowingCommand
                 {
                     User = user
                 });
             }
         }
 
-        public void FollowNewUsers(RemoteWebDriver driver)
+        public void FollowNewUsers(RemoteWebDriver driver, DataBaseContext context)
         {
             List<string> users = new List<string>();
 
@@ -85,10 +85,10 @@ namespace InstagramApp
             {
                 Users = results
             };
-            new AddUserListCommandHandler(new DataBaseContext()).Handle(addUserListCommand);
+            new AddUserListCommandHandler(context).Handle(addUserListCommand);
         }
 
-        public void ApproveUsers(RemoteWebDriver driver)
+        public void ApproveUsers(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver);
 
@@ -97,7 +97,7 @@ namespace InstagramApp
                 UserPageLink = "https://www.instagram.com/mydevpage/"
             });
 
-            var addedToBaseUsers = new GetAddedUsersQueryHandler(new DataBaseContext()).Handle(new GetAddedUsersQuery());
+            var addedToBaseUsers = new GetAddedUsersQueryHandler(context).Handle(new GetAddedUsersQuery());
 
             var usersToAdd = addedUsers.Except(addedToBaseUsers).ToList();
 
@@ -107,7 +107,7 @@ namespace InstagramApp
                 {
                     UserLink = user
                 });
-                new MarkUserAsAddedCommandHandler(new DataBaseContext()).Handle(new MarkUserAsAddedCommand
+                new MarkUserAsAddedCommandHandler(context).Handle(new MarkUserAsAddedCommand
                 {
                     User = user
                 });

@@ -1,12 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using Engines.Engines.LikeFriendsPostsEngine;
-using Engines.Engines.LikeHashTagEngine;
-using Engines.Engines.RegistrationEngine;
-using Engines.Engines.SearchUserFriendsEngine;
-using Engines.Engines.SearchUserImagesEngine;
-using OpenQA.Selenium;
+﻿using DataBase.Contexts;
 using OpenQA.Selenium.Chrome;
 
 namespace InstagramApp
@@ -18,7 +10,11 @@ namespace InstagramApp
             using (var driver = new ChromeDriver())
             {
                 var service = new InstagramService();
-                service.ApproveUsers(driver);
+
+                using (var context = new MyDevPageContext())
+                {
+                    service.ApproveUsers(driver, context);
+                }
             }
         }
     }

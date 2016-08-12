@@ -53,6 +53,8 @@
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
+    <Compile Include="Contexts\MyDevPageContext.cs" />
+    <Compile Include="Contexts\SecondPageContext.cs" />
     <Compile Include="Migrations\201607242204197_Init.cs" />
     <Compile Include="Migrations\201607242204197_Init.Designer.cs">
       <DependentUpon>201607242204197_Init.cs</DependentUpon>

@@ -60,12 +60,6 @@ namespace Engines.Engines.SearchUserFriendsEngine
             .ToList();
 
             return userList;
-
-            var addUserListCommand = new AddUserListCommand
-            {
-                Users = userList
-            };
-            new AddUserListCommandHandler(new DataBaseContext()).Handle(addUserListCommand);
         }
     }
 }
