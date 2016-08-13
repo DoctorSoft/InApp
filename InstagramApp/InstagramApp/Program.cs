@@ -25,7 +25,7 @@ namespace InstagramApp
             var myDevPageAproveUsersTokenSource = new CancellationTokenSource();
 
             return Task.Run(() => MyDevPageTaskRunner.SecondPageRunPeriodically(() =>
-                MyDevPageTaskRunner.Run<MyDevPageContext>(myDevPageInstagramService, myDevPageDriver, myDevPageAproveUsersTokenSource),
+                MyDevPageTaskRunner.Run<MyDevPageContext>(myDevPageInstagramService, myDevPageDriver),
                 TimeSpan.FromSeconds(30),
                 myDevPageAproveUsersTokenSource.Token), myDevPageAproveUsersTokenSource.Token);
         } 
@@ -46,7 +46,7 @@ namespace InstagramApp
             var secondPageAproveUsersTokenSource = new CancellationTokenSource();
 
             return Task.Run(() => SecondPageTaskRunner.SecondPageRunPeriodically(() =>
-                SecondPageTaskRunner.Run<SecondPageContext>(secondPageInstagramService, secondPageDriver, secondPageAproveUsersTokenSource),
+                SecondPageTaskRunner.Run<SecondPageContext>(secondPageInstagramService, secondPageDriver),
                 TimeSpan.FromSeconds(30),
                 secondPageAproveUsersTokenSource.Token), secondPageAproveUsersTokenSource.Token);
         }
@@ -65,27 +65,31 @@ namespace InstagramApp
                 }
             }
 
-            public void Run<TContext>(InstagramService service, RemoteWebDriver driver, CancellationTokenSource cancellationTokenSource)
+            public void Run<TContext>(InstagramService service, RemoteWebDriver driver)
                 where TContext : DataBaseContext, new()
             {
-                using (var context = new TContext())
+                var actions = new List<Action<RemoteWebDriver, TContext>>
                 {
-                    service.SearchNewUsers(driver, context);
-                }
+                    service.SearchNewUsers,
+                    service.FollowUsers,
+                    service.ApproveUsers,
+                    service.UnfollowUsers
+                };
 
-                using (var context = new TContext())
-                {
-                    service.FollowUsers(driver, context);
-                }
 
-                using (var context = new TContext())
+                foreach (var action in actions)
                 {
-                    service.ApproveUsers(driver, context);
-                }
-
-                using (var context = new TContext())
-                {
-                    service.UnfollowUsers(driver, context);
+                    using (var context = new TContext())
+                    {
+                        try
+                        {
+                            action(driver, context);
+                        }
+                        catch (Exception exception)
+                        {
+                            // todo: add system of logging of exceptions
+                        }
+                    }
                 }
             }
         }
