@@ -13,6 +13,15 @@ namespace Engines.Engines.FollowUserEngine
         {
             driver.Navigate().GoToUrl(model.UserLink);
 
+            var breakButtonExists = driver
+                .FindElements(By.TagName("h2"))
+                .Any(element => element.Text.Contains("недоступна"));
+
+            if (breakButtonExists)
+            {
+                return new VoidResult();
+            }
+
             var followButton = driver
                 .FindElements(By.ClassName("_aj7mu"))
                 .First();
