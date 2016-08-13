@@ -90,6 +90,8 @@
     <Compile Include="QueriesAndCommands\GetAddedUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\GetProfileSettingsQuery.cs" />
     <Compile Include="QueriesAndCommands\GetProfileSettingsQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\GetUsersNotCheckedForFriendsQuery.cs" />
+    <Compile Include="QueriesAndCommands\GetUsersNotCheckedForFriendsQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetUsersToFollowQuery.cs" />
     <Compile Include="QueriesAndCommands\GetUsersToFollowQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetUsersToUnFollowQuery.cs" />
@@ -98,6 +100,8 @@
     <Compile Include="QueriesAndCommands\MarkUserAsAddedCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsBannedCommand.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsBannedCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\MarkUserAsCheckedForFriendsCommand.cs" />
+    <Compile Include="QueriesAndCommands\MarkUserAsCheckedForFriendsCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsFollowingCommand.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsFollowingCommandHandler.cs" />
     <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.cs" />

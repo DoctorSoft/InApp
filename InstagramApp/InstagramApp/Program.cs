@@ -47,13 +47,6 @@ namespace InstagramApp
             {
                 using (var context = new TContext())
                 {
-                    service.ApproveUsers(driver, context);
-                }
-
-                Task.Delay(TimeSpan.FromMinutes(1), cancellationTokenSource.Token);
-
-                using (var context = new TContext())
-                {
                     service.SearchNewUsers(driver, context);
                 }
 
@@ -62,6 +55,13 @@ namespace InstagramApp
                 using (var context = new TContext())
                 {
                     service.FollowUsers(driver, context);
+                }
+
+                Task.Delay(TimeSpan.FromMinutes(1), cancellationTokenSource.Token);
+
+                using (var context = new TContext())
+                {
+                    service.ApproveUsers(driver, context);
                 }
             }
         }

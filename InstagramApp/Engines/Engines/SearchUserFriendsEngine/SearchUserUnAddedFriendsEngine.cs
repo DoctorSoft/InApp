@@ -46,7 +46,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             Thread.Sleep(500);
 
-            for (var i = 0; i < Math.Min(count, 1000); i++)
+            for (var i = 0; i < Math.Min(count, 100); i++)
             {
                 Thread.Sleep(100);
                 driver.Keyboard.SendKeys(Keys.PageDown);

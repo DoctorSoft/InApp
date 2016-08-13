@@ -64,7 +64,9 @@ namespace InstagramApp
 
         public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            List<string> users = new List<string> { "https://www.instagram.com/giroskuter.up/" };
+            Registration(driver, context);
+
+            List<string> users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
 
             List<string> results = new List<string>();
 
@@ -85,6 +87,14 @@ namespace InstagramApp
                 Users = results
             };
             new AddUserListCommandHandler(context).Handle(addUserListCommand);
+
+            foreach (var user in users)
+            {
+                new MarkUserAsCheckedForFriendsCommandHandler(context).Handle(new MarkUserAsCheckedForFriendsCommand
+                {
+                    User = user
+                });
+            }
         }
 
         public void ApproveUsers(RemoteWebDriver driver, DataBaseContext context)
