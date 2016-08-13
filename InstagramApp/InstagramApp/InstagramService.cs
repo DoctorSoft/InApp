@@ -3,9 +3,6 @@ using System.Linq;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands;
 using Engines.Engines.FollowUserEngine;
-using Engines.Engines.LikeFriendsPostsEngine;
-using Engines.Engines.LikeHashTagEngine;
-using Engines.Engines.LikeTheLinkEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
 using OpenQA.Selenium.Remote;
@@ -14,21 +11,20 @@ namespace InstagramApp
 {
     public class InstagramService
     {
-        const string UserName = "mydevpage";
-        const string Password = "Ntvyjnf123";
-
-        private void Registration(RemoteWebDriver driver)
+        private void Registration(RemoteWebDriver driver, DataBaseContext context)
         {
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
             new RegistrationEngine().Execute(driver, new RegistrationModel
             {
-                UserName = UserName,
-                Password = Password
+                UserName = settings.Login,
+                Password = settings.Password
             });
         }
 
         public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            Registration(driver);
+            Registration(driver, context);
 
             var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 20 });
 
@@ -48,7 +44,7 @@ namespace InstagramApp
 
         public void FollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            Registration(driver);
+            Registration(driver, context);
 
             var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 20 });
 
@@ -93,11 +89,13 @@ namespace InstagramApp
 
         public void ApproveUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            Registration(driver);
+            Registration(driver, context);
+
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
             var addedUsers = new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
             {
-                UserPageLink = "https://www.instagram.com/mydevpage/"
+                UserPageLink = settings.HomePageUrl
             });
 
             var addedToBaseUsers = new GetAddedUsersQueryHandler(context).Handle(new GetAddedUsersQuery());
@@ -115,26 +113,6 @@ namespace InstagramApp
                     User = user
                 });
             }
-        }
-
-        public void LikeHashTag(RemoteWebDriver driver)
-        {
-            Registration(driver);
-
-            var likeHashTag = new LikeHashTagEngine().Execute(driver, new LikeHashTagModel()
-            {
-                HashTag = "#grodno"
-            });
-        }
-
-        public void LikeTheLink(RemoteWebDriver driver)
-        {
-            Registration(driver);
-
-            var likeHashTag = new LikeTheLinkEngine().Execute(driver, new LikeTheLinkModel()
-            {
-                Link = "https://www.instagram.com/p/BI_Wc8kB7L5/"
-            });
         }
     }
 }

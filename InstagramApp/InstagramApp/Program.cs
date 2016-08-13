@@ -2,9 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using DataBase.Contexts;
-using Hangfire;
-using Hangfire.SqlServer;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 
 namespace InstagramApp
 {
@@ -17,14 +16,8 @@ namespace InstagramApp
 
         private static readonly InstagramService myDevPageInstagramService = new InstagramService();
 
-        private static async Task MyDevPageRunPeriodically(Action action, TimeSpan interval, CancellationToken token)
-        {
-            while (true)
-            {
-                action();
-                await Task.Delay(interval, token);
-            }
-        }
+        private static readonly TaskRunner MyDevPageTaskRunner = new TaskRunner();
+
 
         /// <summary>
         /// Second Page
@@ -33,12 +26,43 @@ namespace InstagramApp
  
         private static readonly InstagramService secondPageInstagramService = new InstagramService();
 
-        private static async Task SecondPageRunPeriodically(Action action, TimeSpan interval, CancellationToken token)
+        private static readonly TaskRunner SecondPageTaskRunner = new TaskRunner();
+
+        /// <summary>
+        /// Task Runner
+        /// </summary>
+        private class TaskRunner
         {
-            while (true)
+            public async Task SecondPageRunPeriodically(Action action, TimeSpan interval, CancellationToken token)
             {
-                action();
-                await Task.Delay(interval, token);
+                while (true)
+                {
+                    action();
+                    await Task.Delay(interval, token);
+                }
+            }
+
+            public void Run<TContext>(InstagramService service, RemoteWebDriver driver, CancellationTokenSource cancellationTokenSource)
+                where TContext : DataBaseContext, new()
+            {
+                using (var context = new TContext())
+                {
+                    service.ApproveUsers(driver, context);
+                }
+
+                Task.Delay(TimeSpan.FromMinutes(1), cancellationTokenSource.Token);
+
+                using (var context = new TContext())
+                {
+                    service.SearchNewUsers(driver, context);
+                }
+
+                Task.Delay(TimeSpan.FromMinutes(1), cancellationTokenSource.Token);
+
+                using (var context = new TContext())
+                {
+                    service.FollowUsers(driver, context);
+                }
             }
         }
 
@@ -50,54 +74,18 @@ namespace InstagramApp
             // My Dev Page Jobs
             var myDevPageAproveUsersTokenSource = new CancellationTokenSource();
 
-            var myDevPageApproveUsersTask = MyDevPageRunPeriodically(() =>
-            {
-                using (var context = new MyDevPageContext())
-                {
-                    myDevPageInstagramService.ApproveUsers(myDevPageDriver, context);
-                }
-
-                Task.Delay(TimeSpan.FromMinutes(1), myDevPageAproveUsersTokenSource.Token);
-
-                using (var context = new MyDevPageContext())
-                {
-                    myDevPageInstagramService.SearchNewUsers(myDevPageDriver, context);
-                }
-
-                Task.Delay(TimeSpan.FromMinutes(1), myDevPageAproveUsersTokenSource.Token);
-
-                using (var context = new MyDevPageContext())
-                {
-                    myDevPageInstagramService.FollowUsers(myDevPageDriver, context);
-                }
-
-            }, TimeSpan.FromMinutes(1), myDevPageAproveUsersTokenSource.Token);
+            var myDevPageApproveUsersTask = MyDevPageTaskRunner.SecondPageRunPeriodically(() => 
+                MyDevPageTaskRunner.Run<MyDevPageContext>(myDevPageInstagramService, myDevPageDriver, myDevPageAproveUsersTokenSource), 
+                TimeSpan.FromMinutes(1), 
+                myDevPageAproveUsersTokenSource.Token);
             
             // Second Page Jobs
             var secondPageAproveUsersTokenSource = new CancellationTokenSource();
 
-            var secondPageApproveUsersTask = SecondPageRunPeriodically(() =>
-            {
-                using (var context = new SecondPageContext())
-                {
-                    secondPageInstagramService.ApproveUsers(secondPageDriver, context);
-                }
-
-                Task.Delay(TimeSpan.FromMinutes(1), secondPageAproveUsersTokenSource.Token);
-
-                using (var context = new SecondPageContext())
-                {
-                    secondPageInstagramService.SearchNewUsers(secondPageDriver, context);
-                }
-
-                Task.Delay(TimeSpan.FromMinutes(1), secondPageAproveUsersTokenSource.Token);
-
-                using (var context = new SecondPageContext())
-                {
-                    secondPageInstagramService.FollowUsers(secondPageDriver, context);
-                }
-
-            }, TimeSpan.FromMinutes(1), secondPageAproveUsersTokenSource.Token);
+            var secondPageApproveUsersTask = SecondPageTaskRunner.SecondPageRunPeriodically(() => 
+                SecondPageTaskRunner.Run<SecondPageContext>(secondPageInstagramService, secondPageDriver, secondPageAproveUsersTokenSource), 
+                TimeSpan.FromMinutes(1), 
+                secondPageAproveUsersTokenSource.Token);
 
             while (true)
             {

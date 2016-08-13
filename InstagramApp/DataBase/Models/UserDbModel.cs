@@ -12,6 +12,8 @@ namespace DataBase.Models
 
         public bool ConfirmedByAdmin { get; set; }
 
+        public bool FriendsWereSearched { get; set; }
+
         public UserStatus UserStatus { get; set; }
 
         public long? RegionId { get; set; }

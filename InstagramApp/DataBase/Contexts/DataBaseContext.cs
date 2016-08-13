@@ -21,7 +21,7 @@ namespace DataBase.Contexts
 
         public DbSet<UserDbModel> Users { get; set; }
 		
-        public DbSet<ProfilesSettingsDbModel> ProfilesSettings { get; set; } 
+        public DbSet<ProfileSettingsDbModel> ProfileSettings { get; set; } 
 
 		
         protected abstract AccountName GetAccountName(); 
@@ -32,7 +32,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new MediaConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new RegionConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new UserConfiguration(GetAccountName()));
-            modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration());
+            modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration(GetAccountName()));
 
             base.OnModelCreating(modelBuilder);
         }

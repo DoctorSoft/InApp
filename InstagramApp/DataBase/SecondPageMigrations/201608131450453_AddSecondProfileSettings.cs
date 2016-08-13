@@ -1,14 +1,14 @@
-namespace DataBase.Migrations
+namespace DataBase.SecondPageMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddTableProfileSettings : DbMigration
+    public partial class AddSecondProfileSettings : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.ProfilesSettings",
+                "dbo.SecondPage_ProfilesSettings",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -22,7 +22,7 @@ namespace DataBase.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.ProfilesSettings");
+            DropTable("dbo.SecondPage_ProfilesSettings");
         }
     }
 }

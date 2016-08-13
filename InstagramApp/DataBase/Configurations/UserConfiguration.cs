@@ -15,6 +15,7 @@ namespace DataBase.Configurations
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(model => model.ConfirmedByAdmin);
+            Property(model => model.FriendsWereSearched);
             Property(model => model.IncludingTime);
             Property(model => model.Link);
             Property(model => model.UserStatus);

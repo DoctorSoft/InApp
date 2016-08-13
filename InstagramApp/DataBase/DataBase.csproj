@@ -50,18 +50,28 @@
   <ItemGroup>
     <Compile Include="Configurations\LanguageConfiguration.cs" />
     <Compile Include="Configurations\MediaConfiguration.cs" />
+    <Compile Include="Configurations\ProfilesSettingsConfiguration.cs" />
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
     <Compile Include="Contexts\MyDevPageContext.cs" />
     <Compile Include="Contexts\SecondPageContext.cs" />
     <Compile Include="Models\MediaDbModel.cs" />
+    <Compile Include="Models\ProfileSettingsDbModel.cs" />
     <Compile Include="Models\UserDbModel.cs" />
     <Compile Include="Models\LanguageDbModel.cs" />
     <Compile Include="Models\RegionDbModel.cs" />
     <Compile Include="MyDevPageMigrations\201608121828596_MyDevPageInit.cs" />
     <Compile Include="MyDevPageMigrations\201608121828596_MyDevPageInit.Designer.cs">
       <DependentUpon>201608121828596_MyDevPageInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.cs" />
+    <Compile Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.Designer.cs">
+      <DependentUpon>201608131450160_AddMyDevProfileSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.cs" />
+    <Compile Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.Designer.cs">
+      <DependentUpon>201608131537025_AddFriendsSearchField.cs</DependentUpon>
     </Compile>
     <Compile Include="MyDevPageMigrations\MyDevPageConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +88,8 @@
     <Compile Include="QueriesAndCommands\Common\IVoidCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Common\VoidCommandResponse.cs" />
     <Compile Include="QueriesAndCommands\GetAddedUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\GetProfileSettingsQuery.cs" />
+    <Compile Include="QueriesAndCommands\GetProfileSettingsQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetUsersToFollowQuery.cs" />
     <Compile Include="QueriesAndCommands\GetUsersToFollowQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetUsersToUnFollowQuery.cs" />
@@ -91,6 +103,14 @@
     <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.cs" />
     <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.Designer.cs">
       <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.cs" />
+    <Compile Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.Designer.cs">
+      <DependentUpon>201608131450453_AddSecondProfileSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.cs" />
+    <Compile Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.Designer.cs">
+      <DependentUpon>201608131537376_AddFriendsSearchField.cs</DependentUpon>
     </Compile>
     <Compile Include="SecondPageMigrations\SecondPageConfiguration.cs" />
   </ItemGroup>
@@ -108,8 +128,20 @@
     <EmbeddedResource Include="MyDevPageMigrations\201608121828596_MyDevPageInit.resx">
       <DependentUpon>201608121828596_MyDevPageInit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.resx">
+      <DependentUpon>201608131450160_AddMyDevProfileSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.resx">
+      <DependentUpon>201608131537025_AddFriendsSearchField.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecondPageMigrations\201608121828370_SecondPageInit.resx">
       <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.resx">
+      <DependentUpon>201608131450453_AddSecondProfileSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.resx">
+      <DependentUpon>201608131537376_AddFriendsSearchField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

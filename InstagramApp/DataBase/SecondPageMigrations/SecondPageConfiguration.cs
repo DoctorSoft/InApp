@@ -29,6 +29,17 @@ namespace DataBase.SecondPageMigrations
                 };
                 context.Users.Add(user);
             }
+
+            if (!context.ProfileSettings.Any())
+            {
+                var settings = new ProfileSettingsDbModel
+                {
+                    HomePageUrl = "https://www.instagram.com/seconddevpage/",
+                    Login = "seconddevpage",
+                    Password = "Ntvyjnf123"
+                };
+                context.ProfileSettings.Add(settings);
+            }
         }
     }
 }

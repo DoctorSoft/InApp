@@ -29,6 +29,17 @@ namespace DataBase.MyDevPageMigrations
                 };
                 context.Users.Add(user);
             }
+
+            if (!context.ProfileSettings.Any())
+            {
+                var settings = new ProfileSettingsDbModel
+                {
+                    HomePageUrl = "https://www.instagram.com/mydevpage/",
+                    Login = "mydevpage",
+                    Password = "Ntvyjnf123"
+                };
+                context.ProfileSettings.Add(settings);
+            }
         }
     }
 }
