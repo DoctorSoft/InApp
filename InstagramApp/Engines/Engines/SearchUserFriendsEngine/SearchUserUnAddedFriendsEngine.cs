@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using DataBase.Contexts;
-using DataBase.QueriesAndCommands;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
@@ -14,13 +12,24 @@ namespace Engines.Engines.SearchUserFriendsEngine
         public List<string> Execute(RemoteWebDriver driver, SearchUserUnAddedFriendsModel model)
         {
             driver.Navigate().GoToUrl(model.UserPageLink);
+            
+            Thread.Sleep(500);
+
+            var breakButtonExists = driver
+                .FindElements(By.TagName("h2"))
+                .Any(element => element.Text.Contains("недоступна"));
+
+            if (breakButtonExists)
+            {
+                return new List<string>();
+            }
 
             var count =  driver
             .FindElements(By.ClassName("_bkw5z"))
             .Where(element => element.TagName.Contains("span"))
             .Where(element => !string.IsNullOrWhiteSpace(element.GetAttribute("title")))
             .Select(element => int.Parse(element.GetAttribute("title").Replace(" ", "")))
-            .Single();
+            .FirstOrDefault();
 
             var followersButton = driver
             .FindElements(By.ClassName("_s53mj"))
@@ -32,9 +41,16 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 }
                 return false;
             })
-            .Single();
+            .FirstOrDefault();
 
-            followersButton.Click();
+            try
+            {
+                followersButton.Click();
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
 
             Thread.Sleep(1500);
 
@@ -46,7 +62,8 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             Thread.Sleep(500);
 
-            for (var i = 0; i < Math.Min(count, 100); i++)
+            var realCount = model.MaxCount == null ? count : Math.Min(count, model.MaxCount.Value);
+            for (var i = 0; i < realCount; i++)
             {
                 Thread.Sleep(100);
                 driver.Keyboard.SendKeys(Keys.PageDown);

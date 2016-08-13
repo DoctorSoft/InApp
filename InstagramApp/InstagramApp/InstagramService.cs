@@ -75,11 +75,13 @@ namespace InstagramApp
             {
                 results.AddRange(new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
                 {
-                    UserPageLink = user
+                    UserPageLink = user,
+                    MaxCount = 100
                 }));
                 results.AddRange(new SearchUserUnAddedFriendsEngine().Execute(driver, new SearchUserUnAddedFriendsModel
                 {
-                    UserPageLink = user
+                    UserPageLink = user,
+                    MaxCount = 100
                 }));
             }
 
@@ -106,7 +108,8 @@ namespace InstagramApp
 
             var addedUsers = new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
             {
-                UserPageLink = settings.HomePageUrl
+                UserPageLink = settings.HomePageUrl,
+                MaxCount = null
             });
 
             var addedToBaseUsers = new GetAddedUsersQueryHandler(context).Handle(new GetAddedUsersQuery());

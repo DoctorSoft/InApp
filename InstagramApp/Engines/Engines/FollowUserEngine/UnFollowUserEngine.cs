@@ -13,6 +13,8 @@ namespace Engines.Engines.FollowUserEngine
         {
             driver.Navigate().GoToUrl(model.UserLink);
 
+            Thread.Sleep(500);
+
             var breakButtonExists = driver
                 .FindElements(By.TagName("h2"))
                 .Any(element => element.Text.Contains("недоступна"));

@@ -15,6 +15,17 @@ namespace Engines.Engines.SearchUserFriendsEngine
         {
             driver.Navigate().GoToUrl(model.UserPageLink);
 
+            Thread.Sleep(500);
+
+            var breakButtonExists = driver
+                .FindElements(By.TagName("h2"))
+                .Any(element => element.Text.Contains("недоступна"));
+
+            if (breakButtonExists)
+            {
+                return new List<string>();
+            }
+
             var count =  driver
             .FindElements(By.ClassName("_bkw5z"))
             .Where(element => element.TagName.Contains("span"))
@@ -32,7 +43,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 }
                 return false;
             })
-            .Single();
+            .FirstOrDefault();
 
             try
             {
@@ -53,7 +64,8 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             Thread.Sleep(500);
 
-            for (var i = 0; i < Math.Min(count, 100); i++)
+            var realCount = model.MaxCount == null ? count : Math.Min(count, model.MaxCount.Value);
+            for (var i = 0; i < realCount; i++)
             {
                 Thread.Sleep(100);
                 driver.Keyboard.SendKeys(Keys.PageDown);
