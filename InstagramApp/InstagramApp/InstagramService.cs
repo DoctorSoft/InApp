@@ -3,6 +3,9 @@ using System.Linq;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands;
 using Engines.Engines.FollowUserEngine;
+using Engines.Engines.LikeFriendsPostsEngine;
+using Engines.Engines.LikeHashTagEngine;
+using Engines.Engines.LikeTheLinkEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
 using OpenQA.Selenium.Remote;
@@ -112,6 +115,26 @@ namespace InstagramApp
                     User = user
                 });
             }
+        }
+
+        public void LikeHashTag(RemoteWebDriver driver)
+        {
+            Registration(driver);
+
+            var likeHashTag = new LikeHashTagEngine().Execute(driver, new LikeHashTagModel()
+            {
+                HashTag = "#grodno"
+            });
+        }
+
+        public void LikeTheLink(RemoteWebDriver driver)
+        {
+            Registration(driver);
+
+            var likeHashTag = new LikeTheLinkEngine().Execute(driver, new LikeTheLinkModel()
+            {
+                Link = "https://www.instagram.com/p/BI_Wc8kB7L5/"
+            });
         }
     }
 }

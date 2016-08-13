@@ -18,7 +18,7 @@ namespace InstagramApp
             using (var driver = new ChromeDriver())
             {
                 var service = new InstagramService();
-                service.ApproveUsers(driver);
+                service.LikeTheLink(driver);
             }
         }
     }

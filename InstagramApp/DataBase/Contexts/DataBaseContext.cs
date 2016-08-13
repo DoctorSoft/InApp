@@ -19,7 +19,9 @@ namespace DataBase.Contexts
 
         public DbSet<RegionDbModel> Regions { get; set; }
 
-        public DbSet<UserDbModel> Users { get; set; } 
+        public DbSet<UserDbModel> Users { get; set; }
+
+        public DbSet<ProfilesSettingsDbModel> ProfilesSettings { get; set; } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,6 +29,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new MediaConfiguration());
             modelBuilder.Configurations.Add(new RegionConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

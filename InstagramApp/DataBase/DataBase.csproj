@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Configurations\LanguageConfiguration.cs" />
     <Compile Include="Configurations\MediaConfiguration.cs" />
+    <Compile Include="Configurations\ProfilesSettingsConfiguration.cs" />
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
@@ -57,8 +58,13 @@
     <Compile Include="Migrations\201607242204197_Init.Designer.cs">
       <DependentUpon>201607242204197_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608131407390_AddTableProfileSettings.cs" />
+    <Compile Include="Migrations\201608131407390_AddTableProfileSettings.Designer.cs">
+      <DependentUpon>201608131407390_AddTableProfileSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MediaDbModel.cs" />
+    <Compile Include="Models\ProfilesSettingsDbModel.cs" />
     <Compile Include="Models\UserDbModel.cs" />
     <Compile Include="Models\LanguageDbModel.cs" />
     <Compile Include="Models\RegionDbModel.cs" />
@@ -100,6 +106,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201607242204197_Init.resx">
       <DependentUpon>201607242204197_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608131407390_AddTableProfileSettings.resx">
+      <DependentUpon>201608131407390_AddTableProfileSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
