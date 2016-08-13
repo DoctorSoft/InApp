@@ -18,7 +18,7 @@ namespace DataBase.QueriesAndCommands
 
         public List<string> Handle(GetUsersToUnFollowQuery query)
         {
-            var maxDate = DateTime.Now - new TimeSpan(5, 0, 0, 0);
+            var maxDate = DateTime.Now - query.BanTime;
 
             var users = context
                 .Users

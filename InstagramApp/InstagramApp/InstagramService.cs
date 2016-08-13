@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands;
@@ -26,7 +27,7 @@ namespace InstagramApp
         {
             Registration(driver, context);
 
-            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 20 });
+            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 100, BanTime = new TimeSpan(5, 0, 0, 0)});
 
             foreach (var user in users)
             {
@@ -46,7 +47,7 @@ namespace InstagramApp
         {
             Registration(driver, context);
 
-            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 20 });
+            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 100 });
 
             foreach (var user in users)
             {
