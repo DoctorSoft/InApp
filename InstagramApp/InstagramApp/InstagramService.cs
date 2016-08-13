@@ -27,7 +27,7 @@ namespace InstagramApp
         {
             Registration(driver);
 
-            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 100 });
+            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 20 });
 
             foreach (var user in users)
             {
@@ -47,7 +47,7 @@ namespace InstagramApp
         {
             Registration(driver);
 
-            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 100 });
+            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 20 });
 
             foreach (var user in users)
             {

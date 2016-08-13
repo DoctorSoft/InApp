@@ -57,14 +57,14 @@ namespace InstagramApp
                     myDevPageInstagramService.ApproveUsers(myDevPageDriver, context);
                 }
 
-                Task.Delay(TimeSpan.FromMinutes(1));
+                Task.Delay(TimeSpan.FromMinutes(1), myDevPageAproveUsersTokenSource.Token);
 
                 using (var context = new MyDevPageContext())
                 {
                     myDevPageInstagramService.SearchNewUsers(myDevPageDriver, context);
                 }
 
-                Task.Delay(TimeSpan.FromMinutes(1));
+                Task.Delay(TimeSpan.FromMinutes(1), myDevPageAproveUsersTokenSource.Token);
 
                 using (var context = new MyDevPageContext())
                 {
@@ -83,14 +83,14 @@ namespace InstagramApp
                     secondPageInstagramService.ApproveUsers(secondPageDriver, context);
                 }
 
-                Task.Delay(TimeSpan.FromMinutes(1));
+                Task.Delay(TimeSpan.FromMinutes(1), secondPageAproveUsersTokenSource.Token);
 
                 using (var context = new SecondPageContext())
                 {
                     secondPageInstagramService.SearchNewUsers(secondPageDriver, context);
                 }
 
-                Task.Delay(TimeSpan.FromMinutes(1));
+                Task.Delay(TimeSpan.FromMinutes(1), secondPageAproveUsersTokenSource.Token);
 
                 using (var context = new SecondPageContext())
                 {
