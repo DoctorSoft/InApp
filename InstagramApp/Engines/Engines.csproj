@@ -68,6 +68,8 @@
     <Compile Include="Engines\LikeFriendsPostsEngine\LikeFriendsPostsModel.cs" />
     <Compile Include="Engines\LikeHashTagEngine\LikeHashTagEngine.cs" />
     <Compile Include="Engines\LikeHashTagEngine\LikeHashTagModel.cs" />
+    <Compile Include="Engines\LikeTheLinkEngine\LikeTheLinkEngine.cs" />
+    <Compile Include="Engines\LikeTheLinkEngine\LikeTheLinkModel.cs" />
     <Compile Include="Engines\RegistrationEngine\RegistrationEngine.cs" />
     <Compile Include="Engines\RegistrationEngine\RegistrationModel.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserUnAddedFriendsEngine.cs" />

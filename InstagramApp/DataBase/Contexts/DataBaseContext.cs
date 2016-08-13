@@ -20,7 +20,10 @@ namespace DataBase.Contexts
         public DbSet<RegionDbModel> Regions { get; set; }
 
         public DbSet<UserDbModel> Users { get; set; }
+		
+        public DbSet<ProfilesSettingsDbModel> ProfilesSettings { get; set; } 
 
+		
         protected abstract AccountName GetAccountName(); 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -29,6 +32,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new MediaConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new RegionConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new UserConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

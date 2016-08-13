@@ -6,10 +6,12 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.LikeHashTagEngine
 {
-    public class LikeHashTagEngine : IEngine<LikeHashTagModel, VoidResult>
+    public class LikeHashTagEngine : IEngine<LikeHashTagModel, List<string>>
     {
-        public VoidResult Execute(RemoteWebDriver driver, LikeHashTagModel model)
+        public List<string> Execute(RemoteWebDriver driver, LikeHashTagModel model)
         {
+            var linksList = new List<string>();
+
             driver.Navigate().GoToUrl("https://www.instagram.com/");
 
             Thread.Sleep(500);
@@ -51,6 +53,7 @@ namespace Engines.Engines.LikeHashTagEngine
                 if (text == "Нравится")
                 {
                     IList<IWebElement> likeButtons = driver.FindElements(By.ClassName("_ebwb5"));
+                    linksList.Add(image.GetAttribute("href"));
                     likeButtons.FirstOrDefault().Click();
                 }
 
@@ -59,7 +62,7 @@ namespace Engines.Engines.LikeHashTagEngine
                 driver.Keyboard.SendKeys(Keys.Escape);
             }
 
-            return new VoidResult();
+            return linksList;
         }
     }
 }
