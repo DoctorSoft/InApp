@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using DataBase.Contexts;
+using Engines.Exceptions;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
@@ -84,6 +85,10 @@ namespace InstagramApp
                         try
                         {
                             action(driver, context);
+                        }
+                        catch (CaptchaException exception)
+                        {
+                            service.HandleCaptchaException(driver, context);
                         }
                         catch (Exception exception)
                         {

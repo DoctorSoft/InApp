@@ -6,6 +6,7 @@ using DataBase.QueriesAndCommands;
 using Engines.Engines.FollowUserEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
+using Engines.Engines.WaitingCaptchEngine;
 using OpenQA.Selenium.Remote;
 
 namespace InstagramApp
@@ -114,6 +115,7 @@ namespace InstagramApp
 
             var addedToBaseUsers = new GetAddedUsersQueryHandler(context).Handle(new GetAddedUsersQuery());
 
+
             var usersToAdd = addedUsers.Except(addedToBaseUsers).ToList();
 
             foreach (var user in usersToAdd)
@@ -127,6 +129,20 @@ namespace InstagramApp
                     User = user
                 });
             }
+        }
+
+        public void HandleCaptchaException(RemoteWebDriver driver, DataBaseContext context)
+        {
+            //todo: Add sending mail notification
+
+            Registration(driver, context);
+
+            var testLink = new GetTechnicalUsersQueryHandler(context).Handle(new GetTechnicalUsersQuery { MaxCount = 1 }).FirstOrDefault();
+
+            new WaitingCaptchaEngine().Execute(driver, new WaitingCaptchaEngineModel
+            {
+                TestLink = testLink
+            });
         }
     }
 }

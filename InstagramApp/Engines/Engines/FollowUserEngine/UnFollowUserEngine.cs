@@ -2,6 +2,7 @@
 using System.Threading;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands;
+using Engines.Exceptions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
@@ -22,6 +23,15 @@ namespace Engines.Engines.FollowUserEngine
             if (breakButtonExists)
             {
                 return new VoidResult();
+            }
+
+            var captchButtonExists = driver
+                .FindElements(By.TagName("h2"))
+                .Any(element => element.Text.Contains("Подтвердите"));
+
+            if (captchButtonExists)
+            {
+                throw new CaptchaException();
             }
 
             var followButton = driver

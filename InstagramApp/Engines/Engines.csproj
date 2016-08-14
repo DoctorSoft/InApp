@@ -79,6 +79,9 @@
     <Compile Include="Engines\VoidResult.cs" />
     <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesEngine.cs" />
     <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesModel.cs" />
+    <Compile Include="Engines\WaitingCaptchEngine\WaitingCaptchaEngine.cs" />
+    <Compile Include="Engines\WaitingCaptchEngine\WaitingCaptchaEngineModel.cs" />
+    <Compile Include="Exceptions\CaptchaException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
