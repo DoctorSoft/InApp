@@ -36,7 +36,7 @@ namespace DataBase.SecondPageMigrations
                 {
                     HomePageUrl = "https://www.instagram.com/seconddevpage/",
                     Login = "seconddevpage",
-                    Password = "Ntvyjnf123"
+                    Password = "ntvyjnf123"
                 };
                 context.ProfileSettings.Add(settings);
             }

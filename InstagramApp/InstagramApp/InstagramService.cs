@@ -4,6 +4,7 @@ using System.Linq;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands;
 using Engines.Engines.FollowUserEngine;
+using Engines.Engines.LikeHashTagEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
 using Engines.Engines.WaitingCaptchEngine;
@@ -129,6 +130,20 @@ namespace InstagramApp
                     User = user
                 });
             }
+        }
+
+        public void LikeHashTag(RemoteWebDriver driver, DataBaseContext context)
+        {
+            Registration(driver, context);
+
+            new AddMediaListCommandHandler(context).Handle(new AddMediaListCommand
+            {
+                MediaList = new LikeHashTagEngine().Execute(driver, new LikeHashTagModel()
+                {
+                    HashTag = "Grodno"
+                })
+            });
+
         }
 
         public void HandleCaptchaException(RemoteWebDriver driver, DataBaseContext context)

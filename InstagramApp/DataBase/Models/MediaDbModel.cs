@@ -1,4 +1,5 @@
-﻿using Constants;
+﻿using System;
+using Constants;
 
 namespace DataBase.Models
 {
@@ -15,6 +16,8 @@ namespace DataBase.Models
         public double? Y { get; set; }
 
         public long? UserId { get; set; }
+
+        public DateTime? LikeDate { get; set; }
 
         public UserDbModel User { get; set; } 
     }

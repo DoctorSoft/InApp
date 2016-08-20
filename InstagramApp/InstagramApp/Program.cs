@@ -71,6 +71,9 @@ namespace InstagramApp
             {
                 var actions = new List<Action<RemoteWebDriver, TContext>>
                 {
+                    /*
+                    service.LikeHashTag
+                    */
                     service.SearchNewUsers,
                     service.FollowUsers,
                     service.ApproveUsers,

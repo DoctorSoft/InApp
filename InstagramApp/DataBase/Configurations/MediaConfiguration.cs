@@ -18,6 +18,7 @@ namespace DataBase.Configurations
             Property(model => model.MediaStatus);
             Property(model => model.X);
             Property(model => model.Y);
+            Property(model => model.LikeDate);
 
             HasOptional(it => it.User).WithMany(model => model.Medias).HasForeignKey(link => link.UserId);
         }
