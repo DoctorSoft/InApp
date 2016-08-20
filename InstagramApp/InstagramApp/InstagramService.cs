@@ -140,7 +140,8 @@ namespace InstagramApp
             {
                 MediaList = new LikeHashTagEngine().Execute(driver, new LikeHashTagModel()
                 {
-                    HashTag = "Grodno"
+                    HashTag = "Grodno",
+                    CountMedia = 20
                 })
             });
 
