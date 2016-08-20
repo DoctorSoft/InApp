@@ -104,6 +104,8 @@
     <Compile Include="QueriesAndCommands\GetUsersToFollowQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetUsersToUnFollowQuery.cs" />
     <Compile Include="QueriesAndCommands\GetUsersToUnFollowQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\MarkMediaAsLikedCommand.cs" />
+    <Compile Include="QueriesAndCommands\MarkMediaAsLikedCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsAddedCommand.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsAddedCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsBannedCommand.cs" />

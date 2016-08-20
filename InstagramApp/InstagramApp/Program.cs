@@ -78,6 +78,7 @@ namespace InstagramApp
                     service.FollowUsers,
                     service.ApproveUsers,
                     service.UnfollowUsers
+                    
                 };
 
 
