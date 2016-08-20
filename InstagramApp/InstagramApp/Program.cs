@@ -71,14 +71,14 @@ namespace InstagramApp
             {
                 var actions = new List<Action<RemoteWebDriver, TContext>>
                 {
-                    
-                    service.LikeHashTag
-                   /*
+                    /*
+                    service.ClearOldMedia //2 days
+                    */
                     service.SearchNewUsers,
                     service.FollowUsers,
                     service.ApproveUsers,
                     service.UnfollowUsers
-                    * */
+                    
                     
                 };
 

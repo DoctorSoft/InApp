@@ -147,6 +147,16 @@ namespace InstagramApp
 
         }
 
+        public void ClearOldMedia(RemoteWebDriver driver, DataBaseContext context)
+        {
+            Registration(driver, context);
+
+            new DeleteMediaCommandHandler(context).Handle(new DeleteMediaCommand
+            {
+                UrlList = new GetMediaToDeleteQueryHandler(context).Handle(new GetMediaToDeleteQuery())
+            });
+
+        }
         public void HandleCaptchaException(RemoteWebDriver driver, DataBaseContext context)
         {
             //todo: Add sending mail notification

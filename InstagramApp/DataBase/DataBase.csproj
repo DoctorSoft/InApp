@@ -83,6 +83,10 @@
     <Compile Include="QueriesAndCommands\AddMediaListCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\AddUserListCommand.cs" />
     <Compile Include="QueriesAndCommands\AddUserListCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\DeleteMediaCommand.cs" />
+    <Compile Include="QueriesAndCommands\DeleteMediaCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\GetMediaToDeleteQuery.cs" />
+    <Compile Include="QueriesAndCommands\GetMediaToDeleteQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetTechnicalUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetAddedUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Common\ICommand.cs" />
