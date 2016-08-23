@@ -71,9 +71,8 @@ namespace InstagramApp
             {
                 var actions = new List<Action<RemoteWebDriver, TContext>>
                 {
-                    /*
-                    service.ClearOldMedia //2 days
-                    */
+                    
+                    service.ClearOldMedia, //2 days
                     service.SearchNewUsers,
                     service.FollowUsers,
                     service.ApproveUsers,

@@ -22,7 +22,7 @@ namespace DataBase.SecondPageMigrations
             {
                 var user = new UserDbModel
                 {
-                    Link = "https://www.instagram.com/s13.ru/",
+                    Link = "https://www.instagram.com/radiosvaboda/",
                     ConfirmedByAdmin = true,
                     IncludingTime = DateTime.Now,
                     UserStatus = UserStatus.Technical
@@ -34,9 +34,9 @@ namespace DataBase.SecondPageMigrations
             {
                 var settings = new ProfileSettingsDbModel
                 {
-                    HomePageUrl = "https://www.instagram.com/seconddevpage/",
-                    Login = "seconddevpage",
-                    Password = "ntvyjnf123"
+                    HomePageUrl = "https://www.instagram.com/dvurechensky.grodno/",
+                    Login = "dvurechensky.grodno",
+                    Password = "Ntvyjnf123"
                 };
                 context.ProfileSettings.Add(settings);
             }
