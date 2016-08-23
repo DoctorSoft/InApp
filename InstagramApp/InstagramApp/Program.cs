@@ -71,14 +71,11 @@ namespace InstagramApp
             {
                 var actions = new List<Action<RemoteWebDriver, TContext>>
                 {
-                    
-                    service.ClearOldMedia, //2 days
                     service.SearchNewUsers,
                     service.FollowUsers,
                     service.ApproveUsers,
-                    service.UnfollowUsers
-                    
-                    
+                    service.UnfollowUsers,
+                    service.ClearOldMedia, //2 days
                 };
 
 

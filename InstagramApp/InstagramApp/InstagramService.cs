@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DataBase;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands;
 using Engines.Engines.FollowUserEngine;
+using Engines.Engines.GetUserInfoEngine;
 using Engines.Engines.LikeHashTagEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
@@ -53,16 +55,41 @@ namespace InstagramApp
 
             foreach (var user in users)
             {
-                new FollowUserEngine().Execute(driver, new FollowUserModel()
+                FollowUser(driver, context, user);
+            }
+        }
+
+        public void FollowUser(RemoteWebDriver driver, DataBaseContext context, string user)
+        {
+            var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+            {
+                UserLink = user
+            });
+
+            if (UserIsSpammer(driver, context, userInfo))
+            {
+                new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
                 {
                     UserLink = user
                 });
 
-                new MarkUserAsFollowingCommandHandler(context).Handle(new MarkUserAsFollowingCommand
+                new MarkUserAsSpammerCommandHandler(context).Handle(new MarkUserAsSpammerCommand
                 {
-                    User = user
+                    UserLink = user
                 });
+
+                return;
             }
+
+            new FollowUserEngine().Execute(driver, new FollowUserModel()
+            {
+                UserLink = user
+            });
+
+            new MarkUserAsFollowingCommandHandler(context).Handle(new MarkUserAsFollowingCommand
+            {
+                User = user
+            });
         }
 
         public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
@@ -75,15 +102,23 @@ namespace InstagramApp
 
             foreach (var user in users)
             {
+                var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+                {
+                    UserLink = user
+                });
+
                 results.AddRange(new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
                 {
                     UserPageLink = user,
-                    MaxCount = 100
+                    MaxCount = 100,
+                    Count = userInfo.FollowerCount
                 }));
+
                 results.AddRange(new SearchUserUnAddedFriendsEngine().Execute(driver, new SearchUserUnAddedFriendsModel
                 {
                     UserPageLink = user,
-                    MaxCount = 100
+                    MaxCount = 100,
+                    Count = userInfo.FollowingCount
                 }));
             }
 
@@ -108,28 +143,58 @@ namespace InstagramApp
 
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
+            var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+            {
+                UserLink = settings.HomePageUrl
+            });
+
             var addedUsers = new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
             {
                 UserPageLink = settings.HomePageUrl,
-                MaxCount = null
+                MaxCount = null,
+                Count = userInfo.FollowerCount
             });
 
-            var addedToBaseUsers = new GetAddedUsersQueryHandler(context).Handle(new GetAddedUsersQuery());
+            var spammedUsers = new GetSpammerUsersQueryHandler(context).Handle(new GetSpammerUsersQuery());
 
-
-            var usersToAdd = addedUsers.Except(addedToBaseUsers).ToList();
+            var usersToAdd = addedUsers.Except(spammedUsers).ToList();
 
             foreach (var user in usersToAdd)
             {
-                new FollowUserEngine().Execute(driver, new FollowUserModel
+                AddUser(driver, context, user);
+            }
+        }
+
+        public void AddUser(RemoteWebDriver driver, DataBaseContext context, string user)
+        {
+            var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+            {
+                UserLink = user
+            });
+
+            if (UserIsSpammer(driver, context, userInfo))
+            {
+                new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
                 {
                     UserLink = user
                 });
-                new MarkUserAsAddedCommandHandler(context).Handle(new MarkUserAsAddedCommand
+
+                new MarkUserAsSpammerCommandHandler(context).Handle(new MarkUserAsSpammerCommand
                 {
-                    User = user
+                    UserLink = user
                 });
+
+                return;
             }
+
+            new FollowUserEngine().Execute(driver, new FollowUserModel
+            {
+                UserLink = user
+            });
+            new MarkUserAsAddedCommandHandler(context).Handle(new MarkUserAsAddedCommand
+            {
+                User = user
+            });
         }
 
         public void LikeHashTag(RemoteWebDriver driver, DataBaseContext context)
@@ -157,6 +222,7 @@ namespace InstagramApp
             });
 
         }
+
         public void HandleCaptchaException(RemoteWebDriver driver, DataBaseContext context)
         {
             //todo: Add sending mail notification
@@ -169,6 +235,33 @@ namespace InstagramApp
             {
                 TestLink = testLink
             });
+        }
+
+        public bool UserIsSpammer(RemoteWebDriver driver, DataBaseContext context, GetUserInfoEngineResponse userInfo)
+        {
+            const int MaxFollowingCount = 500;
+            const double ExtraFollowingPenalty = 0.001;
+            const int MaxFollowerCount = 500;
+            const double ExtraFollowerPenalty = 0.001;
+            const double MaxPenalty = 1.5;
+
+            var spamWords = new GetSpamWordsQueryHandler(context).Handle(new GetSpamWordsQuery());
+
+            var factor = 0.0;
+            if (!string.IsNullOrWhiteSpace(userInfo.Text))
+            {
+
+                var text = userInfo.Text.ToLower();
+
+                factor = spamWords
+                    .Where(spamWord => text.Contains(spamWord.WordRoot))
+                    .Sum(spamWord => spamWord.SpamFactor);
+            }
+
+            factor += Math.Max(0, userInfo.FollowingCount - MaxFollowingCount) * ExtraFollowingPenalty;
+            factor += Math.Max(0, userInfo.FollowerCount - MaxFollowerCount) * ExtraFollowerPenalty;
+
+            return factor > MaxPenalty;
         }
     }
 }

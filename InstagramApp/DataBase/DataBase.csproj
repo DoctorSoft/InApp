@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\SpamWordConfiguration.cs" />
     <Compile Include="Configurations\LanguageConfiguration.cs" />
     <Compile Include="Configurations\MediaConfiguration.cs" />
     <Compile Include="Configurations\ProfilesSettingsConfiguration.cs" />
@@ -56,8 +57,10 @@
     <Compile Include="Contexts\DataBaseContext.cs" />
     <Compile Include="Contexts\MyDevPageContext.cs" />
     <Compile Include="Contexts\SecondPageContext.cs" />
+    <Compile Include="MarkUserAsSpammerCommand.cs" />
     <Compile Include="Models\MediaDbModel.cs" />
     <Compile Include="Models\ProfileSettingsDbModel.cs" />
+    <Compile Include="Models\SpamWordDbModel.cs" />
     <Compile Include="Models\UserDbModel.cs" />
     <Compile Include="Models\LanguageDbModel.cs" />
     <Compile Include="Models\RegionDbModel.cs" />
@@ -77,6 +80,10 @@
     <Compile Include="MyDevPageMigrations\201608201036379_AddLikeDateMyDevPage.Designer.cs">
       <DependentUpon>201608201036379_AddLikeDateMyDevPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyDevPageMigrations\201608231929307_AddSpamWords.cs" />
+    <Compile Include="MyDevPageMigrations\201608231929307_AddSpamWords.Designer.cs">
+      <DependentUpon>201608231929307_AddSpamWords.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyDevPageMigrations\MyDevPageConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueriesAndCommands\AddMediaListCommand.cs" />
@@ -87,6 +94,10 @@
     <Compile Include="QueriesAndCommands\DeleteMediaCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\GetMediaToDeleteQuery.cs" />
     <Compile Include="QueriesAndCommands\GetMediaToDeleteQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\GetSpammerUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\GetSpammerUsersQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\GetSpamWordsQuery.cs" />
+    <Compile Include="QueriesAndCommands\GetSpamWordsQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetTechnicalUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetAddedUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Common\ICommand.cs" />
@@ -118,6 +129,7 @@
     <Compile Include="QueriesAndCommands\MarkUserAsCheckedForFriendsCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsFollowingCommand.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsFollowingCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\MarkUserAsSpammerCommandHandler.cs" />
     <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.cs" />
     <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.Designer.cs">
       <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
@@ -133,6 +145,10 @@
     <Compile Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.cs" />
     <Compile Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.Designer.cs">
       <DependentUpon>201608201037406_AddLikeDateSecondPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondPageMigrations\201608231929416_AddSpamWords.cs" />
+    <Compile Include="SecondPageMigrations\201608231929416_AddSpamWords.Designer.cs">
+      <DependentUpon>201608231929416_AddSpamWords.cs</DependentUpon>
     </Compile>
     <Compile Include="SecondPageMigrations\SecondPageConfiguration.cs" />
   </ItemGroup>
@@ -159,6 +175,9 @@
     <EmbeddedResource Include="MyDevPageMigrations\201608201036379_AddLikeDateMyDevPage.resx">
       <DependentUpon>201608201036379_AddLikeDateMyDevPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyDevPageMigrations\201608231929307_AddSpamWords.resx">
+      <DependentUpon>201608231929307_AddSpamWords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecondPageMigrations\201608121828370_SecondPageInit.resx">
       <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.resx">
       <DependentUpon>201608201037406_AddLikeDateSecondPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondPageMigrations\201608231929416_AddSpamWords.resx">
+      <DependentUpon>201608231929416_AddSpamWords.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

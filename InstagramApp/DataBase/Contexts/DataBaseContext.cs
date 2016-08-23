@@ -21,8 +21,9 @@ namespace DataBase.Contexts
 
         public DbSet<UserDbModel> Users { get; set; }
 		
-        public DbSet<ProfileSettingsDbModel> ProfileSettings { get; set; } 
+        public DbSet<ProfileSettingsDbModel> ProfileSettings { get; set; }
 
+        public DbSet<SpamWordDbModel> SpamWords { get; set; } 
 		
         protected abstract AccountName GetAccountName(); 
 
@@ -33,6 +34,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new RegionConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new UserConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new SpamWordConfiguration(GetAccountName()));
 
             base.OnModelCreating(modelBuilder);
         }

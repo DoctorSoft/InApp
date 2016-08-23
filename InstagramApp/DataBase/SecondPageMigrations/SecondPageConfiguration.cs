@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Constants;
 using DataBase.Models;
 
@@ -40,6 +41,89 @@ namespace DataBase.SecondPageMigrations
                 };
                 context.ProfileSettings.Add(settings);
             }
+
+            context.SpamWords.RemoveRange(context.SpamWords);
+
+            var spamWords = new List<SpamWordDbModel>
+            {
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.9,
+                    WordRoot = "реклам"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.8,
+                    WordRoot = "услуг"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.9,
+                    WordRoot = "скидк"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.9,
+                    WordRoot = "оплат"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.7,
+                    WordRoot = "издел"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.7,
+                    WordRoot = "обуч"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.6,
+                    WordRoot = "дизайн"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.6,
+                    WordRoot = "достав"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.6,
+                    WordRoot = "бизнес"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.6,
+                    WordRoot = "ремонт"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.6,
+                    WordRoot = "подар"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.7,
+                    WordRoot = "соляр"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.6,
+                    WordRoot = "тренер"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.9,
+                    WordRoot = "прода"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.9,
+                    WordRoot = "купл"
+                }
+            };
+
+            context.SpamWords.AddRange(spamWords);
         }
     }
 }

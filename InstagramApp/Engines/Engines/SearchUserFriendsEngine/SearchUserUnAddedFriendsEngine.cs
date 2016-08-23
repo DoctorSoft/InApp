@@ -34,13 +34,6 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 throw new CaptchaException();
             }
 
-            var count =  driver
-            .FindElements(By.ClassName("_bkw5z"))
-            .Where(element => element.TagName.Contains("span"))
-            .Where(element => !string.IsNullOrWhiteSpace(element.GetAttribute("title")))
-            .Select(element => int.Parse(element.GetAttribute("title").Replace(" ", "")))
-            .FirstOrDefault();
-
             var followersButton = driver
             .FindElements(By.ClassName("_s53mj"))
             .Where(element =>
@@ -72,6 +65,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             Thread.Sleep(500);
 
+            var count = model.Count;
             var realCount = model.MaxCount == null ? count : Math.Min(count, model.MaxCount.Value);
             for (var i = 0; i < realCount; i++)
             {
