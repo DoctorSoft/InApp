@@ -1,8 +1,8 @@
 ﻿using DataBase.QueriesAndCommands.Common;
 
-namespace DataBase
+namespace DataBase.QueriesAndCommands
 {
-    public class MarkUserAsSpammerCommand : IVoidCommand
+    public class MarkUserAsForeignerCommand : IVoidCommand
     {
         public string UserLink { get; set; }
     }

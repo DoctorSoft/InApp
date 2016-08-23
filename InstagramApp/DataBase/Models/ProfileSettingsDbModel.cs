@@ -9,5 +9,7 @@
         public string Password { get; set; }
 
         public string HomePageUrl { get; set; }
+
+        public string LanguageDetectorKey { get; set; }
     }
 }

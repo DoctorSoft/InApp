@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DataBase;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands;
 using Engines.Engines.FollowUserEngine;
@@ -74,6 +73,21 @@ namespace InstagramApp
                 });
 
                 new MarkUserAsSpammerCommandHandler(context).Handle(new MarkUserAsSpammerCommand
+                {
+                    UserLink = user
+                });
+
+                return;
+            }
+
+            if (UserIsForeign(driver, context, userInfo))
+            {
+                new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
+                {
+                    UserLink = user
+                });
+
+                new MarkUserAsForeignerCommandHandler(context).Handle(new MarkUserAsForeignerCommand
                 {
                     UserLink = user
                 });
@@ -155,9 +169,13 @@ namespace InstagramApp
                 Count = userInfo.FollowerCount
             });
 
-            var spammedUsers = new GetSpammerUsersQueryHandler(context).Handle(new GetSpammerUsersQuery());
+            var spammerUsers = new GetSpammerUsersQueryHandler(context).Handle(new GetSpammerUsersQuery());
 
-            var usersToAdd = addedUsers.Except(spammedUsers).ToList();
+            var usersToAdd = addedUsers.Except(spammerUsers).ToList();
+
+            var foreigners = new GetForeignUsersQueryHandler(context).Handle(new GetForeignUsersQuery());
+
+            usersToAdd = usersToAdd.Except(foreigners).ToList();
 
             foreach (var user in usersToAdd)
             {
@@ -187,6 +205,21 @@ namespace InstagramApp
                 return;
             }
 
+            if (UserIsForeign(driver, context, userInfo))
+            {
+                new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
+                {
+                    UserLink = user
+                });
+
+                new MarkUserAsForeignerCommandHandler(context).Handle(new MarkUserAsForeignerCommand
+                {
+                    UserLink = user
+                });
+
+                return;
+            }
+
             new FollowUserEngine().Execute(driver, new FollowUserModel
             {
                 UserLink = user
@@ -208,8 +241,7 @@ namespace InstagramApp
                     HashTag = "Grodno",
                     CountMedia = 20
                 })
-            });
-
+            });    
         }
 
         public void ClearOldMedia(RemoteWebDriver driver, DataBaseContext context)
@@ -250,7 +282,6 @@ namespace InstagramApp
             var factor = 0.0;
             if (!string.IsNullOrWhiteSpace(userInfo.Text))
             {
-
                 var text = userInfo.Text.ToLower();
 
                 factor = spamWords
@@ -262,6 +293,27 @@ namespace InstagramApp
             factor += Math.Max(0, userInfo.FollowerCount - MaxFollowerCount) * ExtraFollowerPenalty;
 
             return factor > MaxPenalty;
+        }
+
+        public bool UserIsForeign(RemoteWebDriver driver, DataBaseContext context, GetUserInfoEngineResponse userInfo)
+        {
+            if (string.IsNullOrWhiteSpace(userInfo.Text))
+            {
+                return false;
+            }
+
+            var languages = new GetLanguagesQueryHandler(context).Handle(new GetLanguagesQuery());
+
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var languageInfo = new LanguageDetector.LanguageDetector().Detect(userInfo.Text, settings.LanguageDetectorKey);
+
+            if (languageInfo == null)
+            {
+                return false;
+            }
+
+            return !languages.Contains(languageInfo.language);
         }
     }
 }

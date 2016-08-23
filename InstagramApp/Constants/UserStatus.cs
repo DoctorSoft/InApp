@@ -8,6 +8,7 @@
         Added = 4,
         Banned = 5,
         Technical = 6,
-        Spammer = 7
+        Spammer = 7,
+        Foreigner = 8
     }
 }

@@ -31,16 +31,15 @@ namespace DataBase.MyDevPageMigrations
                 context.Users.Add(user);
             }
 
-            if (!context.ProfileSettings.Any())
+            context.ProfileSettings.RemoveRange(context.ProfileSettings);
+            var settings = new ProfileSettingsDbModel
             {
-                var settings = new ProfileSettingsDbModel
-                {
-                    HomePageUrl = "https://www.instagram.com/ozerny/",
-                    Login = "Ozerny",
-                    Password = "123qazwsxedc890"
-                };
-                context.ProfileSettings.Add(settings);
-            }
+                HomePageUrl = "https://www.instagram.com/ozerny/",
+                Login = "Ozerny",
+                Password = "123qazwsxedc890",
+                LanguageDetectorKey = "06b11f1ec38eb723b903fc36c74f5fe7"
+            };
+            context.ProfileSettings.Add(settings);
 
             context.SpamWords.RemoveRange(context.SpamWords);
 
@@ -145,10 +144,27 @@ namespace DataBase.MyDevPageMigrations
                 {
                     SpamFactor = 0.5,
                     WordRoot = "одежд"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.9,
+                    WordRoot = "прокат"
                 }
             };
 
             context.SpamWords.AddRange(spamWords);
+
+            context.Languages.RemoveRange(context.Languages);
+
+            var languages = new List<LanguageDbModel>
+            {
+                new LanguageDbModel
+                {
+                    Name = "ru"
+                }
+            };
+
+            context.Languages.AddRange(languages);
         }
     }
 }

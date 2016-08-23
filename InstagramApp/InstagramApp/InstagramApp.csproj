@@ -106,6 +106,10 @@
       <Project>{cf94e912-8ae4-4a0e-8567-e732e5e2210d}</Project>
       <Name>Engines</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LanguageDetector\LanguageDetector.csproj">
+      <Project>{5E08DF87-C7DB-4184-8102-7E730A43C91B}</Project>
+      <Name>LanguageDetector</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
