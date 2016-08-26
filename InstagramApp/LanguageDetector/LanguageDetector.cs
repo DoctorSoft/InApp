@@ -19,11 +19,18 @@ namespace LanguageDetector
 
             RestSharp.Deserializers.JsonDeserializer deserializer = new RestSharp.Deserializers.JsonDeserializer();
 
-            var result = deserializer.Deserialize<Result>(response);
+            try
+            {
+                var result = deserializer.Deserialize<Result>(response);
+                
+                var detection = result.data.detections.FirstOrDefault();
 
-            Detection detection = result.data.detections.FirstOrDefault();
-
-            return detection;
+                return detection;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

@@ -61,10 +61,19 @@
     <Compile Include="DvurechenskyMigrations\201608261229276_Init.Designer.cs">
       <DependentUpon>201608261229276_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.cs" />
+    <Compile Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.Designer.cs">
+      <DependentUpon>201608261346012_UpdateAccountConfigs.cs</DependentUpon>
+    </Compile>
     <Compile Include="OzernyMigrations\201608261229041_Init.cs" />
     <Compile Include="OzernyMigrations\201608261229041_Init.Designer.cs">
       <DependentUpon>201608261229041_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.cs" />
+    <Compile Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.Designer.cs">
+      <DependentUpon>201608261345395_UpdateAccountConfigs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueriesAndCommands\UpdateFollowingsSynchronizationTimeCommand.cs" />
     <Compile Include="QueriesAndCommands\GetFollowingUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\GetFollowingUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetForeignUsersQuery.cs" />
@@ -127,6 +136,9 @@
     <Compile Include="QueriesAndCommands\MarkUserAsForeignerCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsSpammerCommandHandler.cs" />
     <Compile Include="DvurechenskyMigrations\DvurechenskyConfiguration.cs" />
+    <Compile Include="QueriesAndCommands\TimeForFollowingsSynchronizationQuery.cs" />
+    <Compile Include="QueriesAndCommands\TimeForFollowingsSynchronizationQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\UpdateFollowingsSynchronizationTimeCommandHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -145,8 +157,14 @@
     <EmbeddedResource Include="DvurechenskyMigrations\201608261229276_Init.resx">
       <DependentUpon>201608261229276_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.resx">
+      <DependentUpon>201608261346012_UpdateAccountConfigs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201608261229041_Init.resx">
       <DependentUpon>201608261229041_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.resx">
+      <DependentUpon>201608261345395_UpdateAccountConfigs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

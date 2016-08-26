@@ -187,6 +187,18 @@ namespace InstagramApp
         {
             Registration(driver, context);
 
+            var timeForSynchronization = new TimeForFollowingsSynchronizationQueryHandler(context).Handle(new TimeForFollowingsSynchronizationQuery());
+
+            if (!timeForSynchronization)
+            {
+                return;
+            }
+
+            new UpdateFollowingsSynchronizationTimeCommandHandler(context).Handle(new UpdateFollowingsSynchronizationTimeCommand
+            {
+                NextTime = DateTime.Now
+            });
+
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
             var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
