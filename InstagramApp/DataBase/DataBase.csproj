@@ -55,8 +55,18 @@
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
-    <Compile Include="Contexts\MyDevPageContext.cs" />
-    <Compile Include="Contexts\SecondPageContext.cs" />
+    <Compile Include="Contexts\OzernyContext.cs" />
+    <Compile Include="Contexts\DvurechenskyContext.cs" />
+    <Compile Include="DvurechenskyMigrations\201608261229276_Init.cs" />
+    <Compile Include="DvurechenskyMigrations\201608261229276_Init.Designer.cs">
+      <DependentUpon>201608261229276_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201608261229041_Init.cs" />
+    <Compile Include="OzernyMigrations\201608261229041_Init.Designer.cs">
+      <DependentUpon>201608261229041_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueriesAndCommands\GetFollowingUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\GetFollowingUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\GetForeignUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\GetForeignUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsSpammerCommand.cs" />
@@ -66,31 +76,7 @@
     <Compile Include="Models\UserDbModel.cs" />
     <Compile Include="Models\LanguageDbModel.cs" />
     <Compile Include="Models\RegionDbModel.cs" />
-    <Compile Include="MyDevPageMigrations\201608121828596_MyDevPageInit.cs" />
-    <Compile Include="MyDevPageMigrations\201608121828596_MyDevPageInit.Designer.cs">
-      <DependentUpon>201608121828596_MyDevPageInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.cs" />
-    <Compile Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.Designer.cs">
-      <DependentUpon>201608131450160_AddMyDevProfileSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.cs" />
-    <Compile Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.Designer.cs">
-      <DependentUpon>201608131537025_AddFriendsSearchField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\201608201036379_AddLikeDateMyDevPage.cs" />
-    <Compile Include="MyDevPageMigrations\201608201036379_AddLikeDateMyDevPage.Designer.cs">
-      <DependentUpon>201608201036379_AddLikeDateMyDevPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\201608231929307_AddSpamWords.cs" />
-    <Compile Include="MyDevPageMigrations\201608231929307_AddSpamWords.Designer.cs">
-      <DependentUpon>201608231929307_AddSpamWords.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\201608232238004_AddLanguageDetectorKey.cs" />
-    <Compile Include="MyDevPageMigrations\201608232238004_AddLanguageDetectorKey.Designer.cs">
-      <DependentUpon>201608232238004_AddLanguageDetectorKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\MyDevPageConfiguration.cs" />
+    <Compile Include="OzernyMigrations\OzernyConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueriesAndCommands\AddMediaListCommand.cs" />
     <Compile Include="QueriesAndCommands\AddMediaListCommandHandler.cs" />
@@ -140,31 +126,7 @@
     <Compile Include="QueriesAndCommands\MarkUserAsForeignerCommand.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsForeignerCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\MarkUserAsSpammerCommandHandler.cs" />
-    <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.cs" />
-    <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.Designer.cs">
-      <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.cs" />
-    <Compile Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.Designer.cs">
-      <DependentUpon>201608131450453_AddSecondProfileSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.cs" />
-    <Compile Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.Designer.cs">
-      <DependentUpon>201608131537376_AddFriendsSearchField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.cs" />
-    <Compile Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.Designer.cs">
-      <DependentUpon>201608201037406_AddLikeDateSecondPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\201608231929416_AddSpamWords.cs" />
-    <Compile Include="SecondPageMigrations\201608231929416_AddSpamWords.Designer.cs">
-      <DependentUpon>201608231929416_AddSpamWords.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\201608232238100_AddLanguageDetectorKey.cs" />
-    <Compile Include="SecondPageMigrations\201608232238100_AddLanguageDetectorKey.Designer.cs">
-      <DependentUpon>201608232238100_AddLanguageDetectorKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\SecondPageConfiguration.cs" />
+    <Compile Include="DvurechenskyMigrations\DvurechenskyConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -177,41 +139,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MyDevPageMigrations\201608121828596_MyDevPageInit.resx">
-      <DependentUpon>201608121828596_MyDevPageInit.cs</DependentUpon>
+    <Content Include="CommandsToUpdateDatabase.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DvurechenskyMigrations\201608261229276_Init.resx">
+      <DependentUpon>201608261229276_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.resx">
-      <DependentUpon>201608131450160_AddMyDevProfileSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.resx">
-      <DependentUpon>201608131537025_AddFriendsSearchField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyDevPageMigrations\201608201036379_AddLikeDateMyDevPage.resx">
-      <DependentUpon>201608201036379_AddLikeDateMyDevPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyDevPageMigrations\201608231929307_AddSpamWords.resx">
-      <DependentUpon>201608231929307_AddSpamWords.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyDevPageMigrations\201608232238004_AddLanguageDetectorKey.resx">
-      <DependentUpon>201608232238004_AddLanguageDetectorKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608121828370_SecondPageInit.resx">
-      <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.resx">
-      <DependentUpon>201608131450453_AddSecondProfileSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.resx">
-      <DependentUpon>201608131537376_AddFriendsSearchField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.resx">
-      <DependentUpon>201608201037406_AddLikeDateSecondPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608231929416_AddSpamWords.resx">
-      <DependentUpon>201608231929416_AddSpamWords.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608232238100_AddLanguageDetectorKey.resx">
-      <DependentUpon>201608232238100_AddLanguageDetectorKey.cs</DependentUpon>
+    <EmbeddedResource Include="OzernyMigrations\201608261229041_Init.resx">
+      <DependentUpon>201608261229041_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

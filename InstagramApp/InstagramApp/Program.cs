@@ -14,42 +14,42 @@ namespace InstagramApp
         /// <summary>
         /// My Dev Page
         /// </summary>
-        private static readonly ChromeDriver myDevPageDriver = new ChromeDriver();
+        private static readonly ChromeDriver ozernyDriver = new ChromeDriver();
 
-        private static readonly InstagramService myDevPageInstagramService = new InstagramService();
+        private static readonly InstagramService ozernyInstagramService = new InstagramService();
 
-        private static readonly TaskRunner MyDevPageTaskRunner = new TaskRunner();
+        private static readonly TaskRunner ozernyTaskRunner = new TaskRunner();
 
-        private static Task RegisterMyDevPageProccess()
+        private static Task RegisterOzernyProccess()
         {
             // My Dev Page Jobs
-            var myDevPageAproveUsersTokenSource = new CancellationTokenSource();
+            var ozernyAproveUsersTokenSource = new CancellationTokenSource();
 
-            return Task.Run(() => MyDevPageTaskRunner.SecondPageRunPeriodically(() =>
-                MyDevPageTaskRunner.Run<MyDevPageContext>(myDevPageInstagramService, myDevPageDriver),
+            return Task.Run(() => ozernyTaskRunner.RunPeriodically(() =>
+                ozernyTaskRunner.Run<OzernyContext>(ozernyInstagramService, ozernyDriver),
                 TimeSpan.FromSeconds(30),
-                myDevPageAproveUsersTokenSource.Token), myDevPageAproveUsersTokenSource.Token);
+                ozernyAproveUsersTokenSource.Token), ozernyAproveUsersTokenSource.Token);
         } 
 
 
         /// <summary>
         /// Second Page
         /// </summary>
-        private static readonly ChromeDriver secondPageDriver = new ChromeDriver();
+        private static readonly ChromeDriver dvurechenskyDriver = new ChromeDriver();
  
-        private static readonly InstagramService secondPageInstagramService = new InstagramService();
+        private static readonly InstagramService dvurechenskyInstagramService = new InstagramService();
 
-        private static readonly TaskRunner SecondPageTaskRunner = new TaskRunner();
+        private static readonly TaskRunner dvurechenskyTaskRunner = new TaskRunner();
 
-        private static Task RegisterSecondPageProcess()
+        private static Task RegisterDvurechenskyProcess()
         {
             // Second Page Jobs
-            var secondPageAproveUsersTokenSource = new CancellationTokenSource();
+            var dvurechenskyAproveUsersTokenSource = new CancellationTokenSource();
 
-            return Task.Run(() => SecondPageTaskRunner.SecondPageRunPeriodically(() =>
-                SecondPageTaskRunner.Run<SecondPageContext>(secondPageInstagramService, secondPageDriver),
+            return Task.Run(() => dvurechenskyTaskRunner.RunPeriodically(() =>
+                dvurechenskyTaskRunner.Run<DvurechenskyContext>(dvurechenskyInstagramService, dvurechenskyDriver),
                 TimeSpan.FromSeconds(30),
-                secondPageAproveUsersTokenSource.Token), secondPageAproveUsersTokenSource.Token);
+                dvurechenskyAproveUsersTokenSource.Token), dvurechenskyAproveUsersTokenSource.Token);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace InstagramApp
         /// </summary>
         private class TaskRunner
         {
-            public async Task SecondPageRunPeriodically(Action action, TimeSpan interval, CancellationToken token)
+            public async Task RunPeriodically(Action action, TimeSpan interval, CancellationToken token)
             {
                 while (true)
                 {
@@ -71,9 +71,10 @@ namespace InstagramApp
             {
                 var actions = new List<Action<RemoteWebDriver, TContext>>
                 {
+                    service.SynchOwnerFollowings,
                     service.SearchNewUsers,
                     service.FollowUsers,
-                    service.ApproveUsers,
+                    service.SynchOwnerFriends,
                     service.UnfollowUsers,
                     service.ClearOldMedia, //2 days
                 };
@@ -107,7 +108,7 @@ namespace InstagramApp
         {
             var tasks = new List<Task>
             {
-                RegisterMyDevPageProccess(), RegisterSecondPageProcess()
+                RegisterOzernyProccess(), RegisterDvurechenskyProcess()
             };
 
             Task.WhenAll(tasks.ToArray());

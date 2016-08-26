@@ -1,23 +1,21 @@
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using Constants;
 using DataBase.Models;
 
-namespace DataBase.MyDevPageMigrations
+namespace DataBase.OzernyMigrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class MyDevPageConfiguration : DbMigrationsConfiguration<DataBase.Contexts.MyDevPageContext>
+    internal sealed class OzernyConfiguration : DbMigrationsConfiguration<DataBase.Contexts.OzernyContext>
     {
-        public MyDevPageConfiguration()
+        public OzernyConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"MyDevPageMigrations";
+            MigrationsDirectory = @"OzernyMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.MyDevPageContext context)
+        protected override void Seed(DataBase.Contexts.OzernyContext context)
         {
             if (!context.Users.Any())
             {

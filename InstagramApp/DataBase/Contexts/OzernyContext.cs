@@ -2,11 +2,11 @@
 
 namespace DataBase.Contexts
 {
-    public class SecondPageContext : DataBaseContext
+    public class OzernyContext : DataBaseContext
     {
         protected override AccountName GetAccountName()
         {
-            return AccountName.SecondPage;
+            return AccountName.Ozerny;
         }
     }
 }

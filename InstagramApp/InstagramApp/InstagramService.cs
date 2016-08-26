@@ -102,7 +102,7 @@ namespace InstagramApp
 
             new MarkUserAsFollowingCommandHandler(context).Handle(new MarkUserAsFollowingCommand
             {
-                User = user
+                UserLink = user
             });
         }
 
@@ -151,7 +151,7 @@ namespace InstagramApp
             }
         }
 
-        public void ApproveUsers(RemoteWebDriver driver, DataBaseContext context)
+        public void SynchOwnerFriends(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);
 
@@ -180,6 +180,34 @@ namespace InstagramApp
             foreach (var user in usersToAdd)
             {
                 AddUser(driver, context, user);
+            }
+        }
+
+        public void SynchOwnerFollowings(RemoteWebDriver driver, DataBaseContext context)
+        {
+            Registration(driver, context);
+
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+            {
+                UserLink = settings.HomePageUrl
+            });
+
+            var followings = new SearchUserUnAddedFriendsEngine().Execute(driver, new SearchUserUnAddedFriendsModel
+            {
+                UserPageLink = settings.HomePageUrl,
+                MaxCount = null,
+                Count = userInfo.FollowingCount
+            });
+
+            var basedFollowings = new GetFollowingUsersQueryHandler(context).Handle(new GetFollowingUsersQuery());
+
+            var toFollowUsers = followings.Except(basedFollowings);
+
+            foreach (var user in toFollowUsers)
+            {
+                FollowUser(driver, context, user);
             }
         }
 

@@ -4,6 +4,6 @@ namespace DataBase.QueriesAndCommands
 {
     public class MarkUserAsFollowingCommand : IVoidCommand
     {
-        public string User { get; set; }
+        public string UserLink { get; set; }
     }
 }

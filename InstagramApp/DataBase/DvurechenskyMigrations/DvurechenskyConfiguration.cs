@@ -1,23 +1,21 @@
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using Constants;
 using DataBase.Models;
 
-namespace DataBase.SecondPageMigrations
+namespace DataBase.DvurechenskyMigrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class SecondPageConfiguration : DbMigrationsConfiguration<DataBase.Contexts.SecondPageContext>
+    internal sealed class DvurechenskyConfiguration : DbMigrationsConfiguration<DataBase.Contexts.DvurechenskyContext>
     {
-        public SecondPageConfiguration()
+        public DvurechenskyConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"SecondPageMigrations";
+            MigrationsDirectory = @"DvurechenskyMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.SecondPageContext context)
+        protected override void Seed(DataBase.Contexts.DvurechenskyContext context)
         {
             if (!context.Users.Any())
             {
