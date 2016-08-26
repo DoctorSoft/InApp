@@ -73,6 +73,8 @@
     <Compile Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.Designer.cs">
       <DependentUpon>201608261345395_UpdateAccountConfigs.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueriesAndCommands\MarkUserAsStarCommand.cs" />
+    <Compile Include="QueriesAndCommands\MarkUserAsStarCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\UpdateFollowingsSynchronizationTimeCommand.cs" />
     <Compile Include="QueriesAndCommands\GetFollowingUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\GetFollowingUsersQueryHandler.cs" />

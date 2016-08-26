@@ -9,5 +9,7 @@
         public int FollowerCount { get; set; }
 
         public int PublicationCount { get; set; }
+
+        public bool IsStar { get; set; }
     }
 }

@@ -57,7 +57,6 @@ namespace Engines.Engines.GetUserInfoEngine
             .Select(element => int.Parse(element.Text.Replace(" ", "")))
             .FirstOrDefault();
 
-            //_bugdy
             var text = driver
             .FindElements(By.ClassName("_bugdy"))
             .Where(element => string.IsNullOrWhiteSpace(element.GetAttribute("href")))
@@ -65,12 +64,17 @@ namespace Engines.Engines.GetUserInfoEngine
             .Select(element => element.Text)
             .FirstOrDefault();
 
+            var isStar = driver
+                .FindElements(By.TagName("span"))
+                .Any(element => element.Text.Contains("Подтвержденный"));
+
             return new GetUserInfoEngineResponse
             {
                 FollowerCount = followersCount,
                 FollowingCount = followingCount,
                 PublicationCount = publicationCount,
-                Text = text
+                Text = text,
+                IsStar = isStar
             };
         }
     }

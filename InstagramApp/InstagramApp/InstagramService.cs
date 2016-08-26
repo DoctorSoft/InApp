@@ -58,54 +58,6 @@ namespace InstagramApp
             }
         }
 
-        public void FollowUser(RemoteWebDriver driver, DataBaseContext context, string user)
-        {
-            var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
-            {
-                UserLink = user
-            });
-
-            if (UserIsSpammer(driver, context, userInfo))
-            {
-                new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
-                {
-                    UserLink = user
-                });
-
-                new MarkUserAsSpammerCommandHandler(context).Handle(new MarkUserAsSpammerCommand
-                {
-                    UserLink = user
-                });
-
-                return;
-            }
-
-            if (UserIsForeign(driver, context, userInfo))
-            {
-                new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
-                {
-                    UserLink = user
-                });
-
-                new MarkUserAsForeignerCommandHandler(context).Handle(new MarkUserAsForeignerCommand
-                {
-                    UserLink = user
-                });
-
-                return;
-            }
-
-            new FollowUserEngine().Execute(driver, new FollowUserModel()
-            {
-                UserLink = user
-            });
-
-            new MarkUserAsFollowingCommandHandler(context).Handle(new MarkUserAsFollowingCommand
-            {
-                UserLink = user
-            });
-        }
-
         public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);
@@ -223,12 +175,28 @@ namespace InstagramApp
             }
         }
 
-        public void AddUser(RemoteWebDriver driver, DataBaseContext context, string user)
+        public void ChangeUserStatus(RemoteWebDriver driver, DataBaseContext context, string user,
+            Action markStatus)
         {
             var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
             {
                 UserLink = user
             });
+
+            if (userInfo.IsStar)
+            {
+                new FollowUserEngine().Execute(driver, new FollowUserModel
+                {
+                    UserLink = user
+                });
+
+                new MarkUserAsStarCommandHandler(context).Handle(new MarkUserAsStarCommand
+                {
+                    UserLink = user
+                });
+
+                return;
+            }
 
             if (UserIsSpammer(driver, context, userInfo))
             {
@@ -264,10 +232,26 @@ namespace InstagramApp
             {
                 UserLink = user
             });
-            new MarkUserAsAddedCommandHandler(context).Handle(new MarkUserAsAddedCommand
-            {
-                User = user
-            });
+
+            markStatus();
+        }
+
+        public void AddUser(RemoteWebDriver driver, DataBaseContext context, string user)
+        {
+            ChangeUserStatus(driver, context, user,
+                () => new MarkUserAsAddedCommandHandler(context).Handle(new MarkUserAsAddedCommand
+                {
+                    UserLink = user
+                }));
+        }
+
+        public void FollowUser(RemoteWebDriver driver, DataBaseContext context, string user)
+        {
+            ChangeUserStatus(driver, context, user,
+                () => new MarkUserAsFollowingCommandHandler(context).Handle(new MarkUserAsFollowingCommand
+                {
+                    UserLink = user
+                }));
         }
 
         public void LikeHashTag(RemoteWebDriver driver, DataBaseContext context)

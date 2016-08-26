@@ -9,6 +9,7 @@
         Banned = 5,
         Technical = 6,
         Spammer = 7,
-        Foreigner = 8
+        Foreigner = 8,
+        Star = 9
     }
 }

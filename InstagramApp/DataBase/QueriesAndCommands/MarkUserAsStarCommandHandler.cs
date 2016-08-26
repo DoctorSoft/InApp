@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 using System.Linq;
 using Constants;
 using DataBase.Contexts;
@@ -8,16 +7,16 @@ using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands
 {
-    public class MarkUserAsAddedCommandHandler : IVoidCommandHandler<MarkUserAsAddedCommand>
+    public class MarkUserAsStarCommandHandler : IVoidCommandHandler<MarkUserAsStarCommand>
     {
         private readonly DataBaseContext context;
 
-        public MarkUserAsAddedCommandHandler(DataBaseContext context)
+        public MarkUserAsStarCommandHandler(DataBaseContext context)
         {
             this.context = context;
         }
 
-        public VoidCommandResponse Handle(MarkUserAsAddedCommand command)
+        public VoidCommandResponse Handle(MarkUserAsStarCommand command)
         {
             var user = context.Users.FirstOrDefault(model => model.Link == command.UserLink);
 
@@ -26,14 +25,12 @@ namespace DataBase.QueriesAndCommands
                 user = new UserDbModel
                 {
                     Link = command.UserLink,
-                    UserStatus = UserStatus.Added,
-                    IncludingTime = DateTime.Now
+                    UserStatus = UserStatus.Star
                 };
-
             }
             else
             {
-                user.UserStatus = UserStatus.Added;   
+                user.UserStatus = UserStatus.Star;
             }
 
             context.Users.AddOrUpdate(user);
