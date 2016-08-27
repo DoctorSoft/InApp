@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands;
+using DataBase.QueriesAndCommands.Commands.Media;
+using DataBase.QueriesAndCommands.Commands.Settings;
+using DataBase.QueriesAndCommands.Commands.Users;
+using DataBase.QueriesAndCommands.Queries.Languages;
+using DataBase.QueriesAndCommands.Queries.Media;
+using DataBase.QueriesAndCommands.Queries.Settings;
+using DataBase.QueriesAndCommands.Queries.Users;
+using DataBase.QueriesAndCommands.Queries.Words;
 using Engines.Engines.FollowUserEngine;
 using Engines.Engines.GetUserInfoEngine;
 using Engines.Engines.LikeHashTagEngine;
@@ -92,6 +100,7 @@ namespace InstagramApp
             {
                 Users = results
             };
+
             new AddUserListCommandHandler(context).Handle(addUserListCommand);
 
             foreach (var user in users)
@@ -167,12 +176,12 @@ namespace InstagramApp
 
             var basedFollowings = new GetFollowingUsersQueryHandler(context).Handle(new GetFollowingUsersQuery());
 
-            var toFollowUsers = followings.Except(basedFollowings);
+            var toFollowUsers = followings.Except(basedFollowings).ToList();
 
-            foreach (var user in toFollowUsers)
+            new AddUserListCommandHandler(context).Handle(new AddUserListCommand
             {
-                FollowUser(driver, context, user);
-            }
+                Users = toFollowUsers
+            });
         }
 
         public void ChangeUserStatus(RemoteWebDriver driver, DataBaseContext context, string user,
