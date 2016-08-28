@@ -6,9 +6,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.FollowUserEngine
 {
-    public class FollowUserEngine : IEngine<FollowUserModel, VoidResult>
+    public class FollowUserEngine : AbstractEngine<FollowUserModel, VoidResult>
     {
-        public VoidResult Execute(RemoteWebDriver driver, FollowUserModel model)
+        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, FollowUserModel model)
         {
             driver.Navigate().GoToUrl(model.UserLink);
 

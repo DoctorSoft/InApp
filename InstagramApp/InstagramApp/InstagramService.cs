@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using DataBase.Contexts;
-using DataBase.QueriesAndCommands;
 using DataBase.QueriesAndCommands.Commands.Media;
 using DataBase.QueriesAndCommands.Commands.Settings;
 using DataBase.QueriesAndCommands.Commands.Users;
@@ -70,9 +69,9 @@ namespace InstagramApp
         {
             Registration(driver, context);
 
-            List<string> users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
+            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
 
-            List<string> results = new List<string>();
+            var results = new List<string>();
 
             foreach (var user in users)
             {
@@ -96,12 +95,17 @@ namespace InstagramApp
                 }));
             }
 
-            var addUserListCommand = new AddUserListCommand
-            {
-                Users = results
-            };
+            var knownUsers = new GetAllKnownUsersQueryHandler(context).Handle(new GetAllKnownUsersQuery());
 
-            new AddUserListCommandHandler(context).Handle(addUserListCommand);
+            var usersToMark = results.Except(knownUsers).ToList();
+
+            foreach (var userToMark in usersToMark)
+            {
+                new MarkUserAsToFollowCommandHandler(context).Handle(new MarkUserAsToFollowCommand
+                {
+                    UserLink = userToMark
+                });
+            }
 
             foreach (var user in users)
             {
@@ -174,14 +178,17 @@ namespace InstagramApp
                 Count = userInfo.FollowingCount
             });
 
-            var basedFollowings = new GetFollowingUsersQueryHandler(context).Handle(new GetFollowingUsersQuery());
+            var knownUsers = new GetAllKnownUsersQueryHandler(context).Handle(new GetAllKnownUsersQuery());
 
-            var toFollowUsers = followings.Except(basedFollowings).ToList();
+            var toFollowUsers = followings.Except(knownUsers).ToList();
 
-            new AddUserListCommandHandler(context).Handle(new AddUserListCommand
+            foreach (var userToFollow in toFollowUsers)
             {
-                Users = toFollowUsers
-            });
+                new MarkUserAsToFollowCommandHandler(context).Handle(new MarkUserAsToFollowCommand
+                {
+                    UserLink = userToFollow
+                });
+            }
         }
 
         public void ChangeUserStatus(RemoteWebDriver driver, DataBaseContext context, string user,

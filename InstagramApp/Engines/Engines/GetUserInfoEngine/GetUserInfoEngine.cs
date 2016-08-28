@@ -7,9 +7,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.GetUserInfoEngine
 {
-    public class GetUserInfoEngine : IEngine<GetUserInfoEngineModel, GetUserInfoEngineResponse>
+    public class GetUserInfoEngine : AbstractEngine<GetUserInfoEngineModel, GetUserInfoEngineResponse>
     {
-        public GetUserInfoEngineResponse Execute(RemoteWebDriver driver, GetUserInfoEngineModel model)
+        protected override GetUserInfoEngineResponse ExecuteEngine(RemoteWebDriver driver, GetUserInfoEngineModel model)
         {
             driver.Navigate().GoToUrl(model.UserLink);
 

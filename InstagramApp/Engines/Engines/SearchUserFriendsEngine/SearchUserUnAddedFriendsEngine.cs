@@ -8,9 +8,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.SearchUserFriendsEngine
 {
-    public class SearchUserUnAddedFriendsEngine : IEngine<SearchUserUnAddedFriendsModel, List<string>>
+    public class SearchUserUnAddedFriendsEngine : AbstractEngine<SearchUserUnAddedFriendsModel, List<string>>
     {
-        public List<string> Execute(RemoteWebDriver driver, SearchUserUnAddedFriendsModel model)
+        protected override List<string> ExecuteEngine(RemoteWebDriver driver, SearchUserUnAddedFriendsModel model)
         {
             driver.Navigate().GoToUrl(model.UserPageLink);
             

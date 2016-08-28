@@ -9,9 +9,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.SearchUserImagesEngine
 {
-    public class SearchUserImagesEngine : IEngine<SearchUserImagesModel, List<string>>
+    public class SearchUserImagesEngine : AbstractEngine<SearchUserImagesModel, List<string>>
     {
-        public List<string> Execute(RemoteWebDriver driver, SearchUserImagesModel model)
+        protected override List<string> ExecuteEngine(RemoteWebDriver driver, SearchUserImagesModel model)
         {
             driver.Navigate().GoToUrl(model.UserPageLink);
 

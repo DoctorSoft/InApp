@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using DataBase.Contexts;
-using DataBase.QueriesAndCommands;
 using Engines.Exceptions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.SearchUserFriendsEngine
 {
-    public class SearchUserFriendsEngine : IEngine<SearchUserFriendsModel, List<string>>
+    public class SearchUserFriendsEngine : AbstractEngine<SearchUserFriendsModel, List<string>>
     {
-        public List<string> Execute(RemoteWebDriver driver, SearchUserFriendsModel model)
+        protected override List<string> ExecuteEngine(RemoteWebDriver driver, SearchUserFriendsModel model)
         {
             driver.Navigate().GoToUrl(model.UserPageLink);
 

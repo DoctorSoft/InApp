@@ -76,6 +76,10 @@
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateFollowingsSynchronizationTimeCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetAllKnownUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetAllKnownUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetFollowingUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetFollowingUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetForeignUsersQuery.cs" />
@@ -91,8 +95,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueriesAndCommands\Commands\Media\AddMediaListCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Media\AddMediaListCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\AddUserListCommand.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\AddUserListCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Media\DeleteMediaCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Media\DeleteMediaCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Languages\GetLanguagesQuery.cs" />
