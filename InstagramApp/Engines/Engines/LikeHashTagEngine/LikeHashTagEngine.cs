@@ -6,9 +6,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.LikeHashTagEngine
 {
-    public class LikeHashTagEngine : IEngine<LikeHashTagModel, List<string>>
+    public class LikeHashTagEngine : AbstractEngine<LikeHashTagModel, List<string>>
     {
-        public List<string> Execute(RemoteWebDriver driver, LikeHashTagModel model)
+        protected override List<string> ExecuteEngine(RemoteWebDriver driver, LikeHashTagModel model)
         {
             var linksList = new List<string>();
             int countShownImages = GetCountShownImages(driver);

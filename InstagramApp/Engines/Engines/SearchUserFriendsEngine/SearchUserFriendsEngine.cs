@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using DataBase.Contexts;
-using DataBase.QueriesAndCommands;
 using Engines.Exceptions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.SearchUserFriendsEngine
 {
-    public class SearchUserFriendsEngine : IEngine<SearchUserFriendsModel, List<string>>
+    public class SearchUserFriendsEngine : AbstractEngine<SearchUserFriendsModel, List<string>>
     {
-        public List<string> Execute(RemoteWebDriver driver, SearchUserFriendsModel model)
+        protected override List<string> ExecuteEngine(RemoteWebDriver driver, SearchUserFriendsModel model)
         {
             driver.Navigate().GoToUrl(model.UserPageLink);
 
@@ -35,13 +33,6 @@ namespace Engines.Engines.SearchUserFriendsEngine
             {
                 throw new CaptchaException();
             }
-
-            var count =  driver
-            .FindElements(By.ClassName("_bkw5z"))
-            .Where(element => element.TagName.Contains("span"))
-            .Where(element => !string.IsNullOrWhiteSpace(element.GetAttribute("title")))
-            .Select(element => int.Parse(element.GetAttribute("title").Replace(" ", "")))
-            .Single();
 
             var followersButton = driver
             .FindElements(By.ClassName("_s53mj"))
@@ -74,6 +65,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             Thread.Sleep(500);
 
+            var count = model.Count;
             var realCount = model.MaxCount == null ? count : Math.Min(count, model.MaxCount.Value);
             for (var i = 0; i < realCount; i++)
             {
@@ -82,7 +74,9 @@ namespace Engines.Engines.SearchUserFriendsEngine
             }
 
             var userList = driver
-            .FindElements(By.ClassName("_4zhc5"))  
+            .FindElements(By.ClassName("_6jvgy"))
+            .Where(element => element.FindElements(By.TagName("button")).Any(webElement => webElement.Text.Contains("Подписаться")))
+            .SelectMany(element => element.FindElements(By.ClassName("_4zhc5")))
             .Where(element => element.TagName == "a")
             .Where(element => element.GetAttribute("href") != null)
             .Select(element => element.GetAttribute("href"))

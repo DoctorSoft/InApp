@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
-using Engines.Exceptions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.WaitingCaptchEngine
 {
-    public class WaitingCaptchaEngine : IEngine<WaitingCaptchaEngineModel, VoidResult>
+    public class WaitingCaptchaEngine : AbstractEngine<WaitingCaptchaEngineModel, VoidResult>
     {
-        public VoidResult Execute(RemoteWebDriver driver, WaitingCaptchaEngineModel model)
+        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, WaitingCaptchaEngineModel model)
         {
             bool captchButtonExists;
 

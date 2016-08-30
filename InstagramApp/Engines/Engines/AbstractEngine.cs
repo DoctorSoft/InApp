@@ -1,0 +1,28 @@
+﻿using System;
+using OpenQA.Selenium.Remote;
+
+namespace Engines.Engines
+{
+    public abstract class AbstractEngine<TModel, TResult> : IEngine<TModel, TResult>
+        where TResult : new()
+    {
+        protected abstract TResult ExecuteEngine(RemoteWebDriver driver, TModel model);
+
+        public TResult Execute(RemoteWebDriver driver, TModel model)
+        {
+            TResult result;
+
+            try
+            {
+                result = ExecuteEngine(driver, model);
+            }
+            catch (Exception ex)
+            {
+                // todo: Log it
+                result = new TResult();
+            }
+
+            return result;
+        }
+    }
+}

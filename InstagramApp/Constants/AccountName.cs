@@ -2,7 +2,7 @@
 {
     public enum AccountName
     {
-        MyDevPage = 1,
-        SecondPage = 2
+        Ozerny = 1,
+        Dvurechensky = 2
     }
 }

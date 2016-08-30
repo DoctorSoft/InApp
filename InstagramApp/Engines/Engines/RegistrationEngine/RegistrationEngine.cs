@@ -6,9 +6,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.RegistrationEngine
 {
-    public class RegistrationEngine : IEngine<RegistrationModel, VoidResult>
+    public class RegistrationEngine : AbstractEngine<RegistrationModel, VoidResult>
     {
-        public VoidResult Execute(RemoteWebDriver driver, RegistrationModel model)
+        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, RegistrationModel model)
         {
             driver.Navigate().GoToUrl("https://www.instagram.com/");
 

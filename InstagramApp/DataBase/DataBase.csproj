@@ -49,47 +49,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\SpamWordConfiguration.cs" />
     <Compile Include="Configurations\LanguageConfiguration.cs" />
     <Compile Include="Configurations\MediaConfiguration.cs" />
     <Compile Include="Configurations\ProfilesSettingsConfiguration.cs" />
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
-    <Compile Include="Contexts\MyDevPageContext.cs" />
-    <Compile Include="Contexts\SecondPageContext.cs" />
+    <Compile Include="Contexts\OzernyContext.cs" />
+    <Compile Include="Contexts\DvurechenskyContext.cs" />
+    <Compile Include="DvurechenskyMigrations\201608261229276_Init.cs" />
+    <Compile Include="DvurechenskyMigrations\201608261229276_Init.Designer.cs">
+      <DependentUpon>201608261229276_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.cs" />
+    <Compile Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.Designer.cs">
+      <DependentUpon>201608261346012_UpdateAccountConfigs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201608261229041_Init.cs" />
+    <Compile Include="OzernyMigrations\201608261229041_Init.Designer.cs">
+      <DependentUpon>201608261229041_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.cs" />
+    <Compile Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.Designer.cs">
+      <DependentUpon>201608261345395_UpdateAccountConfigs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Settings\UpdateFollowingsSynchronizationTimeCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetAllKnownUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetAllKnownUsersQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetFollowingUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetFollowingUsersQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetForeignUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetForeignUsersQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsSpammerCommand.cs" />
     <Compile Include="Models\MediaDbModel.cs" />
     <Compile Include="Models\ProfileSettingsDbModel.cs" />
+    <Compile Include="Models\SpamWordDbModel.cs" />
     <Compile Include="Models\UserDbModel.cs" />
     <Compile Include="Models\LanguageDbModel.cs" />
     <Compile Include="Models\RegionDbModel.cs" />
-    <Compile Include="MyDevPageMigrations\201608121828596_MyDevPageInit.cs" />
-    <Compile Include="MyDevPageMigrations\201608121828596_MyDevPageInit.Designer.cs">
-      <DependentUpon>201608121828596_MyDevPageInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.cs" />
-    <Compile Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.Designer.cs">
-      <DependentUpon>201608131450160_AddMyDevProfileSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.cs" />
-    <Compile Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.Designer.cs">
-      <DependentUpon>201608131537025_AddFriendsSearchField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\201608201036379_AddLikeDateMyDevPage.cs" />
-    <Compile Include="MyDevPageMigrations\201608201036379_AddLikeDateMyDevPage.Designer.cs">
-      <DependentUpon>201608201036379_AddLikeDateMyDevPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyDevPageMigrations\MyDevPageConfiguration.cs" />
+    <Compile Include="OzernyMigrations\OzernyConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueriesAndCommands\AddMediaListCommand.cs" />
-    <Compile Include="QueriesAndCommands\AddMediaListCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\AddUserListCommand.cs" />
-    <Compile Include="QueriesAndCommands\AddUserListCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\DeleteMediaCommand.cs" />
-    <Compile Include="QueriesAndCommands\DeleteMediaCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\GetMediaToDeleteQuery.cs" />
-    <Compile Include="QueriesAndCommands\GetMediaToDeleteQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\GetTechnicalUsersQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\GetAddedUsersQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Media\AddMediaListCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Media\AddMediaListCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Media\DeleteMediaCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Media\DeleteMediaCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Languages\GetLanguagesQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Languages\GetLanguagesQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToDeleteQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToDeleteQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetSpammerUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetSpammerUsersQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Words\GetSpamWordsQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Words\GetSpamWordsQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetTechnicalUsersQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetAddedUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Common\ICommand.cs" />
     <Compile Include="QueriesAndCommands\Common\ICommandDispatcher.cs" />
     <Compile Include="QueriesAndCommands\Common\ICommandHandler.cs" />
@@ -99,43 +117,33 @@
     <Compile Include="QueriesAndCommands\Common\IVoidCommand.cs" />
     <Compile Include="QueriesAndCommands\Common\IVoidCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Common\VoidCommandResponse.cs" />
-    <Compile Include="QueriesAndCommands\GetAddedUsersQuery.cs" />
-    <Compile Include="QueriesAndCommands\GetProfileSettingsQuery.cs" />
-    <Compile Include="QueriesAndCommands\GetProfileSettingsQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\GetTechnicalUsersQuery.cs" />
-    <Compile Include="QueriesAndCommands\GetUsersNotCheckedForFriendsQuery.cs" />
-    <Compile Include="QueriesAndCommands\GetUsersNotCheckedForFriendsQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\GetUsersToFollowQuery.cs" />
-    <Compile Include="QueriesAndCommands\GetUsersToFollowQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\GetUsersToUnFollowQuery.cs" />
-    <Compile Include="QueriesAndCommands\GetUsersToUnFollowQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\MarkMediaAsLikedCommand.cs" />
-    <Compile Include="QueriesAndCommands\MarkMediaAsLikedCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\MarkUserAsAddedCommand.cs" />
-    <Compile Include="QueriesAndCommands\MarkUserAsAddedCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\MarkUserAsBannedCommand.cs" />
-    <Compile Include="QueriesAndCommands\MarkUserAsBannedCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\MarkUserAsCheckedForFriendsCommand.cs" />
-    <Compile Include="QueriesAndCommands\MarkUserAsCheckedForFriendsCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\MarkUserAsFollowingCommand.cs" />
-    <Compile Include="QueriesAndCommands\MarkUserAsFollowingCommandHandler.cs" />
-    <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.cs" />
-    <Compile Include="SecondPageMigrations\201608121828370_SecondPageInit.Designer.cs">
-      <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.cs" />
-    <Compile Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.Designer.cs">
-      <DependentUpon>201608131450453_AddSecondProfileSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.cs" />
-    <Compile Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.Designer.cs">
-      <DependentUpon>201608131537376_AddFriendsSearchField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.cs" />
-    <Compile Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.Designer.cs">
-      <DependentUpon>201608201037406_AddLikeDateSecondPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondPageMigrations\SecondPageConfiguration.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetAddedUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Settings\GetProfileSettingsQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Settings\GetProfileSettingsQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetTechnicalUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersNotCheckedForFriendsQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersNotCheckedForFriendsQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToUnFollowQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToUnFollowQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Media\MarkMediaAsLikedCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Media\MarkMediaAsLikedCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsAddedCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsAddedCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsBannedCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsBannedCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsCheckedForFriendsCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsCheckedForFriendsCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsFollowingCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsFollowingCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsForeignerCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsForeignerCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsSpammerCommandHandler.cs" />
+    <Compile Include="DvurechenskyMigrations\DvurechenskyConfiguration.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Settings\TimeForFollowingsSynchronizationQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Settings\TimeForFollowingsSynchronizationQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Settings\UpdateFollowingsSynchronizationTimeCommandHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -150,31 +158,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MyDevPageMigrations\201608121828596_MyDevPageInit.resx">
-      <DependentUpon>201608121828596_MyDevPageInit.cs</DependentUpon>
+    <Content Include="CommandsToUpdateDatabase.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DvurechenskyMigrations\201608261229276_Init.resx">
+      <DependentUpon>201608261229276_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyDevPageMigrations\201608131450160_AddMyDevProfileSettings.resx">
-      <DependentUpon>201608131450160_AddMyDevProfileSettings.cs</DependentUpon>
+    <EmbeddedResource Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.resx">
+      <DependentUpon>201608261346012_UpdateAccountConfigs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyDevPageMigrations\201608131537025_AddFriendsSearchField.resx">
-      <DependentUpon>201608131537025_AddFriendsSearchField.cs</DependentUpon>
+    <EmbeddedResource Include="OzernyMigrations\201608261229041_Init.resx">
+      <DependentUpon>201608261229041_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyDevPageMigrations\201608201036379_AddLikeDateMyDevPage.resx">
-      <DependentUpon>201608201036379_AddLikeDateMyDevPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608121828370_SecondPageInit.resx">
-      <DependentUpon>201608121828370_SecondPageInit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608131450453_AddSecondProfileSettings.resx">
-      <DependentUpon>201608131450453_AddSecondProfileSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608131537376_AddFriendsSearchField.resx">
-      <DependentUpon>201608131537376_AddFriendsSearchField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecondPageMigrations\201608201037406_AddLikeDateSecondPage.resx">
-      <DependentUpon>201608201037406_AddLikeDateSecondPage.cs</DependentUpon>
+    <EmbeddedResource Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.resx">
+      <DependentUpon>201608261345395_UpdateAccountConfigs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

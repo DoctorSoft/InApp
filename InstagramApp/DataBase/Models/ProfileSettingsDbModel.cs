@@ -1,4 +1,6 @@
-﻿namespace DataBase.Models
+﻿using System;
+
+namespace DataBase.Models
 {
     public class ProfileSettingsDbModel
     {
@@ -9,5 +11,9 @@
         public string Password { get; set; }
 
         public string HomePageUrl { get; set; }
+
+        public string LanguageDetectorKey { get; set; }
+
+        public DateTime? PreviousFollowingsSynchDate { get; set; }
     }
 }

@@ -6,9 +6,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.LikeTheLinkEngine
 {
-    public class LikeTheLinkEngine: IEngine<LikeTheLinkModel, VoidResult>
+    public class LikeTheLinkEngine: AbstractEngine<LikeTheLinkModel, VoidResult>
     {
-        public VoidResult Execute(RemoteWebDriver driver, LikeTheLinkModel model)
+        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, LikeTheLinkModel model)
         {
             driver.Navigate().GoToUrl(model.Link);
 
