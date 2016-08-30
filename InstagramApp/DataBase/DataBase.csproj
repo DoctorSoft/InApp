@@ -56,6 +56,8 @@
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
+    <Compile Include="Contexts\MilkContext.cs" />
+    <Compile Include="Contexts\KiotoContext.cs" />
     <Compile Include="Contexts\OzernyContext.cs" />
     <Compile Include="Contexts\DvurechenskyContext.cs" />
     <Compile Include="DvurechenskyMigrations\201608261229276_Init.cs" />
@@ -66,6 +68,16 @@
     <Compile Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.Designer.cs">
       <DependentUpon>201608261346012_UpdateAccountConfigs.cs</DependentUpon>
     </Compile>
+    <Compile Include="KiotoMigrations\201608301631568_Init.cs" />
+    <Compile Include="KiotoMigrations\201608301631568_Init.Designer.cs">
+      <DependentUpon>201608301631568_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\KiotoConfiguration.cs" />
+    <Compile Include="MilkMigrations\201608301637489_Init.cs" />
+    <Compile Include="MilkMigrations\201608301637489_Init.Designer.cs">
+      <DependentUpon>201608301637489_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MilkMigrations\MilkConfiguration.cs" />
     <Compile Include="OzernyMigrations\201608261229041_Init.cs" />
     <Compile Include="OzernyMigrations\201608261229041_Init.Designer.cs">
       <DependentUpon>201608261229041_Init.cs</DependentUpon>
@@ -166,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.resx">
       <DependentUpon>201608261346012_UpdateAccountConfigs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201608301631568_Init.resx">
+      <DependentUpon>201608301631568_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MilkMigrations\201608301637489_Init.resx">
+      <DependentUpon>201608301637489_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201608261229041_Init.resx">
       <DependentUpon>201608261229041_Init.cs</DependentUpon>

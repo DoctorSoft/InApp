@@ -12,7 +12,7 @@ namespace InstagramApp
     public class Program
     {
         /// <summary>
-        /// My Dev Page
+        /// Ozerny
         /// </summary>
         private static readonly ChromeDriver ozernyDriver = new ChromeDriver();
 
@@ -27,13 +27,13 @@ namespace InstagramApp
 
             return Task.Run(() => ozernyTaskRunner.RunPeriodically(() =>
                 ozernyTaskRunner.Run<OzernyContext>(ozernyInstagramService, ozernyDriver),
-                TimeSpan.FromSeconds(30),
+                TimeSpan.FromSeconds(5),
                 ozernyAproveUsersTokenSource.Token), ozernyAproveUsersTokenSource.Token);
         } 
 
 
         /// <summary>
-        /// Second Page
+        /// Dvurechensky
         /// </summary>
         private static readonly ChromeDriver dvurechenskyDriver = new ChromeDriver();
  
@@ -48,9 +48,49 @@ namespace InstagramApp
 
             return Task.Run(() => dvurechenskyTaskRunner.RunPeriodically(() =>
                 dvurechenskyTaskRunner.Run<DvurechenskyContext>(dvurechenskyInstagramService, dvurechenskyDriver),
-                TimeSpan.FromSeconds(30),
+                TimeSpan.FromSeconds(5),
                 dvurechenskyAproveUsersTokenSource.Token), dvurechenskyAproveUsersTokenSource.Token);
         }
+
+        /// <summary>
+        /// Kioto
+        /// </summary>
+        private static readonly ChromeDriver kiotoDriver = new ChromeDriver();
+
+        private static readonly InstagramService kiotoInstagramService = new InstagramService();
+
+        private static readonly TaskRunner kiotoTaskRunner = new TaskRunner();
+
+        private static Task RegisterKiotoProccess()
+        {
+            // My Dev Page Jobs
+            var kiotoAproveUsersTokenSource = new CancellationTokenSource();
+
+            return Task.Run(() => kiotoTaskRunner.RunPeriodically(() =>
+                kiotoTaskRunner.Run<KiotoContext>(kiotoInstagramService, kiotoDriver),
+                TimeSpan.FromSeconds(5),
+                kiotoAproveUsersTokenSource.Token), kiotoAproveUsersTokenSource.Token);
+        }
+
+        /// <summary>
+        /// Milk
+        /// </summary>
+        private static readonly ChromeDriver milkDriver = new ChromeDriver();
+
+        private static readonly InstagramService milkInstagramService = new InstagramService();
+
+        private static readonly TaskRunner milkTaskRunner = new TaskRunner();
+
+        private static Task RegisterMilkProccess()
+        {
+            // My Dev Page Jobs
+            var milkAproveUsersTokenSource = new CancellationTokenSource();
+
+            return Task.Run(() => milkTaskRunner.RunPeriodically(() =>
+                milkTaskRunner.Run<MilkContext>(milkInstagramService, milkDriver),
+                TimeSpan.FromSeconds(5),
+                milkAproveUsersTokenSource.Token), milkAproveUsersTokenSource.Token);
+        } 
 
         /// <summary>
         /// Task Runner
@@ -108,7 +148,7 @@ namespace InstagramApp
         {
             var tasks = new List<Task>
             {
-                RegisterOzernyProccess(), RegisterDvurechenskyProcess()
+                RegisterOzernyProccess(), RegisterDvurechenskyProcess(), RegisterKiotoProccess(), RegisterMilkProccess()
             };
 
             Task.WhenAll(tasks.ToArray());
