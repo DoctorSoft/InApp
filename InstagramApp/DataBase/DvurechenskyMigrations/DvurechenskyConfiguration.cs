@@ -33,8 +33,8 @@ namespace DataBase.DvurechenskyMigrations
 
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/dvurechensky.grodno/",
-                Login = "dvurechensky.grodno",
+                HomePageUrl = "https://www.instagram.com/galaxy.grodno/",
+                Login = "galaxy.grodno",
                 Password = "Ntvyjnf123",
                 LanguageDetectorKey = "06b11f1ec38eb723b903fc36c74f5fe7"
             };
