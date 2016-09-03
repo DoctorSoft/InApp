@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\HashTagConfiguration.cs" />
     <Compile Include="Configurations\SpamWordConfiguration.cs" />
     <Compile Include="Configurations\LanguageConfiguration.cs" />
     <Compile Include="Configurations\MediaConfiguration.cs" />
@@ -68,16 +69,29 @@
     <Compile Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.Designer.cs">
       <DependentUpon>201608261346012_UpdateAccountConfigs.cs</DependentUpon>
     </Compile>
+    <Compile Include="DvurechenskyMigrations\201609031449370_AddHashTagTable.cs" />
+    <Compile Include="DvurechenskyMigrations\201609031449370_AddHashTagTable.Designer.cs">
+      <DependentUpon>201609031449370_AddHashTagTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="KiotoMigrations\201608301631568_Init.cs" />
     <Compile Include="KiotoMigrations\201608301631568_Init.Designer.cs">
       <DependentUpon>201608301631568_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\201609031449505_AddHashTagTable.cs" />
+    <Compile Include="KiotoMigrations\201609031449505_AddHashTagTable.Designer.cs">
+      <DependentUpon>201609031449505_AddHashTagTable.cs</DependentUpon>
     </Compile>
     <Compile Include="KiotoMigrations\KiotoConfiguration.cs" />
     <Compile Include="MilkMigrations\201608301637489_Init.cs" />
     <Compile Include="MilkMigrations\201608301637489_Init.Designer.cs">
       <DependentUpon>201608301637489_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="MilkMigrations\201609031453189_AddHashTagTable.cs" />
+    <Compile Include="MilkMigrations\201609031453189_AddHashTagTable.Designer.cs">
+      <DependentUpon>201609031453189_AddHashTagTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="MilkMigrations\MilkConfiguration.cs" />
+    <Compile Include="Models\HashTagDbModel.cs" />
     <Compile Include="OzernyMigrations\201608261229041_Init.cs" />
     <Compile Include="OzernyMigrations\201608261229041_Init.Designer.cs">
       <DependentUpon>201608261229041_Init.cs</DependentUpon>
@@ -86,11 +100,19 @@
     <Compile Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.Designer.cs">
       <DependentUpon>201608261345395_UpdateAccountConfigs.cs</DependentUpon>
     </Compile>
+    <Compile Include="OzernyMigrations\201609031449193_AddHashTagTable.cs" />
+    <Compile Include="OzernyMigrations\201609031449193_AddHashTagTable.Designer.cs">
+      <DependentUpon>201609031449193_AddHashTagTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateFollowingsSynchronizationTimeCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\HashTag\GetHashTagsQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\HashTag\GetHashTagsQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToLikeQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToLikeQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetAllKnownUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetAllKnownUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetFollowingUsersQuery.cs" />
@@ -179,17 +201,29 @@
     <EmbeddedResource Include="DvurechenskyMigrations\201608261346012_UpdateAccountConfigs.resx">
       <DependentUpon>201608261346012_UpdateAccountConfigs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DvurechenskyMigrations\201609031449370_AddHashTagTable.resx">
+      <DependentUpon>201609031449370_AddHashTagTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201608301631568_Init.resx">
       <DependentUpon>201608301631568_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201609031449505_AddHashTagTable.resx">
+      <DependentUpon>201609031449505_AddHashTagTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MilkMigrations\201608301637489_Init.resx">
       <DependentUpon>201608301637489_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MilkMigrations\201609031453189_AddHashTagTable.resx">
+      <DependentUpon>201609031453189_AddHashTagTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201608261229041_Init.resx">
       <DependentUpon>201608261229041_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201608261345395_UpdateAccountConfigs.resx">
       <DependentUpon>201608261345395_UpdateAccountConfigs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201609031449193_AddHashTagTable.resx">
+      <DependentUpon>201609031449193_AddHashTagTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

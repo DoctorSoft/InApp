@@ -1,6 +1,6 @@
-﻿namespace Engines.Engines.LikeHashTagEngine
+﻿namespace Engines.Engines.GetMediaByHashTagEngine
 {
-    public class LikeHashTagModel
+    public class GetMediaByHashTagModel
     {
         public string HashTag { get; set; }
         public int CountMedia { get; set; }

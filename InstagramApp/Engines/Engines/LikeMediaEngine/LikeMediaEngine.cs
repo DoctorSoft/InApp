@@ -4,15 +4,16 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace Engines.Engines.LikeTheLinkEngine
+namespace Engines.Engines.LikeMediaEngine
 {
-    public class LikeTheLinkEngine: AbstractEngine<LikeTheLinkModel, VoidResult>
+    public class LikeMediaEngine: AbstractEngine<LikeMediaModel, VoidResult>
     {
-        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, LikeTheLinkModel model)
+        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, LikeMediaModel model)
         {
-            driver.Navigate().GoToUrl(model.Link);
-
-            Thread.Sleep(500);
+            if (!base.NavigateToUrl(driver, model.Link))
+            {
+                return GetDefaultResult();
+            }
 
             string text;
 
@@ -27,6 +28,7 @@ namespace Engines.Engines.LikeTheLinkEngine
                 IList<IWebElement> likeSpans = driver.FindElements(By.ClassName("_soakw"));
                 text = likeSpans.FirstOrDefault().Text;
             }
+
             if (text == "Нравится")
             {
                 IList<IWebElement> likeButtons = driver.FindElements(By.ClassName("_ebwb5"));

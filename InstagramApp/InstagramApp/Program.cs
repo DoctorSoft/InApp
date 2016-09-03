@@ -111,6 +111,8 @@ namespace InstagramApp
             {
                 var actions = new List<Action<RemoteWebDriver, TContext>>
                 {
+                    service.SaveMediaByHashTag,
+                    service.LikeMedias,
                     service.SynchOwnerFollowings,
                     service.SearchNewUsers,
                     service.FollowUsers,

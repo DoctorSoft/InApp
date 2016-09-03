@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using Engines.Exceptions;
+﻿using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
@@ -11,26 +8,9 @@ namespace Engines.Engines.GetUserInfoEngine
     {
         protected override GetUserInfoEngineResponse ExecuteEngine(RemoteWebDriver driver, GetUserInfoEngineModel model)
         {
-            driver.Navigate().GoToUrl(model.UserLink);
-
-            Thread.Sleep(500);
-
-            var breakButtonExists = driver
-                .FindElements(By.TagName("h2"))
-                .Any(element => element.Text.Contains("недоступна"));
-
-            if (breakButtonExists)
+            if (!base.NavigateToUrl(driver, model.UserLink))
             {
-                return new GetUserInfoEngineResponse();
-            }
-
-            var captchButtonExists = driver
-                .FindElements(By.TagName("h2"))
-                .Any(element => element.Text.Contains("Подтвердите"));
-
-            if (captchButtonExists)
-            {
-                throw new CaptchaException();
+                return GetDefaultResult();
             }
 
             var followersCount = driver

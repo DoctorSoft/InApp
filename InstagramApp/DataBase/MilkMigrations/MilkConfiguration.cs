@@ -163,6 +163,54 @@ namespace DataBase.MilkMigrations
             };
 
             context.Languages.AddRange(languages);
+
+            context.HashTags.RemoveRange(context.HashTags);
+
+            var hashTags = new List<HashTagDbModel>
+            {
+                new HashTagDbModel
+                {
+                    Name = "#Grodno"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Беларусь"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Belarus"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Гродно2016"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Гродносити"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Гроднофото"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#ГродноЦентр"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Гроднобеларусь"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#grodnonow"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#grodno24"
+                },
+            };
+
+            context.HashTags.AddRange(hashTags);
         }
     }
 }

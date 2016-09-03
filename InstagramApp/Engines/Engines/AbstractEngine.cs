@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Linq;
+using System.Threading;
+using Engines.Exceptions;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines
@@ -16,6 +20,10 @@ namespace Engines.Engines
             {
                 result = ExecuteEngine(driver, model);
             }
+            catch (CaptchaException ex)
+            {
+                throw;
+            }
             catch (Exception ex)
             {
                 // todo: Log it
@@ -23,6 +31,38 @@ namespace Engines.Engines
             }
 
             return result;
+        }
+
+        protected bool NavigateToUrl(RemoteWebDriver driver, string url = "https://www.instagram.com/")
+        {
+            driver.Navigate().GoToUrl(url);
+
+            Thread.Sleep(800);
+
+            var breakButtonExists = driver
+                .FindElements(By.TagName("h2"))
+                .Any(element => element.Text.Contains("недоступна"));
+
+            if (breakButtonExists)
+            {
+                return false;
+            }
+
+            var captchButtonExists = driver
+                .FindElements(By.TagName("h2"))
+                .Any(element => element.Text.Contains("Подтвердите"));
+
+            if (captchButtonExists)
+            {
+                throw new CaptchaException();
+            }
+
+            return true;
+        }
+
+        protected TResult GetDefaultResult()
+        {
+            return new TResult();
         }
     }
 }

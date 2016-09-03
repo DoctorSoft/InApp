@@ -2,7 +2,7 @@
 {
     public class SearchUserImagesModel
     {
-        public string UserPageLink { get; set; }
+        public string UserLink { get; set; }
         public int CountImages { get; set; }
     }
 }

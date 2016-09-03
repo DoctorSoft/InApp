@@ -23,7 +23,9 @@ namespace DataBase.Contexts
 		
         public DbSet<ProfileSettingsDbModel> ProfileSettings { get; set; }
 
-        public DbSet<SpamWordDbModel> SpamWords { get; set; } 
+        public DbSet<SpamWordDbModel> SpamWords { get; set; }
+
+        public DbSet<HashTagDbModel> HashTags { get; set; } 
 		
         protected abstract AccountName GetAccountName(); 
 
@@ -35,6 +37,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new UserConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new SpamWordConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new HashTagConfiguration(GetAccountName()));
 
             base.OnModelCreating(modelBuilder);
         }

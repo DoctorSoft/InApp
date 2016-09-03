@@ -10,9 +10,10 @@ namespace Engines.Engines.LikeFriendsPostsEngine
     {
         protected override VoidResult ExecuteEngine(RemoteWebDriver driver, LikeFriendsPostsModel model)
         {
-            driver.Navigate().GoToUrl("https://www.instagram.com/");
-
-            Thread.Sleep(500);
+            if (!base.NavigateToUrl(driver))
+            {
+                return GetDefaultResult();
+            }
 
             var count = 0;
 

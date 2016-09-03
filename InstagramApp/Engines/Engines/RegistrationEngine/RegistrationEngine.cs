@@ -10,7 +10,10 @@ namespace Engines.Engines.RegistrationEngine
     {
         protected override VoidResult ExecuteEngine(RemoteWebDriver driver, RegistrationModel model)
         {
-            driver.Navigate().GoToUrl("https://www.instagram.com/");
+            if (!base.NavigateToUrl(driver))
+            {
+                return GetDefaultResult();
+            }
 
             IList<IWebElement> links = driver.FindElements(By.TagName("a"));
 
@@ -38,7 +41,10 @@ namespace Engines.Engines.RegistrationEngine
 
             Thread.Sleep(2000);
 
-            driver.Navigate().GoToUrl("https://www.instagram.com/");
+            if (!base.NavigateToUrl(driver))
+            {
+                return GetDefaultResult();
+            }
 
             Thread.Sleep(1000);
 

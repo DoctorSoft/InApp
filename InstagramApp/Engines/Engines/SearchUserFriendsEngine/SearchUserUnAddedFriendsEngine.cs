@@ -12,9 +12,10 @@ namespace Engines.Engines.SearchUserFriendsEngine
     {
         protected override List<string> ExecuteEngine(RemoteWebDriver driver, SearchUserUnAddedFriendsModel model)
         {
-            driver.Navigate().GoToUrl(model.UserPageLink);
-            
-            Thread.Sleep(500);
+            if (!base.NavigateToUrl(driver, model.UserLink))
+            {
+                return GetDefaultResult();
+            } Thread.Sleep(500);
 
             var breakButtonExists = driver
                 .FindElements(By.TagName("h2"))

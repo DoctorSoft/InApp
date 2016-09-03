@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Media;
 using DataBase.QueriesAndCommands.Commands.Settings;
 using DataBase.QueriesAndCommands.Commands.Users;
+using DataBase.QueriesAndCommands.Queries.HashTag;
 using DataBase.QueriesAndCommands.Queries.Languages;
 using DataBase.QueriesAndCommands.Queries.Media;
 using DataBase.QueriesAndCommands.Queries.Settings;
 using DataBase.QueriesAndCommands.Queries.Users;
 using DataBase.QueriesAndCommands.Queries.Words;
 using Engines.Engines.FollowUserEngine;
+using Engines.Engines.GetMediaByHashTagEngine;
 using Engines.Engines.GetUserInfoEngine;
-using Engines.Engines.LikeHashTagEngine;
+using Engines.Engines.LikeMediaEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
 using Engines.Engines.WaitingCaptchEngine;
@@ -82,15 +85,15 @@ namespace InstagramApp
 
                 results.AddRange(new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
                 {
-                    UserPageLink = user,
-                    MaxCount = 100,
+                    UserLink = user,
+                    MaxCount = 250,
                     Count = userInfo.FollowerCount
                 }));
 
                 results.AddRange(new SearchUserUnAddedFriendsEngine().Execute(driver, new SearchUserUnAddedFriendsModel
                 {
-                    UserPageLink = user,
-                    MaxCount = 100,
+                    UserLink = user,
+                    MaxCount = 250,
                     Count = userInfo.FollowingCount
                 }));
             }
@@ -129,7 +132,7 @@ namespace InstagramApp
 
             var addedUsers = new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
             {
-                UserPageLink = settings.HomePageUrl,
+                UserLink = settings.HomePageUrl,
                 MaxCount = null,
                 Count = userInfo.FollowerCount
             });
@@ -173,7 +176,7 @@ namespace InstagramApp
 
             var followings = new SearchUserUnAddedFriendsEngine().Execute(driver, new SearchUserUnAddedFriendsModel
             {
-                UserPageLink = settings.HomePageUrl,
+                UserLink = settings.HomePageUrl,
                 MaxCount = null,
                 Count = userInfo.FollowingCount
             });
@@ -270,18 +273,49 @@ namespace InstagramApp
                 }));
         }
 
-        public void LikeHashTag(RemoteWebDriver driver, DataBaseContext context)
+        public void SaveMediaByHashTag(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);
 
-            new AddMediaListCommandHandler(context).Handle(new AddMediaListCommand
+            var hasTags = new GetHashTagsQueryHandler(context).Handle(new GetHashTagsQuery());
+
+            foreach (var hasTag in hasTags)
             {
-                MediaList = new LikeHashTagEngine().Execute(driver, new LikeHashTagModel()
+                var mediaList = new GetMediaByHashTagEngine().Execute(driver, new GetMediaByHashTagModel()
                 {
-                    HashTag = "Grodno",
+                    HashTag = hasTag,
                     CountMedia = 20
-                })
-            });    
+                });
+
+                new AddMediaListCommandHandler(context).Handle(new AddMediaListCommand
+                {
+                    MediaList = mediaList,
+                    MediaStatus = MediaStatus.ToLike
+                }); 
+            }   
+        }
+
+        public void LikeMedias(RemoteWebDriver driver, DataBaseContext context)
+        {
+            Registration(driver, context);
+
+            var hashTags = new GetMediaToLikeQueryHandler(context).Handle(new GetMediaToLikeQuery
+            {
+                MaxCount = 150
+            });
+
+            foreach (var hashTag in hashTags)
+            {
+                new LikeMediaEngine().Execute(driver, new LikeMediaModel
+                {
+                    Link = hashTag
+                });
+
+                new MarkMediaAsLikedCommandHandler(context).Handle(new MarkMediaAsLikedCommand
+                {
+                    Link = hashTag
+                });
+            }
         }
 
         public void ClearOldMedia(RemoteWebDriver driver, DataBaseContext context)
@@ -292,7 +326,6 @@ namespace InstagramApp
             {
                 UrlList = new GetMediaToDeleteQueryHandler(context).Handle(new GetMediaToDeleteQuery())
             });
-
         }
 
         public void HandleCaptchaException(RemoteWebDriver driver, DataBaseContext context)

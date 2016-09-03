@@ -13,7 +13,10 @@ namespace Engines.Engines.SearchUserImagesEngine
     {
         protected override List<string> ExecuteEngine(RemoteWebDriver driver, SearchUserImagesModel model)
         {
-            driver.Navigate().GoToUrl(model.UserPageLink);
+            if (!base.NavigateToUrl(driver, model.UserLink))
+            {
+                return GetDefaultResult();
+            }
 
             int countShownImages = GetCountShownImages(driver);
 

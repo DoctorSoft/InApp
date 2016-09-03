@@ -22,7 +22,7 @@ namespace DataBase.QueriesAndCommands.Commands.Media
             .Select(s => new MediaDbModel()
             {
                 LikeDate = DateTime.Now,
-                MediaStatus = MediaStatus.ToLike,
+                MediaStatus = command.MediaStatus ?? MediaStatus.ToLike,
                 Link = s
             });
 

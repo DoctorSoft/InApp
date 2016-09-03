@@ -5,16 +5,17 @@ using DataBase.Models;
 
 namespace DataBase.Configurations
 {
-    public class HashTagConfiguration: EntityTypeConfiguration<HashTagDbModel>
+    public class SpamWordConfiguration: EntityTypeConfiguration<SpamWordDbModel>
     {
-        public HashTagConfiguration(AccountName accountName)
+        public SpamWordConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_HashTag");
+            ToTable(accountName.ToString("G") + "_SpamWord");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(model => model.Name);
+            Property(model => model.WordRoot);
+            Property(model => model.SpamFactor);
         }
     }
 }

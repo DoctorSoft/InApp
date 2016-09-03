@@ -2,7 +2,7 @@
 {
     public class SearchUserFriendsModel
     {
-        public string UserPageLink { get; set; }
+        public string UserLink { get; set; }
 
         public int? MaxCount { get; set; }
 

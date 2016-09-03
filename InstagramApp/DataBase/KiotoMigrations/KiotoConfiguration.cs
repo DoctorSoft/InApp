@@ -163,6 +163,54 @@ namespace DataBase.KiotoMigrations
             };
 
             context.Languages.AddRange(languages);
+
+            context.HashTags.RemoveRange(context.HashTags);
+
+            var hashTags = new List<HashTagDbModel>
+            {
+                new HashTagDbModel
+                {
+                    Name = "#Grodno"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#кафегродно"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Гродно"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#олдситигродно"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Суши"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#oldcitygrodno"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#OldCity"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#евроопт"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#едагродно"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#lidabeerfest"
+                },
+            };
+
+            context.HashTags.AddRange(hashTags);
         }
     }
 }
