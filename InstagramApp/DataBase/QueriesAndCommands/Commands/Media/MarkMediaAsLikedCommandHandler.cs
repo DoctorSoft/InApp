@@ -14,12 +14,17 @@ namespace DataBase.QueriesAndCommands.Commands.Media
         {
             this.context = context;
         }
+
         public VoidCommandResponse Handle(MarkMediaAsLikedCommand command)
         {
-
             var media = context.Medias.FirstOrDefault(model => model.Link == command.Link);
 
-            media.MediaStatus = MediaStatus.ToLike;
+            if (media == null)
+            {
+                return new VoidCommandResponse();
+            }
+
+            media.MediaStatus = MediaStatus.Liked;
 
             context.Medias.AddOrUpdate(media);
             context.SaveChanges();
