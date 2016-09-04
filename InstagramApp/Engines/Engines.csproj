@@ -65,6 +65,8 @@
     <Compile Include="Engines\FollowUserEngine\FollowUserModel.cs" />
     <Compile Include="Engines\FollowUserEngine\UnFollowUserEngine.cs" />
     <Compile Include="Engines\FollowUserEngine\UnFollowUserModel.cs" />
+    <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageEngine.cs" />
+    <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageModel.cs" />
     <Compile Include="Engines\GetUserInfoEngine\GetUserInfoEngine.cs" />
     <Compile Include="Engines\GetUserInfoEngine\GetUserInfoEngineModel.cs" />
     <Compile Include="Engines\GetUserInfoEngine\GetUserInfoEngineResponse.cs" />

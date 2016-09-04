@@ -14,6 +14,7 @@ using DataBase.QueriesAndCommands.Queries.Users;
 using DataBase.QueriesAndCommands.Queries.Words;
 using Engines.Engines.FollowUserEngine;
 using Engines.Engines.GetMediaByHashTagEngine;
+using Engines.Engines.GetMediaByMainPageEngine;
 using Engines.Engines.GetUserInfoEngine;
 using Engines.Engines.LikeMediaEngine;
 using Engines.Engines.RegistrationEngine;
@@ -295,6 +296,21 @@ namespace InstagramApp
             }   
         }
 
+        public void SaveMediaByHomePage(RemoteWebDriver driver, DataBaseContext context)
+        {
+            Registration(driver, context);
+
+            var mediaList = new GetMediaByMainPageEngine().Execute(driver, new GetMediaByMainPageModel()
+            {
+                    CountMedia = 30
+            });
+
+            new AddMediaListCommandHandler(context).Handle(new AddMediaListCommand
+            {
+                MediaList = mediaList,
+                MediaStatus = MediaStatus.ToLike
+            });
+        }
         public void LikeMedias(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);
