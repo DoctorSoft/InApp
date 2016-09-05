@@ -76,6 +76,7 @@
     <Compile Include="Engines\GetMediaByHashTagEngine\GetMediaByHashTagEngine.cs" />
     <Compile Include="Engines\GetMediaByHashTagEngine\GetMediaByHashTagModel.cs" />
     <Compile Include="Engines\LikeMediaEngine\LikeMediaEngine.cs" />
+    <Compile Include="Engines\LikeMediaEngine\LikeMediaEngineResponse.cs" />
     <Compile Include="Engines\LikeMediaEngine\LikeMediaModel.cs" />
     <Compile Include="Engines\RegistrationEngine\RegistrationEngine.cs" />
     <Compile Include="Engines\RegistrationEngine\RegistrationModel.cs" />

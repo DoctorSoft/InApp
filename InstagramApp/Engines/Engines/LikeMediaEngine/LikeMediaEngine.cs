@@ -6,9 +6,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.LikeMediaEngine
 {
-    public class LikeMediaEngine: AbstractEngine<LikeMediaModel, VoidResult>
+    public class LikeMediaEngine : AbstractEngine<LikeMediaModel, LikeMediaEngineResponse>
     {
-        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, LikeMediaModel model)
+        protected override LikeMediaEngineResponse ExecuteEngine(RemoteWebDriver driver, LikeMediaModel model)
         {
             if (!base.NavigateToUrl(driver, model.Link))
             {
@@ -34,7 +34,31 @@ namespace Engines.Engines.LikeMediaEngine
                 IList<IWebElement> likeButtons = driver.FindElements(By.ClassName("_ebwb5"));
                 likeButtons.FirstOrDefault().Click();
             }
-            return new VoidResult();
+
+            var followButton = driver
+                .FindElements(By.ClassName("_aj7mu"))
+                .First();
+
+            if (followButton.Text.Contains("Подписаться"))
+            {
+                var userLinkTag = driver
+                    .FindElements(By.ClassName("_4zhc5"))
+                    .FirstOrDefault();
+
+                if (userLinkTag == null)
+                {
+                    return GetDefaultResult();
+                }
+
+                var userLink = userLinkTag.GetAttribute("href");
+
+                return new LikeMediaEngineResponse
+                {
+                    UserLink = userLink
+                };
+            }
+
+            return GetDefaultResult();
         }
     }
 }

@@ -312,6 +312,7 @@ namespace InstagramApp
                 MediaStatus = MediaStatus.ToLike
             });
         }
+
         public void LikeMedias(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);
@@ -323,7 +324,7 @@ namespace InstagramApp
 
             foreach (var hashTag in hashTags)
             {
-                new LikeMediaEngine().Execute(driver, new LikeMediaModel
+                var userLink = new LikeMediaEngine().Execute(driver, new LikeMediaModel
                 {
                     Link = hashTag
                 });
@@ -332,6 +333,14 @@ namespace InstagramApp
                 {
                     Link = hashTag
                 });
+
+                if (!string.IsNullOrEmpty(userLink.UserLink))
+                {
+                    new MarkUserAsToFollowCommandHandler(context).Handle(new MarkUserAsToFollowCommand
+                    {
+                        UserLink = userLink.UserLink
+                    });
+                }
             }
         }
 

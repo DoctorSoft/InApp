@@ -24,12 +24,12 @@ namespace Engines.Engines.GetMediaByHashTagEngine
             IList<IWebElement> inputs = driver.FindElements(By.ClassName("_9x5sw"));
             inputs.FirstOrDefault().SendKeys(model.HashTag);
 
-            Thread.Sleep(2500);
+            Thread.Sleep(4500);
 
             IList<IWebElement> hashLinks = driver.FindElements(By.ClassName("_k2vj6"));
             hashLinks.FirstOrDefault().Click();
 
-            Thread.Sleep(1500);
+            Thread.Sleep(4500);
 
             var breakFactor = 0;
             while (countShownImages < model.CountMedia)
