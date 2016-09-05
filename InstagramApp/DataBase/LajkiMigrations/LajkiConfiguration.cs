@@ -5,17 +5,17 @@ using System.Linq;
 using Constants;
 using DataBase.Models;
 
-namespace DataBase.DvurechenskyMigrations
+namespace DataBase.LajkiMigrations
 {
-    internal sealed class DvurechenskyConfiguration : DbMigrationsConfiguration<DataBase.Contexts.DvurechenskyContext>
+    internal sealed class LajkiConfiguration : DbMigrationsConfiguration<DataBase.Contexts.LajkiContext>
     {
-        public DvurechenskyConfiguration()
+        public LajkiConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"DvurechenskyMigrations";
+            MigrationsDirectory = @"LajkiMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.DvurechenskyContext context)
+        protected override void Seed(DataBase.Contexts.LajkiContext context)
         {
             if (!context.Users.Any())
             {
@@ -30,12 +30,11 @@ namespace DataBase.DvurechenskyMigrations
             }
 
             context.ProfileSettings.RemoveRange(context.ProfileSettings);
-
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/galaxy.grodno/",
-                Login = "galaxy.grodno",
-                Password = "Ntvyjnf123",
+                HomePageUrl = "https://www.instagram.com/lajki.by/",
+                Login = "lajki.by",
+                Password = "123qazwsxedc890",
                 LanguageDetectorKey = "06b11f1ec38eb723b903fc36c74f5fe7"
             };
             context.ProfileSettings.Add(settings);
@@ -118,6 +117,31 @@ namespace DataBase.DvurechenskyMigrations
                 {
                     SpamFactor = 0.9,
                     WordRoot = "купл"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.9,
+                    WordRoot = "магаз"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.8,
+                    WordRoot = "бренд"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.7,
+                    WordRoot = "сувенир"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.8,
+                    WordRoot = "агенств"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.5,
+                    WordRoot = "одежд"
                 },
                 new SpamWordDbModel
                 {

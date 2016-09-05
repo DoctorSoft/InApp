@@ -2,11 +2,11 @@
 
 namespace DataBase.Contexts
 {
-    public class DvurechenskyContext : DataBaseContext
+    public class LajkiContext : DataBaseContext
     {
         protected override AccountName GetAccountName()
         {
-            return AccountName.Dvurechensky;
+            return AccountName.Lajki;
         }
     }
 }

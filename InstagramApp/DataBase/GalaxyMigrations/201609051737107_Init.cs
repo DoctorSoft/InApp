@@ -1,4 +1,4 @@
-namespace DataBase.KiotoMigrations
+namespace DataBase.GalaxyMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -8,7 +8,7 @@ namespace DataBase.KiotoMigrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Kioto_Language",
+                "dbo.Galaxy_HashTag",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -17,7 +17,16 @@ namespace DataBase.KiotoMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Kioto_Region",
+                "dbo.Galaxy_Language",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Galaxy_Region",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -29,11 +38,11 @@ namespace DataBase.KiotoMigrations
                         LanguageId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Kioto_Language", t => t.LanguageId, cascadeDelete: true)
+                .ForeignKey("dbo.Galaxy_Language", t => t.LanguageId, cascadeDelete: true)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Kioto_User",
+                "dbo.Galaxy_User",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -46,13 +55,13 @@ namespace DataBase.KiotoMigrations
                         IncludingTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Kioto_Region", t => t.RegionId)
-                .ForeignKey("dbo.Kioto_Language", t => t.LanguageId)
+                .ForeignKey("dbo.Galaxy_Region", t => t.RegionId)
+                .ForeignKey("dbo.Galaxy_Language", t => t.LanguageId)
                 .Index(t => t.RegionId)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Kioto_Media",
+                "dbo.Galaxy_Media",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -64,11 +73,11 @@ namespace DataBase.KiotoMigrations
                         LikeDate = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Kioto_User", t => t.UserId)
+                .ForeignKey("dbo.Galaxy_User", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Kioto_ProfilesSettings",
+                "dbo.Galaxy_ProfilesSettings",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -81,7 +90,7 @@ namespace DataBase.KiotoMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Kioto_SpamWord",
+                "dbo.Galaxy_SpamWord",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -94,20 +103,21 @@ namespace DataBase.KiotoMigrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Kioto_User", "LanguageId", "dbo.Kioto_Language");
-            DropForeignKey("dbo.Kioto_Region", "LanguageId", "dbo.Kioto_Language");
-            DropForeignKey("dbo.Kioto_User", "RegionId", "dbo.Kioto_Region");
-            DropForeignKey("dbo.Kioto_Media", "UserId", "dbo.Kioto_User");
-            DropIndex("dbo.Kioto_Media", new[] { "UserId" });
-            DropIndex("dbo.Kioto_User", new[] { "LanguageId" });
-            DropIndex("dbo.Kioto_User", new[] { "RegionId" });
-            DropIndex("dbo.Kioto_Region", new[] { "LanguageId" });
-            DropTable("dbo.Kioto_SpamWord");
-            DropTable("dbo.Kioto_ProfilesSettings");
-            DropTable("dbo.Kioto_Media");
-            DropTable("dbo.Kioto_User");
-            DropTable("dbo.Kioto_Region");
-            DropTable("dbo.Kioto_Language");
+            DropForeignKey("dbo.Galaxy_User", "LanguageId", "dbo.Galaxy_Language");
+            DropForeignKey("dbo.Galaxy_Region", "LanguageId", "dbo.Galaxy_Language");
+            DropForeignKey("dbo.Galaxy_User", "RegionId", "dbo.Galaxy_Region");
+            DropForeignKey("dbo.Galaxy_Media", "UserId", "dbo.Galaxy_User");
+            DropIndex("dbo.Galaxy_Media", new[] { "UserId" });
+            DropIndex("dbo.Galaxy_User", new[] { "LanguageId" });
+            DropIndex("dbo.Galaxy_User", new[] { "RegionId" });
+            DropIndex("dbo.Galaxy_Region", new[] { "LanguageId" });
+            DropTable("dbo.Galaxy_SpamWord");
+            DropTable("dbo.Galaxy_ProfilesSettings");
+            DropTable("dbo.Galaxy_Media");
+            DropTable("dbo.Galaxy_User");
+            DropTable("dbo.Galaxy_Region");
+            DropTable("dbo.Galaxy_Language");
+            DropTable("dbo.Galaxy_HashTag");
         }
     }
 }

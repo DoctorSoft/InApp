@@ -13,7 +13,7 @@ namespace DataBase.OzernyMigrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201608261229041_Init"; }
+            get { return "201609051736479_Init"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,8 +3,9 @@
     public enum AccountName
     {
         Ozerny = 1,
-        Dvurechensky = 2,
+        Galaxy = 2,
         Kioto = 3,
-        Milk = 4
+        Milk = 4,
+        Lajki = 5
     }
 }

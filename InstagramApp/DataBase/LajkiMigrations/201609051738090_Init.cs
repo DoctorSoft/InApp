@@ -1,4 +1,4 @@
-namespace DataBase.MilkMigrations
+namespace DataBase.LajkiMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -8,7 +8,7 @@ namespace DataBase.MilkMigrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Milk_Language",
+                "dbo.Lajki_HashTag",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -17,7 +17,16 @@ namespace DataBase.MilkMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Milk_Region",
+                "dbo.Lajki_Language",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Lajki_Region",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -29,11 +38,11 @@ namespace DataBase.MilkMigrations
                         LanguageId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Milk_Language", t => t.LanguageId, cascadeDelete: true)
+                .ForeignKey("dbo.Lajki_Language", t => t.LanguageId, cascadeDelete: true)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Milk_User",
+                "dbo.Lajki_User",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -46,13 +55,13 @@ namespace DataBase.MilkMigrations
                         IncludingTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Milk_Region", t => t.RegionId)
-                .ForeignKey("dbo.Milk_Language", t => t.LanguageId)
+                .ForeignKey("dbo.Lajki_Region", t => t.RegionId)
+                .ForeignKey("dbo.Lajki_Language", t => t.LanguageId)
                 .Index(t => t.RegionId)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Milk_Media",
+                "dbo.Lajki_Media",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -64,11 +73,11 @@ namespace DataBase.MilkMigrations
                         LikeDate = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Milk_User", t => t.UserId)
+                .ForeignKey("dbo.Lajki_User", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Milk_ProfilesSettings",
+                "dbo.Lajki_ProfilesSettings",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -81,7 +90,7 @@ namespace DataBase.MilkMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Milk_SpamWord",
+                "dbo.Lajki_SpamWord",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -94,20 +103,21 @@ namespace DataBase.MilkMigrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Milk_User", "LanguageId", "dbo.Milk_Language");
-            DropForeignKey("dbo.Milk_Region", "LanguageId", "dbo.Milk_Language");
-            DropForeignKey("dbo.Milk_User", "RegionId", "dbo.Milk_Region");
-            DropForeignKey("dbo.Milk_Media", "UserId", "dbo.Milk_User");
-            DropIndex("dbo.Milk_Media", new[] { "UserId" });
-            DropIndex("dbo.Milk_User", new[] { "LanguageId" });
-            DropIndex("dbo.Milk_User", new[] { "RegionId" });
-            DropIndex("dbo.Milk_Region", new[] { "LanguageId" });
-            DropTable("dbo.Milk_SpamWord");
-            DropTable("dbo.Milk_ProfilesSettings");
-            DropTable("dbo.Milk_Media");
-            DropTable("dbo.Milk_User");
-            DropTable("dbo.Milk_Region");
-            DropTable("dbo.Milk_Language");
+            DropForeignKey("dbo.Lajki_User", "LanguageId", "dbo.Lajki_Language");
+            DropForeignKey("dbo.Lajki_Region", "LanguageId", "dbo.Lajki_Language");
+            DropForeignKey("dbo.Lajki_User", "RegionId", "dbo.Lajki_Region");
+            DropForeignKey("dbo.Lajki_Media", "UserId", "dbo.Lajki_User");
+            DropIndex("dbo.Lajki_Media", new[] { "UserId" });
+            DropIndex("dbo.Lajki_User", new[] { "LanguageId" });
+            DropIndex("dbo.Lajki_User", new[] { "RegionId" });
+            DropIndex("dbo.Lajki_Region", new[] { "LanguageId" });
+            DropTable("dbo.Lajki_SpamWord");
+            DropTable("dbo.Lajki_ProfilesSettings");
+            DropTable("dbo.Lajki_Media");
+            DropTable("dbo.Lajki_User");
+            DropTable("dbo.Lajki_Region");
+            DropTable("dbo.Lajki_Language");
+            DropTable("dbo.Lajki_HashTag");
         }
     }
 }

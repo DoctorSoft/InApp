@@ -1,4 +1,4 @@
-namespace DataBase.OzernyMigrations
+namespace DataBase.KiotoMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -8,7 +8,7 @@ namespace DataBase.OzernyMigrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Ozerny_Language",
+                "dbo.Kioto_HashTag",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -17,7 +17,16 @@ namespace DataBase.OzernyMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Ozerny_Region",
+                "dbo.Kioto_Language",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Kioto_Region",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -29,11 +38,11 @@ namespace DataBase.OzernyMigrations
                         LanguageId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Ozerny_Language", t => t.LanguageId, cascadeDelete: true)
+                .ForeignKey("dbo.Kioto_Language", t => t.LanguageId, cascadeDelete: true)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Ozerny_User",
+                "dbo.Kioto_User",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -46,13 +55,13 @@ namespace DataBase.OzernyMigrations
                         IncludingTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Ozerny_Region", t => t.RegionId)
-                .ForeignKey("dbo.Ozerny_Language", t => t.LanguageId)
+                .ForeignKey("dbo.Kioto_Region", t => t.RegionId)
+                .ForeignKey("dbo.Kioto_Language", t => t.LanguageId)
                 .Index(t => t.RegionId)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Ozerny_Media",
+                "dbo.Kioto_Media",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -64,11 +73,11 @@ namespace DataBase.OzernyMigrations
                         LikeDate = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Ozerny_User", t => t.UserId)
+                .ForeignKey("dbo.Kioto_User", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Ozerny_ProfilesSettings",
+                "dbo.Kioto_ProfilesSettings",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -76,11 +85,12 @@ namespace DataBase.OzernyMigrations
                         Password = c.String(),
                         HomePageUrl = c.String(),
                         LanguageDetectorKey = c.String(),
+                        PreviousFollowingsSynchDate = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Ozerny_SpamWord",
+                "dbo.Kioto_SpamWord",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -93,20 +103,21 @@ namespace DataBase.OzernyMigrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Ozerny_User", "LanguageId", "dbo.Ozerny_Language");
-            DropForeignKey("dbo.Ozerny_Region", "LanguageId", "dbo.Ozerny_Language");
-            DropForeignKey("dbo.Ozerny_User", "RegionId", "dbo.Ozerny_Region");
-            DropForeignKey("dbo.Ozerny_Media", "UserId", "dbo.Ozerny_User");
-            DropIndex("dbo.Ozerny_Media", new[] { "UserId" });
-            DropIndex("dbo.Ozerny_User", new[] { "LanguageId" });
-            DropIndex("dbo.Ozerny_User", new[] { "RegionId" });
-            DropIndex("dbo.Ozerny_Region", new[] { "LanguageId" });
-            DropTable("dbo.Ozerny_SpamWord");
-            DropTable("dbo.Ozerny_ProfilesSettings");
-            DropTable("dbo.Ozerny_Media");
-            DropTable("dbo.Ozerny_User");
-            DropTable("dbo.Ozerny_Region");
-            DropTable("dbo.Ozerny_Language");
+            DropForeignKey("dbo.Kioto_User", "LanguageId", "dbo.Kioto_Language");
+            DropForeignKey("dbo.Kioto_Region", "LanguageId", "dbo.Kioto_Language");
+            DropForeignKey("dbo.Kioto_User", "RegionId", "dbo.Kioto_Region");
+            DropForeignKey("dbo.Kioto_Media", "UserId", "dbo.Kioto_User");
+            DropIndex("dbo.Kioto_Media", new[] { "UserId" });
+            DropIndex("dbo.Kioto_User", new[] { "LanguageId" });
+            DropIndex("dbo.Kioto_User", new[] { "RegionId" });
+            DropIndex("dbo.Kioto_Region", new[] { "LanguageId" });
+            DropTable("dbo.Kioto_SpamWord");
+            DropTable("dbo.Kioto_ProfilesSettings");
+            DropTable("dbo.Kioto_Media");
+            DropTable("dbo.Kioto_User");
+            DropTable("dbo.Kioto_Region");
+            DropTable("dbo.Kioto_Language");
+            DropTable("dbo.Kioto_HashTag");
         }
     }
 }

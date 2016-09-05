@@ -1,9 +1,11 @@
 ﻿add-migration -Name [SomeName] -ConfigurationTypeName OzernyConfiguration
-add-migration -Name [SomeName] -ConfigurationTypeName DvurechenskyConfiguration
+add-migration -Name [SomeName] -ConfigurationTypeName GalaxyConfiguration
 add-migration -Name [SomeName] -ConfigurationTypeName KiotoConfiguration
 add-migration -Name [SomeName] -ConfigurationTypeName MilkConfiguration
+add-migration -Name [SomeName] -ConfigurationTypeName LajkiConfiguration
 
 update-database -ConfigurationTypeName OzernyConfiguration
-update-database -ConfigurationTypeName DvurechenskyConfiguration
+update-database -ConfigurationTypeName GalaxyConfiguration
 update-database -ConfigurationTypeName KiotoConfiguration
 update-database -ConfigurationTypeName MilkConfiguration
+update-database -ConfigurationTypeName LajkiConfiguration

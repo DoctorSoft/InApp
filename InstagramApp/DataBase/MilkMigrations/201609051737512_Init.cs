@@ -1,4 +1,4 @@
-namespace DataBase.DvurechenskyMigrations
+namespace DataBase.MilkMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -8,7 +8,7 @@ namespace DataBase.DvurechenskyMigrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Dvurechensky_Language",
+                "dbo.Milk_HashTag",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -17,7 +17,16 @@ namespace DataBase.DvurechenskyMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Dvurechensky_Region",
+                "dbo.Milk_Language",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Milk_Region",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -29,11 +38,11 @@ namespace DataBase.DvurechenskyMigrations
                         LanguageId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Dvurechensky_Language", t => t.LanguageId, cascadeDelete: true)
+                .ForeignKey("dbo.Milk_Language", t => t.LanguageId, cascadeDelete: true)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Dvurechensky_User",
+                "dbo.Milk_User",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -46,13 +55,13 @@ namespace DataBase.DvurechenskyMigrations
                         IncludingTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Dvurechensky_Region", t => t.RegionId)
-                .ForeignKey("dbo.Dvurechensky_Language", t => t.LanguageId)
+                .ForeignKey("dbo.Milk_Region", t => t.RegionId)
+                .ForeignKey("dbo.Milk_Language", t => t.LanguageId)
                 .Index(t => t.RegionId)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Dvurechensky_Media",
+                "dbo.Milk_Media",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -64,11 +73,11 @@ namespace DataBase.DvurechenskyMigrations
                         LikeDate = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Dvurechensky_User", t => t.UserId)
+                .ForeignKey("dbo.Milk_User", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Dvurechensky_ProfilesSettings",
+                "dbo.Milk_ProfilesSettings",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -76,11 +85,12 @@ namespace DataBase.DvurechenskyMigrations
                         Password = c.String(),
                         HomePageUrl = c.String(),
                         LanguageDetectorKey = c.String(),
+                        PreviousFollowingsSynchDate = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Dvurechensky_SpamWord",
+                "dbo.Milk_SpamWord",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -93,20 +103,21 @@ namespace DataBase.DvurechenskyMigrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Dvurechensky_User", "LanguageId", "dbo.Dvurechensky_Language");
-            DropForeignKey("dbo.Dvurechensky_Region", "LanguageId", "dbo.Dvurechensky_Language");
-            DropForeignKey("dbo.Dvurechensky_User", "RegionId", "dbo.Dvurechensky_Region");
-            DropForeignKey("dbo.Dvurechensky_Media", "UserId", "dbo.Dvurechensky_User");
-            DropIndex("dbo.Dvurechensky_Media", new[] { "UserId" });
-            DropIndex("dbo.Dvurechensky_User", new[] { "LanguageId" });
-            DropIndex("dbo.Dvurechensky_User", new[] { "RegionId" });
-            DropIndex("dbo.Dvurechensky_Region", new[] { "LanguageId" });
-            DropTable("dbo.Dvurechensky_SpamWord");
-            DropTable("dbo.Dvurechensky_ProfilesSettings");
-            DropTable("dbo.Dvurechensky_Media");
-            DropTable("dbo.Dvurechensky_User");
-            DropTable("dbo.Dvurechensky_Region");
-            DropTable("dbo.Dvurechensky_Language");
+            DropForeignKey("dbo.Milk_User", "LanguageId", "dbo.Milk_Language");
+            DropForeignKey("dbo.Milk_Region", "LanguageId", "dbo.Milk_Language");
+            DropForeignKey("dbo.Milk_User", "RegionId", "dbo.Milk_Region");
+            DropForeignKey("dbo.Milk_Media", "UserId", "dbo.Milk_User");
+            DropIndex("dbo.Milk_Media", new[] { "UserId" });
+            DropIndex("dbo.Milk_User", new[] { "LanguageId" });
+            DropIndex("dbo.Milk_User", new[] { "RegionId" });
+            DropIndex("dbo.Milk_Region", new[] { "LanguageId" });
+            DropTable("dbo.Milk_SpamWord");
+            DropTable("dbo.Milk_ProfilesSettings");
+            DropTable("dbo.Milk_Media");
+            DropTable("dbo.Milk_User");
+            DropTable("dbo.Milk_Region");
+            DropTable("dbo.Milk_Language");
+            DropTable("dbo.Milk_HashTag");
         }
     }
 }
