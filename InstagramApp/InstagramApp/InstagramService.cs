@@ -218,7 +218,8 @@ namespace InstagramApp
                 return;
             }
 
-            if (UserIsSpammer(driver, context, userInfo))
+            // todo: The functionality to work with spammers was exluded and is waiting for new purposes
+            /*if (UserIsSpammer(driver, context, userInfo))
             {
                 new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
                 {
@@ -231,7 +232,7 @@ namespace InstagramApp
                 });
 
                 return;
-            }
+            }*/
 
             if (UserIsForeign(driver, context, userInfo))
             {

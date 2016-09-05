@@ -159,6 +159,18 @@ namespace DataBase.KiotoMigrations
                 new LanguageDbModel
                 {
                     Name = "ru"
+                },
+                new LanguageDbModel
+                {
+                    Name = "en"
+                },
+                new LanguageDbModel
+                {
+                    Name = "pl"
+                },
+                new LanguageDbModel
+                {
+                    Name = "uk"
                 }
             };
 

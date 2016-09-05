@@ -159,6 +159,18 @@ namespace DataBase.OzernyMigrations
                 new LanguageDbModel
                 {
                     Name = "ru"
+                },
+                new LanguageDbModel
+                {
+                    Name = "en"
+                },
+                new LanguageDbModel
+                {
+                    Name = "pl"
+                },
+                new LanguageDbModel
+                {
+                    Name = "uk"
                 }
             };
 
