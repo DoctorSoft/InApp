@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engines\AbstractEngine.cs" />
+    <Compile Include="Engines\AddCommentEngine\AddCommentEngine.cs" />
+    <Compile Include="Engines\AddCommentEngine\AddCommentModel.cs" />
     <Compile Include="Engines\FollowUserEngine\FollowUserEngine.cs" />
     <Compile Include="Engines\FollowUserEngine\FollowUserModel.cs" />
     <Compile Include="Engines\FollowUserEngine\UnFollowUserEngine.cs" />
