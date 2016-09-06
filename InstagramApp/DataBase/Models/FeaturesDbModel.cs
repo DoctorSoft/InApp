@@ -1,4 +1,6 @@
-﻿namespace DataBase.Models
+﻿using Constants;
+
+namespace DataBase.Models
 {
     public class FeaturesDbModel
     {
@@ -7,5 +9,7 @@
         public string FeatureIdentyName { get; set; }
 
         public bool IsBlocked { get; set; }
+
+        public FeaturesName FeatureIdentity { get; set; }
     }
 }
