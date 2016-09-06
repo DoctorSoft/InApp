@@ -17,12 +17,13 @@ namespace DataBase.QueriesAndCommands.Commands.Media
         {
             foreach (var url in command.UrlList)
             {
-                var media = context.Medias.Where(model => url != null && model.Link == url);
+                var media = context.Medias.FirstOrDefault(model => url != null && model.Link == url);
 
-                context.Medias.RemoveRange(media);
-                context.SaveChanges();
-
+                context.Medias.Remove(media);
             }
+
+            context.SaveChanges();
+
             return new VoidCommandResponse();
         }
     }

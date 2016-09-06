@@ -150,11 +150,18 @@
     <Compile Include="OzernyMigrations\201609061913134_AddFunctionalityTable.Designer.cs">
       <DependentUpon>201609061913134_AddFunctionalityTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueriesAndCommands\Commands\Functionality\RemoveFunctionalityTokenCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\RemoveFunctionalityTokenCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateFollowingsSynchronizationTimeCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\CheckFunctionalityAccessQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\CheckFunctionalityAccessQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\FunctionalityWithTokenModel.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\GetFunctionalityToRunQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\GetFunctionalityToRunQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\HashTag\GetHashTagsQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\HashTag\GetHashTagsQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToLikeQuery.cs" />
