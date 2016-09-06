@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\FeaturesConfiguration.cs" />
     <Compile Include="Configurations\HashTagConfiguration.cs" />
     <Compile Include="Configurations\SpamWordConfiguration.cs" />
     <Compile Include="Configurations\LanguageConfiguration.cs" />
@@ -66,25 +67,46 @@
     <Compile Include="GalaxyMigrations\201609051737107_Init.Designer.cs">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="GalaxyMigrations\201609061723552_[AddTableFeatures].cs" />
+    <Compile Include="GalaxyMigrations\201609061723552_[AddTableFeatures].Designer.cs">
+      <DependentUpon>201609061723552_[AddTableFeatures].cs</DependentUpon>
+    </Compile>
     <Compile Include="KiotoMigrations\201609051737289_Init.cs" />
     <Compile Include="KiotoMigrations\201609051737289_Init.Designer.cs">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\201609061724007_[AddTableFeatures].cs" />
+    <Compile Include="KiotoMigrations\201609061724007_[AddTableFeatures].Designer.cs">
+      <DependentUpon>201609061724007_[AddTableFeatures].cs</DependentUpon>
     </Compile>
     <Compile Include="KiotoMigrations\KiotoConfiguration.cs" />
     <Compile Include="LajkiMigrations\201609051738090_Init.cs" />
     <Compile Include="LajkiMigrations\201609051738090_Init.Designer.cs">
       <DependentUpon>201609051738090_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="LajkiMigrations\201609061724237_[AddTableFeatures].cs" />
+    <Compile Include="LajkiMigrations\201609061724237_[AddTableFeatures].Designer.cs">
+      <DependentUpon>201609061724237_[AddTableFeatures].cs</DependentUpon>
+    </Compile>
     <Compile Include="LajkiMigrations\LajkiConfiguration.cs" />
     <Compile Include="MilkMigrations\201609051737512_Init.cs" />
     <Compile Include="MilkMigrations\201609051737512_Init.Designer.cs">
       <DependentUpon>201609051737512_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="MilkMigrations\201609061724066_[AddTableFeatures].cs" />
+    <Compile Include="MilkMigrations\201609061724066_[AddTableFeatures].Designer.cs">
+      <DependentUpon>201609061724066_[AddTableFeatures].cs</DependentUpon>
+    </Compile>
     <Compile Include="MilkMigrations\MilkConfiguration.cs" />
+    <Compile Include="Models\FeaturesDbModel.cs" />
     <Compile Include="Models\HashTagDbModel.cs" />
     <Compile Include="OzernyMigrations\201609051736479_Init.cs" />
     <Compile Include="OzernyMigrations\201609051736479_Init.Designer.cs">
       <DependentUpon>201609051736479_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201609061723502_[AddTableFeatures].cs" />
+    <Compile Include="OzernyMigrations\201609061723502_[AddTableFeatures].Designer.cs">
+      <DependentUpon>201609061723502_[AddTableFeatures].cs</DependentUpon>
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommandHandler.cs" />
@@ -180,17 +202,32 @@
     <EmbeddedResource Include="GalaxyMigrations\201609051737107_Init.resx">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GalaxyMigrations\201609061723552_[AddTableFeatures].resx">
+      <DependentUpon>201609061723552_[AddTableFeatures].cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609051737289_Init.resx">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201609061724007_[AddTableFeatures].resx">
+      <DependentUpon>201609061724007_[AddTableFeatures].cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LajkiMigrations\201609051738090_Init.resx">
       <DependentUpon>201609051738090_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LajkiMigrations\201609061724237_[AddTableFeatures].resx">
+      <DependentUpon>201609061724237_[AddTableFeatures].cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MilkMigrations\201609051737512_Init.resx">
       <DependentUpon>201609051737512_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MilkMigrations\201609061724066_[AddTableFeatures].resx">
+      <DependentUpon>201609061724066_[AddTableFeatures].cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609051736479_Init.resx">
       <DependentUpon>201609051736479_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201609061723502_[AddTableFeatures].resx">
+      <DependentUpon>201609061723502_[AddTableFeatures].cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

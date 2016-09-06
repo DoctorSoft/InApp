@@ -223,6 +223,22 @@ namespace DataBase.LajkiMigrations
             };
 
             context.HashTags.AddRange(hashTags);
+
+            context.Features.RemoveRange(context.Features);
+            var features = new List<FeaturesDbModel>
+            {
+                new FeaturesDbModel
+                {
+                    FeatureIdentyName =  FeaturesName.PostComments.ToString("G"),
+                    IsBlocked = false
+                },
+                new FeaturesDbModel
+                {
+                    FeatureIdentyName =  FeaturesName.CheckSpammers.ToString("G"),
+                    IsBlocked = true
+                }
+            };
+            context.Features.AddRange(features);
         }
     }
 }
