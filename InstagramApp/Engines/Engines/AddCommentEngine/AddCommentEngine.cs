@@ -13,7 +13,7 @@ namespace Engines.Engines.AddCommentEngine
 
             Thread.Sleep(500);
 
-            IWebElement textBox = driver.FindElements(By.ClassName("_soakw")).FirstOrDefault();
+            IWebElement textBox = driver.FindElements(By.ClassName("_7uiwk")).FirstOrDefault();
             if (textBox != null)
             {
                 textBox.Clear();
