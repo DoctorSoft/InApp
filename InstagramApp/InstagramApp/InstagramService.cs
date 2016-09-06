@@ -12,6 +12,7 @@ using DataBase.QueriesAndCommands.Queries.Media;
 using DataBase.QueriesAndCommands.Queries.Settings;
 using DataBase.QueriesAndCommands.Queries.Users;
 using DataBase.QueriesAndCommands.Queries.Words;
+using Engines.Engines.AddCommentEngine;
 using Engines.Engines.FollowUserEngine;
 using Engines.Engines.GetMediaByHashTagEngine;
 using Engines.Engines.GetMediaByMainPageEngine;
@@ -351,6 +352,17 @@ namespace InstagramApp
             new DeleteMediaCommandHandler(context).Handle(new DeleteMediaCommand
             {
                 UrlList = new GetMediaToDeleteQueryHandler(context).Handle(new GetMediaToDeleteQuery())
+            });
+        }
+        
+        public void AddComment(RemoteWebDriver driver, DataBaseContext context)
+        {
+            Registration(driver, context);
+
+            new AddCommentEngine().Execute(driver, new AddCommentModel
+            {
+                CommentText = "Красиво!",
+                Link = "https://www.instagram.com/p/BJ7Y-N5g0td/"
             });
         }
 
