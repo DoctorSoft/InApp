@@ -2,7 +2,7 @@
 {
     public enum FeaturesName
     {
-        PostComments,
-        CheckSpammers
+        PostComments = 1,
+        CheckSpammers = 2
     }
 }
