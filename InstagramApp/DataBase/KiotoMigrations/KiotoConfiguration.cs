@@ -230,12 +230,14 @@ namespace DataBase.KiotoMigrations
                 new FeaturesDbModel
                 {
                     FeatureIdentyName =  FeaturesName.PostComments.ToString("G"),
-                    IsBlocked = true
+                    IsBlocked = true,
+                    FeatureIdentity = FeaturesName.PostComments
                 },
                 new FeaturesDbModel
                 {
                     FeatureIdentyName =  FeaturesName.CheckSpammers.ToString("G"),
-                    IsBlocked = false
+                    IsBlocked = false,
+                    FeatureIdentity = FeaturesName.CheckSpammers
                 }
             };
             context.Features.AddRange(features);

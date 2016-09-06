@@ -230,12 +230,14 @@ namespace DataBase.LajkiMigrations
                 new FeaturesDbModel
                 {
                     FeatureIdentyName =  FeaturesName.PostComments.ToString("G"),
-                    IsBlocked = false
+                    IsBlocked = false,
+                    FeatureIdentity = FeaturesName.PostComments
                 },
                 new FeaturesDbModel
                 {
                     FeatureIdentyName =  FeaturesName.CheckSpammers.ToString("G"),
-                    IsBlocked = true
+                    IsBlocked = true,
+                    FeatureIdentity = FeaturesName.CheckSpammers
                 }
             };
             context.Features.AddRange(features);

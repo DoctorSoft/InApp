@@ -16,6 +16,7 @@ namespace DataBase.Configurations
 
             Property(model => model.FeatureIdentyName);
             Property(model => model.IsBlocked);
+            Property(model => model.FeatureIdentity);
         }
     }
 }
