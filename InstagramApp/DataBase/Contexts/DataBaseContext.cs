@@ -27,7 +27,9 @@ namespace DataBase.Contexts
 
         public DbSet<HashTagDbModel> HashTags { get; set; }
 
-        public DbSet<FeaturesDbModel> Features { get; set; } 
+        public DbSet<FeaturesDbModel> Features { get; set; }
+
+        public DbSet<FunctionalityDbModel> Functionalities { get; set; } 
 		
         protected abstract AccountName GetAccountName(); 
 
@@ -41,6 +43,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new SpamWordConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new HashTagConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FeaturesConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new FunctionalityConfiguration(GetAccountName()));
 
             base.OnModelCreating(modelBuilder);
         }

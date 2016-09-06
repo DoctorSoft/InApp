@@ -239,6 +239,94 @@ namespace DataBase.OzernyMigrations
                 }
             };
             context.Features.AddRange(features);
+
+            context.Functionalities.RemoveRange(context.Functionalities);
+            var lastApplied = DateTime.Now - TimeSpan.FromDays(30);
+            var functionalities = new List<FunctionalityDbModel>
+            {
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.FollowUsers.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.FollowUsers,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromMinutes(5),
+                    ExpectingTime = TimeSpan.FromHours(1),
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.ClearOldMedia.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.ClearOldMedia,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromHours(12),
+                    ExpectingTime = TimeSpan.FromHours(1)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.LikeMedias.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.LikeMedias,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromMinutes(5),
+                    ExpectingTime = TimeSpan.FromHours(1)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.SaveMediaByHashTag.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.SaveMediaByHashTag,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromMinutes(30),
+                    ExpectingTime = TimeSpan.FromHours(1)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.SaveMediaByHomePage.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.SaveMediaByHomePage,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromMinutes(10),
+                    ExpectingTime = TimeSpan.FromHours(1)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.SearchNewUsers.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.SearchNewUsers,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromMinutes(15),
+                    ExpectingTime = TimeSpan.FromHours(1)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.SynchOwnerFollowings.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.SynchOwnerFollowings,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromHours(12),
+                    ExpectingTime = TimeSpan.FromHours(2)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.SynchOwnerFriends.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.SynchOwnerFriends,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromHours(3),
+                    ExpectingTime = TimeSpan.FromHours(2)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.UnfollowUsers.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.UnfollowUsers,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromHours(6),
+                    ExpectingTime = TimeSpan.FromHours(1)
+                }
+            };
+            context.Functionalities.AddRange(functionalities);
         }
     }
 }

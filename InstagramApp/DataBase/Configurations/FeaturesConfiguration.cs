@@ -5,18 +5,20 @@ using DataBase.Models;
 
 namespace DataBase.Configurations
 {
-    public class FeaturesConfiguration : EntityTypeConfiguration<FeaturesDbModel>
+    public class FunctionalityConfiguration : EntityTypeConfiguration<FunctionalityDbModel>
     {
-        public FeaturesConfiguration(AccountName accountName)
+        public FunctionalityConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_Features");
+            ToTable(accountName.ToString("G") + "_Functionality");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(model => model.FeatureIdentyName);
-            Property(model => model.IsBlocked);
-            Property(model => model.FeatureIdentity);
+            Property(model => model.ApplyInterval);
+            Property(model => model.FunctionalityName);
+            Property(model => model.FunctionalityNumber);
+            Property(model => model.LastApplied);
+            Property(model => model.Token);
         }
     }
 }

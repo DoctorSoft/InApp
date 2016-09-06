@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\FunctionalityConfiguration.cs" />
     <Compile Include="Configurations\FeaturesConfiguration.cs" />
     <Compile Include="Configurations\HashTagConfiguration.cs" />
     <Compile Include="Configurations\SpamWordConfiguration.cs" />
@@ -75,6 +76,10 @@
     <Compile Include="GalaxyMigrations\201609061759171_AddFeatureEnumField.Designer.cs">
       <DependentUpon>201609061759171_AddFeatureEnumField.cs</DependentUpon>
     </Compile>
+    <Compile Include="GalaxyMigrations\201609061913287_AddFunctionalityTable.cs" />
+    <Compile Include="GalaxyMigrations\201609061913287_AddFunctionalityTable.Designer.cs">
+      <DependentUpon>201609061913287_AddFunctionalityTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="KiotoMigrations\201609051737289_Init.cs" />
     <Compile Include="KiotoMigrations\201609051737289_Init.Designer.cs">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
@@ -86,6 +91,10 @@
     <Compile Include="KiotoMigrations\201609061759479_AddFeatureEnumField.cs" />
     <Compile Include="KiotoMigrations\201609061759479_AddFeatureEnumField.Designer.cs">
       <DependentUpon>201609061759479_AddFeatureEnumField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\201609061913413_AddFunctionalityTable.cs" />
+    <Compile Include="KiotoMigrations\201609061913413_AddFunctionalityTable.Designer.cs">
+      <DependentUpon>201609061913413_AddFunctionalityTable.cs</DependentUpon>
     </Compile>
     <Compile Include="KiotoMigrations\KiotoConfiguration.cs" />
     <Compile Include="LajkiMigrations\201609051738090_Init.cs" />
@@ -100,6 +109,10 @@
     <Compile Include="LajkiMigrations\201609061800099_AddFeatureEnumField.Designer.cs">
       <DependentUpon>201609061800099_AddFeatureEnumField.cs</DependentUpon>
     </Compile>
+    <Compile Include="LajkiMigrations\201609061915100_AddFunctionalityTable.cs" />
+    <Compile Include="LajkiMigrations\201609061915100_AddFunctionalityTable.Designer.cs">
+      <DependentUpon>201609061915100_AddFunctionalityTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="LajkiMigrations\LajkiConfiguration.cs" />
     <Compile Include="MilkMigrations\201609051737512_Init.cs" />
     <Compile Include="MilkMigrations\201609051737512_Init.Designer.cs">
@@ -113,8 +126,13 @@
     <Compile Include="MilkMigrations\201609061800000_AddFeatureEnumField.Designer.cs">
       <DependentUpon>201609061800000_AddFeatureEnumField.cs</DependentUpon>
     </Compile>
+    <Compile Include="MilkMigrations\201609061914562_AddFunctionalityTable.cs" />
+    <Compile Include="MilkMigrations\201609061914562_AddFunctionalityTable.Designer.cs">
+      <DependentUpon>201609061914562_AddFunctionalityTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="MilkMigrations\MilkConfiguration.cs" />
     <Compile Include="Models\FeaturesDbModel.cs" />
+    <Compile Include="Models\FunctionalityDbModel.cs" />
     <Compile Include="Models\HashTagDbModel.cs" />
     <Compile Include="OzernyMigrations\201609051736479_Init.cs" />
     <Compile Include="OzernyMigrations\201609051736479_Init.Designer.cs">
@@ -127,6 +145,10 @@
     <Compile Include="OzernyMigrations\201609061758588_AddFeatureEnumField.cs" />
     <Compile Include="OzernyMigrations\201609061758588_AddFeatureEnumField.Designer.cs">
       <DependentUpon>201609061758588_AddFeatureEnumField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201609061913134_AddFunctionalityTable.cs" />
+    <Compile Include="OzernyMigrations\201609061913134_AddFunctionalityTable.Designer.cs">
+      <DependentUpon>201609061913134_AddFunctionalityTable.cs</DependentUpon>
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsStarCommandHandler.cs" />
@@ -228,6 +250,9 @@
     <EmbeddedResource Include="GalaxyMigrations\201609061759171_AddFeatureEnumField.resx">
       <DependentUpon>201609061759171_AddFeatureEnumField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GalaxyMigrations\201609061913287_AddFunctionalityTable.resx">
+      <DependentUpon>201609061913287_AddFunctionalityTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609051737289_Init.resx">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609061759479_AddFeatureEnumField.resx">
       <DependentUpon>201609061759479_AddFeatureEnumField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201609061913413_AddFunctionalityTable.resx">
+      <DependentUpon>201609061913413_AddFunctionalityTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LajkiMigrations\201609051738090_Init.resx">
       <DependentUpon>201609051738090_Init.cs</DependentUpon>
@@ -246,6 +274,9 @@
     <EmbeddedResource Include="LajkiMigrations\201609061800099_AddFeatureEnumField.resx">
       <DependentUpon>201609061800099_AddFeatureEnumField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LajkiMigrations\201609061915100_AddFunctionalityTable.resx">
+      <DependentUpon>201609061915100_AddFunctionalityTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MilkMigrations\201609051737512_Init.resx">
       <DependentUpon>201609051737512_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +286,9 @@
     <EmbeddedResource Include="MilkMigrations\201609061800000_AddFeatureEnumField.resx">
       <DependentUpon>201609061800000_AddFeatureEnumField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MilkMigrations\201609061914562_AddFunctionalityTable.resx">
+      <DependentUpon>201609061914562_AddFunctionalityTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609051736479_Init.resx">
       <DependentUpon>201609051736479_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609061758588_AddFeatureEnumField.resx">
       <DependentUpon>201609061758588_AddFeatureEnumField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201609061913134_AddFunctionalityTable.resx">
+      <DependentUpon>201609061913134_AddFunctionalityTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

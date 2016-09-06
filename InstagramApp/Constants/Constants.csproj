@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AccountName.cs" />
     <Compile Include="FeaturesName.cs" />
+    <Compile Include="FunctionalityName.cs" />
     <Compile Include="MediaStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserStatus.cs" />
