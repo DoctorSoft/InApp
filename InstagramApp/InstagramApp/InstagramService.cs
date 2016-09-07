@@ -355,15 +355,29 @@ namespace InstagramApp
             });
         }
         
-        public void AddComment(RemoteWebDriver driver, DataBaseContext context)
+        public void AddComments(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);
 
-            new AddCommentEngine().Execute(driver, new AddCommentModel
+            var mediaList = new GetRandomMediaListToCommentQueryHandler(context).Handle(new GetRandomMediaListToCommentQuery()
             {
-                CommentText = "Красиво!",
-                Link = "https://www.instagram.com/p/BJ7Y-N5g0td/"
+                CountMedia = 3
             });
+
+            foreach (var media in mediaList)
+            {
+                new AddCommentEngine().Execute(driver, new AddCommentModel
+                {
+                    CommentText = "Красиво!",
+                    Link = media
+                });
+
+                new MarkMediaAsHavingCommentCommandHandler(context).Handle(new MarkMediaAsHavingCommentCommand()
+                {
+                    Link = media
+                });
+            }
+
         }
 
         public void HandleCaptchaException(RemoteWebDriver driver, DataBaseContext context)
