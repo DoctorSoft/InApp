@@ -19,6 +19,8 @@ namespace DataBase.Models
 
         public DateTime? LikeDate { get; set; }
 
+        public bool HasComment { get; set; }
+
         public UserDbModel User { get; set; } 
     }
 }

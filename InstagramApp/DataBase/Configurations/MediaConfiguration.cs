@@ -19,6 +19,7 @@ namespace DataBase.Configurations
             Property(model => model.X);
             Property(model => model.Y);
             Property(model => model.LikeDate);
+            Property(model => model.HasComment);
 
             HasOptional(it => it.User).WithMany(model => model.Medias).HasForeignKey(link => link.UserId);
         }

@@ -80,6 +80,10 @@
     <Compile Include="GalaxyMigrations\201609061913287_AddFunctionalityTable.Designer.cs">
       <DependentUpon>201609061913287_AddFunctionalityTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="GalaxyMigrations\201609071707486_AddHasCommentFiels.cs" />
+    <Compile Include="GalaxyMigrations\201609071707486_AddHasCommentFiels.Designer.cs">
+      <DependentUpon>201609071707486_AddHasCommentFiels.cs</DependentUpon>
+    </Compile>
     <Compile Include="KiotoMigrations\201609051737289_Init.cs" />
     <Compile Include="KiotoMigrations\201609051737289_Init.Designer.cs">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
@@ -95,6 +99,10 @@
     <Compile Include="KiotoMigrations\201609061913413_AddFunctionalityTable.cs" />
     <Compile Include="KiotoMigrations\201609061913413_AddFunctionalityTable.Designer.cs">
       <DependentUpon>201609061913413_AddFunctionalityTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\201609071707540_AddHasCommentFiels.cs" />
+    <Compile Include="KiotoMigrations\201609071707540_AddHasCommentFiels.Designer.cs">
+      <DependentUpon>201609071707540_AddHasCommentFiels.cs</DependentUpon>
     </Compile>
     <Compile Include="KiotoMigrations\KiotoConfiguration.cs" />
     <Compile Include="LajkiMigrations\201609051738090_Init.cs" />
@@ -113,6 +121,10 @@
     <Compile Include="LajkiMigrations\201609061915100_AddFunctionalityTable.Designer.cs">
       <DependentUpon>201609061915100_AddFunctionalityTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="LajkiMigrations\201609071708046_AddHasCommentFiels.cs" />
+    <Compile Include="LajkiMigrations\201609071708046_AddHasCommentFiels.Designer.cs">
+      <DependentUpon>201609071708046_AddHasCommentFiels.cs</DependentUpon>
+    </Compile>
     <Compile Include="LajkiMigrations\LajkiConfiguration.cs" />
     <Compile Include="MilkMigrations\201609051737512_Init.cs" />
     <Compile Include="MilkMigrations\201609051737512_Init.Designer.cs">
@@ -129,6 +141,10 @@
     <Compile Include="MilkMigrations\201609061914562_AddFunctionalityTable.cs" />
     <Compile Include="MilkMigrations\201609061914562_AddFunctionalityTable.Designer.cs">
       <DependentUpon>201609061914562_AddFunctionalityTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MilkMigrations\201609071707594_AddHasCommentFiels.cs" />
+    <Compile Include="MilkMigrations\201609071707594_AddHasCommentFiels.Designer.cs">
+      <DependentUpon>201609071707594_AddHasCommentFiels.cs</DependentUpon>
     </Compile>
     <Compile Include="MilkMigrations\MilkConfiguration.cs" />
     <Compile Include="Models\FeaturesDbModel.cs" />
@@ -149,6 +165,10 @@
     <Compile Include="OzernyMigrations\201609061913134_AddFunctionalityTable.cs" />
     <Compile Include="OzernyMigrations\201609061913134_AddFunctionalityTable.Designer.cs">
       <DependentUpon>201609061913134_AddFunctionalityTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201609071707433_AddHasCommentFiels.cs" />
+    <Compile Include="OzernyMigrations\201609071707433_AddHasCommentFiels.Designer.cs">
+      <DependentUpon>201609071707433_AddHasCommentFiels.cs</DependentUpon>
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Functionality\RemoveFunctionalityTokenCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\RemoveFunctionalityTokenCommandHandler.cs" />
@@ -260,6 +280,9 @@
     <EmbeddedResource Include="GalaxyMigrations\201609061913287_AddFunctionalityTable.resx">
       <DependentUpon>201609061913287_AddFunctionalityTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GalaxyMigrations\201609071707486_AddHasCommentFiels.resx">
+      <DependentUpon>201609071707486_AddHasCommentFiels.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609051737289_Init.resx">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609061913413_AddFunctionalityTable.resx">
       <DependentUpon>201609061913413_AddFunctionalityTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201609071707540_AddHasCommentFiels.resx">
+      <DependentUpon>201609071707540_AddHasCommentFiels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LajkiMigrations\201609051738090_Init.resx">
       <DependentUpon>201609051738090_Init.cs</DependentUpon>
@@ -284,6 +310,9 @@
     <EmbeddedResource Include="LajkiMigrations\201609061915100_AddFunctionalityTable.resx">
       <DependentUpon>201609061915100_AddFunctionalityTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LajkiMigrations\201609071708046_AddHasCommentFiels.resx">
+      <DependentUpon>201609071708046_AddHasCommentFiels.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MilkMigrations\201609051737512_Init.resx">
       <DependentUpon>201609051737512_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +325,9 @@
     <EmbeddedResource Include="MilkMigrations\201609061914562_AddFunctionalityTable.resx">
       <DependentUpon>201609061914562_AddFunctionalityTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MilkMigrations\201609071707594_AddHasCommentFiels.resx">
+      <DependentUpon>201609071707594_AddHasCommentFiels.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609051736479_Init.resx">
       <DependentUpon>201609051736479_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609061913134_AddFunctionalityTable.resx">
       <DependentUpon>201609061913134_AddFunctionalityTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201609071707433_AddHasCommentFiels.resx">
+      <DependentUpon>201609071707433_AddHasCommentFiels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
