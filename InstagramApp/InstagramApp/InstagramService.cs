@@ -6,6 +6,7 @@ using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Media;
 using DataBase.QueriesAndCommands.Commands.Settings;
 using DataBase.QueriesAndCommands.Commands.Users;
+using DataBase.QueriesAndCommands.Queries.Features;
 using DataBase.QueriesAndCommands.Queries.HashTag;
 using DataBase.QueriesAndCommands.Queries.Languages;
 using DataBase.QueriesAndCommands.Queries.Media;
@@ -358,24 +359,31 @@ namespace InstagramApp
         public void AddComments(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);
-
-            var mediaList = new GetRandomMediaListToCommentQueryHandler(context).Handle(new GetRandomMediaListToCommentQuery()
+            bool access = new CheckFeaturesAccessQueryHandler(context).Handle(new CheckFeaturesAccessQuery()
             {
-                CountMedia = 3
+                FeaturesName = FeaturesName.PostComments
             });
-
-            foreach (var media in mediaList)
+            if (access)
             {
-                new AddCommentEngine().Execute(driver, new AddCommentModel
-                {
-                    CommentText = "Красиво!",
-                    Link = media
-                });
+                var mediaList =
+                    new GetRandomMediaListToCommentQueryHandler(context).Handle(new GetRandomMediaListToCommentQuery()
+                    {
+                        CountMedia = 3
+                    });
 
-                new MarkMediaAsHavingCommentCommandHandler(context).Handle(new MarkMediaAsHavingCommentCommand()
+                foreach (var media in mediaList)
                 {
-                    Link = media
-                });
+                    new AddCommentEngine().Execute(driver, new AddCommentModel
+                    {
+                        CommentText = "Красиво!",
+                        Link = media
+                    });
+
+                    new MarkMediaAsHavingCommentCommandHandler(context).Handle(new MarkMediaAsHavingCommentCommand()
+                    {
+                        Link = media
+                    });
+                }
             }
 
         }

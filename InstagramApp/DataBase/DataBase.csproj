@@ -179,6 +179,8 @@
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateFollowingsSynchronizationTimeCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToFollowCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Features\CheckFeaturesAccessQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Features\CheckFeaturesAccessQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Functionality\CheckFunctionalityAccessQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Functionality\CheckFunctionalityAccessQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Functionality\FunctionalityWithTokenModel.cs" />
@@ -348,6 +350,7 @@
       <DependentUpon>201609071707433_AddHasCommentFiels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

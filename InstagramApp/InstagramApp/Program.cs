@@ -140,6 +140,7 @@ namespace InstagramApp
                     service.SynchOwnerFriends,
                     service.UnfollowUsers,
                     service.ClearOldMedia, //2 days
+                    //service.AddComments 
                 };
 
 
