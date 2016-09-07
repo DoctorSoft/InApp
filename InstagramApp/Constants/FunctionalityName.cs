@@ -11,5 +11,6 @@
         SynchOwnerFriends = 7,
         UnfollowUsers = 8,
         ClearOldMedia = 9, 
+        AddComments = 10
     }
 }

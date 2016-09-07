@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Constants;
 using DataBase.Contexts;
 using Engines.Exceptions;
 using OpenQA.Selenium.Chrome;
@@ -129,28 +130,29 @@ namespace InstagramApp
             public void Run<TContext>(InstagramService service, RemoteWebDriver driver)
                 where TContext : DataBaseContext, new()
             {
-                var actions = new List<Action<RemoteWebDriver, TContext>>
+                var actions = new Dictionary<FunctionalityName, Action<RemoteWebDriver, TContext>>
                 {
-                    service.SaveMediaByHashTag,
-                    service.SaveMediaByHomePage, //30 records
-                    service.LikeMedias,
-                    service.SynchOwnerFollowings,
-                    service.SearchNewUsers,
-                    service.FollowUsers,
-                    service.SynchOwnerFriends,
-                    service.UnfollowUsers,
-                    service.ClearOldMedia, //2 days
-                    //service.AddComments 
+                    {FunctionalityName.SaveMediaByHashTag, service.SaveMediaByHashTag},
+                    {FunctionalityName.SaveMediaByHomePage, service.SaveMediaByHomePage}, 
+                    {FunctionalityName.LikeMedias, service.LikeMedias},
+                    {FunctionalityName.SynchOwnerFollowings, service.SynchOwnerFollowings},
+                    {FunctionalityName.SearchNewUsers, service.SearchNewUsers},
+                    {FunctionalityName.FollowUsers, service.FollowUsers},
+                    {FunctionalityName.SynchOwnerFriends, service.SynchOwnerFriends},
+                    {FunctionalityName.UnfollowUsers, service.UnfollowUsers},
+                    {FunctionalityName.ClearOldMedia, service.ClearOldMedia}, 
+                    {FunctionalityName.AddComments, service.AddComments} 
                 };
 
-
-                foreach (var action in actions)
+                using (var context = new TContext())
                 {
-                    using (var context = new TContext())
+                    var actionData = service.GetFreeFunctionality(driver, context);
+
+                    if (service.FunctionalityIsAllowed(driver, context, actionData))
                     {
                         try
                         {
-                            action(driver, context);
+                            actions[actionData.FunctionalityName](driver, context);
                         }
                         catch (CaptchaException exception)
                         {
@@ -159,6 +161,10 @@ namespace InstagramApp
                         catch (Exception exception)
                         {
                             // todo: add system of logging of exceptions
+                        }
+                        finally
+                        {
+                            service.LeaveFunctionality(driver, context, actionData);
                         }
                     }
                 }

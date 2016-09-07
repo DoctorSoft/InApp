@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using DataBase.Contexts;
@@ -22,8 +23,11 @@ namespace DataBase.QueriesAndCommands.Queries.Functionality
 
             var functionality = context
                 .Functionalities
-                .Where(model => model.Token == null || model.LastApplied + model.ExpectingTime < now)
-                .OrderBy(model => model.LastApplied + model.ApplyInterval)
+                .Where(
+                    model =>
+                        model.Token == null ||
+                        DbFunctions.AddSeconds(model.LastApplied, model.ExpectingTime.Seconds) < now)
+                .OrderBy(model => DbFunctions.AddSeconds(model.LastApplied, model.ApplyInterval.Seconds))
                 .FirstOrDefault();
 
             functionality.LastApplied = now;

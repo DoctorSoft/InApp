@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Constants;
 using DataBase.Contexts;
+using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Commands.Media;
 using DataBase.QueriesAndCommands.Commands.Settings;
 using DataBase.QueriesAndCommands.Commands.Users;
 using DataBase.QueriesAndCommands.Queries.Features;
+using DataBase.QueriesAndCommands.Queries.Functionality;
 using DataBase.QueriesAndCommands.Queries.HashTag;
 using DataBase.QueriesAndCommands.Queries.Languages;
 using DataBase.QueriesAndCommands.Queries.Media;
@@ -28,6 +30,37 @@ namespace InstagramApp
 {
     public class InstagramService
     {
+        public FunctionalityWithTokenModel GetFreeFunctionality(RemoteWebDriver driver, DataBaseContext context)
+        {
+            var functionalityToRun = new GetFunctionalityToRunQueryHandler(context).Handle(new GetFunctionalityToRunQuery
+            {
+                
+            });
+
+            return functionalityToRun;
+        }
+
+        public bool FunctionalityIsAllowed(RemoteWebDriver driver, DataBaseContext context,
+            FunctionalityWithTokenModel functionalityModel)
+        {
+            var access = new CheckFunctionalityAccessQueryHandler(context).Handle(new CheckFunctionalityAccessQuery
+            {
+                FunctionalityName = functionalityModel.FunctionalityName,
+                Token = functionalityModel.Token
+            });
+
+            return access;
+        }
+
+        public void LeaveFunctionality(RemoteWebDriver driver, DataBaseContext context,
+            FunctionalityWithTokenModel functionalityModel)
+        {
+            new RemoveFunctionalityTokenCommandHandler(context).Handle(new RemoveFunctionalityTokenCommand
+            {
+                FunctionalityName = functionalityModel.FunctionalityName
+            });
+        }
+
         private void Registration(RemoteWebDriver driver, DataBaseContext context)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
@@ -359,10 +392,12 @@ namespace InstagramApp
         public void AddComments(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);
-            bool access = new CheckFeaturesAccessQueryHandler(context).Handle(new CheckFeaturesAccessQuery()
+            
+            var access = new CheckFeaturesAccessQueryHandler(context).Handle(new CheckFeaturesAccessQuery()
             {
                 FeaturesName = FeaturesName.PostComments
             });
+
             if (access)
             {
                 var mediaList =

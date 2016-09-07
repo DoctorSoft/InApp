@@ -326,6 +326,15 @@ namespace DataBase.LajkiMigrations
                     Token = null,
                     ApplyInterval = TimeSpan.FromHours(6),
                     ExpectingTime = TimeSpan.FromHours(1)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.AddComments.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.AddComments,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromHours(1),
+                    ExpectingTime = TimeSpan.FromHours(1)
                 }
             };
             context.Functionalities.AddRange(functionalities);
