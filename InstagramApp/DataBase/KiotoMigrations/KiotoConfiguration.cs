@@ -147,7 +147,47 @@ namespace DataBase.KiotoMigrations
                 {
                     SpamFactor = 0.9,
                     WordRoot = "прокат"
-                }
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.8,
+                    WordRoot = "раскрут"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.7,
+                    WordRoot = "заказ"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.8,
+                    WordRoot = "дилер"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.8,
+                    WordRoot = "торг"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.9,
+                    WordRoot = "заробот"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.8,
+                    WordRoot = "фитнес"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.7,
+                    WordRoot = "достав"
+                },
+                new SpamWordDbModel
+                {
+                    SpamFactor = 0.8,
+                    WordRoot = "тренер"
+                },
             };
 
             context.SpamWords.AddRange(spamWords);
@@ -218,7 +258,69 @@ namespace DataBase.KiotoMigrations
                 },
                 new HashTagDbModel
                 {
-                    Name = "#lidabeerfest"
+                    Name = "#bialystok"
+                },new HashTagDbModel
+                {
+                    Name = "#ћинск"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#minsk"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Polska"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Lida"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Ћида"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#√родна"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Hrodna"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Brest"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#брест"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#белосток"
+                },new HashTagDbModel
+                {
+                    Name = "#vilnius"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#Druskininkai"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#беловежска€пущ€"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#августовскийканал"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#белорусси€"
+                },
+                new HashTagDbModel
+                {
+                    Name = "#белорусь"
                 },
             };
 

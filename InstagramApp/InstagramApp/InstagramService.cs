@@ -253,8 +253,12 @@ namespace InstagramApp
                 return;
             }
 
-            // todo: The functionality to work with spammers was exluded and is waiting for new purposes
-            /*if (UserIsSpammer(driver, context, userInfo))
+            var access = new CheckFeaturesAccessQueryHandler(context).Handle(new CheckFeaturesAccessQuery()
+            {
+                FeaturesName = FeaturesName.CheckSpammers
+            });
+
+            if (access && UserIsSpammer(driver, context, userInfo))
             {
                 new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
                 {
@@ -267,7 +271,7 @@ namespace InstagramApp
                 });
 
                 return;
-            }*/
+            }
 
             if (UserIsForeign(driver, context, userInfo))
             {
@@ -439,9 +443,9 @@ namespace InstagramApp
 
         public bool UserIsSpammer(RemoteWebDriver driver, DataBaseContext context, GetUserInfoEngineResponse userInfo)
         {
-            const int MaxFollowingCount = 500;
+            const int MaxFollowingCount = 5000;
             const double ExtraFollowingPenalty = 0.001;
-            const int MaxFollowerCount = 500;
+            const int MaxFollowerCount = 5000;
             const double ExtraFollowerPenalty = 0.001;
             const double MaxPenalty = 1.5;
 
