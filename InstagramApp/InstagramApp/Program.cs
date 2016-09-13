@@ -15,103 +15,22 @@ namespace InstagramApp
         /// <summary>
         /// Ozerny
         /// </summary>
-        private static readonly ChromeDriver ozernyDriver = new ChromeDriver();
 
-        private static readonly InstagramService ozernyInstagramService = new InstagramService();
-
-        private static readonly TaskRunner ozernyTaskRunner = new TaskRunner();
-
-        private static Task RegisterOzernyProccess()
+        private static Task RegisterProccess<TContext>()
+            where TContext : DataBaseContext, new()
         {
             // My Dev Page Jobs
-            var ozernyAproveUsersTokenSource = new CancellationTokenSource();
+            var aproveUsersTokenSource = new CancellationTokenSource();
 
-            return Task.Run(() => ozernyTaskRunner.RunPeriodically(() =>
-                ozernyTaskRunner.Run<OzernyContext>(ozernyInstagramService, ozernyDriver),
+            var driver = new ChromeDriver();
+            var instagramService = new InstagramService();
+            var taskRunner = new TaskRunner();
+
+            return Task.Run(() => taskRunner.RunPeriodically(() =>
+                taskRunner.Run<TContext>(instagramService, driver),
                 TimeSpan.FromSeconds(5),
-                ozernyAproveUsersTokenSource.Token), ozernyAproveUsersTokenSource.Token);
+                aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
         } 
-
-
-        /// <summary>
-        /// Galaxy
-        /// </summary>
-        private static readonly ChromeDriver galaxyDriver = new ChromeDriver();
-
-        private static readonly InstagramService galaxyInstagramService = new InstagramService();
-
-        private static readonly TaskRunner galaxyTaskRunner = new TaskRunner();
-
-        private static Task RegisterGalaxyProcess()
-        {
-            // Second Page Jobs
-            var galaxyAproveUsersTokenSource = new CancellationTokenSource();
-
-            return Task.Run(() => galaxyTaskRunner.RunPeriodically(() =>
-                galaxyTaskRunner.Run<GalaxyContext>(galaxyInstagramService, galaxyDriver),
-                TimeSpan.FromSeconds(5),
-                galaxyAproveUsersTokenSource.Token), galaxyAproveUsersTokenSource.Token);
-        }
-
-        /// <summary>
-        /// Kioto
-        /// </summary>
-        private static readonly ChromeDriver kiotoDriver = new ChromeDriver();
-
-        private static readonly InstagramService kiotoInstagramService = new InstagramService();
-
-        private static readonly TaskRunner kiotoTaskRunner = new TaskRunner();
-
-        private static Task RegisterKiotoProccess()
-        {
-            // My Dev Page Jobs
-            var kiotoAproveUsersTokenSource = new CancellationTokenSource();
-
-            return Task.Run(() => kiotoTaskRunner.RunPeriodically(() =>
-                kiotoTaskRunner.Run<KiotoContext>(kiotoInstagramService, kiotoDriver),
-                TimeSpan.FromSeconds(5),
-                kiotoAproveUsersTokenSource.Token), kiotoAproveUsersTokenSource.Token);
-        }
-
-        /// <summary>
-        /// Milk
-        /// </summary>
-        private static readonly ChromeDriver milkDriver = new ChromeDriver();
-
-        private static readonly InstagramService milkInstagramService = new InstagramService();
-
-        private static readonly TaskRunner milkTaskRunner = new TaskRunner();
-
-        private static Task RegisterMilkProccess()
-        {
-            // My Dev Page Jobs
-            var milkAproveUsersTokenSource = new CancellationTokenSource();
-
-            return Task.Run(() => milkTaskRunner.RunPeriodically(() =>
-                milkTaskRunner.Run<MilkContext>(milkInstagramService, milkDriver),
-                TimeSpan.FromSeconds(5),
-                milkAproveUsersTokenSource.Token), milkAproveUsersTokenSource.Token);
-        }
-
-        /// <summary>
-        /// Lajki
-        /// </summary>
-        private static readonly ChromeDriver lajkiDriver = new ChromeDriver();
-
-        private static readonly InstagramService lajkiInstagramService = new InstagramService();
-
-        private static readonly TaskRunner lajkiTaskRunner = new TaskRunner();
-
-        private static Task RegisterLajkiProccess()
-        {
-            // My Dev Page Jobs
-            var lajkiAproveUsersTokenSource = new CancellationTokenSource();
-
-            return Task.Run(() => lajkiTaskRunner.RunPeriodically(() =>
-                lajkiTaskRunner.Run<LajkiContext>(lajkiInstagramService, lajkiDriver),
-                TimeSpan.FromSeconds(5),
-                lajkiAproveUsersTokenSource.Token), lajkiAproveUsersTokenSource.Token);
-        }
 
         /// <summary>
         /// Task Runner
@@ -178,7 +97,7 @@ namespace InstagramApp
         {
             var tasks = new List<Task>
             {
-                RegisterOzernyProccess(), RegisterGalaxyProcess(), RegisterKiotoProccess(), RegisterMilkProccess(), RegisterLajkiProccess()
+                RegisterProccess<OzernyContext>(), RegisterProccess<GalaxyContext>(), RegisterProccess<KiotoContext>(), RegisterProccess<MilkContext>(), RegisterProccess<LajkiContext>()
             };
 
             Task.WhenAll(tasks.ToArray());
