@@ -414,7 +414,7 @@ namespace InstagramApp
                 {
                     new AddCommentEngine().Execute(driver, new AddCommentModel
                     {
-                        CommentText = "Красиво!",
+                        CommentText = "Всем привет! Старые методы накрутки подписчиков ушли в прошлое! Только \"живая\" целевая аудитория! Подробности в профиле!",
                         Link = media
                     });
 
