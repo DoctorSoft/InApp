@@ -12,6 +12,7 @@ namespace DataBase.Contexts
         {
             
         }
+        public DbSet<ActivityHistoryDbModel> ActivityHistories { get; set; }
 
         public DbSet<LanguageDbModel> Languages { get; set; }
 
@@ -35,6 +36,7 @@ namespace DataBase.Contexts
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new ActivityHistoryConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new LanguageConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new MediaConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new RegionConfiguration(GetAccountName()));
