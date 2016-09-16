@@ -32,8 +32,8 @@ namespace DataBase.MilkMigrations
             context.ProfileSettings.RemoveRange(context.ProfileSettings);
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/grodno_milk/",
-                Login = "grodno_milk",
+                HomePageUrl = "https://www.instagram.com/milk_grodno/",
+                Login = "milk_grodno",
                 Password = "123qazwsxedc890",
                 LanguageDetectorKey = "06b11f1ec38eb723b903fc36c74f5fe7"
             };
