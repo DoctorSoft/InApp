@@ -437,6 +437,15 @@ namespace DataBase.KiotoMigrations
                     Token = null,
                     ApplyInterval = TimeSpan.FromHours(1),
                     ExpectingTime = TimeSpan.FromHours(1)
+                },
+                new FunctionalityDbModel
+                {
+                    LastApplied = lastApplied,
+                    FunctionalityName = FunctionalityName.AddActivityHistoryMark.ToString("G"),
+                    FunctionalityNumber = FunctionalityName.AddActivityHistoryMark,
+                    Token = null,
+                    ApplyInterval = TimeSpan.FromHours(3),
+                    ExpectingTime = TimeSpan.FromHours(1)
                 }
             };
             context.Functionalities.AddRange(functionalities);
