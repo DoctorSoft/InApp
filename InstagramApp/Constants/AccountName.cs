@@ -6,6 +6,9 @@
         Galaxy = 2,
         Kioto = 3,
         Milk = 4,
-        Lajki = 5
+        Lajki = 5,
+        Itransition = 6,
+        SalsaRika = 7,
+        Augustovski = 8
     }
 }

@@ -49,6 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AugustovskiMigrations\201609171454295_Init.cs" />
+    <Compile Include="AugustovskiMigrations\201609171454295_Init.Designer.cs">
+      <DependentUpon>201609171454295_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configurations\ActivityHistoryConfiguration.cs" />
     <Compile Include="Configurations\FunctionalityConfiguration.cs" />
     <Compile Include="Configurations\FeaturesConfiguration.cs" />
@@ -60,6 +64,9 @@
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
+    <Compile Include="Contexts\AugustovskiContext.cs" />
+    <Compile Include="Contexts\SalsaRikaContext.cs" />
+    <Compile Include="Contexts\ItransitionContext.cs" />
     <Compile Include="Contexts\LajkiContext.cs" />
     <Compile Include="Contexts\MilkContext.cs" />
     <Compile Include="Contexts\KiotoContext.cs" />
@@ -89,6 +96,17 @@
     <Compile Include="GalaxyMigrations\201609161238054_AddActivityGistoryTable.Designer.cs">
       <DependentUpon>201609161238054_AddActivityGistoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="AugustovskiMigrations\AugustovskiConfiguration.cs" />
+    <Compile Include="SalsaRikaMigrations\201609171434083_Init.cs" />
+    <Compile Include="SalsaRikaMigrations\201609171434083_Init.Designer.cs">
+      <DependentUpon>201609171434083_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalsaRikaMigrations\SalsaRikaConfiguration.cs" />
+    <Compile Include="ItransitionMigrations\201609171416349_Init.cs" />
+    <Compile Include="ItransitionMigrations\201609171416349_Init.Designer.cs">
+      <DependentUpon>201609171416349_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItransitionMigrations\ItransitionConfiguration.cs" />
     <Compile Include="KiotoMigrations\201609051737289_Init.cs" />
     <Compile Include="KiotoMigrations\201609051737289_Init.Designer.cs">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
@@ -296,6 +314,9 @@
     <Content Include="CommandsToUpdateDatabase.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AugustovskiMigrations\201609171454295_Init.resx">
+      <DependentUpon>201609171454295_Init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201609051737107_Init.resx">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201609161238054_AddActivityGistoryTable.resx">
       <DependentUpon>201609161238054_AddActivityGistoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItransitionMigrations\201609171416349_Init.resx">
+      <DependentUpon>201609171416349_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609051737289_Init.resx">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
@@ -385,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609161237581_AddActivityGistoryTable.resx">
       <DependentUpon>201609161237581_AddActivityGistoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalsaRikaMigrations\201609171434083_Init.resx">
+      <DependentUpon>201609171434083_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
