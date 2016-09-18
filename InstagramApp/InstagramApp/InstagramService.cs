@@ -4,6 +4,7 @@ using System.Linq;
 using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
+using DataBase.QueriesAndCommands.Commands.History;
 using DataBase.QueriesAndCommands.Commands.Media;
 using DataBase.QueriesAndCommands.Commands.Settings;
 using DataBase.QueriesAndCommands.Commands.Users;
@@ -425,6 +426,23 @@ namespace InstagramApp
                 }
             }
 
+        }
+
+        public void AddFollowersNote(RemoteWebDriver driver, DataBaseContext context)
+        {
+            Registration(driver, context);
+
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+            {
+                UserLink = settings.HomePageUrl
+            });
+
+            new AddFollowersNoteCommandHandler(context).Handle(new AddFollowersNoteCommand
+            {
+                FollowersCount = userInfo.FollowerCount
+            });
         }
 
         public void HandleCaptchaException(RemoteWebDriver driver, DataBaseContext context)

@@ -23,7 +23,7 @@ namespace InstagramApp
             // My Dev Page Jobs
             var aproveUsersTokenSource = new CancellationTokenSource();
 
-            var driver = new PhantomJSDriver(); //ChromeDriver(); or PhantomJSDriver();
+            var driver = new ChromeDriver(); //ChromeDriver(); or PhantomJSDriver();
             var instagramService = new InstagramService();
             var taskRunner = new TaskRunner();
 
@@ -61,7 +61,8 @@ namespace InstagramApp
                     {FunctionalityName.SynchOwnerFriends, service.SynchOwnerFriends},
                     {FunctionalityName.UnfollowUsers, service.UnfollowUsers},
                     {FunctionalityName.ClearOldMedia, service.ClearOldMedia}, 
-                    {FunctionalityName.AddComments, service.AddComments} 
+                    {FunctionalityName.AddComments, service.AddComments},
+                    {FunctionalityName.AddActivityHistoryMark, service.AddFollowersNote} 
                 };
 
                 using (var context = new TContext())
