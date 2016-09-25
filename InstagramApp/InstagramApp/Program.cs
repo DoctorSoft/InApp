@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Constants;
 using DataBase.Contexts;
 using Engines.Exceptions;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Remote;
@@ -23,7 +24,7 @@ namespace InstagramApp
             // My Dev Page Jobs
             var aproveUsersTokenSource = new CancellationTokenSource();
 
-            var driver = new ChromeDriver(); //ChromeDriver(); or PhantomJSDriver();
+            var driver = new ChromeDriver();
             var instagramService = new InstagramService();
             var taskRunner = new TaskRunner();
 
@@ -99,13 +100,13 @@ namespace InstagramApp
         {
             var tasks = new List<Task>
             {
-                RegisterProccess<AugustovskiContext>(),
-                RegisterProccess<ItransitionContext>(),
-                RegisterProccess<SalsaRikaContext>(),
+                //RegisterProccess<AugustovskiContext>(),
+                //RegisterProccess<ItransitionContext>(),
+                //RegisterProccess<SalsaRikaContext>(),
                 RegisterProccess<OzernyContext>(), 
                 RegisterProccess<GalaxyContext>(), 
                 RegisterProccess<KiotoContext>(), 
-                RegisterProccess<MilkContext>(), 
+                //RegisterProccess<MilkContext>(), 
                 RegisterProccess<LajkiContext>()
             };
 

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constants", "Constants\Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetector", "LanguageDetector\LanguageDetector.csproj", "{5E08DF87-C7DB-4184-8102-7E730A43C91B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPanel", "CommandPanel\CommandPanel.csproj", "{3F96DE4D-26F5-4104-A54F-E13A17F4E664}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5E08DF87-C7DB-4184-8102-7E730A43C91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E08DF87-C7DB-4184-8102-7E730A43C91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E08DF87-C7DB-4184-8102-7E730A43C91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F96DE4D-26F5-4104-A54F-E13A17F4E664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F96DE4D-26F5-4104-A54F-E13A17F4E664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F96DE4D-26F5-4104-A54F-E13A17F4E664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F96DE4D-26F5-4104-A54F-E13A17F4E664}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
