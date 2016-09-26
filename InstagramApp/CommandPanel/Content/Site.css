@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.row {
+    padding-top: 20px   
+}
+
+.account-list-line:hover  {
+    background-color: #428bca;
+    color: white;
+    cursor: pointer
+}

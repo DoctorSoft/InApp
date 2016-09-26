@@ -2,9 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 
+@model List<CommandPanel.Models.HomeModels.AccountViewModel>
 
 <div class="row">
 
-    List of information about accounts
+    @foreach (var account in Model)
+    {
+        <div class="panel panel-primary account-list-line">
+            <div class="panel-body">@account.Name</div>
+        </div>
+    }
 
 </div>
