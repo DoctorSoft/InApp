@@ -32,3 +32,19 @@ textarea {
     color: white;
     cursor: pointer
 }
+
+.no-line-link:link {
+    text-decoration: none;
+}
+
+.no-line-link:visited {
+    text-decoration: none;
+}
+
+.no-line-link:hover {
+    text-decoration: none;
+}
+
+.no-line-link:active {
+    text-decoration: none;
+}

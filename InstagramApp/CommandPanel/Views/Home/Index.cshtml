@@ -8,9 +8,11 @@
 
     @foreach (var account in Model)
     {
-        <div class="panel panel-primary account-list-line">
-            <div class="panel-body">@account.Name</div>
-        </div>
+        <a href="@Url.Action("Index", "AccountMainPage", new { accountId = account.AccountId })" class="no-line-link">
+            <div class="panel panel-primary account-list-line">
+                <div class="panel-body">@account.Name</div>
+            </div>
+        </a>
     }
 
 </div>
