@@ -1,12 +1,15 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-@model Constants.AccountName
+@model CommandPanel.Models.AccountModels.AccountMainStatisticViewModel
 
 <div class="row">
 
-    @Model.ToString("G")    
+    <div class="followers-box">
+        <div>Followers count:</div>
+        <div class="followers-count">@Model.FollowersCount</div>
+        <div>Date: @Model.LastStatisticDate</div>
+    </div>
 
 </div>

@@ -73,6 +73,8 @@
     <Compile Include="Contexts\KiotoContext.cs" />
     <Compile Include="Contexts\OzernyContext.cs" />
     <Compile Include="Contexts\GalaxyContext.cs" />
+    <Compile Include="Factories\ContextFactory.cs" />
+    <Compile Include="Factories\IContextFactory.cs" />
     <Compile Include="GalaxyMigrations\201609051737107_Init.cs" />
     <Compile Include="GalaxyMigrations\201609051737107_Init.Designer.cs">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>
@@ -104,6 +106,9 @@
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\History\AddFollowersNoteCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\History\AddFollowersNoteCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\ActivityHistory\ActivityHistoryModel.cs" />
+    <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQueryHandler.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.Designer.cs">
       <DependentUpon>201609171434083_Init.cs</DependentUpon>

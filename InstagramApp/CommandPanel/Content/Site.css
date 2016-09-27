@@ -48,3 +48,14 @@ textarea {
 .no-line-link:active {
     text-decoration: none;
 }
+
+.followers-box {
+    width: 200px;
+    text-align: center;
+    border: 2px #428bca groove
+}
+
+.followers-box .followers-count {
+    font-size: 30px;
+    color: #428bca;
+}
