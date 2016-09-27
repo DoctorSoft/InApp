@@ -17,7 +17,7 @@ namespace DataBase.GalaxyMigrations
 
         protected override void Seed(DataBase.Contexts.GalaxyContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -322,7 +322,7 @@ namespace DataBase.GalaxyMigrations
                     ExpectingTime = TimeSpan.FromHours(1)
                 }
             };
-            context.Functionalities.AddRange(functionalities);
+            context.Functionalities.AddRange(functionalities);*/
         }
     }
 }

@@ -5,19 +5,19 @@ using System.Linq;
 using Constants;
 using DataBase.Models;
 
-namespace DataBase.MilkMigrations
+namespace DataBase.NazarMigrations
 {
-    internal sealed class MilkConfiguration : DbMigrationsConfiguration<DataBase.Contexts.MilkContext>
+    internal sealed class NazarConfiguration : DbMigrationsConfiguration<DataBase.Contexts.NazarContext>
     {
-        public MilkConfiguration()
+        public NazarConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"MilkMigrations";
+            MigrationsDirectory = @"NazarMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.MilkContext context)
+        protected override void Seed(DataBase.Contexts.NazarContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -32,8 +32,8 @@ namespace DataBase.MilkMigrations
             context.ProfileSettings.RemoveRange(context.ProfileSettings);
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/milk_grodno/",
-                Login = "milk_grodno",
+                HomePageUrl = "https://www.instagram.com/savelovegrodno/",
+                Login = "savelovegrodno",
                 Password = "123qazwsxedc890",
                 LanguageDetectorKey = "06b11f1ec38eb723b903fc36c74f5fe7"
             };
@@ -346,7 +346,7 @@ namespace DataBase.MilkMigrations
                     ExpectingTime = TimeSpan.FromHours(1)
                 }
             };
-            context.Functionalities.AddRange(functionalities);
+            context.Functionalities.AddRange(functionalities);*/
         }
     }
 }

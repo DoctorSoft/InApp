@@ -100,14 +100,14 @@ namespace InstagramApp
         {
             var tasks = new List<Task>
             {
-                //RegisterProccess<AugustovskiContext>(),
+                RegisterProccess<AugustovskiContext>(),
                 //RegisterProccess<ItransitionContext>(),
                 //RegisterProccess<SalsaRikaContext>(),
                 RegisterProccess<OzernyContext>(), 
                 RegisterProccess<GalaxyContext>(), 
                 RegisterProccess<KiotoContext>(), 
-                //RegisterProccess<MilkContext>(), 
-                RegisterProccess<LajkiContext>()
+                RegisterProccess<NazarContext>(), 
+                //RegisterProccess<LajkiContext>()
             };
 
             Task.WhenAll(tasks.ToArray());

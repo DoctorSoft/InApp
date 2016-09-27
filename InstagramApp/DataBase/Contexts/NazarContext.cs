@@ -2,11 +2,11 @@
 
 namespace DataBase.Contexts
 {
-    public class MilkContext : DataBaseContext
+    public class NazarContext : DataBaseContext
     {
         protected override AccountName GetAccountName()
         {
-            return AccountName.Milk;
+            return AccountName.Nazar;
         }
     }
 }

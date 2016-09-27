@@ -1,4 +1,4 @@
-namespace DataBase.MilkMigrations
+namespace DataBase.NazarMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -8,7 +8,42 @@ namespace DataBase.MilkMigrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Milk_HashTag",
+                "dbo.Nazar_ActivityHistory",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        MarkDate = c.DateTime(nullable: false),
+                        FollowersCount = c.Long(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Nazar_Features",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        FeatureIdentyName = c.String(),
+                        IsBlocked = c.Boolean(nullable: false),
+                        FeatureIdentity = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Nazar_Functionality",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        FunctionalityName = c.String(),
+                        FunctionalityNumber = c.Int(nullable: false),
+                        LastApplied = c.DateTime(nullable: false),
+                        ApplyInterval = c.Time(nullable: false, precision: 7),
+                        ExpectingTime = c.Time(nullable: false, precision: 7),
+                        Token = c.Guid(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Nazar_HashTag",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -17,7 +52,7 @@ namespace DataBase.MilkMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Milk_Language",
+                "dbo.Nazar_Language",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -26,7 +61,7 @@ namespace DataBase.MilkMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Milk_Region",
+                "dbo.Nazar_Region",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -38,11 +73,11 @@ namespace DataBase.MilkMigrations
                         LanguageId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Milk_Language", t => t.LanguageId, cascadeDelete: true)
+                .ForeignKey("dbo.Nazar_Language", t => t.LanguageId, cascadeDelete: true)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Milk_User",
+                "dbo.Nazar_User",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -55,13 +90,13 @@ namespace DataBase.MilkMigrations
                         IncludingTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Milk_Region", t => t.RegionId)
-                .ForeignKey("dbo.Milk_Language", t => t.LanguageId)
+                .ForeignKey("dbo.Nazar_Region", t => t.RegionId)
+                .ForeignKey("dbo.Nazar_Language", t => t.LanguageId)
                 .Index(t => t.RegionId)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Milk_Media",
+                "dbo.Nazar_Media",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -71,13 +106,14 @@ namespace DataBase.MilkMigrations
                         Y = c.Double(),
                         UserId = c.Long(),
                         LikeDate = c.DateTime(),
+                        HasComment = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Milk_User", t => t.UserId)
+                .ForeignKey("dbo.Nazar_User", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Milk_ProfilesSettings",
+                "dbo.Nazar_ProfilesSettings",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -90,7 +126,7 @@ namespace DataBase.MilkMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Milk_SpamWord",
+                "dbo.Nazar_SpamWord",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -103,21 +139,24 @@ namespace DataBase.MilkMigrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Milk_User", "LanguageId", "dbo.Milk_Language");
-            DropForeignKey("dbo.Milk_Region", "LanguageId", "dbo.Milk_Language");
-            DropForeignKey("dbo.Milk_User", "RegionId", "dbo.Milk_Region");
-            DropForeignKey("dbo.Milk_Media", "UserId", "dbo.Milk_User");
-            DropIndex("dbo.Milk_Media", new[] { "UserId" });
-            DropIndex("dbo.Milk_User", new[] { "LanguageId" });
-            DropIndex("dbo.Milk_User", new[] { "RegionId" });
-            DropIndex("dbo.Milk_Region", new[] { "LanguageId" });
-            DropTable("dbo.Milk_SpamWord");
-            DropTable("dbo.Milk_ProfilesSettings");
-            DropTable("dbo.Milk_Media");
-            DropTable("dbo.Milk_User");
-            DropTable("dbo.Milk_Region");
-            DropTable("dbo.Milk_Language");
-            DropTable("dbo.Milk_HashTag");
+            DropForeignKey("dbo.Nazar_User", "LanguageId", "dbo.Nazar_Language");
+            DropForeignKey("dbo.Nazar_Region", "LanguageId", "dbo.Nazar_Language");
+            DropForeignKey("dbo.Nazar_User", "RegionId", "dbo.Nazar_Region");
+            DropForeignKey("dbo.Nazar_Media", "UserId", "dbo.Nazar_User");
+            DropIndex("dbo.Nazar_Media", new[] { "UserId" });
+            DropIndex("dbo.Nazar_User", new[] { "LanguageId" });
+            DropIndex("dbo.Nazar_User", new[] { "RegionId" });
+            DropIndex("dbo.Nazar_Region", new[] { "LanguageId" });
+            DropTable("dbo.Nazar_SpamWord");
+            DropTable("dbo.Nazar_ProfilesSettings");
+            DropTable("dbo.Nazar_Media");
+            DropTable("dbo.Nazar_User");
+            DropTable("dbo.Nazar_Region");
+            DropTable("dbo.Nazar_Language");
+            DropTable("dbo.Nazar_HashTag");
+            DropTable("dbo.Nazar_Functionality");
+            DropTable("dbo.Nazar_Features");
+            DropTable("dbo.Nazar_ActivityHistory");
         }
     }
 }

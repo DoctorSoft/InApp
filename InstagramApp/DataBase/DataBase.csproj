@@ -69,7 +69,7 @@
     <Compile Include="Contexts\SalsaRikaContext.cs" />
     <Compile Include="Contexts\ItransitionContext.cs" />
     <Compile Include="Contexts\LajkiContext.cs" />
-    <Compile Include="Contexts\MilkContext.cs" />
+    <Compile Include="Contexts\NazarContext.cs" />
     <Compile Include="Contexts\KiotoContext.cs" />
     <Compile Include="Contexts\OzernyContext.cs" />
     <Compile Include="Contexts\GalaxyContext.cs" />
@@ -98,6 +98,10 @@
       <DependentUpon>201609161238054_AddActivityGistoryTable.cs</DependentUpon>
     </Compile>
     <Compile Include="AugustovskiMigrations\AugustovskiConfiguration.cs" />
+    <Compile Include="NazarMigrations\201609271928069_Init.cs" />
+    <Compile Include="NazarMigrations\201609271928069_Init.Designer.cs">
+      <DependentUpon>201609271928069_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueriesAndCommands\Commands\History\AddFollowersNoteCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\History\AddFollowersNoteCommandHandler.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.cs" />
@@ -160,31 +164,7 @@
       <DependentUpon>201609161238418_AddActivityGistoryTable.cs</DependentUpon>
     </Compile>
     <Compile Include="LajkiMigrations\LajkiConfiguration.cs" />
-    <Compile Include="MilkMigrations\201609051737512_Init.cs" />
-    <Compile Include="MilkMigrations\201609051737512_Init.Designer.cs">
-      <DependentUpon>201609051737512_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MilkMigrations\201609061724066_AddTableFeatures.cs" />
-    <Compile Include="MilkMigrations\201609061724066_AddTableFeatures.Designer.cs">
-      <DependentUpon>201609061724066_AddTableFeatures.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MilkMigrations\201609061800000_AddFeatureEnumField.cs" />
-    <Compile Include="MilkMigrations\201609061800000_AddFeatureEnumField.Designer.cs">
-      <DependentUpon>201609061800000_AddFeatureEnumField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MilkMigrations\201609061914562_AddFunctionalityTable.cs" />
-    <Compile Include="MilkMigrations\201609061914562_AddFunctionalityTable.Designer.cs">
-      <DependentUpon>201609061914562_AddFunctionalityTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MilkMigrations\201609071707594_AddHasCommentFiels.cs" />
-    <Compile Include="MilkMigrations\201609071707594_AddHasCommentFiels.Designer.cs">
-      <DependentUpon>201609071707594_AddHasCommentFiels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MilkMigrations\201609161238173_AddActivityGistoryTable.cs" />
-    <Compile Include="MilkMigrations\201609161238173_AddActivityGistoryTable.Designer.cs">
-      <DependentUpon>201609161238173_AddActivityGistoryTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MilkMigrations\MilkConfiguration.cs" />
+    <Compile Include="NazarMigrations\NazarConfiguration.cs" />
     <Compile Include="Models\ActivityHistoryDbModel.cs" />
     <Compile Include="Models\FeaturesDbModel.cs" />
     <Compile Include="Models\FunctionalityDbModel.cs" />
@@ -377,23 +357,8 @@
     <EmbeddedResource Include="LajkiMigrations\201609161238418_AddActivityGistoryTable.resx">
       <DependentUpon>201609161238418_AddActivityGistoryTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MilkMigrations\201609051737512_Init.resx">
-      <DependentUpon>201609051737512_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MilkMigrations\201609061724066_AddTableFeatures.resx">
-      <DependentUpon>201609061724066_AddTableFeatures.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MilkMigrations\201609061800000_AddFeatureEnumField.resx">
-      <DependentUpon>201609061800000_AddFeatureEnumField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MilkMigrations\201609061914562_AddFunctionalityTable.resx">
-      <DependentUpon>201609061914562_AddFunctionalityTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MilkMigrations\201609071707594_AddHasCommentFiels.resx">
-      <DependentUpon>201609071707594_AddHasCommentFiels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MilkMigrations\201609161238173_AddActivityGistoryTable.resx">
-      <DependentUpon>201609161238173_AddActivityGistoryTable.cs</DependentUpon>
+    <EmbeddedResource Include="NazarMigrations\201609271928069_Init.resx">
+      <DependentUpon>201609271928069_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609051736479_Init.resx">
       <DependentUpon>201609051736479_Init.cs</DependentUpon>

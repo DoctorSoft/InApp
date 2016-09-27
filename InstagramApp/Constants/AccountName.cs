@@ -5,7 +5,7 @@
         Ozerny = 1,
         Galaxy = 2,
         Kioto = 3,
-        Milk = 4,
+        Nazar = 4,
         Lajki = 5,
         Itransition = 6,
         SalsaRika = 7,

@@ -17,7 +17,7 @@ namespace DataBase.OzernyMigrations
 
         protected override void Seed(DataBase.Contexts.OzernyContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -344,7 +344,7 @@ namespace DataBase.OzernyMigrations
                     ExpectingTime = TimeSpan.FromHours(1)
                 }
             };
-            context.Functionalities.AddRange(functionalities);
+            context.Functionalities.AddRange(functionalities);*/
         }
     }
 }
