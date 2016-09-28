@@ -7,7 +7,7 @@
         Kioto = 3,
         Nazar = 4,
         Lajki = 5,
-        Itransition = 6,
+        Karina = 6,
         SalsaRika = 7,
         Augustovski = 8
     }

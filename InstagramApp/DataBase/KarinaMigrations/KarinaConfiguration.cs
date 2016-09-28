@@ -5,17 +5,17 @@ using System.Linq;
 using Constants;
 using DataBase.Models;
 
-namespace DataBase.ItransitionMigrations
+namespace DataBase.KarinaMigrations
 {
-    internal sealed class ItransitionConfiguration : DbMigrationsConfiguration<DataBase.Contexts.ItransitionContext>
+    internal sealed class KarinaConfiguration : DbMigrationsConfiguration<DataBase.Contexts.KarinaContext>
     {
-        public ItransitionConfiguration()
+        public KarinaConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"ItransitionMigrations";
+            MigrationsDirectory = @"KarinaMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.ItransitionContext context)
+        protected override void Seed(DataBase.Contexts.KarinaContext context)
         {
             if (!context.Users.Any())
             {
@@ -39,7 +39,7 @@ namespace DataBase.ItransitionMigrations
             };
             context.ProfileSettings.Add(settings);
 
-            /*context.SpamWords.RemoveRange(context.SpamWords);
+            context.SpamWords.RemoveRange(context.SpamWords);
 
             var spamWords = new List<SpamWordDbModel>
             {
@@ -412,7 +412,7 @@ namespace DataBase.ItransitionMigrations
                     ExpectingTime = TimeSpan.FromHours(1)
                 }
             };
-            context.Functionalities.AddRange(functionalities);*/
+            context.Functionalities.AddRange(functionalities);
         }
     }
 }

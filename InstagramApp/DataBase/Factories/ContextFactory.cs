@@ -20,8 +20,8 @@ namespace DataBase.Factories
                     return new NazarContext();
                 case AccountName.Lajki:
                     return new LajkiContext();
-                case AccountName.Itransition:
-                    return new ItransitionContext();
+                case AccountName.Karina:
+                    return new KarinaContext();
                 case AccountName.SalsaRika:
                     return new SalsaRikaContext();
                 case AccountName.Augustovski:

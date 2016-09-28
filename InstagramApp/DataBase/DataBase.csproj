@@ -67,7 +67,7 @@
     <Compile Include="Contexts\DataBaseContext.cs" />
     <Compile Include="Contexts\AugustovskiContext.cs" />
     <Compile Include="Contexts\SalsaRikaContext.cs" />
-    <Compile Include="Contexts\ItransitionContext.cs" />
+    <Compile Include="Contexts\KarinaContext.cs" />
     <Compile Include="Contexts\LajkiContext.cs" />
     <Compile Include="Contexts\NazarContext.cs" />
     <Compile Include="Contexts\KiotoContext.cs" />
@@ -100,6 +100,10 @@
       <DependentUpon>201609161238054_AddActivityGistoryTable.cs</DependentUpon>
     </Compile>
     <Compile Include="AugustovskiMigrations\AugustovskiConfiguration.cs" />
+    <Compile Include="KarinaMigrations\201609282205179_Init.cs" />
+    <Compile Include="KarinaMigrations\201609282205179_Init.Designer.cs">
+      <DependentUpon>201609282205179_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="NazarMigrations\201609271928069_Init.cs" />
     <Compile Include="NazarMigrations\201609271928069_Init.Designer.cs">
       <DependentUpon>201609271928069_Init.cs</DependentUpon>
@@ -118,11 +122,7 @@
       <DependentUpon>201609171434083_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="SalsaRikaMigrations\SalsaRikaConfiguration.cs" />
-    <Compile Include="ItransitionMigrations\201609171416349_Init.cs" />
-    <Compile Include="ItransitionMigrations\201609171416349_Init.Designer.cs">
-      <DependentUpon>201609171416349_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ItransitionMigrations\ItransitionConfiguration.cs" />
+    <Compile Include="KarinaMigrations\KarinaConfiguration.cs" />
     <Compile Include="KiotoMigrations\201609051737289_Init.cs" />
     <Compile Include="KiotoMigrations\201609051737289_Init.Designer.cs">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
@@ -327,8 +327,8 @@
     <EmbeddedResource Include="GalaxyMigrations\201609161238054_AddActivityGistoryTable.resx">
       <DependentUpon>201609161238054_AddActivityGistoryTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ItransitionMigrations\201609171416349_Init.resx">
-      <DependentUpon>201609171416349_Init.cs</DependentUpon>
+    <EmbeddedResource Include="KarinaMigrations\201609282205179_Init.resx">
+      <DependentUpon>201609282205179_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609051737289_Init.resx">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>

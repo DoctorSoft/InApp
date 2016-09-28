@@ -3,7 +3,7 @@ add-migration -Name [SomeName] -ConfigurationTypeName GalaxyConfiguration
 add-migration -Name [SomeName] -ConfigurationTypeName KiotoConfiguration
 add-migration -Name [SomeName] -ConfigurationTypeName NazarConfiguration
 add-migration -Name [SomeName] -ConfigurationTypeName LajkiConfiguration
-add-migration -Name [SomeName] -ConfigurationTypeName ItransitionConfiguration  //Karina
+add-migration -Name [SomeName] -ConfigurationTypeName KarinaConfiguration  
 add-migration -Name [SomeName] -ConfigurationTypeName SalsaRikaConfiguration
 add-migration -Name [SomeName] -ConfigurationTypeName AugustovskiConfiguration
 
@@ -12,6 +12,6 @@ update-database -ConfigurationTypeName GalaxyConfiguration
 update-database -ConfigurationTypeName KiotoConfiguration
 update-database -ConfigurationTypeName NazarConfiguration
 update-database -ConfigurationTypeName LajkiConfiguration
-update-database -ConfigurationTypeName ItransitionConfiguration  //Karina
+update-database -ConfigurationTypeName KarinaConfiguration  
 update-database -ConfigurationTypeName SalsaRikaConfiguration
 update-database -ConfigurationTypeName AugustovskiConfiguration

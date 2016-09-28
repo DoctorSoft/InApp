@@ -2,11 +2,11 @@
 
 namespace DataBase.Contexts
 {
-    public class ItransitionContext : DataBaseContext
+    public class KarinaContext : DataBaseContext
     {
         protected override AccountName GetAccountName()
         {
-            return AccountName.Itransition;
+            return AccountName.Karina;
         }
     }
 }

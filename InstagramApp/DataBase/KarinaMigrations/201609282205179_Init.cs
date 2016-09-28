@@ -1,4 +1,4 @@
-namespace DataBase.ItransitionMigrations
+namespace DataBase.KarinaMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -8,7 +8,7 @@ namespace DataBase.ItransitionMigrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Itransition_ActivityHistory",
+                "dbo.Karina_ActivityHistory",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -18,7 +18,7 @@ namespace DataBase.ItransitionMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Itransition_Features",
+                "dbo.Karina_Features",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -29,7 +29,7 @@ namespace DataBase.ItransitionMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Itransition_Functionality",
+                "dbo.Karina_Functionality",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -43,7 +43,7 @@ namespace DataBase.ItransitionMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Itransition_HashTag",
+                "dbo.Karina_HashTag",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -52,7 +52,7 @@ namespace DataBase.ItransitionMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Itransition_Language",
+                "dbo.Karina_Language",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -61,7 +61,7 @@ namespace DataBase.ItransitionMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Itransition_Region",
+                "dbo.Karina_Region",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -73,11 +73,11 @@ namespace DataBase.ItransitionMigrations
                         LanguageId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Itransition_Language", t => t.LanguageId, cascadeDelete: true)
+                .ForeignKey("dbo.Karina_Language", t => t.LanguageId, cascadeDelete: true)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Itransition_User",
+                "dbo.Karina_User",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -90,13 +90,13 @@ namespace DataBase.ItransitionMigrations
                         IncludingTime = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Itransition_Region", t => t.RegionId)
-                .ForeignKey("dbo.Itransition_Language", t => t.LanguageId)
+                .ForeignKey("dbo.Karina_Region", t => t.RegionId)
+                .ForeignKey("dbo.Karina_Language", t => t.LanguageId)
                 .Index(t => t.RegionId)
                 .Index(t => t.LanguageId);
             
             CreateTable(
-                "dbo.Itransition_Media",
+                "dbo.Karina_Media",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -109,11 +109,11 @@ namespace DataBase.ItransitionMigrations
                         HasComment = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Itransition_User", t => t.UserId)
+                .ForeignKey("dbo.Karina_User", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Itransition_ProfilesSettings",
+                "dbo.Karina_ProfilesSettings",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -126,7 +126,7 @@ namespace DataBase.ItransitionMigrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Itransition_SpamWord",
+                "dbo.Karina_SpamWord",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
@@ -139,24 +139,24 @@ namespace DataBase.ItransitionMigrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Itransition_User", "LanguageId", "dbo.Itransition_Language");
-            DropForeignKey("dbo.Itransition_Region", "LanguageId", "dbo.Itransition_Language");
-            DropForeignKey("dbo.Itransition_User", "RegionId", "dbo.Itransition_Region");
-            DropForeignKey("dbo.Itransition_Media", "UserId", "dbo.Itransition_User");
-            DropIndex("dbo.Itransition_Media", new[] { "UserId" });
-            DropIndex("dbo.Itransition_User", new[] { "LanguageId" });
-            DropIndex("dbo.Itransition_User", new[] { "RegionId" });
-            DropIndex("dbo.Itransition_Region", new[] { "LanguageId" });
-            DropTable("dbo.Itransition_SpamWord");
-            DropTable("dbo.Itransition_ProfilesSettings");
-            DropTable("dbo.Itransition_Media");
-            DropTable("dbo.Itransition_User");
-            DropTable("dbo.Itransition_Region");
-            DropTable("dbo.Itransition_Language");
-            DropTable("dbo.Itransition_HashTag");
-            DropTable("dbo.Itransition_Functionality");
-            DropTable("dbo.Itransition_Features");
-            DropTable("dbo.Itransition_ActivityHistory");
+            DropForeignKey("dbo.Karina_User", "LanguageId", "dbo.Karina_Language");
+            DropForeignKey("dbo.Karina_Region", "LanguageId", "dbo.Karina_Language");
+            DropForeignKey("dbo.Karina_User", "RegionId", "dbo.Karina_Region");
+            DropForeignKey("dbo.Karina_Media", "UserId", "dbo.Karina_User");
+            DropIndex("dbo.Karina_Media", new[] { "UserId" });
+            DropIndex("dbo.Karina_User", new[] { "LanguageId" });
+            DropIndex("dbo.Karina_User", new[] { "RegionId" });
+            DropIndex("dbo.Karina_Region", new[] { "LanguageId" });
+            DropTable("dbo.Karina_SpamWord");
+            DropTable("dbo.Karina_ProfilesSettings");
+            DropTable("dbo.Karina_Media");
+            DropTable("dbo.Karina_User");
+            DropTable("dbo.Karina_Region");
+            DropTable("dbo.Karina_Language");
+            DropTable("dbo.Karina_HashTag");
+            DropTable("dbo.Karina_Functionality");
+            DropTable("dbo.Karina_Features");
+            DropTable("dbo.Karina_ActivityHistory");
         }
     }
 }
