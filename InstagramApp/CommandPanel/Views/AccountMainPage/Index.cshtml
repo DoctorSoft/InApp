@@ -12,4 +12,7 @@
         <div>Date: @Model.LastStatisticDate</div>
     </div>
 
+    <div>
+        <a href="@Url.Action("Index", "HashTag", new { accountId = Model.AccountId })" class="btn btn-primary"> Hash tags </a>
+    </div>
 </div>

@@ -57,12 +57,12 @@ namespace InstagramApp
                     {FunctionalityName.SaveMediaByHomePage, service.SaveMediaByHomePage}, 
                     {FunctionalityName.LikeMedias, service.LikeMedias},
                     {FunctionalityName.SynchOwnerFollowings, service.SynchOwnerFollowings},
-                    {FunctionalityName.SearchNewUsers, service.SearchNewUsers},
+                    //{FunctionalityName.SearchNewUsers, service.SearchNewUsers},
                     {FunctionalityName.FollowUsers, service.FollowUsers},
                     {FunctionalityName.SynchOwnerFriends, service.SynchOwnerFriends},
                     {FunctionalityName.UnfollowUsers, service.UnfollowUsers},
                     {FunctionalityName.ClearOldMedia, service.ClearOldMedia}, 
-                    {FunctionalityName.AddComments, service.AddComments},
+                    //{FunctionalityName.AddComments, service.AddComments},
                     {FunctionalityName.AddActivityHistoryMark, service.AddFollowersNote} 
                 };
 
@@ -105,8 +105,8 @@ namespace InstagramApp
                 //RegisterProccess<SalsaRikaContext>(),
                 //RegisterProccess<OzernyContext>(), 
                 //RegisterProccess<GalaxyContext>(), 
-                //RegisterProccess<KiotoContext>(), 
-                //RegisterProccess<NazarContext>(), 
+                RegisterProccess<KiotoContext>(), 
+                RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>()
             };
 

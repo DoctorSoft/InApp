@@ -104,6 +104,10 @@
     <Compile Include="NazarMigrations\201609271928069_Init.Designer.cs">
       <DependentUpon>201609271928069_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueriesAndCommands\Commands\HashTag\AddHashTagCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\HashTag\AddHashTagCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\HashTag\RemoveHashTagCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\HashTag\RemoveHashTagCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\History\AddFollowersNoteCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\History\AddFollowersNoteCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\ActivityHistoryModel.cs" />

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model CommandPanel.Models.HashTagModels.HashTagListViewModel
+
+<div class="row">
+    @using (Html.BeginForm("AddHashTag", "HashTag", FormMethod.Post))
+    {
+        <input type="hidden" name="accountId" value="@Model.AccountId"/>
+        
+        <div class="input-hashtag ">
+            <div>
+                <input type="text" name="hashTag" class="form-control" />
+            </div>
+            <input type="submit" value="Send word" class="btn btn-primary" />
+        </div>
+    }
+</div>
+
+@foreach (var hashTag in @Model.HashTags)
+{
+    <div class="alert-info alert"> <span>@hashTag.HashTagName</span> <a href="@Url.Action("RemoveHashTage", "HashTag", new { accountId = @Model.AccountId, hashTag = hashTag.HashTagName })" class="btn btn-danger pull-right">Remove</a> </div>
+}
+

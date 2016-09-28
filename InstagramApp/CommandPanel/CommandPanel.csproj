@@ -157,14 +157,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountMainPageController.cs" />
+    <Compile Include="Controllers\HashTagController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels\AccountMainStatisticViewModel.cs" />
+    <Compile Include="Models\HashTagModels\HashTagListViewModel.cs" />
+    <Compile Include="Models\HashTagModels\HashTagViewModel.cs" />
     <Compile Include="Models\HomeModels\AccountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\HashTagService.cs" />
     <Compile Include="Services\HomeService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -203,6 +207,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\AccountMainPage\Index.cshtml" />
+    <Content Include="Views\HashTag\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
