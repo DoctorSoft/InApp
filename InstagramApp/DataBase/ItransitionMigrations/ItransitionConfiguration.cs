@@ -17,7 +17,7 @@ namespace DataBase.ItransitionMigrations
 
         protected override void Seed(DataBase.Contexts.ItransitionContext context)
         {
-            /*if (!context.Users.Any())
+            if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -32,14 +32,14 @@ namespace DataBase.ItransitionMigrations
             context.ProfileSettings.RemoveRange(context.ProfileSettings);
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/_Itransition_/",
-                Login = "_Itransition_",
-                Password = "123qazwsxedc890",
+                HomePageUrl = "https://www.instagram.com/Karina_beauty.by/",
+                Login = "Karina_beauty.by",
+                Password = "03111010KV",
                 LanguageDetectorKey = "06b11f1ec38eb723b903fc36c74f5fe7"
             };
             context.ProfileSettings.Add(settings);
 
-            context.SpamWords.RemoveRange(context.SpamWords);
+            /*context.SpamWords.RemoveRange(context.SpamWords);
 
             var spamWords = new List<SpamWordDbModel>
             {

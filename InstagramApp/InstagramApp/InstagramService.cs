@@ -77,7 +77,7 @@ namespace InstagramApp
         {
             Registration(driver, context);
 
-            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 100, BanTime = new TimeSpan(5, 0, 0, 0)});
+            var users = new GetUsersToUnFollowQueryHandler(context).Handle(new GetUsersToUnFollowQuery { MaxCount = 1000, BanTime = new TimeSpan(1, 0, 0, 0)});
 
             foreach (var user in users)
             {
