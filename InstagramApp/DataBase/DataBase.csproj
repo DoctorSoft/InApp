@@ -117,6 +117,7 @@
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\ActivityHistoryModel.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\GetFunctionalityStatisticQuery.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.Designer.cs">
       <DependentUpon>201609171434083_Init.cs</DependentUpon>
