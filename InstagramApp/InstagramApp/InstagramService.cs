@@ -188,6 +188,48 @@ namespace InstagramApp
             }
         }
 
+
+        public void ClearUselessUsers(RemoteWebDriver driver, DataBaseContext context)
+        {
+            Registration(driver, context);
+
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+            {
+                UserLink = settings.HomePageUrl
+            });
+
+            var addedUsers = new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
+            {
+                UserLink = settings.HomePageUrl,
+                MaxCount = null,
+                Count = userInfo.FollowerCount
+            });
+
+            var followings = new SearchUserUnAddedFriendsEngine().Execute(driver, new SearchUserUnAddedFriendsModel
+            {
+                UserLink = settings.HomePageUrl,
+                MaxCount = null,
+                Count = userInfo.FollowingCount
+            });
+
+            var banList = followings.Except(addedUsers).Take(1000); // Max value;
+
+            foreach (var userToDelete in banList)
+            {
+                new UnFollowUserEngine().Execute(driver, new UnFollowUserModel
+                {
+                    UserLink = userToDelete
+                });
+
+                new MarkUserAsSpammerCommandHandler(context).Handle(new MarkUserAsSpammerCommand
+                {
+                    UserLink = userToDelete
+                });
+            }
+        }
+
         public void SynchOwnerFollowings(RemoteWebDriver driver, DataBaseContext context)
         {
             Registration(driver, context);

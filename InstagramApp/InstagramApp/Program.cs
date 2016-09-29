@@ -93,6 +93,31 @@ namespace InstagramApp
             }
         }
 
+        private static Task RunClearingProccess<TContext>()
+            where TContext : DataBaseContext, new()
+        {
+            // My Dev Page Jobs
+            var aproveUsersTokenSource = new CancellationTokenSource();
+
+            var driver = new ChromeDriver();
+            var instagramService = new InstagramService();
+            var taskRunner = new TaskRunner();
+
+            return Task.Run(() => taskRunner.RunPeriodically(() =>
+                ClearUsers<TContext>(driver, instagramService),
+                TimeSpan.FromSeconds(5),
+                aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
+        }
+
+        private static void ClearUsers<TContext>(RemoteWebDriver driver, InstagramService instagramService)
+            where TContext : DataBaseContext, new()
+        {
+            using (var context = new TContext())
+            {
+                instagramService.ClearUselessUsers(driver, context);
+            }
+        }
+
         /// <summary>
         /// Run Jobs
         /// </summary>
@@ -101,12 +126,12 @@ namespace InstagramApp
             var tasks = new List<Task>
             {
                 //RegisterProccess<AugustovskiContext>(),
-                RegisterProccess<KarinaContext>(), //Karina
+                RunClearingProccess<KarinaContext>(), //Karina
                 //RegisterProccess<SalsaRikaContext>(),
                 //RegisterProccess<OzernyContext>(), 
                 //RegisterProccess<GalaxyContext>(), 
-                RegisterProccess<KiotoContext>(), 
-                RegisterProccess<NazarContext>(), 
+                RunClearingProccess<KiotoContext>(), 
+                //RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>()
             };
 
