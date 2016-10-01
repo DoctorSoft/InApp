@@ -1,12 +1,19 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reactive.Linq;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Web.Helpers;
 using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
@@ -31,9 +38,12 @@ using Engines.Engines.LikeMediaEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
 using Engines.Engines.WaitingCaptchEngine;
-using Engines.Exceptions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using RestSharp;
+using ServiceStack.Api.Postman;
+using ServiceStack.ServiceInterface.Cors;
+using Cookie = System.Net.Cookie;
 
 namespace InstagramApp
 {
@@ -128,7 +138,7 @@ namespace InstagramApp
                     UserLink = user
                 });
 
-                results.AddRange(new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
+                results.AddRange(new SearchUserFollowingsEngine().Execute(driver, new SearchUserFollowingsModel
                 {
                     UserLink = user,
                     MaxCount = 250,
@@ -175,7 +185,7 @@ namespace InstagramApp
                 UserLink = settings.HomePageUrl
             });
 
-            var addedUsers = new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
+            var addedUsers = new SearchUserFollowingsEngine().Execute(driver, new SearchUserFollowingsModel
             {
                 UserLink = settings.HomePageUrl,
                 MaxCount = null,
@@ -218,7 +228,22 @@ namespace InstagramApp
                     }
                 }
             }
-        } 
+        }
+
+        private IEnumerable<string> ParseFromResponse(string response)
+        {
+            var pattern = "username[^,]*";
+            var regex = new Regex(pattern);
+
+            foreach (Match line in regex.Matches(response))
+            {
+                if (!string.IsNullOrWhiteSpace(line.Value))
+                {
+                    var result = Path.Combine("https://www.instagram.com", line.Value.Split('\"')[2]);
+                    yield return result;
+                }
+            }
+        }
 
         public void ClearUselessUsers(RemoteWebDriver driver, DataBaseContext context)
         {
@@ -230,86 +255,113 @@ namespace InstagramApp
             {
                 UserLink = settings.HomePageUrl
             });
-            /*
-            var followersButton = driver
-            .FindElements(By.ClassName("_s53mj"))
-            .Where(element =>
+
+            new SearchUserFollowingsEngine().Execute(driver, new SearchUserFollowingsModel
             {
-                if (element.GetAttribute("href") != null)
+                UserLink = settings.HomePageUrl
+            });
+
+            /*var followersButton = driver
+                .FindElements(By.ClassName("_s53mj"))
+                .Where(element =>
                 {
-                    return element.GetAttribute("href").ToLower().Contains("followers");
-                }
-                return false;
-            })
-            .FirstOrDefault();
+                    if (element.GetAttribute("href") != null)
+                    {
+                        return element.GetAttribute("href").ToLower().Contains("followers");
+                    }
+                    return false;
+                })
+                .FirstOrDefault();
 
             followersButton.Click();
 
             Thread.Sleep(1500);
 
+            for (var i = 0; i < 3; i++)
+            {
+                Thread.Sleep(100);
+                driver.Keyboard.SendKeys(Keys.PageDown);
+            }
+
+            var allCookies = driver.Manage().Cookies;
+            var cookies = "mid" + "=" + allCookies.GetCookieNamed("mid").Value + "; " +
+                          "sessionid" + "=" + allCookies.GetCookieNamed("sessionid").Value + "; " +
+                          "csrftoken" + "=" + allCookies.GetCookieNamed("csrftoken").Value + "; " +
+                          "s_network" + "=" + allCookies.GetCookieNamed("s_network").Value + "; " +
+                          "ds_user_id" + "=" + allCookies.GetCookieNamed("ds_user_id").Value + "; " +
+                          "ig_pr" + "=" + allCookies.GetCookieNamed("ig_pr").Value + "; " +
+                          "ig_vw" + "=" + allCookies.GetCookieNamed("ig_vw").Value + "; ";
+
+            cookies = cookies + cookies;
+
             var allcookies = driver.Manage().Cookies;
             var csfToken = allcookies.GetCookieNamed("csrftoken").Value;
-            var cookies = string.Join("; ", driver.Manage().Cookies.AllCookies.Where(cookie => cookie.Name != "fr")
-                .Select(cookie => cookie.Name + "=" + cookie.Value.Split(';').FirstOrDefault()));
 
-            var client = new HttpClient();
+            var clientRest = new RestClient("https://www.instagram.com/");
+            // client.Authenticator = new HttpBasicAuthenticator(username, password);
 
-            var request = new HttpRequestMessage()
-            {
-                RequestUri = new Uri("https://www.instagram.com/query/"),
-                Method = HttpMethod.Post,
-            };
+            var requestRest = new RestRequest("query/", Method.POST);
+            requestRest.Parameters.Clear();
 
-            request.Headers.Add("Origin", "https://www.instagram.com");
-            request.Headers.Add("X-Instagram-AJAX", "1");
-            request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36");
+            requestRest.AddParameter("q",
+                "ig_user(3647234619) {  follows.first(10) {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}");
+            requestRest.AddParameter("ref", "relationships::follow_list");
 
-            try
-            {
-                client.DefaultRequestHeaders
-                    .Accept
-                    .Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
-                //request.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
-            }
-            catch (Exception exception)
-            {
+            // add parameters for all properties on an object
+            requestRest.AddCookie("mid", allCookies.GetCookieNamed("mid").Value);
+            requestRest.AddCookie("sessionid", allCookies.GetCookieNamed("sessionid").Value);
+            requestRest.AddCookie("csrftoken", allCookies.GetCookieNamed("csrftoken").Value);
+            requestRest.AddCookie("s_network", allCookies.GetCookieNamed("s_network").Value);
+            requestRest.AddCookie("ds_user_id", allCookies.GetCookieNamed("ds_user_id").Value);
+            requestRest.AddCookie("ig_pr", allCookies.GetCookieNamed("ig_pr").Value);
+            requestRest.AddCookie("ig_vw", allCookies.GetCookieNamed("ig_vw").Value);
 
-                throw;
-            }
-            request.Headers.Add("X-DevTools-Emulate-Network-Conditions-Client-Id", "d5575920-e71d-43f7-939e-214c6fcfcf1a");
-            request.Headers.Add("X-Requested-With", "XMLHttpRequest");
-            request.Headers.Add("X-CSRFToken", csfToken);
-            request.Headers.Add("Accept-Encoding", "gzip, deflate, br");
-            request.Headers.Add("Accept-Language", "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
-            request.Headers.Add("Cookie", cookies);
+            // easily add HTTP Headers
+            requestRest.AddHeader("Origin", "https://www.instagram.com");
+            requestRest.AddHeader("Referer", "https://www.instagram.com/kioto.grodno/followers/");
+            requestRest.AddHeader("X-Instagram-AJAX", "1");
+            requestRest.AddHeader("User-Agent",
+                "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36");
+            requestRest.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            requestRest.AddHeader("X-Requested-With", "XMLHttpRequest");
+            requestRest.AddHeader("X-CSRFToken", csfToken);
+            requestRest.AddHeader("Accept-Encoding", "gzip, deflate, br");
+            requestRest.AddHeader("Accept-Language", "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
+            requestRest.AddHeader("Cookie", cookies);
 
-            request.Content = new StringContent("{\"q\":\"ig_user(3647234619) {  follows.first(10) {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}\",\"ref\":relationships::follow_list}", 
-                Encoding.UTF8, "application/json");
+            // execute the request
+            IRestResponse responseRest = clientRest.Execute(requestRest);
+            var content = responseRest.Content; // 
 
-            var response = client.SendAsync(request).Result;*/
-
-            var firstFollowersList = ParseDataFromFile("KarinaFollowers.txt");
+            var userList = ParseFromResponse(content);
+            dynamic data = Json.Decode(content);
+            var follows = data.follows;
+            var count = int.Parse(follows.count.ToString());
+            var pageInfo = follows.page_info;
+            var endCursor = pageInfo.end_cursor.ToString();
+            var hasNextPage = bool.Parse(pageInfo.has_next_page.ToString());
+            /*var firstFollowersList = ParseDataFromFile("KarinaFollowers.txt");
             var secondFollowersList = ParseDataFromFile("KarinaFollowers2.txt");
 
             var firstFollowingList = ParseDataFromFile("KarinaFollowings.txt");
             var secondFollowingList = ParseDataFromFile("KarinaFollowings2.txt");
-            var thirdFollowingList = ParseDataFromFile("KarinaFollowings3.txt");
+            var thirdFollowingList = ParseDataFromFile("KarinaFollowings3.txt");*/
 
-            var addedUsers = firstFollowersList.Union(secondFollowersList);/*new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
+            /*var addedUsers = firstFollowersList.Union(secondFollowersList);/*new SearchUserFriendsEngine().Execute(driver, new SearchUserFriendsModel
             {
                 UserLink = settings.HomePageUrl,
                 MaxCount = null,
                 Count = userInfo.FollowerCount
             });*/
 
-            var followings = firstFollowingList.Union(secondFollowersList).Union(thirdFollowingList);/*new SearchUserUnAddedFriendsEngine().Execute(driver, new SearchUserUnAddedFriendsModel
+            /*var followings = firstFollowingList.Union(secondFollowingList).Union(thirdFollowingList);/*new SearchUserUnAddedFriendsEngine().Execute(driver, new SearchUserUnAddedFriendsModel
             {
                 UserLink = settings.HomePageUrl,
                 MaxCount = null,
                 Count = userInfo.FollowingCount
             });*/
 
-            var banList = followings.Except(addedUsers).Take(1000); // Max value;
+            /*var banList = followings.Except(addedUsers).Take(1000); // Max value;
 
             foreach (var userToDelete in banList)
             {
@@ -322,7 +374,7 @@ namespace InstagramApp
                 {
                     UserLink = userToDelete
                 });
-            }
+            }*/
         }
 
         public void SynchOwnerFollowings(RemoteWebDriver driver, DataBaseContext context)

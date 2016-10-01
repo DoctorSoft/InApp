@@ -1,6 +1,6 @@
 ﻿namespace Engines.Engines.SearchUserFriendsEngine
 {
-    public class SearchUserFriendsModel
+    public class SearchUserFollowingsModel
     {
         public string UserLink { get; set; }
 
