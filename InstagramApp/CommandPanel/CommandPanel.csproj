@@ -163,6 +163,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels\AccountMainStatisticViewModel.cs" />
+    <Compile Include="Models\AccountModels\FunctionalityMarkerViewModel.cs" />
     <Compile Include="Models\HashTagModels\HashTagListViewModel.cs" />
     <Compile Include="Models\HashTagModels\HashTagViewModel.cs" />
     <Compile Include="Models\HomeModels\AccountViewModel.cs" />

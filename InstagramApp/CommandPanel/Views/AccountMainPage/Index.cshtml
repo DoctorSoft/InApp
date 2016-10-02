@@ -13,6 +13,28 @@
     </div>
 
     <div>
-        <a href="@Url.Action("Index", "HashTag", new { accountId = Model.AccountId })" class="btn btn-primary"> Hash tags </a>
+        <a href="@Url.Action("Index", "HashTag", new {accountId = Model.AccountId})" class="btn btn-primary"> Hash tags </a>
+    </div>
+
+    <div class="functionality-section alert alert-primary">
+        @foreach (var functionality in @Model.Functionalities)
+        {
+            <div class="functionality-line alert alert-primary">
+                <div class="inline-box">
+                    @if (functionality.IsActive)
+                    {
+                        <span class="green-box"></span>
+                    }
+                    else
+                    {
+                        <span class="blue-box"></span>
+                    }
+                </div>
+                <div class="inline-box">
+                    <span>@functionality.FunctionalityName.ToString("G")</span>
+                    <span>@functionality.LastActivation.Day.ToString("D2").@functionality.LastActivation.Month.ToString("D2") @functionality.LastActivation.Hour.ToString("D2"):@functionality.LastActivation.Minute.ToString("D2")</span>
+                </div>
+            </div>
+        }
     </div>
 </div>

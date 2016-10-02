@@ -1,7 +1,10 @@
-﻿using CommandPanel.Models.AccountModels;
+﻿using System.Linq;
+using CommandPanel.Models.AccountModels;
 using Constants;
 using DataBase.Factories;
 using DataBase.QueriesAndCommands.Queries.ActivityHistory;
+using DataBase.QueriesAndCommands.Queries.Features;
+using DataBase.QueriesAndCommands.Queries.Functionality;
 
 namespace CommandPanel.Services
 {
@@ -13,12 +16,20 @@ namespace CommandPanel.Services
 
             var statisticData = new GetLastActivityHistoryRecordQueryHandler(context).Handle(new GetLastActivityHistoryRecordQuery());
 
+            var activityStatistic = new GetFunctionalityStatisticQueryHandler(context).Handle(new GetFunctionalityStatisticQuery());
+
             return new AccountMainStatisticViewModel
             {
                 Name = accountId.ToString("G"),
                 AccountId = accountId,
                 FollowersCount = statisticData.FollowersCount,
-                LastStatisticDate = statisticData.ActivityDateTime
+                LastStatisticDate = statisticData.ActivityDateTime,
+                Functionalities = activityStatistic.Select(statistic => new FunctionalityMarkerViewModel
+                {
+                    FunctionalityName = statistic.FunctionalityName,
+                    LastActivation = statistic.LastActivity,
+                    IsActive = statistic.Token != null
+                }).ToList()
             };
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Constants;
 
 namespace CommandPanel.Models.AccountModels
@@ -12,5 +13,7 @@ namespace CommandPanel.Models.AccountModels
         public DateTime LastStatisticDate { get; set; }
 
         public long FollowersCount { get; set; }
+
+        public List<FunctionalityMarkerViewModel> Functionalities { get; set; } 
     }
 }

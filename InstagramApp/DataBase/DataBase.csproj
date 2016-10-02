@@ -140,6 +140,8 @@
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\ActivityHistoryModel.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\GetFunctionalityStatisticQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\FunctionalityStatistic.cs" />
     <Compile Include="QueriesAndCommands\Queries\Functionality\GetFunctionalityStatisticQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToLikeCountQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToLikeCountQueryHandler.cs" />

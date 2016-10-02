@@ -63,3 +63,30 @@ textarea {
 .input-hashtag {
     margin: 10px
 }
+
+.blue-box {
+    margin: 25px;
+    padding: 25px;
+    background-color: #428bca;
+    width: 50px;
+}
+
+.green-box {
+    margin: 25px;
+    padding: 25px;
+    background-color: #42ca8b;
+    width: 50px;
+}
+
+.functionality-line {
+    padding-top: 20px;
+}
+
+.functionality-section {
+    background-color: #72abea;
+    max-width: 500px;
+}
+
+.inline-box {
+    display: inline-block;
+}
