@@ -2,14 +2,10 @@
 {
     public enum UserStatus
     {
-        ToCheck = 1,
-        ToFollow = 2,
-        Following = 3,
-        Added = 4,
-        Banned = 5,
-        Technical = 6,
-        Spammer = 7,
-        Foreigner = 8,
-        Star = 9
+        ToFollow = 1,
+        Normal = 2,
+        ToDelete = 3,
+        Star = 4,
+        Required = 5
     }
 }

@@ -36,6 +36,18 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework.BulkInsert, Version=6.0.2.8, Culture=neutral, PublicKeyToken=630a17433349cb76, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.BulkInsert-ef6.6.0.2.8\lib\Net45\EntityFramework.BulkInsert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.MappingAPI, Version=6.0.0.7, Culture=neutral, PublicKeyToken=7ee2e825d201459e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.0.0.7\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
@@ -73,6 +85,7 @@
     <Compile Include="Contexts\KiotoContext.cs" />
     <Compile Include="Contexts\OzernyContext.cs" />
     <Compile Include="Contexts\GalaxyContext.cs" />
+    <Compile Include="DefaultData\DefaultFunctionalityFiller.cs" />
     <Compile Include="Factories\ContextFactory.cs" />
     <Compile Include="Factories\IContextFactory.cs" />
     <Compile Include="GalaxyMigrations\201609051737107_Init.cs" />
@@ -114,10 +127,26 @@
     <Compile Include="QueriesAndCommands\Commands\HashTag\RemoveHashTagCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\History\AddFollowersNoteCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\History\AddFollowersNoteCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsCheckedForFriendsCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsCheckedForFriendsCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToDeleteCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsToDeleteCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsToDeleteCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsToDeleteCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsToFollowCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsToFollowCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\RemoveUserCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\RemoveUserCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\ActivityHistoryModel.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Functionality\GetFunctionalityStatisticQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToLikeCountQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToLikeCountQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToDeleteCountQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToDeleteCountQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowCountQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowCountQueryHandler.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.Designer.cs">
       <DependentUpon>201609171434083_Init.cs</DependentUpon>
@@ -227,11 +256,6 @@
     <Compile Include="QueriesAndCommands\Queries\Media\GetRandomMediaListToCommentQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetAllKnownUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetAllKnownUsersQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetFollowingUsersQuery.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetFollowingUsersQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetForeignUsersQuery.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetForeignUsersQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsSpammerCommand.cs" />
     <Compile Include="Models\MediaDbModel.cs" />
     <Compile Include="Models\ProfileSettingsDbModel.cs" />
     <Compile Include="Models\SpamWordDbModel.cs" />
@@ -248,12 +272,9 @@
     <Compile Include="QueriesAndCommands\Queries\Languages\GetLanguagesQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToDeleteQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Media\GetMediaToDeleteQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetSpammerUsersQuery.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetSpammerUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Words\GetSpamWordsQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Words\GetSpamWordsQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetTechnicalUsersQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetAddedUsersQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetRequiredUsersQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Common\ICommand.cs" />
     <Compile Include="QueriesAndCommands\Common\ICommandDispatcher.cs" />
     <Compile Include="QueriesAndCommands\Common\ICommandHandler.cs" />
@@ -263,29 +284,19 @@
     <Compile Include="QueriesAndCommands\Common\IVoidCommand.cs" />
     <Compile Include="QueriesAndCommands\Common\IVoidCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Common\VoidCommandResponse.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetAddedUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Settings\GetProfileSettingsQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Settings\GetProfileSettingsQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetTechnicalUsersQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetRequiredUsersQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersNotCheckedForFriendsQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersNotCheckedForFriendsQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowQueryHandler.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToUnFollowQuery.cs" />
-    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToUnFollowQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToDeleteQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToDeleteQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Media\MarkMediaAsLikedCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Media\MarkMediaAsLikedCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsAddedCommand.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsAddedCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsBannedCommand.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsBannedCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsCheckedForFriendsCommand.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsCheckedForFriendsCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsFollowingCommand.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsFollowingCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsForeignerCommand.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsForeignerCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsSpammerCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsNormalCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsNormalCommandHandler.cs" />
     <Compile Include="GalaxyMigrations\GalaxyConfiguration.cs" />
     <Compile Include="QueriesAndCommands\Queries\Settings\TimeForFollowingsSynchronizationQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Settings\TimeForFollowingsSynchronizationQueryHandler.cs" />

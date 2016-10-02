@@ -6,9 +6,9 @@ using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.FollowUserEngine
 {
-    public class FollowUserEngine : AbstractEngine<FollowUserModel, VoidResult>
+    public class FollowUserEngine : AbstractEngine<FollowUserModel, bool>
     {
-        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, FollowUserModel model)
+        protected override bool ExecuteEngine(RemoteWebDriver driver, FollowUserModel model)
         {
             driver.Navigate().GoToUrl(model.UserLink);
 
@@ -20,7 +20,7 @@ namespace Engines.Engines.FollowUserEngine
 
             if (breakButtonExists)
             {
-                return new VoidResult();
+                return GetDefaultResult();
             }
 
             var captchButtonExists = driver
@@ -45,7 +45,22 @@ namespace Engines.Engines.FollowUserEngine
 
             Thread.Sleep(400);
 
-            return new VoidResult();
+            driver.Navigate().GoToUrl(model.UserLink);
+
+            Thread.Sleep(500);
+
+            followButton = driver
+                .FindElements(By.ClassName("_aj7mu"))
+                .First();
+
+            Thread.Sleep(200);
+
+            if (followButton.Text.Contains("Подписаться"))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

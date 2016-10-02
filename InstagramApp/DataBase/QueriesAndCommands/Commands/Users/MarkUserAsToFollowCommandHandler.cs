@@ -30,7 +30,8 @@ namespace DataBase.QueriesAndCommands.Commands.Users
             }
             else
             {
-                user.UserStatus = UserStatus.ToFollow;
+                // if this user there is in base, do nothing
+                return new VoidCommandResponse();
             }
 
             context.Users.AddOrUpdate(user);

@@ -1,16 +1,14 @@
 ﻿using System.Linq;
 using System.Threading;
-using DataBase.Contexts;
-using DataBase.QueriesAndCommands;
 using Engines.Exceptions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.FollowUserEngine
 {
-    public class UnFollowUserEngine : AbstractEngine<UnFollowUserModel, VoidResult>
+    public class UnFollowUserEngine : AbstractEngine<UnFollowUserModel, bool>
     {
-        protected override VoidResult ExecuteEngine(RemoteWebDriver driver, UnFollowUserModel model)
+        protected override bool ExecuteEngine(RemoteWebDriver driver, UnFollowUserModel model)
         {
             driver.Navigate().GoToUrl(model.UserLink);
 
@@ -22,7 +20,7 @@ namespace Engines.Engines.FollowUserEngine
 
             if (breakButtonExists)
             {
-                return new VoidResult();
+                return GetDefaultResult();
             }
 
             var captchButtonExists = driver
@@ -47,7 +45,20 @@ namespace Engines.Engines.FollowUserEngine
 
             Thread.Sleep(400);
 
-            return new VoidResult();
+            driver.Navigate().GoToUrl(model.UserLink);
+
+            Thread.Sleep(500);
+
+            followButton = driver
+                .FindElements(By.ClassName("_aj7mu"))
+                .First();
+
+            if (!followButton.Text.Contains("Подписаться"))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

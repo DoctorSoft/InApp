@@ -2,7 +2,7 @@
 
 namespace DataBase.QueriesAndCommands.Commands.Users
 {
-    public class MarkUserAsSpammerCommand : IVoidCommand
+    public class RemoveUserCommand : IVoidCommand
     {
         public string UserLink { get; set; }
     }

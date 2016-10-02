@@ -21,14 +21,12 @@ namespace DataBase.QueriesAndCommands.Queries.Functionality
             var token = Guid.NewGuid();
             var now = DateTime.Now;
 
-            var functionality = context
-                .Functionalities
-                .Where(
-                    model =>
-                        model.Token == null ||
-                        DbFunctions.AddSeconds(model.LastApplied, model.ExpectingTime.Seconds) < now)
-                .OrderBy(model => DbFunctions.AddSeconds(model.LastApplied, model.ApplyInterval.Seconds))
-                .FirstOrDefault();
+            var functionalities = context.Functionalities.ToList()
+                .Where(model => model.Token == null || model.LastApplied + model.ExpectingTime < now)
+                .OrderBy(model => model.LastApplied + model.ApplyInterval)
+                .ToList();
+
+            var functionality = functionalities.FirstOrDefault();
 
             functionality.LastApplied = now;
             functionality.Token = token;

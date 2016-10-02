@@ -3,7 +3,8 @@ using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Queries.Users
 {
-    public class GetForeignUsersQuery : IQuery<List<string>>
+    public class GetUsersToFollowCountQuery : IQuery<int>
     {
+
     }
 }

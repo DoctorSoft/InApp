@@ -2,7 +2,7 @@
 
 namespace DataBase.QueriesAndCommands.Commands.Users
 {
-    public class MarkUserAsForeignerCommand : IVoidCommand
+    public class MarkUserAsNormalCommand : IVoidCommand
     {
         public string UserLink { get; set; }
     }

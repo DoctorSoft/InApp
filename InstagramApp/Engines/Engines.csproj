@@ -97,6 +97,9 @@
     <Compile Include="Engines\FollowUserEngine\UnFollowUserModel.cs" />
     <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageEngine.cs" />
     <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageModel.cs" />
+    <Compile Include="Engines\GetUserIdEngine\GetUserIdEngineModel.cs" />
+    <Compile Include="Engines\GetUserIdEngine\GetUserIdEngine.cs" />
+    <Compile Include="Engines\GetUserIdEngine\UserInfo.cs" />
     <Compile Include="Engines\GetUserInfoEngine\GetUserInfoEngine.cs" />
     <Compile Include="Engines\GetUserInfoEngine\GetUserInfoEngineModel.cs" />
     <Compile Include="Engines\GetUserInfoEngine\GetUserInfoEngineResponse.cs" />
@@ -110,9 +113,9 @@
     <Compile Include="Engines\LikeMediaEngine\LikeMediaModel.cs" />
     <Compile Include="Engines\RegistrationEngine\RegistrationEngine.cs" />
     <Compile Include="Engines\RegistrationEngine\RegistrationModel.cs" />
-    <Compile Include="Engines\SearchUserFriendsEngine\SearchUserUnAddedFriendsEngine.cs" />
+    <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowersEngine.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowingsEngine.cs" />
-    <Compile Include="Engines\SearchUserFriendsEngine\SearchUserUnAddedFriendsModel.cs" />
+    <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowersModel.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowingsModel.cs" />
     <Compile Include="Engines\VoidResult.cs" />
     <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesEngine.cs" />

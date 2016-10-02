@@ -5,13 +5,12 @@
         SaveMediaByHashTag = 1,
         SaveMediaByHomePage = 2, 
         LikeMedias = 3,
-        SynchOwnerFollowings = 4,
-        SearchNewUsers = 5,
-        FollowUsers = 6,
-        SynchOwnerFriends = 7,
-        UnfollowUsers = 8,
-        ClearOldMedia = 9, 
-        AddComments = 10,
-        AddActivityHistoryMark = 11
+        SearchNewUsers = 4,
+        FollowUsers = 5,
+        UnfollowUsers = 6,
+        ClearOldMedia = 7, 
+        AddComments = 8,
+        AddActivityHistoryMark = 9,
+        SearchUselessUsers = 10
     }
 }

@@ -56,13 +56,12 @@ namespace InstagramApp
                     {FunctionalityName.SaveMediaByHashTag, service.SaveMediaByHashTag},
                     {FunctionalityName.SaveMediaByHomePage, service.SaveMediaByHomePage}, 
                     {FunctionalityName.LikeMedias, service.LikeMedias},
-                    {FunctionalityName.SynchOwnerFollowings, service.SynchOwnerFollowings},
-                    //{FunctionalityName.SearchNewUsers, service.SearchNewUsers},
+                    {FunctionalityName.SearchNewUsers, service.SearchNewUsers},
                     {FunctionalityName.FollowUsers, service.FollowUsers},
-                    {FunctionalityName.SynchOwnerFriends, service.SynchOwnerFriends},
+                    {FunctionalityName.SearchUselessUsers, service.SearchUselessUsers},
                     {FunctionalityName.UnfollowUsers, service.UnfollowUsers},
                     {FunctionalityName.ClearOldMedia, service.ClearOldMedia}, 
-                    //{FunctionalityName.AddComments, service.AddComments},
+                    {FunctionalityName.AddComments, service.AddComments},
                     {FunctionalityName.AddActivityHistoryMark, service.AddFollowersNote} 
                 };
 
@@ -93,31 +92,6 @@ namespace InstagramApp
             }
         }
 
-        private static Task RunClearingProccess<TContext>()
-            where TContext : DataBaseContext, new()
-        {
-            // My Dev Page Jobs
-            var aproveUsersTokenSource = new CancellationTokenSource();
-
-            var driver = new ChromeDriver();
-            var instagramService = new InstagramService();
-            var taskRunner = new TaskRunner();
-
-            return Task.Run(() => taskRunner.RunPeriodically(() =>
-                ClearUsers<TContext>(driver, instagramService),
-                TimeSpan.FromSeconds(5),
-                aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
-        }
-
-        private static void ClearUsers<TContext>(RemoteWebDriver driver, InstagramService instagramService)
-            where TContext : DataBaseContext, new()
-        {
-            using (var context = new TContext())
-            {
-                instagramService.ClearUselessUsers(driver, context);
-            }
-        }
-
         /// <summary>
         /// Run Jobs
         /// </summary>
@@ -126,12 +100,12 @@ namespace InstagramApp
             var tasks = new List<Task>
             {
                 //RegisterProccess<AugustovskiContext>(),
-                //RunClearingProccess<KarinaContext>(), //Karina
+                RegisterProccess<KarinaContext>(), //Karina
                 //RegisterProccess<SalsaRikaContext>(),
                 //RegisterProccess<OzernyContext>(), 
                 //RegisterProccess<GalaxyContext>(), 
-                RunClearingProccess<KiotoContext>(), 
-                //RegisterProccess<NazarContext>(), 
+                RegisterProccess<KiotoContext>(), 
+                RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>()
             };
 
@@ -139,6 +113,7 @@ namespace InstagramApp
 
             while (true)
             {
+                Console.ReadLine();
                 // To stop cancelling the allpication 
             }
         }

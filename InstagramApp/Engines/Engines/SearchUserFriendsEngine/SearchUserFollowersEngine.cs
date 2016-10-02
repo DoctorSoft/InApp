@@ -12,7 +12,7 @@ using RestSharp;
 
 namespace Engines.Engines.SearchUserFriendsEngine
 {
-    public class SearchUserFollowingsEngine : AbstractEngine<SearchUserFollowingsModel, List<string>>
+    public class SearchUserFollowersEngine : AbstractEngine<SearchUserFollowersModel, List<string>>
     {
         private IEnumerable<string> ParseFromResponse(string response)
         {
@@ -29,16 +29,16 @@ namespace Engines.Engines.SearchUserFriendsEngine
             }
         }
 
-        protected override List<string> ExecuteEngine(RemoteWebDriver driver, SearchUserFollowingsModel model)
+        protected override List<string> ExecuteEngine(RemoteWebDriver driver, SearchUserFollowersModel model)
         {
             if (!base.NavigateToUrl(driver, model.UserLink))
             {
                 return GetDefaultResult();
-            }
-           
+            } Thread.Sleep(500);
+
             var breakButtonExists = driver
                 .FindElements(By.TagName("h2"))
-                .Any(element => element.Text.Contains("недоступна"));
+                .Any(element => element.Text.Contains("недоступна")); 
 
             if (breakButtonExists)
             {
@@ -47,7 +47,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             var captchButtonExists = driver
                 .FindElements(By.TagName("h2"))
-                .Any(element => element.Text.Contains("Подтвердите"));
+                .Any(element => element.Text.Contains("Подтвердите")); 
 
             if (captchButtonExists)
             {
@@ -60,7 +60,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
             {
                 if (element.GetAttribute("href") != null)
                 {
-                    return element.GetAttribute("href").ToLower().Contains(model.UserName.ToLower() + "/following");
+                    return element.GetAttribute("href").ToLower().Contains(model.UserName.ToLower() + "/followers");
                 }
                 return false;
             })
@@ -119,11 +119,11 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
                 var userCount = 1000;
                 var startString =
-                    "ig_user(" + model.Id + ") {  follows.first(" + userCount +
+                    "ig_user(" + model.Id + ") {  followed_by.first(" + userCount +
                     ") {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}";
 
                 var afterString =
-                    "ig_user(" + model.Id + ") {  follows.after(" + endCursor + ", " + userCount + 
+                    "ig_user(" + model.Id + ") {  followed_by.after(" + endCursor + ", " + userCount +
                     ") {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}";
 
                 var queryString = string.IsNullOrWhiteSpace(endCursor) ? startString : afterString;
@@ -177,7 +177,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             driver.Keyboard.SendKeys(Keys.Escape);
 
-            return userList; 
+            return userList;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using Constants;
 using DataBase.Contexts;
@@ -7,16 +8,16 @@ using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Commands.Users
 {
-    public class MarkUserAsSpammerCommandHandler : IVoidCommandHandler<MarkUserAsSpammerCommand>
+    public class MarkUserAsNormalCommandHandler : IVoidCommandHandler<MarkUserAsNormalCommand>
     {
         private readonly DataBaseContext context;
 
-        public MarkUserAsSpammerCommandHandler(DataBaseContext context)
+        public MarkUserAsNormalCommandHandler(DataBaseContext context)
         {
             this.context = context;
         }
 
-        public VoidCommandResponse Handle(MarkUserAsSpammerCommand command)
+        public VoidCommandResponse Handle(MarkUserAsNormalCommand command)
         {
             var user = context.Users.FirstOrDefault(model => model.Link == command.UserLink);
 
@@ -25,12 +26,14 @@ namespace DataBase.QueriesAndCommands.Commands.Users
                 user = new UserDbModel
                 {
                     Link = command.UserLink,
-                    UserStatus = UserStatus.Spammer
+                    UserStatus = UserStatus.Normal,
+                    IncludingTime = DateTime.Now
                 };
+
             }
             else
             {
-                user.UserStatus = UserStatus.Spammer;
+                user.UserStatus = UserStatus.Normal;   
             }
 
             context.Users.AddOrUpdate(user);

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Common;
 
@@ -15,10 +16,12 @@ namespace DataBase.QueriesAndCommands.Queries.Functionality
 
         public bool Handle(CheckFunctionalityAccessQuery query)
         {
-            var access = context.Functionalities
+            var now = DateTime.Now;
+
+            var access = context.Functionalities.ToList()
                 .Any(model =>
                         model.FunctionalityNumber == query.FunctionalityName &&
-                        (model.Token == query.Token || model.Token == null));
+                        (model.Token == query.Token || model.Token == null || model.LastApplied + model.ExpectingTime < now));
 
             return access;
         }

@@ -8,16 +8,16 @@ using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Commands.Users
 {
-    public class MarkUserAsFollowingCommandHandler : IVoidCommandHandler<MarkUserAsFollowingCommand>
+    public class MarkUserAsToDeleteCommandHandler : ICommandHandler<MarkUserAsToDeleteCommand, VoidCommandResponse>
     {
         private readonly DataBaseContext context;
 
-        public MarkUserAsFollowingCommandHandler(DataBaseContext context)
+        public MarkUserAsToDeleteCommandHandler(DataBaseContext context)
         {
             this.context = context;
         }
 
-        public VoidCommandResponse Handle(MarkUserAsFollowingCommand command)
+        public VoidCommandResponse Handle(MarkUserAsToDeleteCommand command)
         {
             var user = context.Users.FirstOrDefault(model => model.Link == command.UserLink);
 
@@ -26,14 +26,21 @@ namespace DataBase.QueriesAndCommands.Commands.Users
                 user = new UserDbModel
                 {
                     Link = command.UserLink,
-                    UserStatus = UserStatus.Following,
+                    UserStatus = UserStatus.ToDelete,
                     IncludingTime = DateTime.Now
                 };
+
             }
             else
             {
-                user.UserStatus = UserStatus.Following;
-                user.IncludingTime = DateTime.Now;
+                if (user.UserStatus != UserStatus.Star && user.UserStatus != UserStatus.Required)
+                {
+                    user.UserStatus = UserStatus.ToDelete;
+                }
+                else
+                {
+                    return new VoidCommandResponse();
+                }
             }
 
             context.Users.AddOrUpdate(user);

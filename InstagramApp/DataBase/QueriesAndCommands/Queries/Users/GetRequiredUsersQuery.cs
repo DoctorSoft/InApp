@@ -3,7 +3,8 @@ using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Queries.Users
 {
-    public class GetAddedUsersQuery : IQuery<List<string>>
+    public class GetRequiredUsersQuery : IQuery<List<string>>
     {
+        public int MaxCount { get; set; }
     }
 }

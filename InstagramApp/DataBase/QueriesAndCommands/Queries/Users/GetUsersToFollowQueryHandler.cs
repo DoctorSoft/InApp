@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Constants;
 using DataBase.Contexts;
@@ -21,6 +22,7 @@ namespace DataBase.QueriesAndCommands.Queries.Users
                 .Users
                 .Where(model => model.UserStatus == UserStatus.ToFollow)
                 .Select(model => model.Link)
+                .OrderBy(s => Guid.NewGuid())
                 .Take(query.MaxCount)
                 .ToList();
 
