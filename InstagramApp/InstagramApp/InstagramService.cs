@@ -119,7 +119,7 @@ namespace InstagramApp
             });
 
             // todo: move to settings
-            if (mainUserInfo.FollowingCount > 5000)
+            if (mainUserInfo.FollowingCount > 6000)
             {
                 return;
             }

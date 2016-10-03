@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Common;
 
@@ -17,7 +18,7 @@ namespace DataBase.QueriesAndCommands.Queries.Users
         public List<string> Handle(GetUsersNotCheckedForFriendsQuery query)
         {
             var userList = context.Users
-                .Where(model => !model.FriendsWereSearched)
+                .Where(model => !model.FriendsWereSearched && model.UserStatus != UserStatus.ToDelete)
                 .Select(model => model.Link)
                 .Take(query.MaxCount)
                 .ToList();

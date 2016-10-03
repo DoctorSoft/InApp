@@ -10,7 +10,9 @@ namespace Engines.Engines.GetMediaByHashTagEngine
     {
         protected override List<string> ExecuteEngine(RemoteWebDriver driver, GetMediaByHashTagModel model)
         {
-            if (!base.NavigateToUrl(driver))
+            var hashTagName = model.HashTag.Replace("#", string.Empty);
+
+            if (!base.NavigateToUrl(driver, "https://www.instagram.com/explore/tags/" + hashTagName))
             {
                 return GetDefaultResult();
             }
@@ -21,18 +23,8 @@ namespace Engines.Engines.GetMediaByHashTagEngine
 
             Thread.Sleep(500);
 
-            IList<IWebElement> inputs = driver.FindElements(By.ClassName("_9x5sw"));
-            inputs.FirstOrDefault().SendKeys(model.HashTag);
-
-            Thread.Sleep(4500);
-
-            IList<IWebElement> hashLinks = driver.FindElements(By.ClassName("_k2vj6"));
-            hashLinks.FirstOrDefault().Click();
-
-            Thread.Sleep(4500);
-
             var breakFactor = 0;
-            while (countShownImages < model.CountMedia)
+            do
             {
                 ClickToDownloadMore(driver);
                 countShownImages = GetCountShownImages(driver);
@@ -41,7 +33,7 @@ namespace Engines.Engines.GetMediaByHashTagEngine
                 {
                     break;
                 }
-            }
+            } while (countShownImages < model.CountMedia);
 
             var images = GetLinksToImages(driver, model.CountMedia);
 
@@ -69,6 +61,7 @@ namespace Engines.Engines.GetMediaByHashTagEngine
                 Thread.Sleep(1000);
             }
         }
+
         private int GetCountShownImages(RemoteWebDriver driver)
         {
             var countImages = driver
