@@ -20,5 +20,12 @@ namespace CommandPanel.Controllers
 
             return View(model);
         }
+
+        public ActionResult ClearAllUsersToFollow(AccountName accountId)
+        {
+            accountService.RemoveAllUsersToFollow(accountId);
+
+            return RedirectToAction("Index", new { accountId = accountId });
+        }
     }
 }

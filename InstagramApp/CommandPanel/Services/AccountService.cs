@@ -2,6 +2,7 @@
 using CommandPanel.Models.AccountModels;
 using Constants;
 using DataBase.Factories;
+using DataBase.QueriesAndCommands.Commands.Users;
 using DataBase.QueriesAndCommands.Queries.ActivityHistory;
 using DataBase.QueriesAndCommands.Queries.Features;
 using DataBase.QueriesAndCommands.Queries.Functionality;
@@ -31,6 +32,13 @@ namespace CommandPanel.Services
                     IsActive = statistic.Token != null
                 }).ToList()
             };
+        }
+
+        public void RemoveAllUsersToFollow(AccountName accountId)
+        {
+            var context = new ContextFactory().GetContext(accountId);
+
+            new RemoveAllUsersToFollowCommandHandler(context).Handle(new RemoveAllUsersToFollowCommand());
         }
     }
 }

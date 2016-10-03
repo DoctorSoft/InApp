@@ -12,29 +12,60 @@
         <div>Date: @Model.LastStatisticDate</div>
     </div>
 
-    <div>
-        <a href="@Url.Action("Index", "HashTag", new {accountId = Model.AccountId})" class="btn btn-primary"> Hash tags </a>
-    </div>
+    <div class="lists-section">
+        <div class="buttons-list">
+            <a href="@Url.Action("Index", "HashTag", new {accountId = Model.AccountId})" class="btn btn-primary action-button"> Hash tags </a>
+            <a class="btn btn-primary action-button deleteButton"> Remove all users to follow </a>
+        </div>
 
-    <div class="functionality-section alert alert-primary">
-        @foreach (var functionality in @Model.Functionalities)
-        {
-            <div class="functionality-line alert alert-primary">
-                <div class="inline-box">
-                    @if (functionality.IsActive)
-                    {
-                        <span class="green-box"></span>
-                    }
-                    else
-                    {
-                        <span class="blue-box"></span>
-                    }
+        <div class="functionality-section alert alert-primary">
+            @foreach (var functionality in @Model.Functionalities)
+            {
+                <div class="functionality-line alert alert-primary">
+                    <div class="inline-box">
+                        @if (functionality.IsActive)
+                        {
+                            <div class="green-box"></div>
+                        }
+                        else
+                        {
+                            <div class="blue-box"></div>
+                        }
+                    </div>
+                    <div class="inline-box">
+                        <span>@functionality.FunctionalityName.ToString("G")</span> <br />
+                        <span>@functionality.LastActivation.Day.ToString("D2").@functionality.LastActivation.Month.ToString("D2") @functionality.LastActivation.Hour.ToString("D2"):@functionality.LastActivation.Minute.ToString("D2")</span>
+                    </div>
                 </div>
-                <div class="inline-box">
-                    <span>@functionality.FunctionalityName.ToString("G")</span>
-                    <span>@functionality.LastActivation.Day.ToString("D2").@functionality.LastActivation.Month.ToString("D2") @functionality.LastActivation.Hour.ToString("D2"):@functionality.LastActivation.Minute.ToString("D2")</span>
-                </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 </div>
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog">
+        <div class="modal-header"> Are you sure you want to clear database? </div>
+        <div class="modal-buttons">
+            <a class="btn btn-primary" id="no">No</a>
+            <a href="@Url.Action("ClearAllUsersToFollow", "AccountMainPage", new {accountId = Model.AccountId})" class="btn btn-primary">Yes</a>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $(".deleteButton").click(function (e) {
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#modDialog').modal('show');
+                });
+                $("#no").click(function() {
+                    location.reload();
+                });
+            });
+        })
+    </script>
+}

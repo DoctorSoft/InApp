@@ -65,28 +65,67 @@ textarea {
 }
 
 .blue-box {
-    margin: 25px;
+    margin: 5px;
     padding: 25px;
     background-color: #428bca;
     width: 50px;
+    display: inline-block
 }
 
 .green-box {
-    margin: 25px;
+    margin: 5px;
     padding: 25px;
     background-color: #42ca8b;
     width: 50px;
+    display: inline-block;
 }
 
 .functionality-line {
-    padding-top: 20px;
+    padding-top: 10px!important;
+    padding-bottom: 0!important;
+    margin-bottom: 0 !important;
 }
 
 .functionality-section {
     background-color: #72abea;
-    max-width: 500px;
+    max-width: 300px;
+    display: inline-block;
+    float: right
 }
 
 .inline-box {
     display: inline-block;
+    vertical-align: middle
+}
+
+.buttons-list {
+    display: inline-block;
+    max-width: 100px;
+    vertical-align: top
+}
+
+.lists-section {
+    margin-top: 25px;
+}
+
+.action-button {
+    width: 200px;
+    margin-top: 10px;
+}
+
+#dialogContent {
+    width: 400px;
+    height: 200px;
+    border: 1px #428bca double;
+    background-color: white;
+    margin-top: 300px;
+}
+
+.modal-buttons {
+    text-align: center;
+}
+
+.modal-header {
+    margin-bottom: 30px;
+    text-align: center 
 }

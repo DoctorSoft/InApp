@@ -135,6 +135,8 @@
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsToDeleteCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsToFollowCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsToFollowCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\RemoveAllUsersToFollowCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\RemoveAllUsersToFollowCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\RemoveUserCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\RemoveUserCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\ActivityHistoryModel.cs" />
