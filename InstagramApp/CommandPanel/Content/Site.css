@@ -72,12 +72,42 @@ textarea {
     display: inline-block
 }
 
+.blue-box:hover {
+    background-color: #92cbfa;
+    text-decoration: none;    
+}
+
 .green-box {
     margin: 5px;
     padding: 25px;
     background-color: #42ca8b;
     width: 50px;
     display: inline-block;
+}
+
+.green-box:hover {
+    background-color: #9bfa92;
+    text-decoration: none;
+}
+
+.red-circle {
+    border-radius: 50%;
+    border-color: #ea4b42;
+    border-width: 5px;
+    border-style: double;
+    background-color: white;
+    color: black;
+    font-size: 32px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-right: 4px;
+    margin-left: 4px;
+    text-decoration: none;
+}
+
+.red-circle:hover {
+    background-color: #92cbfa;
+    text-decoration: none;
 }
 
 .functionality-line {

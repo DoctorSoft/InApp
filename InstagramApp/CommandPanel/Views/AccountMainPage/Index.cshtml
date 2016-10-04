@@ -23,14 +23,20 @@
             {
                 <div class="functionality-line alert alert-primary">
                     <div class="inline-box">
-                        @if (functionality.IsActive)
-                        {
-                            <div class="green-box"></div>
-                        }
-                        else
-                        {
-                            <div class="blue-box"></div>
-                        }
+                        <a href="@Url.Action("SwitchFunctionalityAccess", "AccountMainPage", new { accountId = Model.AccountId, functionalityName = functionality.FunctionalityName })" class="no-line-link">
+                            @if (functionality.Stopped)
+                            {
+                                <div class="red-circle"> ! </div>
+                            }
+                            else if (functionality.IsActive)
+                            {
+                                <div class="green-box"></div>
+                            }
+                            else
+                            {
+                                <div class="blue-box"></div>
+                            }
+                        </a>
                     </div>
                     <div class="inline-box">
                         <span>@functionality.FunctionalityName.ToString("G")</span> <br />

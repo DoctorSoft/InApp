@@ -10,5 +10,7 @@ namespace DataBase.QueriesAndCommands.Queries.Functionality
         public DateTime LastActivity { get; set; }
 
         public Guid? Token { get; set; }
+
+        public bool Stopped { get; set; }
     }
 }

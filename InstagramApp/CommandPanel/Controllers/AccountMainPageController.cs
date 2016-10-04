@@ -27,5 +27,12 @@ namespace CommandPanel.Controllers
 
             return RedirectToAction("Index", new { accountId = accountId });
         }
+
+        public ActionResult SwitchFunctionalityAccess(AccountName accountId, FunctionalityName functionalityName)
+        {
+            accountService.SwitchSwitchFunctionalityAccess(accountId, functionalityName);
+
+            return RedirectToAction("Index", new { accountId = accountId });
+        }
     }
 }

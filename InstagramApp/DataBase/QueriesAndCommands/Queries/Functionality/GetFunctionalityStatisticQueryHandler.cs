@@ -27,7 +27,8 @@ namespace DataBase.QueriesAndCommands.Queries.Functionality
                 {
                     FunctionalityName = model.FunctionalityNumber,
                     LastActivity = model.LastApplied,
-                    Token = model.Token
+                    Token = model.Token,
+                    Stopped = model.Stopped
                 })
                 .ToList();
 

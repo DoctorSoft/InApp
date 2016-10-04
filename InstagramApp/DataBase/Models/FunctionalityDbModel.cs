@@ -18,5 +18,7 @@ namespace DataBase.Models
         public TimeSpan ExpectingTime { get; set; }
 
         public Guid? Token { get; set; }
+
+        public bool Stopped { get; set; }
     }
 }

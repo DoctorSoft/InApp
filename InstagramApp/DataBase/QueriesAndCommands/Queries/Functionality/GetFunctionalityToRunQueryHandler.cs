@@ -23,6 +23,7 @@ namespace DataBase.QueriesAndCommands.Queries.Functionality
 
             var functionalities = context.Functionalities.ToList()
                 .Where(model => model.Token == null || model.LastApplied + model.ExpectingTime < now)
+                .Where(model => !model.Stopped)
                 .OrderBy(model => model.LastApplied + model.ApplyInterval)
                 .ToList();
 

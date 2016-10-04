@@ -10,5 +10,7 @@ namespace CommandPanel.Models.AccountModels
         public DateTime LastActivation { get; set; }
 
         public bool IsActive { get; set; }
+
+        public bool Stopped { get; set; }
     }
 }
