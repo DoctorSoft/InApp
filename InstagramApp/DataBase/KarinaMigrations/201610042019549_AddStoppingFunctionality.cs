@@ -7,12 +7,12 @@ namespace DataBase.KarinaMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Karina_Functionality", "Stopped", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.Karina_Functionality", "Stopped", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Karina_Functionality", "Stopped");
+            //DropColumn("dbo.Karina_Functionality", "Stopped");
         }
     }
 }

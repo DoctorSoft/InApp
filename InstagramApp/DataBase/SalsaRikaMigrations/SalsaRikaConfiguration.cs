@@ -18,7 +18,7 @@ namespace DataBase.SalsaRikaMigrations
 
         protected override void Seed(DataBase.Contexts.SalsaRikaContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -82,7 +82,7 @@ namespace DataBase.SalsaRikaMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

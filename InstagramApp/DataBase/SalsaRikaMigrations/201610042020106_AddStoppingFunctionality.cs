@@ -7,12 +7,12 @@ namespace DataBase.SalsaRikaMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.SalsaRika_Functionality", "Stopped", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.SalsaRika_Functionality", "Stopped", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.SalsaRika_Functionality", "Stopped");
+            //DropColumn("dbo.SalsaRika_Functionality", "Stopped");
         }
     }
 }

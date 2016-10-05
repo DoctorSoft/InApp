@@ -7,12 +7,12 @@ namespace DataBase.NazarMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Nazar_Functionality", "Stopped", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.Nazar_Functionality", "Stopped", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Nazar_Functionality", "Stopped");
+            //DropColumn("dbo.Nazar_Functionality", "Stopped");
         }
     }
 }

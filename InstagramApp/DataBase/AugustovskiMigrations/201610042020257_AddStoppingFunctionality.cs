@@ -7,12 +7,12 @@ namespace DataBase.AugustovskiMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Augustovski_Functionality", "Stopped", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.Augustovski_Functionality", "Stopped", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Augustovski_Functionality", "Stopped");
+            //DropColumn("dbo.Augustovski_Functionality", "Stopped");
         }
     }
 }

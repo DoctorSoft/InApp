@@ -18,7 +18,7 @@ namespace DataBase.AugustovskiMigrations
 
         protected override void Seed(DataBase.Contexts.AugustovskiContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -82,7 +82,7 @@ namespace DataBase.AugustovskiMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

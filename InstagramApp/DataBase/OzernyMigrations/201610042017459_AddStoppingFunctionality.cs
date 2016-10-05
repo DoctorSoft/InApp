@@ -7,12 +7,12 @@ namespace DataBase.OzernyMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Ozerny_Functionality", "Stopped", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.Ozerny_Functionality", "Stopped", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Ozerny_Functionality", "Stopped");
+            //DropColumn("dbo.Ozerny_Functionality", "Stopped");
         }
     }
 }

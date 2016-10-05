@@ -18,7 +18,7 @@ namespace DataBase.KarinaMigrations
 
         protected override void Seed(DataBase.Contexts.KarinaContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -82,7 +82,7 @@ namespace DataBase.KarinaMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

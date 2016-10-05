@@ -7,12 +7,12 @@ namespace DataBase.LajkiMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Lajki_Functionality", "Stopped", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.Lajki_Functionality", "Stopped", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Lajki_Functionality", "Stopped");
+            //DropColumn("dbo.Lajki_Functionality", "Stopped");
         }
     }
 }

@@ -7,12 +7,12 @@ namespace DataBase.GalaxyMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Galaxy_Functionality", "Stopped", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.Galaxy_Functionality", "Stopped", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Galaxy_Functionality", "Stopped");
+            //DropColumn("dbo.Galaxy_Functionality", "Stopped");
         }
     }
 }

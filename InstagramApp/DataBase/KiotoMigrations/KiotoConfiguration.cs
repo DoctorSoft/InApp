@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Drawing;
 using System.Linq;
 using Constants;
 using DataBase.DefaultData;
 using DataBase.Models;
+using DataBase.Models.Content;
 
 namespace DataBase.KiotoMigrations
 {
@@ -18,7 +20,7 @@ namespace DataBase.KiotoMigrations
 
         protected override void Seed(DataBase.Contexts.KiotoContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -82,7 +84,24 @@ namespace DataBase.KiotoMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
+
+            var colours = Enum.GetValues(typeof (KnownColor)).Cast<KnownColor>().Select(color => new ColourDbModel
+            {
+                Name = color.ToString("G")
+            });
+
+            context.Colours.AddRange(colours);
+
+            var contentTypes = new List<string>()
+            {
+                "Food", "People", "Place", "Decoration", 
+            }.Select(s => new ContentTypeDbModel
+            {
+                Name = s,
+            });
+
+            context.ContentTypes.AddRange(contentTypes);
         }
     }
 }

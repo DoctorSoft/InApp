@@ -7,12 +7,12 @@ namespace DataBase.KiotoMigrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Kioto_Functionality", "Stopped", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.Kioto_Functionality", "Stopped", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Kioto_Functionality", "Stopped");
+            //DropColumn("dbo.Kioto_Functionality", "Stopped");
         }
     }
 }

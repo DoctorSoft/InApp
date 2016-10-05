@@ -18,7 +18,7 @@ namespace DataBase.GalaxyMigrations
 
         protected override void Seed(DataBase.Contexts.GalaxyContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -65,7 +65,7 @@ namespace DataBase.GalaxyMigrations
 
             context.Languages.AddRange(languages);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

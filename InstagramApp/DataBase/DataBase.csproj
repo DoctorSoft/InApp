@@ -55,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,7 +71,16 @@
     <Compile Include="AugustovskiMigrations\201610042020257_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042020257_AddStoppingFunctionality.cs</DependentUpon>
     </Compile>
+    <Compile Include="AugustovskiMigrations\201610052129466_ContentTables.cs" />
+    <Compile Include="AugustovskiMigrations\201610052129466_ContentTables.Designer.cs">
+      <DependentUpon>201610052129466_ContentTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configurations\ActivityHistoryConfiguration.cs" />
+    <Compile Include="Configurations\Content\ColourConfiguration.cs" />
+    <Compile Include="Configurations\Content\ContentColourConfiguration.cs" />
+    <Compile Include="Configurations\Content\ContentConfiguration.cs" />
+    <Compile Include="Configurations\Content\ContentLikesHistoryConfiguration.cs" />
+    <Compile Include="Configurations\Content\ContentTypeConfiguration.cs" />
     <Compile Include="Configurations\FunctionalityConfiguration.cs" />
     <Compile Include="Configurations\FeaturesConfiguration.cs" />
     <Compile Include="Configurations\HashTagConfiguration.cs" />
@@ -121,6 +131,10 @@
     <Compile Include="GalaxyMigrations\201610042018066_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042018066_AddStoppingFunctionality.cs</DependentUpon>
     </Compile>
+    <Compile Include="GalaxyMigrations\201610052129134_ContentTables.cs" />
+    <Compile Include="GalaxyMigrations\201610052129134_ContentTables.Designer.cs">
+      <DependentUpon>201610052129134_ContentTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="KarinaMigrations\201609282205179_Init.cs" />
     <Compile Include="KarinaMigrations\201609282205179_Init.Designer.cs">
       <DependentUpon>201609282205179_Init.cs</DependentUpon>
@@ -129,14 +143,31 @@
     <Compile Include="KarinaMigrations\201610042019549_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042019549_AddStoppingFunctionality.cs</DependentUpon>
     </Compile>
+    <Compile Include="KarinaMigrations\201610052129358_ContentTables.cs" />
+    <Compile Include="KarinaMigrations\201610052129358_ContentTables.Designer.cs">
+      <DependentUpon>201610052129358_ContentTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="KiotoMigrations\201610042018217_AddStoppingFunctionality.cs" />
     <Compile Include="KiotoMigrations\201610042018217_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042018217_AddStoppingFunctionality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\201610052129182_ContentTables.cs" />
+    <Compile Include="KiotoMigrations\201610052129182_ContentTables.Designer.cs">
+      <DependentUpon>201610052129182_ContentTables.cs</DependentUpon>
     </Compile>
     <Compile Include="LajkiMigrations\201610042019388_AddStoppingFunctionality.cs" />
     <Compile Include="LajkiMigrations\201610042019388_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042019388_AddStoppingFunctionality.cs</DependentUpon>
     </Compile>
+    <Compile Include="LajkiMigrations\201610052129299_ContentTables.cs" />
+    <Compile Include="LajkiMigrations\201610052129299_ContentTables.Designer.cs">
+      <DependentUpon>201610052129299_ContentTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Content\ColourDbModel.cs" />
+    <Compile Include="Models\Content\ContentColourDbModel.cs" />
+    <Compile Include="Models\Content\ContentDbModel.cs" />
+    <Compile Include="Models\Content\ContentLikesHistoryDbModel.cs" />
+    <Compile Include="Models\Content\ContentTypeDbModel.cs" />
     <Compile Include="NazarMigrations\201609271928069_Init.cs" />
     <Compile Include="NazarMigrations\201609271928069_Init.Designer.cs">
       <DependentUpon>201609271928069_Init.cs</DependentUpon>
@@ -145,9 +176,17 @@
     <Compile Include="NazarMigrations\201610042018403_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042018403_AddStoppingFunctionality.cs</DependentUpon>
     </Compile>
+    <Compile Include="NazarMigrations\201610052129241_ContentTables.cs" />
+    <Compile Include="NazarMigrations\201610052129241_ContentTables.Designer.cs">
+      <DependentUpon>201610052129241_ContentTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="OzernyMigrations\201610042017459_AddStoppingFunctionality.cs" />
     <Compile Include="OzernyMigrations\201610042017459_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042017459_AddStoppingFunctionality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201610052129086_ContentTables.cs" />
+    <Compile Include="OzernyMigrations\201610052129086_ContentTables.Designer.cs">
+      <DependentUpon>201610052129086_ContentTables.cs</DependentUpon>
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Functionality\SwitchFunctionalityAccessCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SwitchFunctionalityAccessCommandHandler.cs" />
@@ -188,6 +227,10 @@
     <Compile Include="SalsaRikaMigrations\201610042020106_AddStoppingFunctionality.cs" />
     <Compile Include="SalsaRikaMigrations\201610042020106_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042020106_AddStoppingFunctionality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalsaRikaMigrations\201610052129411_ContentTables.cs" />
+    <Compile Include="SalsaRikaMigrations\201610052129411_ContentTables.Designer.cs">
+      <DependentUpon>201610052129411_ContentTables.cs</DependentUpon>
     </Compile>
     <Compile Include="SalsaRikaMigrations\SalsaRikaConfiguration.cs" />
     <Compile Include="KarinaMigrations\KarinaConfiguration.cs" />
@@ -362,6 +405,9 @@
     <EmbeddedResource Include="AugustovskiMigrations\201610042020257_AddStoppingFunctionality.resx">
       <DependentUpon>201610042020257_AddStoppingFunctionality.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AugustovskiMigrations\201610052129466_ContentTables.resx">
+      <DependentUpon>201610052129466_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201609051737107_Init.resx">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,11 +429,17 @@
     <EmbeddedResource Include="GalaxyMigrations\201610042018066_AddStoppingFunctionality.resx">
       <DependentUpon>201610042018066_AddStoppingFunctionality.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GalaxyMigrations\201610052129134_ContentTables.resx">
+      <DependentUpon>201610052129134_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201609282205179_Init.resx">
       <DependentUpon>201609282205179_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201610042019549_AddStoppingFunctionality.resx">
       <DependentUpon>201610042019549_AddStoppingFunctionality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KarinaMigrations\201610052129358_ContentTables.resx">
+      <DependentUpon>201610052129358_ContentTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609051737289_Init.resx">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
@@ -410,6 +462,9 @@
     <EmbeddedResource Include="KiotoMigrations\201610042018217_AddStoppingFunctionality.resx">
       <DependentUpon>201610042018217_AddStoppingFunctionality.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201610052129182_ContentTables.resx">
+      <DependentUpon>201610052129182_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LajkiMigrations\201609051738090_Init.resx">
       <DependentUpon>201609051738090_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -431,11 +486,17 @@
     <EmbeddedResource Include="LajkiMigrations\201610042019388_AddStoppingFunctionality.resx">
       <DependentUpon>201610042019388_AddStoppingFunctionality.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LajkiMigrations\201610052129299_ContentTables.resx">
+      <DependentUpon>201610052129299_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201609271928069_Init.resx">
       <DependentUpon>201609271928069_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201610042018403_AddStoppingFunctionality.resx">
       <DependentUpon>201610042018403_AddStoppingFunctionality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NazarMigrations\201610052129241_ContentTables.resx">
+      <DependentUpon>201610052129241_ContentTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609051736479_Init.resx">
       <DependentUpon>201609051736479_Init.cs</DependentUpon>
@@ -458,11 +519,17 @@
     <EmbeddedResource Include="OzernyMigrations\201610042017459_AddStoppingFunctionality.resx">
       <DependentUpon>201610042017459_AddStoppingFunctionality.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201610052129086_ContentTables.resx">
+      <DependentUpon>201610052129086_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201609171434083_Init.resx">
       <DependentUpon>201609171434083_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201610042020106_AddStoppingFunctionality.resx">
       <DependentUpon>201610042020106_AddStoppingFunctionality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalsaRikaMigrations\201610052129411_ContentTables.resx">
+      <DependentUpon>201610052129411_ContentTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

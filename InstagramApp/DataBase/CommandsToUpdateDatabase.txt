@@ -1,11 +1,11 @@
-﻿add-migration -Name [SomeName] -ConfigurationTypeName OzernyConfiguration
-add-migration -Name [SomeName] -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name [SomeName] -ConfigurationTypeName KiotoConfiguration
-add-migration -Name [SomeName] -ConfigurationTypeName NazarConfiguration
-add-migration -Name [SomeName] -ConfigurationTypeName LajkiConfiguration
-add-migration -Name [SomeName] -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name [SomeName] -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name [SomeName] -ConfigurationTypeName AugustovskiConfiguration
+﻿add-migration -Name ContentTables -ConfigurationTypeName OzernyConfiguration
+add-migration -Name ContentTables -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name ContentTables -ConfigurationTypeName KiotoConfiguration
+add-migration -Name ContentTables -ConfigurationTypeName NazarConfiguration
+add-migration -Name ContentTables -ConfigurationTypeName LajkiConfiguration
+add-migration -Name ContentTables -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name ContentTables -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name ContentTables -ConfigurationTypeName AugustovskiConfiguration
 
 update-database -ConfigurationTypeName OzernyConfiguration
 update-database -ConfigurationTypeName GalaxyConfiguration
