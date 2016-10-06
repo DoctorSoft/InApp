@@ -6,6 +6,7 @@ add-migration -Name ContentTables -ConfigurationTypeName LajkiConfiguration
 add-migration -Name ContentTables -ConfigurationTypeName KarinaConfiguration  
 add-migration -Name ContentTables -ConfigurationTypeName SalsaRikaConfiguration
 add-migration -Name ContentTables -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name ContentTables -ConfigurationTypeName NikonConfiguration
 
 update-database -ConfigurationTypeName OzernyConfiguration
 update-database -ConfigurationTypeName GalaxyConfiguration
@@ -15,3 +16,4 @@ update-database -ConfigurationTypeName LajkiConfiguration
 update-database -ConfigurationTypeName KarinaConfiguration  
 update-database -ConfigurationTypeName SalsaRikaConfiguration
 update-database -ConfigurationTypeName AugustovskiConfiguration
+update-database -ConfigurationTypeName NikonConfiguration

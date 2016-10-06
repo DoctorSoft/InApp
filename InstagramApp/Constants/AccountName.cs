@@ -9,6 +9,7 @@
         Lajki = 5,
         Karina = 6,
         SalsaRika = 7,
-        Augustovski = 8
+        Augustovski = 8,
+        Nikon = 9
     }
 }

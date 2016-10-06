@@ -107,6 +107,7 @@ namespace InstagramApp
                 RegisterProccess<KiotoContext>(), 
                 RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>()
+                RegisterProccess<NikonContext>()
             };
 
             Task.WhenAll(tasks.ToArray());

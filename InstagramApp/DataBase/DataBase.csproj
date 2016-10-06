@@ -92,6 +92,7 @@
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
     <Compile Include="Contexts\AugustovskiContext.cs" />
+    <Compile Include="Contexts\NikonContext.cs" />
     <Compile Include="Contexts\SalsaRikaContext.cs" />
     <Compile Include="Contexts\KarinaContext.cs" />
     <Compile Include="Contexts\LajkiContext.cs" />
@@ -180,6 +181,11 @@
     <Compile Include="NazarMigrations\201610052129241_ContentTables.Designer.cs">
       <DependentUpon>201610052129241_ContentTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="NikonMigrations\201610062144472_Init.cs" />
+    <Compile Include="NikonMigrations\201610062144472_Init.Designer.cs">
+      <DependentUpon>201610062144472_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NikonMigrations\NikonConfiguration.cs" />
     <Compile Include="OzernyMigrations\201610042017459_AddStoppingFunctionality.cs" />
     <Compile Include="OzernyMigrations\201610042017459_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042017459_AddStoppingFunctionality.cs</DependentUpon>
@@ -497,6 +503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201610052129241_ContentTables.resx">
       <DependentUpon>201610052129241_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NikonMigrations\201610062144472_Init.resx">
+      <DependentUpon>201610062144472_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201609051736479_Init.resx">
       <DependentUpon>201609051736479_Init.cs</DependentUpon>

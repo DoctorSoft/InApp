@@ -6,19 +6,19 @@ using Constants;
 using DataBase.DefaultData;
 using DataBase.Models;
 
-namespace DataBase.OzernyMigrations
+namespace DataBase.NikonMigrations
 {
-    internal sealed class OzernyConfiguration : DbMigrationsConfiguration<DataBase.Contexts.OzernyContext>
+    internal sealed class NikonConfiguration : DbMigrationsConfiguration<DataBase.Contexts.NikonContext>
     {
-        public OzernyConfiguration()
+        public NikonConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"OzernyMigrations";
+            MigrationsDirectory = @"NikonMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.OzernyContext context)
+        protected override void Seed(DataBase.Contexts.NikonContext context)
         {
-            /*if (!context.Users.Any())
+            if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -33,9 +33,9 @@ namespace DataBase.OzernyMigrations
             context.ProfileSettings.RemoveRange(context.ProfileSettings);
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/ozerny/",
-                Login = "Ozerny",
-                Password = "123qazwsxedc890", //dasha5809152
+                HomePageUrl = "https://www.instagram.com/nikon.by/",
+                Login = "nikon.by",
+                Password = "dasha5809152",
                 LanguageDetectorKey = "06b11f1ec38eb723b903fc36c74f5fe7"
             };
             context.ProfileSettings.Add(settings);
@@ -80,7 +80,7 @@ namespace DataBase.OzernyMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
         }
     }
 }
