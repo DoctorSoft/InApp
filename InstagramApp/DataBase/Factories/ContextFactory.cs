@@ -26,6 +26,8 @@ namespace DataBase.Factories
                     return new SalsaRikaContext();
                 case AccountName.Augustovski:
                     return new AugustovskiContext();
+                case AccountName.Nikon:
+                    return new NikonContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }
