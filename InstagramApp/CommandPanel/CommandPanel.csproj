@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountMainPageController.cs" />
+    <Compile Include="Controllers\ContentDataController.cs" />
     <Compile Include="Controllers\HashTagController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,6 +210,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\AccountMainPage\Index.cshtml" />
     <Content Include="Views\HashTag\Index.cshtml" />
+    <Content Include="Views\ContentData\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
