@@ -52,12 +52,35 @@ textarea {
 .followers-box {
     width: 200px;
     text-align: center;
-    border: 2px #428bca groove
+    border: 2px #428bca groove;
+    display: inline-block;
+    vertical-align: top
 }
 
 .followers-box .followers-count {
     font-size: 30px;
     color: #428bca;
+    vertical-align: top;
+}
+
+.head-panel {
+    width: 100%;
+    vertical-align: top
+}
+
+#chartContainer {
+    height: 300px; 
+    width: 100%;
+}
+
+.center-space {
+    display: inline-block;
+    min-width: 40%
+}
+
+.chart-box {
+    max-width: 100%;
+    display: inline-block;
 }
 
 .input-hashtag {

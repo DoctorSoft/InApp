@@ -14,6 +14,8 @@ namespace CommandPanel.Models.AccountModels
 
         public long FollowersCount { get; set; }
 
-        public List<FunctionalityMarkerViewModel> Functionalities { get; set; } 
+        public List<FunctionalityMarkerViewModel> Functionalities { get; set; }
+
+        public string ChartJsonData { get; set; }
     }
 }

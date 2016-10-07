@@ -4,12 +4,67 @@
 
 @model CommandPanel.Models.AccountModels.AccountMainStatisticViewModel
 
+@section scripts
+{
+    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript">
+
+        $(function() {
+            $(".deleteButton").click(function(e) {
+                e.preventDefault();
+                $.get(this.href, function(data) {
+                    $('#modDialog').modal('show');
+                });
+                $("#no").click(function() {
+                    location.reload();
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            var list = @( Html.Raw(Model.ChartJsonData) );
+            var data = list.map(function(v) {
+                return {
+                    x: new Date(v.Year, v.Month, v.Day),
+                    y: v.Value
+                }
+            });
+
+            var chart = new CanvasJS.Chart("chartContainer",
+            {
+                title: {
+                    text: "Followers statistic"
+                },
+                data: [
+                    {
+                        type: "spline",
+
+                        dataPoints: data
+                    }
+                ]
+            });
+
+            chart.render();
+        }
+    </script>
+}
+
 <div class="row">
 
-    <div class="followers-box">
-        <div>Followers count:</div>
-        <div class="followers-count">@Model.FollowersCount</div>
-        <div>Date: @Model.LastStatisticDate</div>
+    <div class="head-panel">
+        <div class="followers-box">
+            <div>Followers count:</div>
+            <div class="followers-count">@Model.FollowersCount</div>
+            <div>Date: @Model.LastStatisticDate</div>
+        </div>
+        <div class="center-space"></div>
+        <div class="chart-box">
+            <div id="chartContainer"></div>
+        </div>
     </div>
 
     <div class="lists-section">
@@ -58,21 +113,3 @@
         </div>
     </div>
 </div>
-
-@section scripts
-{
-    <script type="text/javascript">
-
-        $(function () {
-            $(".deleteButton").click(function (e) {
-                e.preventDefault();
-                $.get(this.href, function (data) {
-                    $('#modDialog').modal('show');
-                });
-                $("#no").click(function() {
-                    location.reload();
-                });
-            });
-        })
-    </script>
-}

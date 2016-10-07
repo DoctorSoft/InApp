@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using Constants;
 using DataBase.Contexts;
 using Engines.Exceptions;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Remote;
 
 namespace InstagramApp

@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Script.Serialization;
 using CommandPanel.Models.AccountModels;
 using Constants;
 using DataBase.Factories;
@@ -20,6 +23,16 @@ namespace CommandPanel.Services
 
             var activityStatistic = new GetFunctionalityStatisticQueryHandler(context).Handle(new GetFunctionalityStatisticQuery());
 
+            var chart = new GetActivityStatisticQueryHandler(context).Handle(new GetActivityStatisticQuery { MaxCount = 14 });
+            var formedChart = chart.Select(model => new ChartData
+            {
+                Value = model.Followers,
+                Day = model.Date.Day,
+                Month = model.Date.Month - 1,
+                Year = model.Date.Year
+            });
+            var chartData = new JavaScriptSerializer().Serialize(formedChart);
+
             return new AccountMainStatisticViewModel
             {
                 Name = accountId.ToString("G"),
@@ -32,7 +45,8 @@ namespace CommandPanel.Services
                     LastActivation = statistic.LastActivity,
                     IsActive = statistic.Token != null,
                     Stopped = statistic.Stopped
-                }).ToList()
+                }).ToList(),
+                ChartJsonData = chartData
             };
         }
 

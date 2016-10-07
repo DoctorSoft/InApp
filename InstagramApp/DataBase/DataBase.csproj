@@ -215,6 +215,9 @@
     <Compile Include="QueriesAndCommands\Commands\Users\RemoveUserCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\RemoveUserCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\ActivityHistoryModel.cs" />
+    <Compile Include="QueriesAndCommands\Queries\ActivityHistory\ActivityStatisticModel.cs" />
+    <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetActivityStatisticQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetActivityStatisticQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetLastActivityHistoryRecordQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Functionality\GetFunctionalityStatisticQueryHandler.cs" />
