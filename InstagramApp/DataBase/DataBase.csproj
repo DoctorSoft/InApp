@@ -194,6 +194,10 @@
     <Compile Include="OzernyMigrations\201610052129086_ContentTables.Designer.cs">
       <DependentUpon>201610052129086_ContentTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="OzernyMigrations\201610072312297_ReInit.cs" />
+    <Compile Include="OzernyMigrations\201610072312297_ReInit.Designer.cs">
+      <DependentUpon>201610072312297_ReInit.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueriesAndCommands\Commands\Functionality\SwitchFunctionalityAccessCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SwitchFunctionalityAccessCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\HashTag\AddHashTagCommand.cs" />
@@ -533,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201610052129086_ContentTables.resx">
       <DependentUpon>201610052129086_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201610072312297_ReInit.resx">
+      <DependentUpon>201610072312297_ReInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201609171434083_Init.resx">
       <DependentUpon>201609171434083_Init.cs</DependentUpon>

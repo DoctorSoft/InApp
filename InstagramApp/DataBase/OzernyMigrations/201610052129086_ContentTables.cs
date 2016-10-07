@@ -7,7 +7,7 @@ namespace DataBase.OzernyMigrations
     {
         public override void Up()
         {
-            CreateTable(
+            /*CreateTable(
                 "dbo.Ozerny_Colour",
                 c => new
                     {
@@ -64,7 +64,7 @@ namespace DataBase.OzernyMigrations
                         Id = c.Long(nullable: false, identity: true),
                         Name = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id);*/
             
         }
         
