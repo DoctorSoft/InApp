@@ -8,6 +8,12 @@ add-migration -Name ContentTables -ConfigurationTypeName SalsaRikaConfiguration
 add-migration -Name ContentTables -ConfigurationTypeName AugustovskiConfiguration
 add-migration -Name ContentTables -ConfigurationTypeName NikonConfiguration
 
+add-migration -Name Init -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name Init -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name Init -ConfigurationTypeName KrissSpamConfiguration
+
+
+
 update-database -ConfigurationTypeName OzernyConfiguration
 update-database -ConfigurationTypeName GalaxyConfiguration
 update-database -ConfigurationTypeName KiotoConfiguration
@@ -17,3 +23,7 @@ update-database -ConfigurationTypeName KarinaConfiguration
 update-database -ConfigurationTypeName SalsaRikaConfiguration
 update-database -ConfigurationTypeName AugustovskiConfiguration
 update-database -ConfigurationTypeName NikonConfiguration
+
+update-database -ConfigurationTypeName MakarovaSpamConfiguration
+update-database -ConfigurationTypeName NovikovaSpamConfiguration
+update-database -ConfigurationTypeName KrissSpamConfiguration

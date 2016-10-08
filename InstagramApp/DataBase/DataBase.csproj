@@ -92,7 +92,10 @@
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
     <Compile Include="Contexts\AugustovskiContext.cs" />
+    <Compile Include="Contexts\KrissSpamContext.cs" />
+    <Compile Include="Contexts\MakarovaSpamContext.cs" />
     <Compile Include="Contexts\NikonContext.cs" />
+    <Compile Include="Contexts\NovikovaSpamContext.cs" />
     <Compile Include="Contexts\SalsaRikaContext.cs" />
     <Compile Include="Contexts\KarinaContext.cs" />
     <Compile Include="Contexts\LajkiContext.cs" />
@@ -164,6 +167,15 @@
     <Compile Include="LajkiMigrations\201610052129299_ContentTables.Designer.cs">
       <DependentUpon>201610052129299_ContentTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="_KrissSpamMigrations\201610081310414_Init.cs" />
+    <Compile Include="_KrissSpamMigrations\201610081310414_Init.Designer.cs">
+      <DependentUpon>201610081310414_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_KrissSpamMigrations\KrissSpamConfiguration.cs" />
+    <Compile Include="_MakarovaSpamMigrations\201610081226491_Init.cs" />
+    <Compile Include="_MakarovaSpamMigrations\201610081226491_Init.Designer.cs">
+      <DependentUpon>201610081226491_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Content\ColourDbModel.cs" />
     <Compile Include="Models\Content\ContentColourDbModel.cs" />
     <Compile Include="Models\Content\ContentDbModel.cs" />
@@ -186,6 +198,11 @@
       <DependentUpon>201610062144472_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="NikonMigrations\NikonConfiguration.cs" />
+    <Compile Include="_NovikovaSpamMigrations\201610081243150_Init.cs" />
+    <Compile Include="_NovikovaSpamMigrations\201610081243150_Init.Designer.cs">
+      <DependentUpon>201610081243150_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_NovikovaSpamMigrations\NovikovaSpamConfiguration.cs" />
     <Compile Include="OzernyMigrations\201610042017459_AddStoppingFunctionality.cs" />
     <Compile Include="OzernyMigrations\201610042017459_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042017459_AddStoppingFunctionality.cs</DependentUpon>
@@ -233,6 +250,7 @@
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToDeleteCountQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowCountQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowCountQueryHandler.cs" />
+    <Compile Include="_MakarovaSpamMigrations\MakarovaSpamConfiguration.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.cs" />
     <Compile Include="SalsaRikaMigrations\201609171434083_Init.Designer.cs">
       <DependentUpon>201609171434083_Init.cs</DependentUpon>
@@ -502,6 +520,12 @@
     <EmbeddedResource Include="LajkiMigrations\201610052129299_ContentTables.resx">
       <DependentUpon>201610052129299_ContentTables.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_KrissSpamMigrations\201610081310414_Init.resx">
+      <DependentUpon>201610081310414_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_MakarovaSpamMigrations\201610081226491_Init.resx">
+      <DependentUpon>201610081226491_Init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201609271928069_Init.resx">
       <DependentUpon>201609271928069_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -549,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201610052129411_ContentTables.resx">
       <DependentUpon>201610052129411_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_NovikovaSpamMigrations\201610081243150_Init.resx">
+      <DependentUpon>201610081243150_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
