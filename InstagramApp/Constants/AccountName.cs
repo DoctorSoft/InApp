@@ -10,6 +10,10 @@
         Karina = 6,
         SalsaRika = 7,
         Augustovski = 8,
-        Nikon = 9
+        Nikon = 9,
+
+        MakarovaSpam = 1001,
+        NovikovaSpam = 1002,
+        KrissSpam = 1003
     }
 }
