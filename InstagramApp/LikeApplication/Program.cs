@@ -7,9 +7,13 @@ namespace LikeApplication
     {
         static void Main(string[] args)
         {
-            //var driver = new ChromeDriver();
+            var driver = new ChromeDriver();
 
             var likeApplicationService = new LikeApplicationService();
+			
+			var proxyList = likeApplicationService.GetProxyList(driver);
+
+            driver.Close();
 
             using (var context = new LikeApplicationContext())
             {

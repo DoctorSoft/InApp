@@ -7,10 +7,12 @@ namespace LikeApplication
 {
     public interface ILikeApplicationService
     {
-        List<string> GetProxyList(IWebDriver driver);
-
         List<long> GetActiveAccountIds(LikeApplicationContext context);
 
         void LikeMediaList(RemoteWebDriver driver, LikeApplicationContext context, long accountId);
+
+        List<string> GetProxyList(RemoteWebDriver driver);
+
+        List<string> CheckProxyList(List<string> proxyList);
     }
 }
