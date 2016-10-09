@@ -14,6 +14,7 @@ namespace DataBase.Contexts
         {
             
         }
+
         public DbSet<ActivityHistoryDbModel> ActivityHistories { get; set; }
 
         public DbSet<LanguageDbModel> Languages { get; set; }
