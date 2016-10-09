@@ -97,6 +97,8 @@
     <Compile Include="Engines\FollowUserEngine\UnFollowUserModel.cs" />
     <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageEngine.cs" />
     <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageModel.cs" />
+    <Compile Include="Engines\GetProxyListEngine\GetProxyListEngine.cs" />
+    <Compile Include="Engines\GetProxyListEngine\GetProxyListModel.cs" />
     <Compile Include="Engines\GetUserIdEngine\GetUserIdEngineModel.cs" />
     <Compile Include="Engines\GetUserIdEngine\GetUserIdEngine.cs" />
     <Compile Include="Engines\GetUserIdEngine\UserInfo.cs" />
