@@ -27,3 +27,12 @@ update-database -ConfigurationTypeName NikonConfiguration
 update-database -ConfigurationTypeName MakarovaSpamConfiguration
 update-database -ConfigurationTypeName NovikovaSpamConfiguration
 update-database -ConfigurationTypeName KrissSpamConfiguration
+
+
+
+
+
+
+
+add-migration -Name Init -ConfigurationTypeName LikeApplicationConfiguration
+update-database -ConfigurationTypeName LikeApplicationConfiguration

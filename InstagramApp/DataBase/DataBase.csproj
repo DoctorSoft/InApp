@@ -84,6 +84,10 @@
     <Compile Include="Configurations\FunctionalityConfiguration.cs" />
     <Compile Include="Configurations\FeaturesConfiguration.cs" />
     <Compile Include="Configurations\HashTagConfiguration.cs" />
+    <Compile Include="Configurations\LikeApplication\AccountToLikeMediaConfiguration.cs" />
+    <Compile Include="Configurations\LikeApplication\LikeAccountConfiguration.cs" />
+    <Compile Include="Configurations\LikeApplication\LikeMediaConfiguration.cs" />
+    <Compile Include="Configurations\LikeApplication\ProxyConfiguration.cs" />
     <Compile Include="Configurations\SpamWordConfiguration.cs" />
     <Compile Include="Configurations\LanguageConfiguration.cs" />
     <Compile Include="Configurations\MediaConfiguration.cs" />
@@ -93,6 +97,7 @@
     <Compile Include="Contexts\DataBaseContext.cs" />
     <Compile Include="Contexts\AugustovskiContext.cs" />
     <Compile Include="Contexts\KrissSpamContext.cs" />
+    <Compile Include="Contexts\LikeApplication\LikeApplicationContext.cs" />
     <Compile Include="Contexts\MakarovaSpamContext.cs" />
     <Compile Include="Contexts\NikonContext.cs" />
     <Compile Include="Contexts\NovikovaSpamContext.cs" />
@@ -167,6 +172,15 @@
     <Compile Include="LajkiMigrations\201610052129299_ContentTables.Designer.cs">
       <DependentUpon>201610052129299_ContentTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="LikeApplicationMigrations\201610091151190_Init.cs" />
+    <Compile Include="LikeApplicationMigrations\201610091151190_Init.Designer.cs">
+      <DependentUpon>201610091151190_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LikeApplicationMigrations\LikeApplicationConfiguration.cs" />
+    <Compile Include="Models\LikeApplication\AccountToLikeMediaDbModel.cs" />
+    <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
+    <Compile Include="Models\LikeApplication\LikeMediaDbModel.cs" />
+    <Compile Include="Models\LikeApplication\ProxyDbModel.cs" />
     <Compile Include="_KrissSpamMigrations\201610081310414_Init.cs" />
     <Compile Include="_KrissSpamMigrations\201610081310414_Init.Designer.cs">
       <DependentUpon>201610081310414_Init.cs</DependentUpon>
@@ -519,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LajkiMigrations\201610052129299_ContentTables.resx">
       <DependentUpon>201610052129299_ContentTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LikeApplicationMigrations\201610091151190_Init.resx">
+      <DependentUpon>201610091151190_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_KrissSpamMigrations\201610081310414_Init.resx">
       <DependentUpon>201610081310414_Init.cs</DependentUpon>
