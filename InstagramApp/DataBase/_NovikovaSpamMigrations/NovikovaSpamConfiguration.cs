@@ -33,9 +33,9 @@ namespace DataBase._NovikovaSpamMigrations
             context.ProfileSettings.RemoveRange(context.ProfileSettings);
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/valeryanovikova14/",
-                Login = "valeryanovikova14",
-                Password = "vn7860002",
+                HomePageUrl = "https://www.instagram.com/misslerka12/",
+                Login = "misslerka12",
+                Password = "vvn7860002",
                 LanguageDetectorKey = "06b11f1ec38eb723b903fc36c74f5fe7"
             };
             context.ProfileSettings.Add(settings);
