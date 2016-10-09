@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageDetector", "Languag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPanel", "CommandPanel\CommandPanel.csproj", "{3F96DE4D-26F5-4104-A54F-E13A17F4E664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchProxy", "SearchProxy\SearchProxy.csproj", "{9004A0DF-884F-4FD5-A1CD-334D59E71B25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeApplication", "LikeApplication\LikeApplication.csproj", "{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{3F96DE4D-26F5-4104-A54F-E13A17F4E664}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F96DE4D-26F5-4104-A54F-E13A17F4E664}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F96DE4D-26F5-4104-A54F-E13A17F4E664}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9004A0DF-884F-4FD5-A1CD-334D59E71B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9004A0DF-884F-4FD5-A1CD-334D59E71B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9004A0DF-884F-4FD5-A1CD-334D59E71B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9004A0DF-884F-4FD5-A1CD-334D59E71B25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

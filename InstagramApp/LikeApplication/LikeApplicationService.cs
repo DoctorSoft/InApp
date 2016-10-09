@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using OpenQA.Selenium;
 
-namespace SearchProxy
+namespace LikeApplication
 {
-    public class ProxyService : IProxyService
+    public class LikeApplicationService : ILikeApplicationService
     {
         public List<string> GetProxyList(IWebDriver driver)
         {
