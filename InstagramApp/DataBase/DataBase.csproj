@@ -181,6 +181,11 @@
     <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\ProxyDbModel.cs" />
+    <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetActiveLikeAccountIdListQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetActiveLikeAccountIdListQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetLikeAccountDataQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetLikeAccountDataQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\LikeApplication\LikeAccountData.cs" />
     <Compile Include="_KrissSpamMigrations\201610081310414_Init.cs" />
     <Compile Include="_KrissSpamMigrations\201610081310414_Init.Designer.cs">
       <DependentUpon>201610081310414_Init.cs</DependentUpon>

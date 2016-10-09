@@ -74,6 +74,8 @@ namespace DataBase.LikeApplicationMigrations
                     Password = "lenrbyf123"
                 },
             };
+
+            context.Accounts.AddRange(accounts);
         }
     }
 }
