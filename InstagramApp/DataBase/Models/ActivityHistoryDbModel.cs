@@ -9,5 +9,9 @@ namespace DataBase.Models
         public DateTime MarkDate { get; set; }
 
         public long FollowersCount { get; set; }
+
+        public long FollowingsCount { get; set; }
+
+        public long MediaCount { get; set; }
     }
 }

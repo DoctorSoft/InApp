@@ -5,5 +5,9 @@ namespace DataBase.QueriesAndCommands.Commands.History
     public class AddFollowersNoteCommand : IVoidCommand
     {
         public int FollowersCount { get; set; }
+
+        public int FollowingsCount { get; set; }
+
+        public int MediaCount { get; set; }
     }
 }

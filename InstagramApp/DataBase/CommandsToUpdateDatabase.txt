@@ -1,16 +1,16 @@
-﻿add-migration -Name ContentTables -ConfigurationTypeName OzernyConfiguration
-add-migration -Name ContentTables -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name ContentTables -ConfigurationTypeName KiotoConfiguration
-add-migration -Name ContentTables -ConfigurationTypeName NazarConfiguration
-add-migration -Name ContentTables -ConfigurationTypeName LajkiConfiguration
-add-migration -Name ContentTables -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name ContentTables -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name ContentTables -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name ContentTables -ConfigurationTypeName NikonConfiguration
+﻿add-migration -Name UpdateHistory -ConfigurationTypeName OzernyConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName KiotoConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName NazarConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName LajkiConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name UpdateHistory -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName NikonConfiguration
 
-add-migration -Name Init -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name Init -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name Init -ConfigurationTypeName KrissSpamConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name UpdateHistory -ConfigurationTypeName KrissSpamConfiguration
 
 
 

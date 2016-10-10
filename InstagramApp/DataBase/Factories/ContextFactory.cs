@@ -28,6 +28,12 @@ namespace DataBase.Factories
                     return new AugustovskiContext();
                 case AccountName.Nikon:
                     return new NikonContext();
+                case AccountName.KrissSpam:
+                    return new KrissSpamContext();
+                case AccountName.MakarovaSpam:
+                    return new MakarovaSpamContext();
+                case AccountName.NovikovaSpam:
+                    return new NovikovaSpamContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }

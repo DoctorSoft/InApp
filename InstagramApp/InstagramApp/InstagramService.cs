@@ -411,7 +411,9 @@ namespace InstagramApp
 
             new AddFollowersNoteCommandHandler(context).Handle(new AddFollowersNoteCommand
             {
-                FollowersCount = userInfo.FollowerCount
+                FollowersCount = userInfo.FollowerCount,
+                MediaCount = userInfo.PublicationCount,
+                FollowingsCount = userInfo.FollowingCount
             });
         }
 

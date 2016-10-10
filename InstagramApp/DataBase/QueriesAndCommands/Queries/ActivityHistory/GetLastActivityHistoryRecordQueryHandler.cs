@@ -22,6 +22,8 @@ namespace DataBase.QueriesAndCommands.Queries.ActivityHistory
                 .Select(model => new ActivityHistoryModel
                 {
                     FollowersCount = model.FollowersCount,
+                    FollowingsCount = model.FollowingsCount,
+                    MediaCount = model.MediaCount,
                     ActivityDateTime = model.MarkDate
                 })
                 .FirstOrDefault();
@@ -31,6 +33,8 @@ namespace DataBase.QueriesAndCommands.Queries.ActivityHistory
                 return new ActivityHistoryModel
                 {
                     FollowersCount = 0,
+                    MediaCount = 0,
+                    FollowingsCount = 0,
                     ActivityDateTime = DateTime.MinValue
                 };
             }

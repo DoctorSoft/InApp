@@ -38,6 +38,8 @@ namespace CommandPanel.Services
                 Name = accountId.ToString("G"),
                 AccountId = accountId,
                 FollowersCount = statisticData.FollowersCount,
+                FollowingsCount = statisticData.FollowingsCount,
+                MediaCount = statisticData.MediaCount,
                 LastStatisticDate = statisticData.ActivityDateTime,
                 Functionalities = activityStatistic.Select(statistic => new FunctionalityMarkerViewModel
                 {

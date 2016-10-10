@@ -49,12 +49,17 @@ textarea {
     text-decoration: none;
 }
 
+.boxes {
+    display: inline-block;
+}
+
 .followers-box {
     width: 200px;
     text-align: center;
     border: 2px #428bca groove;
-    display: inline-block;
-    vertical-align: top
+    vertical-align: top;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .followers-box .followers-count {

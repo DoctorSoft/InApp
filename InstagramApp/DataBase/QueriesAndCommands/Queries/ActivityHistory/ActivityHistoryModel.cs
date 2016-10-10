@@ -7,5 +7,9 @@ namespace DataBase.QueriesAndCommands.Queries.ActivityHistory
         public DateTime ActivityDateTime { get; set; }
 
         public long FollowersCount { get; set; }
+
+        public long FollowingsCount { get; set; }
+
+        public long MediaCount { get; set; }
     }
 }

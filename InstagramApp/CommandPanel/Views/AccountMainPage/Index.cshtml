@@ -59,11 +59,26 @@
 <div class="row">
 
     <div class="head-panel">
-        <div class="followers-box">
-            <div>Followers count:</div>
-            <div class="followers-count">@Model.FollowersCount</div>
-            <div>Date: @Model.LastStatisticDate</div>
+        <div class="boxes">
+            <div class="followers-box">
+                <div>Followers count:</div>
+                <div class="followers-count">@Model.FollowersCount</div>
+                <div>Date: @Model.LastStatisticDate</div>
+            </div>
+
+            <div class="followers-box">
+                <div>Followings count:</div>
+                <div class="followers-count">@Model.FollowingsCount</div>
+                <div>Date: @Model.LastStatisticDate</div>
+            </div>
+
+            <div class="followers-box">
+                <div>Media count:</div>
+                <div class="followers-count">@Model.MediaCount</div>
+                <div>Date: @Model.LastStatisticDate</div>
+            </div>
         </div>
+
         <div class="center-space"></div>
         <div class="chart-box">
             <div id="chartContainer"></div>

@@ -19,6 +19,8 @@ namespace DataBase.QueriesAndCommands.Commands.History
             var activityHistory = new ActivityHistoryDbModel
             {
                 FollowersCount = command.FollowersCount,
+                FollowingsCount = command.FollowingsCount,
+                MediaCount = command.MediaCount,
                 MarkDate = DateTime.Now
             };
 
