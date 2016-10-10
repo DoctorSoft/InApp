@@ -11,7 +11,7 @@ namespace LikeApplication
 
         void LikeMediaList(RemoteWebDriver driver, LikeApplicationContext context, long accountId);
 
-        List<string> GetProxyList(RemoteWebDriver driver);
+        List<string> GetProxyList(RemoteWebDriver driver, LikeApplicationContext context);
 
         List<string> CheckProxyList(List<string> proxyList);
     }

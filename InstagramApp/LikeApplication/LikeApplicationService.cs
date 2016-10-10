@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using DataBase.Contexts.LikeApplication;
+using DataBase.QueriesAndCommands.Commands.LikeApplication;
+using DataBase.QueriesAndCommands.Commands.Proxy;
 using DataBase.QueriesAndCommands.Queries.LikeApplication;
 using Engines.Engines.LikeMediaEngine;
 using Engines.Engines.RegistrationEngine;
@@ -13,9 +15,16 @@ namespace LikeApplication
 {
     public class LikeApplicationService : ILikeApplicationService
     {
-        public List<string> GetProxyList(RemoteWebDriver driver)
+        public List<string> GetProxyList(RemoteWebDriver driver, LikeApplicationContext context)
         {
-            return CheckProxyList(new GetProxyListEngine().Execute(driver, new GetProxyListModel()));
+            var proxyList = CheckProxyList(new GetProxyListEngine().Execute(driver, new GetProxyListModel()));
+
+            new SaveProxyListCommandHandler(context).Handle(new SaveProxyListCommand
+            {
+                Proxies = proxyList
+            });
+
+            return proxyList;
         }
 
         public List<string> CheckProxyList(List<string> proxyList)
@@ -40,7 +49,10 @@ namespace LikeApplication
 
                 testDriver.Close();
 
-                if (statusProxy) listSuccesfulProxy.Add(currentProxy);
+                if (statusProxy)
+                {
+                    listSuccesfulProxy.Add(currentProxy);
+                }
             }
 
             return listSuccesfulProxy;
@@ -71,6 +83,11 @@ namespace LikeApplication
                 new LikeMediaEngine().Execute(driver, new LikeMediaModel
                 {
                     Link = media
+                });
+                new RemoveAccountToLikeMediaCommandHandler(context).Handle(new RemoveAccountToLikeMediaCommand
+                {
+                    LikeAccountId = accountId,
+                    LikeMediaLink = media
                 });
             }
         }

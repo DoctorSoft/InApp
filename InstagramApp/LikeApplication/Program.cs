@@ -1,4 +1,8 @@
-﻿using DataBase.Contexts.LikeApplication;
+﻿using System;
+using DataBase.Contexts.LikeApplication;
+using DataBase.QueriesAndCommands.Commands.Proxy;
+using DataBase.QueriesAndCommands.Queries.Proxy;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace LikeApplication
@@ -7,25 +11,35 @@ namespace LikeApplication
     {
         static void Main(string[] args)
         {
-            var driver = new ChromeDriver();
-
-            var likeApplicationService = new LikeApplicationService();
-			
-			var proxyList = likeApplicationService.GetProxyList(driver);
-
-            driver.Close();
-
             using (var context = new LikeApplicationContext())
             {
+                var driver = new ChromeDriver();
+
+                var likeApplicationService = new LikeApplicationService();
+
+                var proxyList = likeApplicationService.GetProxyList(driver, context);
+
+                driver.Close();
+                
                 var accounts = likeApplicationService.GetActiveAccountIds(context);
 
                 foreach (var account in accounts)
                 {
-                    var newDriver = new ChromeDriver();
+                    var proxy = new GetRandomProxyQueryHandler(context).Handle(new GetRandomProxyQuery());
+                    var proxyConfigs = new Proxy
+                    {
+                        SslProxy = proxy.IpAddress + ":" + proxy.Port
+                    };
+                    var chromeOptions = new ChromeOptions { Proxy = proxyConfigs };
+                    var newDriver = new ChromeDriver(chromeOptions);
 
                     likeApplicationService.LikeMediaList(newDriver, context, account);
 
                     newDriver.Close();
+                    /*new RemoveProxiesByIdCommandHandler(context).Handle(new RemoveProxiesByIdCommand
+                    {
+                        IpAddress = proxy.IpAddress
+                    });*/
                 }
             }
         }

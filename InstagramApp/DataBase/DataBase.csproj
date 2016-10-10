@@ -181,11 +181,22 @@
     <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\ProxyDbModel.cs" />
+    <Compile Include="QueriesAndCommands\Commands\LikeApplication\RemoveAccountToLikeMediaCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\LikeApplication\RemoveAccountToLikeMediaCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\LikeApplication\RemoveLikeMediaCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\LikeApplication\RemoveLikeMediaCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Proxy\RemoveProxiesByIdCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Proxy\RemoveProxiesByIdCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetActiveLikeAccountIdListQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetActiveLikeAccountIdListQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetLikeAccountDataQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetLikeAccountDataQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\LikeAccountData.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Proxy\GetRandomProxyQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Proxy\GetRandomProxyQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Proxy\ProxyModel.cs" />
     <Compile Include="_KrissSpamMigrations\201610081310414_Init.cs" />
     <Compile Include="_KrissSpamMigrations\201610081310414_Init.Designer.cs">
       <DependentUpon>201610081310414_Init.cs</DependentUpon>
