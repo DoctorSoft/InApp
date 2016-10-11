@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Constants;
 using DataBase.Contexts;
+using Engines.Engines.DetectLanguageEngine;
 using Engines.Exceptions;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
