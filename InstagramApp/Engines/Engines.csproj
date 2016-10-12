@@ -101,6 +101,9 @@
     <Compile Include="Engines\AddCommentEngine\AddCommentModel.cs" />
     <Compile Include="Engines\CheckProxyListEngine\CheckProxyListEngine.cs" />
     <Compile Include="Engines\CheckProxyListEngine\CheckProxyListModel.cs" />
+    <Compile Include="Engines\DetectLanguageEngine\DetectLanguageEngine.cs" />
+    <Compile Include="Engines\DetectLanguageEngine\DetectLanguageEngineModel.cs" />
+    <Compile Include="Engines\DetectLanguageEngine\LanguageModel.cs" />
     <Compile Include="Engines\FollowUserEngine\FollowUserEngine.cs" />
     <Compile Include="Engines\FollowUserEngine\FollowUserModel.cs" />
     <Compile Include="Engines\FollowUserEngine\UnFollowUserEngine.cs" />

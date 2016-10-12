@@ -17,6 +17,7 @@ using DataBase.QueriesAndCommands.Queries.Settings;
 using DataBase.QueriesAndCommands.Queries.Users;
 using DataBase.QueriesAndCommands.Queries.Words;
 using Engines.Engines.AddCommentEngine;
+using Engines.Engines.DetectLanguageEngine;
 using Engines.Engines.FollowUserEngine;
 using Engines.Engines.GetMediaByHashTagEngine;
 using Engines.Engines.GetMediaByMainPageEngine;
@@ -26,6 +27,7 @@ using Engines.Engines.LikeMediaEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
 using Engines.Engines.WaitingCaptchEngine;
+using NTextCat;
 using OpenQA.Selenium.Remote;
 
 namespace InstagramApp
@@ -457,23 +459,21 @@ namespace InstagramApp
 
         public bool UserIsForeign(RemoteWebDriver driver, DataBaseContext context, GetUserInfoEngineResponse userInfo)
         {
-            if (string.IsNullOrWhiteSpace(userInfo.Text))
+            var language = new DetectLanguageEngine().Execute(driver, new DetectLanguageEngineModel
             {
-                return false;
-            }
+                Text = userInfo.Text
+            });
 
             var languages = new GetLanguagesQueryHandler(context).Handle(new GetLanguagesQuery());
 
-            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
-
-            var languageInfo = new LanguageDetector.LanguageDetector().Detect(userInfo.Text, settings.LanguageDetectorKey);
-
-            if (languageInfo == null)
+            if (!languages.Any())
             {
                 return false;
             }
 
-            return !languages.Contains(languageInfo.language);
+            var containsLanguage = languages.Any(s => string.Equals(s, language.Language, StringComparison.CurrentCultureIgnoreCase));
+
+            return !containsLanguage;
         }
     }
 }
