@@ -213,6 +213,10 @@
     <Compile Include="OzernyMigrations\201610102058344_UpdateHistory.Designer.cs">
       <DependentUpon>201610102058344_UpdateHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueriesAndCommands\Commands\Languages\AddLanguageCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Languages\AddLanguageCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Languages\RemoveLanguageCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Languages\RemoveLanguageCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\LikeApplication\RemoveAccountToLikeMediaCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\LikeApplication\RemoveAccountToLikeMediaCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\LikeApplication\RemoveLikeMediaCommand.cs" />

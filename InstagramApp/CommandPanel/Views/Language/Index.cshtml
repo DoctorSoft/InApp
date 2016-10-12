@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@model CommandPanel.Models.LanguageModels.LanguageListViewModel
+
+<div class="row">
+    @using (Html.BeginForm("AddLanguage", "Language", FormMethod.Post))
+    {
+        <input type="hidden" name="accountId" value="@Model.AccountId" />
+
+        <div class="input-hashtag ">
+            <div>
+                <input type="text" name="language" class="form-control" />
+            </div>
+            <input type="submit" value="Send word" class="btn btn-primary" />
+        </div>
+    }
+</div>
+
+@foreach (var language in @Model.Languages)
+{
+    <div class="alert-info alert"> <span>@language.LanguageName</span> <a href="@Url.Action("RemoveLanguage", "Language", new { accountId = @Model.AccountId, language = language.LanguageName })" class="btn btn-danger pull-right">Remove</a> </div>
+}
+

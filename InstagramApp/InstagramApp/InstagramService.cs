@@ -464,7 +464,16 @@ namespace InstagramApp
                 Text = userInfo.Text
             });
 
-            return false;
+            var languages = new GetLanguagesQueryHandler(context).Handle(new GetLanguagesQuery());
+
+            if (!languages.Any())
+            {
+                return false;
+            }
+
+            var containsLanguage = languages.Any(s => string.Equals(s, language.Language, StringComparison.CurrentCultureIgnoreCase));
+
+            return !containsLanguage;
         }
     }
 }
