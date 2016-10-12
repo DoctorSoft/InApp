@@ -79,7 +79,22 @@
             </div>
         </div>
 
-        <div class="center-space"></div>
+        <div class="center-space">
+            <div class="followers-box">
+                <div>Users to follow count:</div>
+                <div class="followers-count">@Model.UsersToFollowCount</div>
+            </div>
+
+            <div class="followers-box">
+                <div>Users to delete count:</div>
+                <div class="followers-count">@Model.UsersToDeleteCount</div>
+            </div>
+
+            <div class="followers-box">
+                <div>Poor followers count:</div>
+                <div class="followers-count">@Model.PoorFollowersCount</div>
+            </div>
+        </div>
         <div class="chart-box">
             <div id="chartContainer"></div>
         </div>

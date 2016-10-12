@@ -459,14 +459,24 @@ namespace InstagramApp
 
         public bool UserIsForeign(RemoteWebDriver driver, DataBaseContext context, GetUserInfoEngineResponse userInfo)
         {
+            if (string.IsNullOrWhiteSpace(userInfo.Text))
+            {
+                return false;
+            }
+
+            var languages = new GetLanguagesQueryHandler(context).Handle(new GetLanguagesQuery());
+
+            if (!languages.Any())
+            {
+                return false;
+            }
+
             var language = new DetectLanguageEngine().Execute(driver, new DetectLanguageEngineModel
             {
                 Text = userInfo.Text
             });
 
-            var languages = new GetLanguagesQueryHandler(context).Handle(new GetLanguagesQuery());
-
-            if (!languages.Any())
+            if (language == null || language.Language == null)
             {
                 return false;
             }

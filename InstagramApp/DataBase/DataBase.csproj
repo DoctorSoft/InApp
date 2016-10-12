@@ -225,6 +225,9 @@
     <Compile Include="QueriesAndCommands\Commands\Proxy\RemoveProxiesByIdCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUserProcessingStatisticQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUserProcessingStatisticQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\UserProcessingStatistic.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetActiveLikeAccountIdListQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetActiveLikeAccountIdListQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetLikeAccountDataQuery.cs" />

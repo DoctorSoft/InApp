@@ -80,7 +80,10 @@ textarea {
 
 .center-space {
     display: inline-block;
-    min-width: 40%
+    min-width: 40%;
+    vertical-align: top;
+    padding-left: 30px;
+    margin-top: 20px;
 }
 
 .chart-box {
