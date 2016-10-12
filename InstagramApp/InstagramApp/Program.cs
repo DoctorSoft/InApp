@@ -109,7 +109,7 @@ namespace InstagramApp
                 RegisterProccess<KarinaContext>(), //Karina
                 //RegisterProccess<SalsaRikaContext>(),
                 //RegisterProccess<OzernyContext>(), 
-                //RegisterProccess<GalaxyContext>(), 
+                RegisterProccess<GalaxyContext>(), 
                 RegisterProccess<KiotoContext>(), 
                 RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>(),
