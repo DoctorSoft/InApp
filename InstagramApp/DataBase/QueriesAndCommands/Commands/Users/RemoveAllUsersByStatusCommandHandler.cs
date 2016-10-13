@@ -6,18 +6,18 @@ using EntityFramework.Extensions;
 
 namespace DataBase.QueriesAndCommands.Commands.Users
 {
-    public class RemoveAllUsersToFollowCommandHandler : ICommandHandler<RemoveAllUsersToFollowCommand, VoidCommandResponse>
+    public class RemoveAllUsersByStatusCommandHandler : ICommandHandler<RemoveAllUsersByStatusCommand, VoidCommandResponse>
     {
         private readonly DataBaseContext context;
 
-        public RemoveAllUsersToFollowCommandHandler(DataBaseContext context)
+        public RemoveAllUsersByStatusCommandHandler(DataBaseContext context)
         {
             this.context = context;
         }
 
-        public VoidCommandResponse Handle(RemoveAllUsersToFollowCommand command)
+        public VoidCommandResponse Handle(RemoveAllUsersByStatusCommand command)
         {
-            context.Users.Where(model => model.UserStatus == UserStatus.ToFollow).Delete();
+            context.Users.Where(model => model.UserStatus == command.UserStatus).Delete();
 
             context.SaveChanges();
 
