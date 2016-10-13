@@ -10,6 +10,7 @@ using DataBase.QueriesAndCommands.Commands.Users;
 using DataBase.QueriesAndCommands.Queries.ActivityHistory;
 using DataBase.QueriesAndCommands.Queries.Features;
 using DataBase.QueriesAndCommands.Queries.Functionality;
+using DataBase.QueriesAndCommands.Queries.Users;
 
 namespace CommandPanel.Services
 {
@@ -22,6 +23,8 @@ namespace CommandPanel.Services
             var statisticData = new GetLastActivityHistoryRecordQueryHandler(context).Handle(new GetLastActivityHistoryRecordQuery());
 
             var activityStatistic = new GetFunctionalityStatisticQueryHandler(context).Handle(new GetFunctionalityStatisticQuery());
+
+            var userProcessingStatistic = new GetUserProcessingStatisticQueryHandler(context).Handle(new GetUserProcessingStatisticQuery());
 
             var chart = new GetActivityStatisticQueryHandler(context).Handle(new GetActivityStatisticQuery { MaxCount = 14 });
             var formedChart = chart.Select(model => new ChartData
@@ -40,6 +43,9 @@ namespace CommandPanel.Services
                 FollowersCount = statisticData.FollowersCount,
                 FollowingsCount = statisticData.FollowingsCount,
                 MediaCount = statisticData.MediaCount,
+                UsersToDeleteCount = userProcessingStatistic.UsersToDeleteCount,
+                UsersToFollowCount = userProcessingStatistic.UsersToFollowCount,
+                PoorFollowersCount = statisticData.FollowersCount + userProcessingStatistic.UsersToDeleteCount - statisticData.FollowingsCount,
                 LastStatisticDate = statisticData.ActivityDateTime,
                 Functionalities = activityStatistic.Select(statistic => new FunctionalityMarkerViewModel
                 {
