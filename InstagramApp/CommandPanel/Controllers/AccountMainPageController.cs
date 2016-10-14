@@ -48,5 +48,12 @@ namespace CommandPanel.Controllers
 
             return RedirectToAction("Index", new { accountId = accountId });
         }
+
+        public ActionResult SetFunctionalityAsAsap(AccountName accountId, FunctionalityName functionalityName)
+        {
+            accountService.SetFunctionalityAsAsap(accountId, functionalityName);
+
+            return RedirectToAction("Index", new { accountId = accountId });
+        }
     }
 }
