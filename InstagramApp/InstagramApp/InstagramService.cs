@@ -265,6 +265,11 @@ namespace InstagramApp
                 Id = userInfo.Id
             });
 
+            if (followings == null || !followings.Any() || followers == null || !followers.Any())
+            {
+                return;
+            } 
+
             var usersToClear = followings.Except(followers).ToList();
 
             new MarkUsersAsToDeleteCommandHandler(context).Handle(new MarkUsersAsToDeleteCommand
