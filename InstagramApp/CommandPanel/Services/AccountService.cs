@@ -62,7 +62,21 @@ namespace CommandPanel.Services
         {
             var context = new ContextFactory().GetContext(accountId);
 
-            new RemoveAllUsersToFollowCommandHandler(context).Handle(new RemoveAllUsersToFollowCommand());
+            new RemoveAllUsersByStatusCommandHandler(context).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.ToFollow });
+        }
+
+        public void RemoveAllNormalUsers(AccountName accountId)
+        {
+            var context = new ContextFactory().GetContext(accountId);
+
+            new RemoveAllUsersByStatusCommandHandler(context).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.Normal });
+        }
+
+        public void RemoveAllUsersToDelete(AccountName accountId)
+        {
+            var context = new ContextFactory().GetContext(accountId);
+
+            new RemoveAllUsersByStatusCommandHandler(context).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.ToDelete });
         }
 
         public void SwitchSwitchFunctionalityAccess(AccountName accountId, FunctionalityName functionalityName)

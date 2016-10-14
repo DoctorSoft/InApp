@@ -28,6 +28,20 @@ namespace CommandPanel.Controllers
             return RedirectToAction("Index", new { accountId = accountId });
         }
 
+        public ActionResult ClearAllUsersToDelete(AccountName accountId)
+        {
+            accountService.RemoveAllUsersToDelete(accountId);
+
+            return RedirectToAction("Index", new { accountId = accountId });
+        }
+
+        public ActionResult ClearAllNormalUsers(AccountName accountId)
+        {
+            accountService.RemoveAllNormalUsers(accountId);
+
+            return RedirectToAction("Index", new { accountId = accountId });
+        }
+
         public ActionResult SwitchFunctionalityAccess(AccountName accountId, FunctionalityName functionalityName)
         {
             accountService.SwitchSwitchFunctionalityAccess(accountId, functionalityName);

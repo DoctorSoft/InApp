@@ -27,22 +27,21 @@ namespace DataBase.QueriesAndCommands.Commands.Users
 
             var usersToUpdateAsToDelete = command.Users.Except(usersToAddAsToDelete).Except(starsAndRequiredUsers).ToList();
 
-            var usersToDelete = usersToUpdateAsToDelete.Except(usersAlreadyMarkerAsToDelete).ToList();
             var usersToMarkAsNormal = usersAlreadyMarkerAsToDelete.Except(usersToUpdateAsToDelete).ToList();
 
+            if (usersToMarkAsNormal.Any())
+            {
+                context.Users.Where(model => usersToMarkAsNormal.Contains(model.Link)).Update(model => new UserDbModel { UserStatus = UserStatus.Normal });
+            }
             context.BulkInsert(usersToAddAsToDelete.Select(s => new UserDbModel
             {
                 UserStatus = UserStatus.ToDelete,
                 Link = s
             }));
-            if (usersToDelete.Any())
+            if (usersToUpdateAsToDelete.Any())
             {
-                context.Users.Where(model => usersToDelete.Contains(model.Link))
+                context.Users.Where(model => usersToUpdateAsToDelete.Contains(model.Link))
                     .Update(model => new UserDbModel {UserStatus = UserStatus.ToDelete});
-            }
-            if (usersToMarkAsNormal.Any())
-            {
-                context.Users.Where(model => usersToMarkAsNormal.Contains(model.Link)).Update(model => new UserDbModel { UserStatus = UserStatus.Normal });
             }
 
             context.SaveChanges();
