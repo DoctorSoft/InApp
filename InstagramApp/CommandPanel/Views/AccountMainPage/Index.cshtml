@@ -155,9 +155,21 @@
                         </a>
                     </div>
                     <div class="inline-box">
-                        <span>@functionality.FunctionalityName.ToString("G")</span> <br />
+                        <span>@functionality.FunctionalityName.ToString("G")</span> <br/>
                         <span>@functionality.LastActivation.Day.ToString("D2").@functionality.LastActivation.Month.ToString("D2") @functionality.LastActivation.Hour.ToString("D2"):@functionality.LastActivation.Minute.ToString("D2")</span>
                     </div>
+                    @if (functionality.Asap)
+                    {
+                        <div class="inline-box asap pull-right">
+                            ASAP!
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="inline-box no-asap pull-right">
+                            <a href="@Url.Action("SetFunctionalityAsAsap", "AccountMainPage", new { accountId = Model.AccountId, functionalityName = functionality.FunctionalityName })">Make it ASAP.</a>
+                        </div>
+                    }
                 </div>
             }
         </div>

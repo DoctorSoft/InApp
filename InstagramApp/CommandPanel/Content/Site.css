@@ -149,7 +149,7 @@ textarea {
 
 .functionality-section {
     background-color: #72abea;
-    max-width: 300px;
+    width: 40%;
     display: inline-block;
     float: right
 }
@@ -189,4 +189,20 @@ textarea {
 .modal-header {
     margin-bottom: 30px;
     text-align: center 
+}
+
+.asap {
+    color: red;
+    font-size: 30px
+}
+
+.no-asap a {
+    color: green!important;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.no-asap:hover {
+    text-decoration: none;
+    padding: 5px;
 }

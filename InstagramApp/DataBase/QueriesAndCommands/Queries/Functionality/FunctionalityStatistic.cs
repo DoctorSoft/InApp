@@ -12,5 +12,7 @@ namespace DataBase.QueriesAndCommands.Queries.Functionality
         public Guid? Token { get; set; }
 
         public bool Stopped { get; set; }
+
+        public bool Asap { get; set; }
     }
 }

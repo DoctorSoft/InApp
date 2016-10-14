@@ -1,16 +1,16 @@
-﻿add-migration -Name UpdateHistory -ConfigurationTypeName OzernyConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName KiotoConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName NazarConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName LajkiConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name UpdateHistory -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName NikonConfiguration
+﻿add-migration -Name AddAsapField -ConfigurationTypeName OzernyConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName KiotoConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName NazarConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName LajkiConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name AddAsapField -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName NikonConfiguration
 
-add-migration -Name UpdateHistory -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name UpdateHistory -ConfigurationTypeName KrissSpamConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name AddAsapField -ConfigurationTypeName KrissSpamConfiguration
 
 
 

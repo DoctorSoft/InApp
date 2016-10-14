@@ -52,7 +52,8 @@ namespace CommandPanel.Services
                     FunctionalityName = statistic.FunctionalityName,
                     LastActivation = statistic.LastActivity,
                     IsActive = statistic.Token != null,
-                    Stopped = statistic.Stopped
+                    Stopped = statistic.Stopped,
+                    Asap = statistic.Asap
                 }).ToList(),
                 ChartJsonData = chartData
             };
@@ -84,6 +85,15 @@ namespace CommandPanel.Services
             var context = new ContextFactory().GetContext(accountId);
 
             new SwitchFunctionalityAccessCommandHandler(context).Handle(new SwitchFunctionalityAccessCommand
+            {
+                FunctionalityName = functionalityName
+            });
+        }
+
+        public void SetFunctionalityAsAsap(AccountName accountId, FunctionalityName functionalityName)
+        {
+            var context = new ContextFactory().GetContext(accountId);
+            new SetFunctionalityAsAsapCommandHandler(context).Handle(new SetFunctionalityAsAsapCommand
             {
                 FunctionalityName = functionalityName
             });

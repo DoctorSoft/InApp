@@ -12,5 +12,7 @@ namespace CommandPanel.Models.AccountModels
         public bool IsActive { get; set; }
 
         public bool Stopped { get; set; }
+
+        public bool Asap { get; set; }
     }
 }

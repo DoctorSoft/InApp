@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using DataBase.Contexts;
+using DataBase.Models;
 using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Queries.Functionality
@@ -21,13 +22,18 @@ namespace DataBase.QueriesAndCommands.Queries.Functionality
             var token = Guid.NewGuid();
             var now = DateTime.Now;
 
-            var functionalities = context.Functionalities.ToList()
-                .Where(model => model.Token == null || model.LastApplied + model.ExpectingTime < now)
-                .Where(model => !model.Stopped)
-                .OrderBy(model => model.LastApplied + model.ApplyInterval)
-                .ToList();
+            FunctionalityDbModel functionality = context.Functionalities.FirstOrDefault(model => model.Asap);
 
-            var functionality = functionalities.FirstOrDefault();
+            if (functionality == null)
+            {
+                var functionalities = context.Functionalities.ToList()
+                    .Where(model => model.Token == null || model.LastApplied + model.ExpectingTime < now)
+                    .Where(model => !model.Stopped)
+                    .OrderBy(model => model.LastApplied + model.ApplyInterval)
+                    .ToList();
+
+                functionality = functionalities.FirstOrDefault();
+            }
 
             functionality.LastApplied = now;
             functionality.Token = token;
