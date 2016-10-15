@@ -216,6 +216,10 @@
     <Compile Include="LikeApplicationMigrations\201610091151190_Init.Designer.cs">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.cs" />
+    <Compile Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.Designer.cs">
+      <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
+    </Compile>
     <Compile Include="LikeApplicationMigrations\LikeApplicationConfiguration.cs" />
     <Compile Include="Models\LikeApplication\AccountToLikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
@@ -687,6 +691,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610091151190_Init.resx">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.resx">
+      <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201610102058531_UpdateHistory.resx">
       <DependentUpon>201610102058531_UpdateHistory.cs</DependentUpon>

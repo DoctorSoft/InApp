@@ -15,6 +15,7 @@ namespace DataBase.Configurations.LikeApplication
 
             Property(model => model.IpAddress);
             Property(model => model.Port);
+            Property(model => model.Speed);
         }
     }
 }
