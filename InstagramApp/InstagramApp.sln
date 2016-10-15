@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPanel", "CommandPane
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeApplication", "LikeApplication\LikeApplication.csproj", "{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeApplicationCreateAccounts", "LikeApplicationCreateAccounts\LikeApplicationCreateAccounts.csproj", "{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECAC3ADA-0908-4D80-BA1B-98E94299D4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
