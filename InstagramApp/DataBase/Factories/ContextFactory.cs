@@ -34,6 +34,8 @@ namespace DataBase.Factories
                     return new MakarovaSpamContext();
                 case AccountName.NovikovaSpam:
                     return new NovikovaSpamContext();
+                case AccountName.GreenDozor:
+                    return new GreenDozorContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }

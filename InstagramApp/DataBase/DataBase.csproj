@@ -107,6 +107,7 @@
     <Compile Include="Contexts\KrissSpamContext.cs" />
     <Compile Include="Contexts\LikeApplication\LikeApplicationContext.cs" />
     <Compile Include="Contexts\MakarovaSpamContext.cs" />
+    <Compile Include="Contexts\GreenDozorContext.cs" />
     <Compile Include="Contexts\NikonContext.cs" />
     <Compile Include="Contexts\NovikovaSpamContext.cs" />
     <Compile Include="Contexts\SalsaRikaContext.cs" />
@@ -160,6 +161,11 @@
     <Compile Include="GalaxyMigrations\201610141853506_AddAsapField.Designer.cs">
       <DependentUpon>201610141853506_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="GreenDozorMigrations\201610162209151_Init.cs" />
+    <Compile Include="GreenDozorMigrations\201610162209151_Init.Designer.cs">
+      <DependentUpon>201610162209151_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GreenDozor\GreenDozorConfiguration.cs" />
     <Compile Include="KarinaMigrations\201609282205179_Init.cs" />
     <Compile Include="KarinaMigrations\201609282205179_Init.Designer.cs">
       <DependentUpon>201609282205179_Init.cs</DependentUpon>
@@ -609,6 +615,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201610141853506_AddAsapField.resx">
       <DependentUpon>201610141853506_AddAsapField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GreenDozorMigrations\201610162209151_Init.resx">
+      <DependentUpon>201610162209151_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201609282205179_Init.resx">
       <DependentUpon>201609282205179_Init.cs</DependentUpon>

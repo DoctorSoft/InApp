@@ -7,6 +7,7 @@ add-migration -Name AddAsapField -ConfigurationTypeName KarinaConfiguration
 add-migration -Name AddAsapField -ConfigurationTypeName SalsaRikaConfiguration
 add-migration -Name AddAsapField -ConfigurationTypeName AugustovskiConfiguration
 add-migration -Name AddAsapField -ConfigurationTypeName NikonConfiguration
+add-migration -Name Init -ConfigurationTypeName GreenDozorConfiguration
 
 add-migration -Name AddAsapField -ConfigurationTypeName MakarovaSpamConfiguration
 add-migration -Name AddAsapField -ConfigurationTypeName NovikovaSpamConfiguration
@@ -23,6 +24,7 @@ update-database -ConfigurationTypeName KarinaConfiguration
 update-database -ConfigurationTypeName SalsaRikaConfiguration
 update-database -ConfigurationTypeName AugustovskiConfiguration
 update-database -ConfigurationTypeName NikonConfiguration
+update-database -ConfigurationTypeName GreenDozorConfiguration
 
 update-database -ConfigurationTypeName MakarovaSpamConfiguration
 update-database -ConfigurationTypeName NovikovaSpamConfiguration

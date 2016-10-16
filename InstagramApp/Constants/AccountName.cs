@@ -11,6 +11,7 @@
         SalsaRika = 7,
         Augustovski = 8,
         Nikon = 9,
+        GreenDozor = 10,
 
         MakarovaSpam = 1001,
         NovikovaSpam = 1002,

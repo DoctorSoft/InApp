@@ -114,6 +114,7 @@ namespace InstagramApp
                 RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>(),
                 RegisterProccess<NikonContext>(),
+                RegisterProccess<GreenDozorContext>(),
             };
 
             Task.WhenAll(spamTask.ToArray());
