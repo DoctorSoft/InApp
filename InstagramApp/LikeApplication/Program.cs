@@ -1,6 +1,5 @@
 ﻿using System;
 using DataBase.Contexts.LikeApplication;
-using DataBase.QueriesAndCommands.Commands.Proxy;
 using DataBase.QueriesAndCommands.Queries.Proxy;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;

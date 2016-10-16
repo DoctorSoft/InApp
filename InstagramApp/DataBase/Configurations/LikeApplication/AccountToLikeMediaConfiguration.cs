@@ -4,18 +4,17 @@ using DataBase.Models.LikeApplication;
 
 namespace DataBase.Configurations.LikeApplication
 {
-    public class ProxyConfiguration: EntityTypeConfiguration<ProxyDbModel>
+    public class AccountToLikeMediaConfiguration : EntityTypeConfiguration<AccountToLikeMediaDbModel>
     {
-        public ProxyConfiguration()
+        public AccountToLikeMediaConfiguration()
         {
-            ToTable("LikeApplication_Proxy");
+            ToTable("LikeApplication_AccountToLikeMedia");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(model => model.IpAddress);
-            Property(model => model.Port);
-            Property(model => model.Speed);
+            HasRequired(it => it.LikeAccount).WithMany(model => model.AccountToLikeMedias).HasForeignKey(model => model.LikeAccountId);
+            HasRequired(it => it.LikeMedia).WithMany(model => model.AccountToLikeMedias).HasForeignKey(model => model.LikeMediaId);
         }
     }
 }

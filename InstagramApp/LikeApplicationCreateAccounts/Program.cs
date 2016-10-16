@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using DataBase.Contexts.LikeApplication;
+using OpenQA.Selenium.Chrome;
 
 namespace LikeApplicationCreateAccounts
 {
@@ -6,11 +7,14 @@ namespace LikeApplicationCreateAccounts
     {
         static void Main(string[] args)
         {
-            var service = new LikeApplicationCreateAccountsService();
-            var driver = new ChromeDriver();
+            using (var context = new LikeApplicationContext())
+            {
+                var service = new LikeApplicationCreateAccountsService();
 
-            service.GetFioForRegistration(driver);
-            var email = service.GetTempEmail(driver);
+                var driver = new ChromeDriver();
+
+                service.RegistrationAccount(driver, context: context, numberAccounts: 3);
+            }
         }
     }
 }

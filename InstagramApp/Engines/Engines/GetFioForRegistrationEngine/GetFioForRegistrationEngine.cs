@@ -31,7 +31,7 @@ namespace Engines.Engines.GetFioForRegistrationEngine
 
             return new GetFioForRegistrationResponseModel()
             {
-                UsersFioList = list
+                UsersFioList = list.Take(model.Count).ToList()
             };
         }
 
