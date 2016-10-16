@@ -98,22 +98,22 @@ namespace InstagramApp
         {
             var spamTask = new List<Task>
             {
-                RegisterProccess<MakarovaSpamContext>(),
-                RegisterProccess<NovikovaSpamContext>(),
-                RegisterProccess<KrissSpamContext>()
+                //RegisterProccess<MakarovaSpamContext>(),
+                //RegisterProccess<NovikovaSpamContext>(),
+                //RegisterProccess<KrissSpamContext>()
             };
 
             var tasks = new List<Task>
             {
                 //RegisterProccess<AugustovskiContext>(),
-                //RegisterProccess<KarinaContext>(), //Karina
+                RegisterProccess<KarinaContext>(), //Karina
                 //RegisterProccess<SalsaRikaContext>(),
                 //RegisterProccess<OzernyContext>(), 
-                //RegisterProccess<GalaxyContext>(), 
-                //RegisterProccess<KiotoContext>(), 
-                //RegisterProccess<NazarContext>(), 
+                RegisterProccess<GalaxyContext>(), 
+                RegisterProccess<KiotoContext>(), 
+                RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>(),
-                //RegisterProccess<NikonContext>(),
+                RegisterProccess<NikonContext>(),
             };
 
             Task.WhenAll(spamTask.ToArray());
