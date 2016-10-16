@@ -92,10 +92,10 @@
     <Compile Include="Configurations\FunctionalityConfiguration.cs" />
     <Compile Include="Configurations\FeaturesConfiguration.cs" />
     <Compile Include="Configurations\HashTagConfiguration.cs" />
-    <Compile Include="Configurations\LikeApplication\AccountToLikeMediaConfiguration.cs" />
+    <Compile Include="Configurations\LikeApplication\ProxyConfiguration.cs" />
     <Compile Include="Configurations\LikeApplication\LikeAccountConfiguration.cs" />
     <Compile Include="Configurations\LikeApplication\LikeMediaConfiguration.cs" />
-    <Compile Include="Configurations\LikeApplication\ProxyConfiguration.cs" />
+    <Compile Include="Configurations\LikeApplication\AccountToLikeMediaConfiguration.cs" />
     <Compile Include="Configurations\SpamWordConfiguration.cs" />
     <Compile Include="Configurations\LanguageConfiguration.cs" />
     <Compile Include="Configurations\MediaConfiguration.cs" />
@@ -222,6 +222,10 @@
     <Compile Include="LikeApplicationMigrations\201610091151190_Init.Designer.cs">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.cs" />
+    <Compile Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.Designer.cs">
+      <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
+    </Compile>
     <Compile Include="LikeApplicationMigrations\LikeApplicationConfiguration.cs" />
     <Compile Include="Models\LikeApplication\AccountToLikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
@@ -263,8 +267,12 @@
     <Compile Include="QueriesAndCommands\Commands\LikeApplication\RemoveLikeMediaCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\RemoveProxiesByIdCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\RemoveProxiesByIdCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Proxy\SaveLikeAccountCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Proxy\SaveLikeAccountCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Proxy\GetFastProxyQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Proxy\GetFastProxyQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUserProcessingStatisticQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUserProcessingStatisticQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\UserProcessingStatistic.cs" />
@@ -696,6 +704,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610091151190_Init.resx">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.resx">
+      <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201610102058531_UpdateHistory.resx">
       <DependentUpon>201610102058531_UpdateHistory.cs</DependentUpon>

@@ -18,8 +18,9 @@ namespace DataBase.QueriesAndCommands.Commands.Proxy
         {
             var proxies = command.Proxies.Select(s => new ProxyDbModel
             {
-                IpAddress = s.Split(':').FirstOrDefault(),
-                Port = s.Split(':').LastOrDefault()
+                IpAddress = s.IpAddress,
+                Port = s.Port,
+                Speed = s.Speed
             });
 
             context.Proxies.AddRange(proxies);

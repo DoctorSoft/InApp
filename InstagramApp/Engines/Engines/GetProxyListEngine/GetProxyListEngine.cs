@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
+using Engines.Engines.CheckProxyListEngine;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.GetProxyListEngine
 {
-    public class GetProxyListEngine : AbstractEngine<GetProxyListModel, List<string>>
+    public class GetProxyListEngine : AbstractEngine<GetProxyListModel, List<CheckProxyListAnswerModel>>
     {
-        protected override List<string> ExecuteEngine(RemoteWebDriver driver, GetProxyListModel model)
+        protected override List<CheckProxyListAnswerModel> ExecuteEngine(RemoteWebDriver driver, GetProxyListModel model)
         {
             driver.Navigate().GoToUrl("http://hideme.ru/proxy-list/?type=s&anon=1#list");
 
@@ -19,10 +21,13 @@ namespace Engines.Engines.GetProxyListEngine
             var proxyList =
                 tableRows.Select(row => row.Text)
                     .Select(
-                        proxyString =>
-                            proxyString.Remove(proxyString.IndexOf("\r\n", System.StringComparison.Ordinal))
-                                .Replace(" ", ":"))
-                    .ToList();
+                        proxyString => new CheckProxyListAnswerModel()
+                        {
+                            Ip = proxyString.Remove(proxyString.IndexOf("\r\n", System.StringComparison.Ordinal))
+                                .Split(Convert.ToChar(" ")).FirstOrDefault(),
+                            Port =proxyString.Remove(proxyString.IndexOf("\r\n", System.StringComparison.Ordinal))
+                                .Split(Convert.ToChar(" ")).LastOrDefault() 
+                        }).ToList();
 
             return proxyList;
         }

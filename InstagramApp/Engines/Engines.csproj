@@ -81,13 +81,14 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebDriver, Version=2.53.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.2.53.1\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.0.0\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebDriver.Support, Version=2.2.0.0, Culture=neutral, PublicKeyToken=1c2bd1631853048f, processorArchitecture=MSIL">
@@ -99,6 +100,7 @@
     <Compile Include="Engines\AbstractEngine.cs" />
     <Compile Include="Engines\AddCommentEngine\AddCommentEngine.cs" />
     <Compile Include="Engines\AddCommentEngine\AddCommentModel.cs" />
+    <Compile Include="Engines\CheckProxyListEngine\CheckProxyListAnswerModel.cs" />
     <Compile Include="Engines\CheckProxyListEngine\CheckProxyListEngine.cs" />
     <Compile Include="Engines\CheckProxyListEngine\CheckProxyListModel.cs" />
     <Compile Include="Engines\DetectLanguageEngine\DetectLanguageEngine.cs" />
@@ -108,10 +110,16 @@
     <Compile Include="Engines\FollowUserEngine\FollowUserModel.cs" />
     <Compile Include="Engines\FollowUserEngine\UnFollowUserEngine.cs" />
     <Compile Include="Engines\FollowUserEngine\UnFollowUserModel.cs" />
+    <Compile Include="Engines\GetFioForRegistrationEngine\GetFioForRegistrationEngine.cs" />
+    <Compile Include="Engines\GetFioForRegistrationEngine\GetFioForRegistrationModel.cs" />
+    <Compile Include="Engines\GetFioForRegistrationEngine\GetFioForRegistrationResponseModel.cs" />
     <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageEngine.cs" />
     <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageModel.cs" />
     <Compile Include="Engines\GetProxyListEngine\GetProxyListEngine.cs" />
     <Compile Include="Engines\GetProxyListEngine\GetProxyListModel.cs" />
+    <Compile Include="Engines\GetTempEmailEngine\GetTempEmailEngine.cs" />
+    <Compile Include="Engines\GetTempEmailEngine\GetTempEmailModel.cs" />
+    <Compile Include="Engines\GetTempEmailEngine\GetTempEmailResponseModel.cs" />
     <Compile Include="Engines\GetUserIdEngine\GetUserIdEngineModel.cs" />
     <Compile Include="Engines\GetUserIdEngine\GetUserIdEngine.cs" />
     <Compile Include="Engines\GetUserIdEngine\UserInfo.cs" />
@@ -128,10 +136,14 @@
     <Compile Include="Engines\LikeMediaEngine\LikeMediaModel.cs" />
     <Compile Include="Engines\RegistrationEngine\RegistrationEngine.cs" />
     <Compile Include="Engines\RegistrationEngine\RegistrationModel.cs" />
+    <Compile Include="Engines\RegistrationLikeAccountEngine\RegistrationLikeAccountEngine.cs" />
+    <Compile Include="Engines\RegistrationLikeAccountEngine\RegistrationLikeAccountModel.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowersEngine.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowingsEngine.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowersModel.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowingsModel.cs" />
+    <Compile Include="Engines\VerifyLikeAccountEngine\VerifyLikeAccountEngine.cs" />
+    <Compile Include="Engines\VerifyLikeAccountEngine\VerifyLikeAccountModel.cs" />
     <Compile Include="Engines\VoidResult.cs" />
     <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesEngine.cs" />
     <Compile Include="Engines\SearchUserImagesEngine\SearchUserImagesModel.cs" />

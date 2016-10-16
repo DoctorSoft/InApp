@@ -1,6 +1,5 @@
 ﻿using System;
 using DataBase.Contexts.LikeApplication;
-using DataBase.QueriesAndCommands.Commands.Proxy;
 using DataBase.QueriesAndCommands.Queries.Proxy;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -17,7 +16,7 @@ namespace LikeApplication
 
                 var likeApplicationService = new LikeApplicationService();
 
-                var proxyList = likeApplicationService.GetProxyList(driver, context);
+                likeApplicationService.GetProxyList(driver, context);
 
                 driver.Close();
                 
@@ -34,8 +33,14 @@ namespace LikeApplication
                     var newDriver = new ChromeDriver(chromeOptions);
 
                     likeApplicationService.LikeMediaList(newDriver, context, account);
-
-                    newDriver.Close();
+                    try
+                    {
+                        newDriver.Close();
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
                     /*new RemoveProxiesByIdCommandHandler(context).Handle(new RemoveProxiesByIdCommand
                     {
                         IpAddress = proxy.IpAddress

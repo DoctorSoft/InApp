@@ -1,61 +1,43 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DataBase.Contexts.LikeApplication;
 using DataBase.QueriesAndCommands.Commands.LikeApplication;
 using DataBase.QueriesAndCommands.Commands.Proxy;
 using DataBase.QueriesAndCommands.Queries.LikeApplication;
+using DataBase.QueriesAndCommands.Queries.Proxy;
 using Engines.Engines.LikeMediaEngine;
 using Engines.Engines.RegistrationEngine;
-using OpenQA.Selenium;
 using Engines.Engines.CheckProxyListEngine;
 using Engines.Engines.GetProxyListEngine;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
 namespace LikeApplication
 {
-    public class LikeApplicationService : ILikeApplicationService
+    public class LikeApplicationService
     {
-        public List<string> GetProxyList(RemoteWebDriver driver, LikeApplicationContext context)
+        public void GetProxyList(RemoteWebDriver driver, LikeApplicationContext context)
         {
-            var proxyList = CheckProxyList(new GetProxyListEngine().Execute(driver, new GetProxyListModel()));
+            var proxyList = GetListOfWorkingProxies(driver, new GetProxyListEngine().Execute(driver, new GetProxyListModel()));
+            if (proxyList.Count == 0) return;
 
             new SaveProxyListCommandHandler(context).Handle(new SaveProxyListCommand
             {
-                Proxies = proxyList
+                Proxies = proxyList.Select(inputElement => new ProxyModel()
+                {
+                    IpAddress = inputElement.Ip,
+                    Port = inputElement.Port,
+                    Speed = inputElement.Speed
+                }).ToList()
             });
-
-            return proxyList;
         }
-
-        public List<string> CheckProxyList(List<string> proxyList)
+        
+        public List<CheckProxyListAnswerModel> GetListOfWorkingProxies(RemoteWebDriver driver, List<CheckProxyListAnswerModel> proxyList)
         {
-            var listSuccesfulProxy = new List<string>();
-
-            foreach (var currentProxy in proxyList)
+            return new CheckProxyListEngine().Execute(driver, new CheckProxyListModel
             {
-                var chromeOptions = new ChromeOptions();
-                var chromeProxy = new Proxy
-                {
-                    SslProxy = currentProxy
-                };
-                chromeOptions.Proxy = chromeProxy;
-
-                var testDriver = new ChromeDriver(chromeOptions);
-
-                var statusProxy = new CheckProxyListEngine().Execute(testDriver, new CheckProxyListModel
-                {
-                    PageLoadTime = 5
-                });
-
-                testDriver.Close();
-
-                if (statusProxy)
-                {
-                    listSuccesfulProxy.Add(currentProxy);
-                }
-            }
-
-            return listSuccesfulProxy;
+                PageLoadTime = 50,
+                ProxyList = proxyList
+            });
         }
 
         public List<long> GetActiveAccountIds(LikeApplicationContext context)
