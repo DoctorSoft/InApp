@@ -33,6 +33,11 @@ namespace DataBase.QueriesAndCommands.Commands.Users
             }
             else
             {
+                if (user.UserStatus == UserStatus.ImportantForOwner)
+                {
+                    return new VoidCommandResponse();
+                }
+
                 user.UserStatus = UserStatus.Normal;   
             }
 
