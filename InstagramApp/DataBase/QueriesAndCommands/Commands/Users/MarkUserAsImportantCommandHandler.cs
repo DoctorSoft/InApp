@@ -7,16 +7,16 @@ using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Commands.Users
 {
-    public class MarkUserAsStarCommandHandler : IVoidCommandHandler<MarkUserAsStarCommand>
+    public class MarkUserAsImportantCommandHandler : ICommandHandler<MarkUserAsImportantCommand, VoidCommandResponse>
     {
         private readonly DataBaseContext context;
 
-        public MarkUserAsStarCommandHandler(DataBaseContext context)
+        public MarkUserAsImportantCommandHandler(DataBaseContext context)
         {
             this.context = context;
         }
 
-        public VoidCommandResponse Handle(MarkUserAsStarCommand command)
+        public VoidCommandResponse Handle(MarkUserAsImportantCommand command)
         {
             var user = context.Users.FirstOrDefault(model => model.Link == command.UserLink);
 
@@ -25,17 +25,12 @@ namespace DataBase.QueriesAndCommands.Commands.Users
                 user = new UserDbModel
                 {
                     Link = command.UserLink,
-                    UserStatus = UserStatus.Star
+                    UserStatus = UserStatus.ImportantForOwner
                 };
             }
             else
             {
-                if (user.UserStatus == UserStatus.ImportantForOwner)
-                {
-                    return new VoidCommandResponse();
-                }
-
-                user.UserStatus = UserStatus.Star;
+                user.UserStatus = UserStatus.ImportantForOwner;
             }
 
             context.Users.AddOrUpdate(user);

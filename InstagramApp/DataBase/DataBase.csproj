@@ -271,10 +271,17 @@
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveLikeAccountCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsImportantCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsImportantCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Content\ContentData.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Content\GetContentQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Content\GetContentQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Proxy\GetFastProxyQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Proxy\GetFastProxyQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUserProcessingStatisticQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUserProcessingStatisticQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersImpotantForOwnerQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersImpotantForOwnerQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\UserProcessingStatistic.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetActiveLikeAccountIdListQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\LikeApplication\GetActiveLikeAccountIdListQueryHandler.cs" />

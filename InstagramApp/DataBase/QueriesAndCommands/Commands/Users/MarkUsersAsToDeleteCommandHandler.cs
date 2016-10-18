@@ -20,7 +20,9 @@ namespace DataBase.QueriesAndCommands.Commands.Users
         public VoidCommandResponse Handle(MarkUsersAsToDeleteCommand command)
         {
             var allUsers = context.Users.Select(model => model.Link).ToList();
-            var starsAndRequiredUsers = context.Users.Where(model => model.UserStatus == UserStatus.Star || model.UserStatus == UserStatus.Required).Select(model => model.Link).ToList();
+            var starsAndRequiredUsers = context.Users.Where(model => model.UserStatus == UserStatus.Star || model.UserStatus == UserStatus.Required || model.UserStatus == UserStatus.ImportantForOwner)
+                .Select(model => model.Link)
+                .ToList();
             var usersAlreadyMarkerAsToDelete = context.Users.Where(model => model.UserStatus == UserStatus.ToDelete).Select(model => model.Link).ToList();
 
             var usersToAddAsToDelete = command.Users.Except(allUsers).ToList();

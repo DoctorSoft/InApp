@@ -1,7 +1,19 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<h2>Content</h2>
+@model List<CommandPanel.Models.ContentModels.ContentViewModel>
 
+<h2>Content</h2>
+@{
+    var index = 1;
+    foreach (var image in @Model)
+    {
+        <div>
+            <img src="@image.Link" height="200" width="300"/>
+        </div>
+        {
+            index++;
+        }
+    }
+}
