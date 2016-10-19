@@ -6,6 +6,7 @@
         Normal = 2,
         ToDelete = 3,
         Star = 4,
-        Required = 5
+        Required = 5,
+        ImportantForOwner = 6
     }
 }

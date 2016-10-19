@@ -33,7 +33,7 @@ namespace DataBase.QueriesAndCommands.Commands.Users
             }
             else
             {
-                if (user.UserStatus != UserStatus.Star && user.UserStatus != UserStatus.Required)
+                if (user.UserStatus != UserStatus.Star && user.UserStatus != UserStatus.Required && user.UserStatus != UserStatus.ImportantForOwner)
                 {
                     user.UserStatus = UserStatus.ToDelete;
                 }
