@@ -83,6 +83,10 @@
     <Compile Include="AugustovskiMigrations\201610141854229_AddAsapField.Designer.cs">
       <DependentUpon>201610141854229_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="AugustovskiMigrations\201610192103415_AddActivityRecordTable.cs" />
+    <Compile Include="AugustovskiMigrations\201610192103415_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103415_AddActivityRecordTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configurations\ActivityHistoryConfiguration.cs" />
     <Compile Include="Configurations\Content\ColourConfiguration.cs" />
     <Compile Include="Configurations\Content\ContentColourConfiguration.cs" />
@@ -91,6 +95,7 @@
     <Compile Include="Configurations\Content\ContentTypeConfiguration.cs" />
     <Compile Include="Configurations\FunctionalityConfiguration.cs" />
     <Compile Include="Configurations\FeaturesConfiguration.cs" />
+    <Compile Include="Configurations\FunctionalityRecordConfiguration.cs" />
     <Compile Include="Configurations\HashTagConfiguration.cs" />
     <Compile Include="Configurations\LikeApplication\ProxyConfiguration.cs" />
     <Compile Include="Configurations\LikeApplication\LikeAccountConfiguration.cs" />
@@ -161,9 +166,17 @@
     <Compile Include="GalaxyMigrations\201610141853506_AddAsapField.Designer.cs">
       <DependentUpon>201610141853506_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="GalaxyMigrations\201610192103093_AddActivityRecordTable.cs" />
+    <Compile Include="GalaxyMigrations\201610192103093_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103093_AddActivityRecordTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="GreenDozorMigrations\201610162209151_Init.cs" />
     <Compile Include="GreenDozorMigrations\201610162209151_Init.Designer.cs">
       <DependentUpon>201610162209151_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GreenDozorMigrations\201610192103531_AddActivityRecordTable.cs" />
+    <Compile Include="GreenDozorMigrations\201610192103531_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103531_AddActivityRecordTable.cs</DependentUpon>
     </Compile>
     <Compile Include="GreenDozor\GreenDozorConfiguration.cs" />
     <Compile Include="KarinaMigrations\201609282205179_Init.cs" />
@@ -186,6 +199,10 @@
     <Compile Include="KarinaMigrations\201610141854120_AddAsapField.Designer.cs">
       <DependentUpon>201610141854120_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="KarinaMigrations\201610192103303_AddActivityRecordTable.cs" />
+    <Compile Include="KarinaMigrations\201610192103303_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103303_AddActivityRecordTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="KiotoMigrations\201610042018217_AddStoppingFunctionality.cs" />
     <Compile Include="KiotoMigrations\201610042018217_AddStoppingFunctionality.Designer.cs">
       <DependentUpon>201610042018217_AddStoppingFunctionality.cs</DependentUpon>
@@ -201,6 +218,10 @@
     <Compile Include="KiotoMigrations\201610141853568_AddAsapField.cs" />
     <Compile Include="KiotoMigrations\201610141853568_AddAsapField.Designer.cs">
       <DependentUpon>201610141853568_AddAsapField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\201610192103143_AddActivityRecordTable.cs" />
+    <Compile Include="KiotoMigrations\201610192103143_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103143_AddActivityRecordTable.cs</DependentUpon>
     </Compile>
     <Compile Include="LajkiMigrations\201610042019388_AddStoppingFunctionality.cs" />
     <Compile Include="LajkiMigrations\201610042019388_AddStoppingFunctionality.Designer.cs">
@@ -218,6 +239,10 @@
     <Compile Include="LajkiMigrations\201610141854071_AddAsapField.Designer.cs">
       <DependentUpon>201610141854071_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="LajkiMigrations\201610192103249_AddActivityRecordTable.cs" />
+    <Compile Include="LajkiMigrations\201610192103249_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103249_AddActivityRecordTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="LikeApplicationMigrations\201610091151190_Init.cs" />
     <Compile Include="LikeApplicationMigrations\201610091151190_Init.Designer.cs">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
@@ -227,6 +252,7 @@
       <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
     </Compile>
     <Compile Include="LikeApplicationMigrations\LikeApplicationConfiguration.cs" />
+    <Compile Include="Models\FunctionalityRecordDbModel.cs" />
     <Compile Include="Models\LikeApplication\AccountToLikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeMediaDbModel.cs" />
@@ -239,6 +265,10 @@
     <Compile Include="NazarMigrations\201610141854021_AddAsapField.Designer.cs">
       <DependentUpon>201610141854021_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="NazarMigrations\201610192103197_AddActivityRecordTable.cs" />
+    <Compile Include="NazarMigrations\201610192103197_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103197_AddActivityRecordTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="NikonMigrations\201610102059212_UpdateHistory.cs" />
     <Compile Include="NikonMigrations\201610102059212_UpdateHistory.Designer.cs">
       <DependentUpon>201610102059212_UpdateHistory.cs</DependentUpon>
@@ -246,6 +276,10 @@
     <Compile Include="NikonMigrations\201610141854278_AddAsapField.cs" />
     <Compile Include="NikonMigrations\201610141854278_AddAsapField.Designer.cs">
       <DependentUpon>201610141854278_AddAsapField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NikonMigrations\201610192103471_AddActivityRecordTable.cs" />
+    <Compile Include="NikonMigrations\201610192103471_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103471_AddActivityRecordTable.cs</DependentUpon>
     </Compile>
     <Compile Include="OzernyMigrations\201610102058344_UpdateHistory.cs" />
     <Compile Include="OzernyMigrations\201610102058344_UpdateHistory.Designer.cs">
@@ -255,8 +289,14 @@
     <Compile Include="OzernyMigrations\201610141853266_AddAsapField.Designer.cs">
       <DependentUpon>201610141853266_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="OzernyMigrations\201610192103031_AddActivityRecordTable.cs" />
+    <Compile Include="OzernyMigrations\201610192103031_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103031_AddActivityRecordTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityAsAsapCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityAsAsapCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityRecordCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityRecordCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Languages\AddLanguageCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Languages\AddLanguageCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Languages\RemoveLanguageCommand.cs" />
@@ -299,6 +339,10 @@
     <Compile Include="SalsaRikaMigrations\201610141854177_AddAsapField.Designer.cs">
       <DependentUpon>201610141854177_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalsaRikaMigrations\201610192103362_AddActivityRecordTable.cs" />
+    <Compile Include="SalsaRikaMigrations\201610192103362_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103362_AddActivityRecordTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="_KrissSpamMigrations\201610081310414_Init.cs" />
     <Compile Include="_KrissSpamMigrations\201610081310414_Init.Designer.cs">
       <DependentUpon>201610081310414_Init.cs</DependentUpon>
@@ -310,6 +354,10 @@
     <Compile Include="_KrissSpamMigrations\201610141854454_AddAsapField.cs" />
     <Compile Include="_KrissSpamMigrations\201610141854454_AddAsapField.Designer.cs">
       <DependentUpon>201610141854454_AddAsapField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_KrissSpamMigrations\201610192104101_AddActivityRecordTable.cs" />
+    <Compile Include="_KrissSpamMigrations\201610192104101_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192104101_AddActivityRecordTable.cs</DependentUpon>
     </Compile>
     <Compile Include="_KrissSpamMigrations\KrissSpamConfiguration.cs" />
     <Compile Include="_MakarovaSpamMigrations\201610081226491_Init.cs" />
@@ -346,6 +394,10 @@
     <Compile Include="_MakarovaSpamMigrations\201610141854340_AddAsapField.Designer.cs">
       <DependentUpon>201610141854340_AddAsapField.cs</DependentUpon>
     </Compile>
+    <Compile Include="_MakarovaSpamMigrations\201610192103589_AddActivityRecordTable.cs" />
+    <Compile Include="_MakarovaSpamMigrations\201610192103589_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192103589_AddActivityRecordTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="_NovikovaSpamMigrations\201610081243150_Init.cs" />
     <Compile Include="_NovikovaSpamMigrations\201610081243150_Init.Designer.cs">
       <DependentUpon>201610081243150_Init.cs</DependentUpon>
@@ -357,6 +409,10 @@
     <Compile Include="_NovikovaSpamMigrations\201610141854403_AddAsapField.cs" />
     <Compile Include="_NovikovaSpamMigrations\201610141854403_AddAsapField.Designer.cs">
       <DependentUpon>201610141854403_AddAsapField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_NovikovaSpamMigrations\201610192104046_AddActivityRecordTable.cs" />
+    <Compile Include="_NovikovaSpamMigrations\201610192104046_AddActivityRecordTable.Designer.cs">
+      <DependentUpon>201610192104046_AddActivityRecordTable.cs</DependentUpon>
     </Compile>
     <Compile Include="_NovikovaSpamMigrations\NovikovaSpamConfiguration.cs" />
     <Compile Include="OzernyMigrations\201610042017459_AddStoppingFunctionality.cs" />
@@ -601,6 +657,9 @@
     <EmbeddedResource Include="AugustovskiMigrations\201610141854229_AddAsapField.resx">
       <DependentUpon>201610141854229_AddAsapField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AugustovskiMigrations\201610192103415_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103415_AddActivityRecordTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201609051737107_Init.resx">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -631,8 +690,14 @@
     <EmbeddedResource Include="GalaxyMigrations\201610141853506_AddAsapField.resx">
       <DependentUpon>201610141853506_AddAsapField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GalaxyMigrations\201610192103093_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103093_AddActivityRecordTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GreenDozorMigrations\201610162209151_Init.resx">
       <DependentUpon>201610162209151_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GreenDozorMigrations\201610192103531_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103531_AddActivityRecordTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201609282205179_Init.resx">
       <DependentUpon>201609282205179_Init.cs</DependentUpon>
@@ -648,6 +713,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201610141854120_AddAsapField.resx">
       <DependentUpon>201610141854120_AddAsapField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KarinaMigrations\201610192103303_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103303_AddActivityRecordTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609051737289_Init.resx">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
@@ -679,6 +747,9 @@
     <EmbeddedResource Include="KiotoMigrations\201610141853568_AddAsapField.resx">
       <DependentUpon>201610141853568_AddAsapField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201610192103143_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103143_AddActivityRecordTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LajkiMigrations\201609051738090_Init.resx">
       <DependentUpon>201609051738090_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -709,6 +780,9 @@
     <EmbeddedResource Include="LajkiMigrations\201610141854071_AddAsapField.resx">
       <DependentUpon>201610141854071_AddAsapField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LajkiMigrations\201610192103249_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103249_AddActivityRecordTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610091151190_Init.resx">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -721,11 +795,17 @@
     <EmbeddedResource Include="NazarMigrations\201610141854021_AddAsapField.resx">
       <DependentUpon>201610141854021_AddAsapField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NazarMigrations\201610192103197_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103197_AddActivityRecordTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NikonMigrations\201610102059212_UpdateHistory.resx">
       <DependentUpon>201610102059212_UpdateHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NikonMigrations\201610141854278_AddAsapField.resx">
       <DependentUpon>201610141854278_AddAsapField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NikonMigrations\201610192103471_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103471_AddActivityRecordTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201610102058344_UpdateHistory.resx">
       <DependentUpon>201610102058344_UpdateHistory.cs</DependentUpon>
@@ -733,11 +813,17 @@
     <EmbeddedResource Include="OzernyMigrations\201610141853266_AddAsapField.resx">
       <DependentUpon>201610141853266_AddAsapField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201610192103031_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103031_AddActivityRecordTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201610102059103_UpdateHistory.resx">
       <DependentUpon>201610102059103_UpdateHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201610141854177_AddAsapField.resx">
       <DependentUpon>201610141854177_AddAsapField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalsaRikaMigrations\201610192103362_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103362_AddActivityRecordTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_KrissSpamMigrations\201610081310414_Init.resx">
       <DependentUpon>201610081310414_Init.cs</DependentUpon>
@@ -747,6 +833,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_KrissSpamMigrations\201610141854454_AddAsapField.resx">
       <DependentUpon>201610141854454_AddAsapField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_KrissSpamMigrations\201610192104101_AddActivityRecordTable.resx">
+      <DependentUpon>201610192104101_AddActivityRecordTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_MakarovaSpamMigrations\201610081226491_Init.resx">
       <DependentUpon>201610081226491_Init.cs</DependentUpon>
@@ -805,6 +894,9 @@
     <EmbeddedResource Include="_MakarovaSpamMigrations\201610141854340_AddAsapField.resx">
       <DependentUpon>201610141854340_AddAsapField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_MakarovaSpamMigrations\201610192103589_AddActivityRecordTable.resx">
+      <DependentUpon>201610192103589_AddActivityRecordTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_NovikovaSpamMigrations\201610081243150_Init.resx">
       <DependentUpon>201610081243150_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -813,6 +905,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_NovikovaSpamMigrations\201610141854403_AddAsapField.resx">
       <DependentUpon>201610141854403_AddAsapField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_NovikovaSpamMigrations\201610192104046_AddActivityRecordTable.resx">
+      <DependentUpon>201610192104046_AddActivityRecordTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

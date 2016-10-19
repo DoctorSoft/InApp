@@ -1,17 +1,17 @@
-﻿add-migration -Name AddAsapField -ConfigurationTypeName OzernyConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName KiotoConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName NazarConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName LajkiConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name AddAsapField -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName NikonConfiguration
-add-migration -Name Init -ConfigurationTypeName GreenDozorConfiguration
+﻿add-migration -Name AddActivityRecordTable -ConfigurationTypeName OzernyConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName KiotoConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName NazarConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName LajkiConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName NikonConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName GreenDozorConfiguration
 
-add-migration -Name AddAsapField -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name AddAsapField -ConfigurationTypeName KrissSpamConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name AddActivityRecordTable -ConfigurationTypeName KrissSpamConfiguration
 
 
 
