@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Constants;
 using DataBase.Contexts;
+using DataBase.QueriesAndCommands.Commands.Functionality;
 using Engines.Engines.DetectLanguageEngine;
 using Engines.Exceptions;
 using OpenQA.Selenium.Chrome;
@@ -80,7 +81,18 @@ namespace InstagramApp
                         }
                         catch (Exception exception)
                         {
-                            // todo: add system of logging of exceptions
+                            try
+                            {
+                                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                                {
+                                    Note = "Exception: " + exception.Message,
+                                    Name = actionData.FunctionalityName,
+                                    WorkStatus = WorkStatus.Exception
+                                });
+                            }
+                            catch (Exception)
+                            {
+                            }
                         }
                         finally
                         {

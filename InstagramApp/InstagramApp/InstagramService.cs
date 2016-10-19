@@ -75,6 +75,13 @@ namespace InstagramApp
 
         public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start unfollowing users",
+                Name = FunctionalityName.UnfollowUsers,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
@@ -105,12 +112,35 @@ namespace InstagramApp
                     {
                         UserLink = user
                     });
+
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Success unfollowing users: " + user,
+                        Name = FunctionalityName.UnfollowUsers,
+                        WorkStatus = WorkStatus.Success
+                    });
+                }
+                else
+                {
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Error unfollowing users: " + user,
+                        Name = FunctionalityName.UnfollowUsers,
+                        WorkStatus = WorkStatus.Calcelled
+                    });
                 }
             }
         }
 
         public void FollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start following users",
+                Name = FunctionalityName.FollowUsers,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
@@ -150,6 +180,22 @@ namespace InstagramApp
                         {
                             UserLink = user
                         });
+                        
+                        new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                        {
+                            Note = "Success following users: " + user,
+                            Name = FunctionalityName.FollowUsers,
+                            WorkStatus = WorkStatus.Success
+                        });
+                    }
+                    else
+                    {
+                        new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                        {
+                            Note = "Error following users: " + user,
+                            Name = FunctionalityName.FollowUsers,
+                            WorkStatus = WorkStatus.Calcelled
+                        });
                     }
 
                     return;
@@ -181,12 +227,35 @@ namespace InstagramApp
                     {
                         UserLink = user
                     });
+
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Success following users: " + user,
+                        Name = FunctionalityName.FollowUsers,
+                        WorkStatus = WorkStatus.Success
+                    });
+                }
+                else
+                {
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Error following users: " + user,
+                        Name = FunctionalityName.FollowUsers,
+                        WorkStatus = WorkStatus.Calcelled
+                    });
                 }
             }
         }
 
         public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start searching new users",
+                Name = FunctionalityName.SearchNewUsers,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
             var count = new GetUsersToFollowCountQueryHandler(context).Handle(new GetUsersToFollowCountQuery());
@@ -238,10 +307,24 @@ namespace InstagramApp
                     User = user
                 });
             }
+
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success searching new users",
+                Name = FunctionalityName.SearchNewUsers,
+                WorkStatus = WorkStatus.Success
+            });
         }
 
         public void SearchUselessUsers(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start searching useless users",
+                Name = FunctionalityName.SearchUselessUsers,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
@@ -276,10 +359,24 @@ namespace InstagramApp
             {
                 Users = usersToClear
             });
+
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success searching useless users",
+                Name = FunctionalityName.SearchUselessUsers,
+                WorkStatus = WorkStatus.Success
+            });
         }
 
         public void SaveMediaByHashTag(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start saving media by hash tag",
+                Name = FunctionalityName.SaveMediaByHashTag,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
             var count = new GetMediaToLikeCountQueryHandler(context).Handle(new GetMediaToLikeCountQuery());
@@ -293,22 +390,48 @@ namespace InstagramApp
 
             foreach (var hasTag in hasTags)
             {
-                var mediaList = new GetMediaByHashTagEngine().Execute(driver, new GetMediaByHashTagModel()
+                try
                 {
-                    HashTag = hasTag,
-                    CountMedia = 20
-                });
+                    var mediaList = new GetMediaByHashTagEngine().Execute(driver, new GetMediaByHashTagModel()
+                    {
+                        HashTag = hasTag,
+                        CountMedia = 20
+                    });
 
-                new AddMediaListCommandHandler(context).Handle(new AddMediaListCommand
+                    new AddMediaListCommandHandler(context).Handle(new AddMediaListCommand
+                    {
+                        MediaList = mediaList,
+                        MediaStatus = MediaStatus.ToLike
+                    });
+
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Success saving media by hash tag: " + hasTag,
+                        Name = FunctionalityName.SaveMediaByHashTag,
+                        WorkStatus = WorkStatus.Success
+                    });
+                }
+                catch (Exception)
                 {
-                    MediaList = mediaList,
-                    MediaStatus = MediaStatus.ToLike
-                }); 
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Error saving media by hash tag: " + hasTag,
+                        Name = FunctionalityName.SaveMediaByHashTag,
+                        WorkStatus = WorkStatus.Calcelled
+                    });
+                }
             }   
         }
 
         public void SaveMediaByHomePage(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start saving media by home page",
+                Name = FunctionalityName.SaveMediaByHomePage,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
             var count = new GetMediaToLikeCountQueryHandler(context).Handle(new GetMediaToLikeCountQuery());
@@ -328,27 +451,41 @@ namespace InstagramApp
                 MediaList = mediaList,
                 MediaStatus = MediaStatus.ToLike
             });
+
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success saving media by home page",
+                Name = FunctionalityName.SaveMediaByHomePage,
+                WorkStatus = WorkStatus.Success
+            });
         }
 
         public void LikeMedias(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start liking media",
+                Name = FunctionalityName.LikeMedias,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
-            var hashTags = new GetMediaToLikeQueryHandler(context).Handle(new GetMediaToLikeQuery
+            var medias = new GetMediaToLikeQueryHandler(context).Handle(new GetMediaToLikeQuery
             {
                 MaxCount = 1
             });
 
-            foreach (var hashTag in hashTags)
+            foreach (var media in medias)
             {
                 var userLink = new LikeMediaEngine().Execute(driver, new LikeMediaModel
                 {
-                    Link = hashTag
+                    Link = media
                 });
 
                 new MarkMediaAsLikedCommandHandler(context).Handle(new MarkMediaAsLikedCommand
                 {
-                    Link = hashTag
+                    Link = media
                 });
 
                 if (!string.IsNullOrEmpty(userLink.UserLink))
@@ -358,21 +495,49 @@ namespace InstagramApp
                         UserLink = userLink.UserLink
                     });
                 }
+
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Success liking media: " + media,
+                    Name = FunctionalityName.LikeMedias,
+                    WorkStatus = WorkStatus.Success
+                });
             }
         }
 
         public void ClearOldMedia(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start clearing old media",
+                Name = FunctionalityName.ClearOldMedia,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
             new DeleteMediaCommandHandler(context).Handle(new DeleteMediaCommand
             {
                 UrlList = new GetMediaToDeleteQueryHandler(context).Handle(new GetMediaToDeleteQuery())
             });
+
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success clearing old media",
+                Name = FunctionalityName.ClearOldMedia,
+                WorkStatus = WorkStatus.Success
+            });
         }
         
         public void AddComments(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start adding comments",
+                Name = FunctionalityName.AddComments,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
             
             var access = new CheckFeaturesAccessQueryHandler(context).Handle(new CheckFeaturesAccessQuery()
@@ -400,6 +565,13 @@ namespace InstagramApp
                     {
                         Link = media
                     });
+
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Success adding comments: " + media,
+                        Name = FunctionalityName.AddComments,
+                        WorkStatus = WorkStatus.Success
+                    });
                 }
             }
 
@@ -407,6 +579,13 @@ namespace InstagramApp
 
         public void AddFollowersNote(RemoteWebDriver driver, DataBaseContext context)
         {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start adding notes",
+                Name = FunctionalityName.AddActivityHistoryMark,
+                WorkStatus = WorkStatus.Started
+            });
+
             Registration(driver, context);
 
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
@@ -416,11 +595,29 @@ namespace InstagramApp
                 UserLink = settings.HomePageUrl
             });
 
+            if (userInfo.FollowerCount == 0 || userInfo.FollowingCount == 0)
+            {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Error adding notes",
+                    Name = FunctionalityName.AddActivityHistoryMark,
+                    WorkStatus = WorkStatus.Calcelled
+                });
+                return;
+            }
+
             new AddFollowersNoteCommandHandler(context).Handle(new AddFollowersNoteCommand
             {
                 FollowersCount = userInfo.FollowerCount,
                 MediaCount = userInfo.PublicationCount,
                 FollowingsCount = userInfo.FollowingCount
+            });
+
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success adding notes",
+                Name = FunctionalityName.AddActivityHistoryMark,
+                WorkStatus = WorkStatus.Success
             });
         }
 
