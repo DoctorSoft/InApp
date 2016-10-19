@@ -43,8 +43,10 @@ namespace DataBase.Contexts
 
         public DbSet<ContentLikesHistoryDbModel> ContentLikesHistories { get; set; }
 
-        public DbSet<ContentTypeDbModel> ContentTypes { get; set; } 
-		
+        public DbSet<ContentTypeDbModel> ContentTypes { get; set; }
+
+        public DbSet<FunctionalityRecordDbModel> FunctionalityRecords { get; set; } 
+
         protected abstract AccountName GetAccountName(); 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -59,6 +61,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new HashTagConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FeaturesConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FunctionalityConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new FunctionalityRecordConfiguration(GetAccountName()));
 
             modelBuilder.Configurations.Add(new ContentTypeConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new ContentConfiguration(GetAccountName()));

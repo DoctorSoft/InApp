@@ -4,6 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Constants;
 using DataBase.Contexts;
+using DataBase.QueriesAndCommands.Commands.Functionality;
+using DataBase.QueriesAndCommands.Queries.Functionality;
 using Engines.Engines.DetectLanguageEngine;
 using Engines.Exceptions;
 using OpenQA.Selenium.Chrome;
@@ -47,6 +49,29 @@ namespace InstagramApp
                 }
             }
 
+            private FunctionalityWithTokenModel GetFunctionality<TContext>(InstagramService service, RemoteWebDriver driver, TContext context)
+                where TContext : DataBaseContext, new()
+            {
+                try
+                {
+                    return service.GetFreeFunctionality(driver, context);
+
+                }
+                catch (Exception exception)
+                {
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Get Functionality Exception: " + exception.Message,
+                        Name = FunctionalityName.AddActivityHistoryMark,
+                        WorkStatus = WorkStatus.Exception
+                    });
+
+                    Thread.Sleep(TimeSpan.FromSeconds(10));
+
+                    return GetFunctionality(service, driver, context);
+                }
+            }
+
             public void Run<TContext>(InstagramService service, RemoteWebDriver driver)
                 where TContext : DataBaseContext, new()
             {
@@ -66,7 +91,7 @@ namespace InstagramApp
 
                 using (var context = new TContext())
                 {
-                    var actionData = service.GetFreeFunctionality(driver, context);
+                    var actionData = GetFunctionality(service, driver, context);
 
                     if (service.FunctionalityIsAllowed(driver, context, actionData))
                     {
@@ -80,7 +105,18 @@ namespace InstagramApp
                         }
                         catch (Exception exception)
                         {
-                            // todo: add system of logging of exceptions
+                            try
+                            {
+                                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                                {
+                                    Note = "Exception: " + exception.Message,
+                                    Name = actionData.FunctionalityName,
+                                    WorkStatus = WorkStatus.Exception
+                                });
+                            }
+                            catch (Exception)
+                            {
+                            }
                         }
                         finally
                         {
