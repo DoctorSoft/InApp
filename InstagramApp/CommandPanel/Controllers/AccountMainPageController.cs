@@ -55,5 +55,12 @@ namespace CommandPanel.Controllers
 
             return RedirectToAction("Index", new { accountId = accountId });
         }
+
+        public ActionResult ClearLogs(AccountName accountId)
+        {
+            accountService.ClearAccountLogs(accountId);
+
+            return RedirectToAction("Index", new { accountId = accountId });
+        } 
     }
 }

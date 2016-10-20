@@ -293,6 +293,8 @@
     <Compile Include="OzernyMigrations\201610192103031_AddActivityRecordTable.Designer.cs">
       <DependentUpon>201610192103031_AddActivityRecordTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityAsAsapCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityAsAsapCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityRecordCommand.cs" />
