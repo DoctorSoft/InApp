@@ -98,5 +98,11 @@ namespace CommandPanel.Services
                 FunctionalityName = functionalityName
             });
         }
+
+        public void ClearAccountLogs(AccountName accountId)
+        {
+            var context = new ContextFactory().GetContext(accountId);
+            new ClearFunctionalityRecordsCommandHandler(context).Handle(new ClearFunctionalityRecordsCommand());
+        }
     }
 }
