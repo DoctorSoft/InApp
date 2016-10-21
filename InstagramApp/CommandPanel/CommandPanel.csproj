@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountMainPageController.cs" />
+    <Compile Include="Controllers\ConfigurationsController.cs" />
     <Compile Include="Controllers\ContentDataController.cs" />
     <Compile Include="Controllers\HashTagController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -168,6 +169,8 @@
     <Compile Include="Models\AccountModels\AccountMainStatisticViewModel.cs" />
     <Compile Include="Models\AccountModels\ChartData.cs" />
     <Compile Include="Models\AccountModels\FunctionalityMarkerViewModel.cs" />
+    <Compile Include="Models\ConfigurationsModels\ConfigurationsDraftModel.cs" />
+    <Compile Include="Models\ConfigurationsModels\ConfigurationsViewModel.cs" />
     <Compile Include="Models\ContentModels\ContentViewModel.cs" />
     <Compile Include="Models\HashTagModels\HashTagListViewModel.cs" />
     <Compile Include="Models\HashTagModels\HashTagViewModel.cs" />
@@ -178,6 +181,7 @@
     <Compile Include="Models\LanguageModels\LanguageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\ConfigurationsService.cs" />
     <Compile Include="Services\ContentService.cs" />
     <Compile Include="Services\HashTagService.cs" />
     <Compile Include="Services\HomeService.cs" />
@@ -224,6 +228,7 @@
     <Content Include="Views\ContentData\Index.cshtml" />
     <Content Include="Views\Language\Index.cshtml" />
     <Content Include="Views\ImportantUsers\Index.cshtml" />
+    <Content Include="Views\Configurations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

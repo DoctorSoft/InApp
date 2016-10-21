@@ -325,6 +325,8 @@
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveLikeAccountCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Proxy\SaveProxyListCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Settings\UpdateLoginSettingsCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Settings\UpdateLoginSettingsCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsImportantCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsImportantCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Content\ContentData.cs" />

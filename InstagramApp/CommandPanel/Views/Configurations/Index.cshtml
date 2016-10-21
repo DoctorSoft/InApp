@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model CommandPanel.Models.ConfigurationsModels.ConfigurationsViewModel
+
+<div class="">
+    <div class="row">
+        @using (Html.BeginForm("UpdateSettings", "Configurations", FormMethod.Post))
+        {
+            <input type="hidden" name="accountId" value="@Model.AccountId" />
+
+            <div class="input-hashtag ">
+                Login
+                <div>
+                    <input type="text" name="Login" class="form-control" value="@Model.Login"/>
+                </div>
+            </div>
+
+            <div class="input-hashtag ">
+                Password
+                <div>
+                    <input type="text" name="Password" class="form-control" value="@Model.Password"/>
+                </div>
+            </div>
+
+            <div class="input-hashtag ">
+                Home Url
+                <div>
+                    <input type="text" name="HomePage" class="form-control" value="@Model.HomePage"/>
+                </div>
+            </div>
+
+            <input type="submit" value="Save" class="btn btn-primary"/>
+        }
+    </div>
+</div>
+
