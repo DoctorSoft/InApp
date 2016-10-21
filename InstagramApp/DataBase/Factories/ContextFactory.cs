@@ -38,6 +38,8 @@ namespace DataBase.Factories
                     return new GreenDozorContext();
                 case AccountName.Mirelle:
                     return new MirelleContext();
+                case AccountName.Mumia:
+                    return new MumiaContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }

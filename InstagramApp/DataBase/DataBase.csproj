@@ -114,6 +114,7 @@
     <Compile Include="Contexts\MakarovaSpamContext.cs" />
     <Compile Include="Contexts\GreenDozorContext.cs" />
     <Compile Include="Contexts\MirelleContext.cs" />
+    <Compile Include="Contexts\MumiaContext.cs" />
     <Compile Include="Contexts\NikonContext.cs" />
     <Compile Include="Contexts\NovikovaSpamContext.cs" />
     <Compile Include="Contexts\SalsaRikaContext.cs" />
@@ -257,12 +258,17 @@
     <Compile Include="MirelleMigrations\201610211957075_Init.Designer.cs">
       <DependentUpon>201610211957075_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="MirelleMigrations\NazarConfiguration.cs" />
+    <Compile Include="MirelleMigrations\MirelleConfiguration.cs" />
     <Compile Include="Models\FunctionalityRecordDbModel.cs" />
     <Compile Include="Models\LikeApplication\AccountToLikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\ProxyDbModel.cs" />
+    <Compile Include="MumiaMigrations\201610212102347_Init.cs" />
+    <Compile Include="MumiaMigrations\201610212102347_Init.Designer.cs">
+      <DependentUpon>201610212102347_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MumiaMigrations\MumiaConfiguration.cs" />
     <Compile Include="NazarMigrations\201610102058531_UpdateHistory.cs" />
     <Compile Include="NazarMigrations\201610102058531_UpdateHistory.Designer.cs">
       <DependentUpon>201610102058531_UpdateHistory.cs</DependentUpon>
@@ -799,6 +805,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MirelleMigrations\201610211957075_Init.resx">
       <DependentUpon>201610211957075_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MumiaMigrations\201610212102347_Init.resx">
+      <DependentUpon>201610212102347_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201610102058531_UpdateHistory.resx">
       <DependentUpon>201610102058531_UpdateHistory.cs</DependentUpon>

@@ -14,6 +14,8 @@
         GreenDozor = 10,
         Mirelle = 11,
 
+        Mumia = 100,
+
         MakarovaSpam = 1001,
         NovikovaSpam = 1002,
         KrissSpam = 1003

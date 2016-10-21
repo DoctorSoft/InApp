@@ -10,6 +10,7 @@ add-migration -Name AddActivityRecordTable -ConfigurationTypeName NikonConfigura
 add-migration -Name AddActivityRecordTable -ConfigurationTypeName GreenDozorConfiguration
 add-migration -Name Init -ConfigurationTypeName MirelleConfiguration
 
+add-migration -Name Init -ConfigurationTypeName MumiaConfiguration
 
 add-migration -Name AddActivityRecordTable -ConfigurationTypeName MakarovaSpamConfiguration
 add-migration -Name AddActivityRecordTable -ConfigurationTypeName NovikovaSpamConfiguration
@@ -28,6 +29,8 @@ update-database -ConfigurationTypeName AugustovskiConfiguration
 update-database -ConfigurationTypeName NikonConfiguration
 update-database -ConfigurationTypeName GreenDozorConfiguration
 update-database -ConfigurationTypeName MirelleConfiguration
+
+update-database -ConfigurationTypeName MumiaConfiguration
 
 update-database -ConfigurationTypeName MakarovaSpamConfiguration
 update-database -ConfigurationTypeName NovikovaSpamConfiguration
