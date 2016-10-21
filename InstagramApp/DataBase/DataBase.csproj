@@ -113,6 +113,7 @@
     <Compile Include="Contexts\LikeApplication\LikeApplicationContext.cs" />
     <Compile Include="Contexts\MakarovaSpamContext.cs" />
     <Compile Include="Contexts\GreenDozorContext.cs" />
+    <Compile Include="Contexts\MirelleContext.cs" />
     <Compile Include="Contexts\NikonContext.cs" />
     <Compile Include="Contexts\NovikovaSpamContext.cs" />
     <Compile Include="Contexts\SalsaRikaContext.cs" />
@@ -252,6 +253,11 @@
       <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
     </Compile>
     <Compile Include="LikeApplicationMigrations\LikeApplicationConfiguration.cs" />
+    <Compile Include="MirelleMigrations\201610211957075_Init.cs" />
+    <Compile Include="MirelleMigrations\201610211957075_Init.Designer.cs">
+      <DependentUpon>201610211957075_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MirelleMigrations\NazarConfiguration.cs" />
     <Compile Include="Models\FunctionalityRecordDbModel.cs" />
     <Compile Include="Models\LikeApplication\AccountToLikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
@@ -790,6 +796,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.resx">
       <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MirelleMigrations\201610211957075_Init.resx">
+      <DependentUpon>201610211957075_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201610102058531_UpdateHistory.resx">
       <DependentUpon>201610102058531_UpdateHistory.cs</DependentUpon>

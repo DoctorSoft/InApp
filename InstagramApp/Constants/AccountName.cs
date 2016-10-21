@@ -12,6 +12,7 @@
         Augustovski = 8,
         Nikon = 9,
         GreenDozor = 10,
+        Mirelle = 11,
 
         MakarovaSpam = 1001,
         NovikovaSpam = 1002,
