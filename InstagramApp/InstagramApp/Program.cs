@@ -153,7 +153,7 @@ namespace InstagramApp
                 //RegisterProccess<GreenDozorContext>(),
                 //RegisterProccess<MirelleContext>(),
 
-                RegisterProccess<MumiaContext>(),
+                //RegisterProccess<MumiaContext>(),
             };
 
             Task.WhenAll(spamTask.ToArray());

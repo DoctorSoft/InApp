@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeApplication", "LikeAppl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeApplicationCreateAccounts", "LikeApplicationCreateAccounts\LikeApplicationCreateAccounts.csproj", "{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewUserMigrationsGenerator", "NewUserMigrationsGenerator\NewUserMigrationsGenerator.csproj", "{23864766-C5B0-46D1-9C15-90A934C987B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DA11AE7-A74C-48E9-A1A7-64CC1D670700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23864766-C5B0-46D1-9C15-90A934C987B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23864766-C5B0-46D1-9C15-90A934C987B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23864766-C5B0-46D1-9C15-90A934C987B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23864766-C5B0-46D1-9C15-90A934C987B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
