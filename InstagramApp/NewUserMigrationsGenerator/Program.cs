@@ -32,8 +32,19 @@ namespace NewUserMigrationsGenerator
                 File.Create(migrationFileFullPath);
             }
 
+            var contextDirectory = "Contexts";
+
+            var contextFile = contextDirectory + "\\" + newAccountName + "Context.cs";
+            var contextFileFullPath = currentApplicationDirectory + "\\" + "DataBase" + "\\" + contextFile;
+
+            if (!File.Exists(contextFileFullPath))
+            {
+                File.Create(contextFileFullPath);
+            }
+
             var project = new Microsoft.Build.Evaluation.Project(dataBaseProjectAddess);
             project.AddItem("Compile", configurationFile);
+            project.AddItem("Compile", contextFile);
             project.Save();
         }
     }
