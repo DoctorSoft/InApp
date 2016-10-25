@@ -329,6 +329,8 @@
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateLoginSettingsCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsImportantCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsImportantCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\ResetAllSearchFriendsMarksCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\ResetAllSearchFriendsMarksCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Content\ContentData.cs" />
     <Compile Include="QueriesAndCommands\Queries\Content\GetContentQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Content\GetContentQueryHandler.cs" />

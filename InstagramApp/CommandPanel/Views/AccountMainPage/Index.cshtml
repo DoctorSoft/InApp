@@ -127,7 +127,7 @@
             </div>
 
             <div class="followers-box">
-                <div>Poor followers count:</div>
+                <div>Poor followers count: </div>
                 <div class="followers-count">@Model.PoorFollowersCount</div>
             </div>
         </div>
@@ -147,6 +147,7 @@
             <a class="btn btn-primary action-button deleteButton2"> Remove all users to delete </a>
             <a class="btn btn-primary action-button deleteButton3"> Remove all normal users</a>
             <a class="btn btn-primary action-button deleteButton4"> Clear logs</a>
+            <a href="@Url.Action("ResetAllSearchFriendsMarks", "AccountMainPage", new {accountId = Model.AccountId})" class="btn btn-primary action-button"> Reset search marks </a>
         </div>
 
         <div class="functionality-section alert alert-primary">

@@ -61,6 +61,17 @@ namespace CommandPanel.Controllers
             accountService.ClearAccountLogs(accountId);
 
             return RedirectToAction("Index", new { accountId = accountId });
-        } 
+        }
+
+        public ActionResult ResetAllSearchFriendsMarks(AccountName accountId)
+        {
+            accountService.ResetAllSearchFriendsMarks(accountId);
+            return RedirectToAction("Index", new { accountId = accountId });
+        }
+
+        public ActionResult ResetAllFunctionalityTokens(AccountName accountId)
+        {
+            return RedirectToAction("Index", new { accountId = accountId });
+        }
     }
 }
