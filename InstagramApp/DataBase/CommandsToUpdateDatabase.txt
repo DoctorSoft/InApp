@@ -1,20 +1,20 @@
-﻿add-migration -Name AddActivityRecordTable -ConfigurationTypeName OzernyConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName KiotoConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName NazarConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName LajkiConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName NikonConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName GreenDozorConfiguration
-add-migration -Name Init -ConfigurationTypeName MirelleConfiguration
+﻿add-migration -Name AddFunctionaliReports -ConfigurationTypeName OzernyConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName KiotoConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName NazarConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName LajkiConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName NikonConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName GreenDozorConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName MirelleConfiguration
 
-add-migration -Name Init -ConfigurationTypeName MumiaConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName MumiaConfiguration
 
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name AddActivityRecordTable -ConfigurationTypeName KrissSpamConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name AddFunctionaliReports -ConfigurationTypeName KrissSpamConfiguration
 
 
 

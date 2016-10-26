@@ -45,7 +45,9 @@ namespace DataBase.Contexts
 
         public DbSet<ContentTypeDbModel> ContentTypes { get; set; }
 
-        public DbSet<FunctionalityRecordDbModel> FunctionalityRecords { get; set; } 
+        public DbSet<FunctionalityRecordDbModel> FunctionalityRecords { get; set; }
+
+        public DbSet<FunctionalityReportDbModel> FunctionalityReports { get; set; } 
 
         protected abstract AccountName GetAccountName(); 
 
@@ -62,6 +64,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new FeaturesConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FunctionalityConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FunctionalityRecordConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new FunctionalityReportConfiguration(GetAccountName()));
 
             modelBuilder.Configurations.Add(new ContentTypeConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new ContentConfiguration(GetAccountName()));
