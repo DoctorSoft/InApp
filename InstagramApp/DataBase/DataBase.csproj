@@ -307,6 +307,8 @@
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\ResetAllFunctionalityTokensCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\ResetAllFunctionalityTokensCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityAsAsapCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityAsAsapCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityRecordCommand.cs" />

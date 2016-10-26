@@ -18,6 +18,7 @@ namespace DataBase.QueriesAndCommands.Commands.Users
         {
             context.Users
                     .Update(model => new UserDbModel { FriendsWereSearched = false });
+            context.SaveChanges();
 
             return new VoidCommandResponse();
         }

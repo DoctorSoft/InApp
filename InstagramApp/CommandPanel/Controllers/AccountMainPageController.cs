@@ -71,6 +71,7 @@ namespace CommandPanel.Controllers
 
         public ActionResult ResetAllFunctionalityTokens(AccountName accountId)
         {
+            accountService.ResetAllFunctionalityTokens(accountId);
             return RedirectToAction("Index", new { accountId = accountId });
         }
     }

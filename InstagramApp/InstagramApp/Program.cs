@@ -142,15 +142,15 @@ namespace InstagramApp
             var tasks = new List<Task>
             {
                 //RegisterProccess<AugustovskiContext>(),
-                //RegisterProccess<KarinaContext>(), //Karina
+                RegisterProccess<KarinaContext>(), //Karina
                 //RegisterProccess<SalsaRikaContext>(),
                 //RegisterProccess<OzernyContext>(), 
                 //RegisterProccess<GalaxyContext>(), 
-                //RegisterProccess<KiotoContext>(), 
+                RegisterProccess<KiotoContext>(), 
                 //RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>(),
-                //RegisterProccess<NikonContext>(),
-                //RegisterProccess<GreenDozorContext>(),
+                RegisterProccess<NikonContext>(),
+                RegisterProccess<GreenDozorContext>(),
                 //RegisterProccess<MirelleContext>(),
 
                 //RegisterProccess<MumiaContext>(),

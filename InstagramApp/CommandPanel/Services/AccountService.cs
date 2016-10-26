@@ -110,5 +110,11 @@ namespace CommandPanel.Services
             var context = new ContextFactory().GetContext(accountId);
             new ResetAllSearchFriendsMarksCommandHandler(context).Handle(new ResetAllSearchFriendsMarksCommand());
         }
+
+        public void ResetAllFunctionalityTokens(AccountName accountId)
+        {
+            var context = new ContextFactory().GetContext(accountId);
+            new ResetAllFunctionalityTokensCommandHandler(context).Handle(new ResetAllFunctionalityTokensCommand());
+        }
     }
 }
