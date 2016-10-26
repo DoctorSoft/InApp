@@ -56,6 +56,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -353,6 +354,9 @@
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\functionalityReportRecord.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\MakeFunctionalityReportCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\MakeFunctionalityReportCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\ResetAllFunctionalityTokensCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\ResetAllFunctionalityTokensCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SetFunctionalityAsAsapCommand.cs" />

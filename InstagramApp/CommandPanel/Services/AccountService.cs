@@ -116,5 +116,11 @@ namespace CommandPanel.Services
             var context = new ContextFactory().GetContext(accountId);
             new ResetAllFunctionalityTokensCommandHandler(context).Handle(new ResetAllFunctionalityTokensCommand());
         }
+
+        public void MakeFunctionalityReport(AccountName accountId)
+        {
+            var context = new ContextFactory().GetContext(accountId);
+            new MakeFunctionalityReportCommandHandler(context).Handle(new MakeFunctionalityReportCommand());
+        }
     }
 }

@@ -74,5 +74,11 @@ namespace CommandPanel.Controllers
             accountService.ResetAllFunctionalityTokens(accountId);
             return RedirectToAction("Index", new { accountId = accountId });
         }
+
+        public ActionResult MakeFunctionalityReport(AccountName accountId)
+        {
+            accountService.MakeFunctionalityReport(accountId);
+            return RedirectToAction("Index", new { accountId = accountId });
+        }
     }
 }

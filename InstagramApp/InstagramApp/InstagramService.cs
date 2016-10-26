@@ -94,6 +94,13 @@ namespace InstagramApp
             // todo: move to settings
             if (userInfo.FollowingCount < 1000)
             {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Stop unfollowing users",
+                    Name = FunctionalityName.UnfollowUsers,
+                    WorkStatus = WorkStatus.Calcelled
+                });
+
                 return;
             }
 
@@ -213,6 +220,13 @@ namespace InstagramApp
                         UserLink = user
                     });
 
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Error following users: " + user,
+                        Name = FunctionalityName.FollowUsers,
+                        WorkStatus = WorkStatus.Calcelled
+                    });
+
                     return;
                 }
 
@@ -262,6 +276,12 @@ namespace InstagramApp
 
             if (count > 3000)
             {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Stop searching new users",
+                    Name = FunctionalityName.SearchNewUsers,
+                    WorkStatus = WorkStatus.Calcelled
+                });
                 return;
             }
 
@@ -383,6 +403,12 @@ namespace InstagramApp
 
             if (count > 3000)
             {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Stop saving media by hash tag",
+                    Name = FunctionalityName.SaveMediaByHashTag,
+                    WorkStatus = WorkStatus.Calcelled
+                });
                 return;
             }
 
@@ -438,6 +464,12 @@ namespace InstagramApp
 
             if (count > 3000)
             {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Stop saving media by home page",
+                    Name = FunctionalityName.SaveMediaByHomePage,
+                    WorkStatus = WorkStatus.Calcelled
+                });
                 return;
             }
 
@@ -557,7 +589,8 @@ namespace InstagramApp
                 {
                     new AddCommentEngine().Execute(driver, new AddCommentModel
                     {
-                        CommentText = "Всем привет! Старые методы накрутки подписчиков ушли в прошлое! Только \"живая\" целевая аудитория! Подробности в профиле!",
+                        CommentText =
+                            "Всем привет! Старые методы накрутки подписчиков ушли в прошлое! Только \"живая\" целевая аудитория! Подробности в профиле!",
                         Link = media
                     });
 
@@ -574,7 +607,15 @@ namespace InstagramApp
                     });
                 }
             }
-
+            else
+            {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Stop adding comments",
+                    Name = FunctionalityName.AddComments,
+                    WorkStatus = WorkStatus.Calcelled
+                });
+            }
         }
 
         public void AddFollowersNote(RemoteWebDriver driver, DataBaseContext context)
