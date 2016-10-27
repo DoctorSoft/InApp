@@ -618,7 +618,7 @@ namespace InstagramApp
             }
         }
 
-        public void AddFollowersNote(RemoteWebDriver driver, DataBaseContext context)
+        public void AddActivityHistoryMark(RemoteWebDriver driver, DataBaseContext context)
         {
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
             {
@@ -660,6 +660,8 @@ namespace InstagramApp
                 Name = FunctionalityName.AddActivityHistoryMark,
                 WorkStatus = WorkStatus.Success
             });
+
+            new MakeFunctionalityReportCommandHandler(context).Handle(new MakeFunctionalityReportCommand());
         }
 
         public void HandleCaptchaException(RemoteWebDriver driver, DataBaseContext context)
