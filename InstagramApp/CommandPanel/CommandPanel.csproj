@@ -169,6 +169,8 @@
     <Compile Include="Models\AccountModels\AccountMainStatisticViewModel.cs" />
     <Compile Include="Models\AccountModels\ChartData.cs" />
     <Compile Include="Models\AccountModels\FunctionalityMarkerViewModel.cs" />
+    <Compile Include="Models\AccountModels\Report.cs" />
+    <Compile Include="Models\AccountModels\ReportData.cs" />
     <Compile Include="Models\ConfigurationsModels\ConfigurationsDraftModel.cs" />
     <Compile Include="Models\ConfigurationsModels\ConfigurationsViewModel.cs" />
     <Compile Include="Models\ContentModels\ContentViewModel.cs" />

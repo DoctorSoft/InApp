@@ -68,6 +68,21 @@ textarea {
     vertical-align: top;
 }
 
+.inner-box {
+    width: 450px;
+    border: 2px #428bca groove;
+    vertical-align: top;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.inner-box .followers-count{
+    font-size: 18px;
+    color: #428bca;
+    vertical-align: top;
+}
+
 .head-panel {
     width: 100%;
     vertical-align: top
@@ -159,6 +174,11 @@ textarea {
     vertical-align: middle
 }
 
+.box200 {
+    width: 200px;
+    margin-left: 10px;
+}
+
 .buttons-list {
     display: inline-block;
     max-width: 100px;
@@ -206,3 +226,8 @@ textarea {
     text-decoration: none;
     padding: 5px;
 }
+
+.center-data {
+    display: inline-block;
+    padding-left: 130px;
+} 

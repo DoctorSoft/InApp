@@ -94,6 +94,8 @@
 
 <div class="row">
 
+    <h2>@Model.AccountId.ToString("G") <a href="@Model.PageLink" target="_blank">(Link)</a></h2>
+
     <div class="head-panel">
         <div class="boxes">
             <div class="followers-box">
@@ -152,6 +154,33 @@
             <a href="@Url.Action("MakeFunctionalityReport", "AccountMainPage", new {accountId = Model.AccountId})" class="btn btn-primary action-button"> Make functionality report </a>
         </div>
 
+        <div class="center-data">
+            @if (Model.FunctionalityReport != null)
+            {
+                <div class="inner-box">
+                    <div><h2>Last report</h2></div>
+                    <div><h4>Start date: <span class="followers-count">@Model.FunctionalityReport.StartDate</span></h4></div>
+                    <div><h4>End date: <span class="followers-count">@Model.FunctionalityReport.EndDate</span></h4></div>
+
+                    <br />
+
+                    @foreach (var record in @Model.FunctionalityReport.Records)
+                    {
+                        <div class="inline-box box200">
+                            <div>
+                                <b>@record.FunctionalityName</b>
+                            </div>
+                            <div>Cancelled: @record.Cancelled</div>
+                            <div>Exceptions: @record.Exceptions</div>
+                            <div>Successed: @record.Successed</div>
+                            <div>Started: @record.Started</div>
+                            <br />
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
         <div class="functionality-section alert alert-primary">
             @foreach (var functionality in @Model.Functionalities)
             {
@@ -173,7 +202,7 @@
                         </a>
                     </div>
                     <div class="inline-box">
-                        <span>@functionality.FunctionalityName.ToString("G")</span> <br/>
+                        <span>@functionality.FunctionalityName.ToString("G")</span> <br />
                         <span>@functionality.LastActivation.Day.ToString("D2").@functionality.LastActivation.Month.ToString("D2") @functionality.LastActivation.Hour.ToString("D2"):@functionality.LastActivation.Minute.ToString("D2")</span>
                     </div>
                     @if (functionality.Asap)

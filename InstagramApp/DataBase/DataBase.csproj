@@ -354,7 +354,7 @@
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommandHandler.cs" />
-    <Compile Include="QueriesAndCommands\Commands\Functionality\functionalityReportRecord.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Functionality\FunctionalityReportRecord.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\MakeFunctionalityReportCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\MakeFunctionalityReportCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\ResetAllFunctionalityTokensCommand.cs" />
@@ -386,6 +386,9 @@
     <Compile Include="QueriesAndCommands\Queries\Content\ContentData.cs" />
     <Compile Include="QueriesAndCommands\Queries\Content\GetContentQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Content\GetContentQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\FunctionalityReport.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\GetLastReportQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\GetLastReportQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Proxy\GetFastProxyQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Proxy\GetFastProxyQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUserProcessingStatisticQuery.cs" />

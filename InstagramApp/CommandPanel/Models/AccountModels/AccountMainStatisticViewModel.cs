@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Constants;
+using DataBase.QueriesAndCommands.Queries.Functionality;
 
 namespace CommandPanel.Models.AccountModels
 {
     public class AccountMainStatisticViewModel
     {
         public string Name { get; set; }
+
+        public string PageLink { get; set; }
 
         public AccountName AccountId { get; set; }
 
@@ -28,5 +31,7 @@ namespace CommandPanel.Models.AccountModels
         public List<FunctionalityMarkerViewModel> Functionalities { get; set; }
 
         public string ChartJsonData { get; set; }
+
+        public FunctionalityReport FunctionalityReport { get; set; }
     }
 }

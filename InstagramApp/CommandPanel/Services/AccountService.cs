@@ -10,6 +10,7 @@ using DataBase.QueriesAndCommands.Commands.Users;
 using DataBase.QueriesAndCommands.Queries.ActivityHistory;
 using DataBase.QueriesAndCommands.Queries.Features;
 using DataBase.QueriesAndCommands.Queries.Functionality;
+using DataBase.QueriesAndCommands.Queries.Settings;
 using DataBase.QueriesAndCommands.Queries.Users;
 
 namespace CommandPanel.Services
@@ -26,6 +27,8 @@ namespace CommandPanel.Services
 
             var userProcessingStatistic = new GetUserProcessingStatisticQueryHandler(context).Handle(new GetUserProcessingStatisticQuery());
 
+            var configs = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
             var chart = new GetActivityStatisticQueryHandler(context).Handle(new GetActivityStatisticQuery { MaxCount = 14 });
             var formedChart = chart.Select(model => new ChartData
             {
@@ -36,9 +39,12 @@ namespace CommandPanel.Services
             });
             var chartData = new JavaScriptSerializer().Serialize(formedChart);
 
+            var report = new GetLastReportQueryHandler(context).Handle(new GetLastReportQuery());
+
             return new AccountMainStatisticViewModel
             {
                 Name = accountId.ToString("G"),
+                PageLink = configs.HomePageUrl,
                 AccountId = accountId,
                 FollowersCount = statisticData.FollowersCount,
                 FollowingsCount = statisticData.FollowingsCount,
@@ -55,7 +61,8 @@ namespace CommandPanel.Services
                     Stopped = statistic.Stopped,
                     Asap = statistic.Asap
                 }).ToList(),
-                ChartJsonData = chartData
+                ChartJsonData = chartData,
+                FunctionalityReport = report
             };
         }
 
