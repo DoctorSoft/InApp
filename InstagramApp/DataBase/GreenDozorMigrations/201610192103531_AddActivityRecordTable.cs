@@ -1,8 +1,7 @@
-namespace DataBase.GreenDozor
+using System.Data.Entity.Migrations;
+
+namespace DataBase.GreenDozorMigrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class AddActivityRecordTable : DbMigration
     {
         public override void Up()

@@ -1,20 +1,20 @@
-﻿add-migration -Name AddFunctionaliReports -ConfigurationTypeName OzernyConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName KiotoConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName NazarConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName LajkiConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName NikonConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName GreenDozorConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName MirelleConfiguration
+﻿add-migration -Name AddProxyTable -ConfigurationTypeName OzernyConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName KiotoConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName NazarConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName LajkiConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name AddProxyTable -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName NikonConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName GreenDozorConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName MirelleConfiguration
 
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName MumiaConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName MumiaConfiguration
 
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name AddFunctionaliReports -ConfigurationTypeName KrissSpamConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name AddProxyTable -ConfigurationTypeName KrissSpamConfiguration
 
 
 

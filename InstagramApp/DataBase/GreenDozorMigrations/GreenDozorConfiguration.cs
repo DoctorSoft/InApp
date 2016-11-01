@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using Constants;
-using DataBase.DefaultData;
-using DataBase.Models;
 
-namespace DataBase.GreenDozor
+namespace DataBase.GreenDozorMigrations
 {
     internal sealed class GreenDozorConfiguration : DbMigrationsConfiguration<DataBase.Contexts.GreenDozorContext>
     {
@@ -18,7 +12,7 @@ namespace DataBase.GreenDozor
 
         protected override void Seed(DataBase.Contexts.GreenDozorContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -82,7 +76,7 @@ namespace DataBase.GreenDozor
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

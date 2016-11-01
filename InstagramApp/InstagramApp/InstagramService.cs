@@ -26,14 +26,41 @@ using Engines.Engines.GetUserInfoEngine;
 using Engines.Engines.LikeMediaEngine;
 using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
+using Engines.Engines.SetProxyEngine;
 using Engines.Engines.WaitingCaptchEngine;
 using NTextCat;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
 namespace InstagramApp
 {
     public class InstagramService
     {
+        public RemoteWebDriver RegisterNewDriver(DataBaseContext context)
+        {
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            if (string.IsNullOrWhiteSpace(settings.Proxy))
+            {
+                return new ChromeDriver();
+            }
+
+            var proxy = new Proxy { SslProxy = settings.Proxy };
+
+            var chromeOptions = new ChromeOptions { Proxy = proxy };
+
+            var driver = new ChromeDriver(chromeOptions);
+
+            new SetProxyEngine().Execute(driver, new SetProxyEngineModel
+            {
+                ProxyLogin = settings.ProxyLogin,
+                ProxyPassword = settings.ProxyPassword
+            });
+
+            return driver;
+        }
+
         public FunctionalityWithTokenModel GetFreeFunctionality(RemoteWebDriver driver, DataBaseContext context)
         {
             var functionalityToRun = new GetFunctionalityToRunQueryHandler(context).Handle(new GetFunctionalityToRunQuery());

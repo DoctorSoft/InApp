@@ -18,7 +18,7 @@ namespace DataBase._KrissSpamMigrations
 
         protected override void Seed(DataBase.Contexts.KrissSpamContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -82,7 +82,7 @@ namespace DataBase._KrissSpamMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

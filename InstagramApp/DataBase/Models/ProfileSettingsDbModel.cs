@@ -12,8 +12,12 @@ namespace DataBase.Models
 
         public string HomePageUrl { get; set; }
 
-        public string LanguageDetectorKey { get; set; }
-
         public DateTime? PreviousFollowingsSynchDate { get; set; }
+
+        public string Proxy { get; set; }
+
+        public string ProxyLogin { get; set; }
+
+        public string ProxyPassword { get; set; }
     }
 }

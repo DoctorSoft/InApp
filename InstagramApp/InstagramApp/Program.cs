@@ -6,9 +6,7 @@ using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Queries.Functionality;
-using Engines.Engines.DetectLanguageEngine;
 using Engines.Exceptions;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
 namespace InstagramApp
@@ -25,8 +23,9 @@ namespace InstagramApp
             // My Dev Page Jobs
             var aproveUsersTokenSource = new CancellationTokenSource();
 
-            var driver = new ChromeDriver();
             var instagramService = new InstagramService();
+
+            var driver = instagramService.RegisterNewDriver(new TContext());
             var taskRunner = new TaskRunner();
 
             return Task.Run(() => taskRunner.RunPeriodically(() =>
@@ -86,7 +85,7 @@ namespace InstagramApp
                     {FunctionalityName.UnfollowUsers, service.UnfollowUsers},
                     {FunctionalityName.ClearOldMedia, service.ClearOldMedia}, 
                     {FunctionalityName.AddComments, service.AddComments},
-                    {FunctionalityName.AddActivityHistoryMark, service.AddFollowersNote} 
+                    {FunctionalityName.AddActivityHistoryMark, service.AddActivityHistoryMark} 
                 };
 
                 using (var context = new TContext())
@@ -142,15 +141,15 @@ namespace InstagramApp
             var tasks = new List<Task>
             {
                 //RegisterProccess<AugustovskiContext>(),
-                RegisterProccess<KarinaContext>(), //Karina
+                //RegisterProccess<KarinaContext>(), //Karina
                 //RegisterProccess<SalsaRikaContext>(),
                 //RegisterProccess<OzernyContext>(), 
-                //RegisterProccess<GalaxyContext>(), 
-                RegisterProccess<KiotoContext>(), 
+                RegisterProccess<GalaxyContext>(), 
+                //RegisterProccess<KiotoContext>(), 
                 //RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>(),
-                RegisterProccess<NikonContext>(),
-                RegisterProccess<GreenDozorContext>(),
+                //RegisterProccess<NikonContext>(),
+                //RegisterProccess<GreenDozorContext>(),
                 //RegisterProccess<MirelleContext>(),
 
                 //RegisterProccess<MumiaContext>(),

@@ -17,7 +17,6 @@ namespace DataBase.Configurations
             Property(model => model.Login);
             Property(model => model.Password);
             Property(model => model.HomePageUrl);
-            Property(model => model.LanguageDetectorKey);
             Property(model => model.PreviousFollowingsSynchDate);
         }
     }

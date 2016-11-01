@@ -142,6 +142,8 @@
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowingsEngine.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowersModel.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowingsModel.cs" />
+    <Compile Include="Engines\SetProxyEngine\SetProxyEngine.cs" />
+    <Compile Include="Engines\SetProxyEngine\SetProxyEngineModel.cs" />
     <Compile Include="Engines\VerifyLikeAccountEngine\VerifyLikeAccountEngine.cs" />
     <Compile Include="Engines\VerifyLikeAccountEngine\VerifyLikeAccountModel.cs" />
     <Compile Include="Engines\VoidResult.cs" />

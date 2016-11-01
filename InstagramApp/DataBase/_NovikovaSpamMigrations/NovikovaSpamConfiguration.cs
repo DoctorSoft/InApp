@@ -18,7 +18,7 @@ namespace DataBase._NovikovaSpamMigrations
 
         protected override void Seed(DataBase.Contexts.NovikovaSpamContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -82,7 +82,7 @@ namespace DataBase._NovikovaSpamMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }
