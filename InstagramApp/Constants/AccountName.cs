@@ -13,6 +13,7 @@
         Nikon = 9,
         GreenDozor = 10,
         Mirelle = 11,
+        Canon = 12,
 
         Mumia = 100,
 

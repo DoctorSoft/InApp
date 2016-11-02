@@ -40,6 +40,8 @@ namespace DataBase.Factories
                     return new MirelleContext();
                 case AccountName.Mumia:
                     return new MumiaContext();
+                case AccountName.Canon:
+                    return new CanonContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }

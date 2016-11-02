@@ -96,6 +96,10 @@
     <Compile Include="AugustovskiMigrations\201611010356507_AddProxyTable.Designer.cs">
       <DependentUpon>201611010356507_AddProxyTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="CanonMigrations\201611022224189_Init.cs" />
+    <Compile Include="CanonMigrations\201611022224189_Init.Designer.cs">
+      <DependentUpon>201611022224189_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configurations\ActivityHistoryConfiguration.cs" />
     <Compile Include="Configurations\Content\ColourConfiguration.cs" />
     <Compile Include="Configurations\Content\ContentColourConfiguration.cs" />
@@ -125,6 +129,7 @@
     <Compile Include="Contexts\GreenDozorContext.cs" />
     <Compile Include="Contexts\MirelleContext.cs" />
     <Compile Include="Contexts\MumiaContext.cs" />
+    <Compile Include="Contexts\CanonContext.cs" />
     <Compile Include="Contexts\NikonContext.cs" />
     <Compile Include="Contexts\NovikovaSpamContext.cs" />
     <Compile Include="Contexts\SalsaRikaContext.cs" />
@@ -356,6 +361,7 @@
     <Compile Include="NazarMigrations\201611010356239_AddProxyTable.Designer.cs">
       <DependentUpon>201611010356239_AddProxyTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="CanonMigrations\CanonConfiguration.cs" />
     <Compile Include="NikonMigrations\201610102059212_UpdateHistory.cs" />
     <Compile Include="NikonMigrations\201610102059212_UpdateHistory.Designer.cs">
       <DependentUpon>201610102059212_UpdateHistory.cs</DependentUpon>
@@ -814,6 +820,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AugustovskiMigrations\201611010356507_AddProxyTable.resx">
       <DependentUpon>201611010356507_AddProxyTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CanonMigrations\201611022224189_Init.resx">
+      <DependentUpon>201611022224189_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201609051737107_Init.resx">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>

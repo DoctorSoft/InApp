@@ -9,6 +9,7 @@ add-migration -Name AddProxyTable -ConfigurationTypeName AugustovskiConfiguratio
 add-migration -Name AddProxyTable -ConfigurationTypeName NikonConfiguration
 add-migration -Name AddProxyTable -ConfigurationTypeName GreenDozorConfiguration
 add-migration -Name AddProxyTable -ConfigurationTypeName MirelleConfiguration
+add-migration -Name Init -ConfigurationTypeName CanonConfiguration
 
 add-migration -Name AddProxyTable -ConfigurationTypeName MumiaConfiguration
 
@@ -29,6 +30,7 @@ update-database -ConfigurationTypeName AugustovskiConfiguration
 update-database -ConfigurationTypeName NikonConfiguration
 update-database -ConfigurationTypeName GreenDozorConfiguration
 update-database -ConfigurationTypeName MirelleConfiguration
+update-database -ConfigurationTypeName CanonConfiguration
 
 update-database -ConfigurationTypeName MumiaConfiguration
 
