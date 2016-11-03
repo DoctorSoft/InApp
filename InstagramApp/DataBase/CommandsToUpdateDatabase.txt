@@ -10,6 +10,7 @@ add-migration -Name AddProxyTable -ConfigurationTypeName NikonConfiguration
 add-migration -Name AddProxyTable -ConfigurationTypeName GreenDozorConfiguration
 add-migration -Name AddProxyTable -ConfigurationTypeName MirelleConfiguration
 add-migration -Name Init -ConfigurationTypeName CanonConfiguration
+add-migration -Name Init -ConfigurationTypeName EgorConfiguration
 
 add-migration -Name AddProxyTable -ConfigurationTypeName MumiaConfiguration
 
@@ -31,6 +32,7 @@ update-database -ConfigurationTypeName NikonConfiguration
 update-database -ConfigurationTypeName GreenDozorConfiguration
 update-database -ConfigurationTypeName MirelleConfiguration
 update-database -ConfigurationTypeName CanonConfiguration
+update-database -ConfigurationTypeName EgorConfiguration
 
 update-database -ConfigurationTypeName MumiaConfiguration
 

@@ -96,6 +96,12 @@
     <Compile Include="AugustovskiMigrations\201611010356507_AddProxyTable.Designer.cs">
       <DependentUpon>201611010356507_AddProxyTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\EgorContext.cs" />
+    <Compile Include="EgorMigrations\201611031925246_Init.cs" />
+    <Compile Include="EgorMigrations\201611031925246_Init.Designer.cs">
+      <DependentUpon>201611031925246_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EgorMigrations\EgorConfiguration.cs" />
     <Compile Include="CanonMigrations\201611022224189_Init.cs" />
     <Compile Include="CanonMigrations\201611022224189_Init.Designer.cs">
       <DependentUpon>201611022224189_Init.cs</DependentUpon>
@@ -823,6 +829,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CanonMigrations\201611022224189_Init.resx">
       <DependentUpon>201611022224189_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EgorMigrations\201611031925246_Init.resx">
+      <DependentUpon>201611031925246_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201609051737107_Init.resx">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>

@@ -14,6 +14,7 @@
         GreenDozor = 10,
         Mirelle = 11,
         Canon = 12,
+        Egor = 13,
 
         Mumia = 100,
 

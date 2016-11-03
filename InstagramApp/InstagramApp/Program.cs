@@ -151,7 +151,8 @@ namespace InstagramApp
                 //RegisterProccess<NikonContext>(),
                 //RegisterProccess<GreenDozorContext>(),
                 //RegisterProccess<MirelleContext>(),
-                RegisterProccess<CanonContext>(),
+                //RegisterProccess<CanonContext>(),
+                RegisterProccess<EgorContext>(),
 
                 //RegisterProccess<MumiaContext>(),
             };

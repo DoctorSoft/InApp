@@ -42,6 +42,8 @@ namespace DataBase.Factories
                     return new MumiaContext();
                 case AccountName.Canon:
                     return new CanonContext();
+                case AccountName.Egor:
+                    return new EgorContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }
