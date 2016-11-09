@@ -97,6 +97,12 @@
       <DependentUpon>201611010356507_AddProxyTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Contexts\EgorContext.cs" />
+    <Compile Include="Contexts\GadanieContext.cs" />
+    <Compile Include="GadanieMigrations\201611091848117_Init.cs" />
+    <Compile Include="GadanieMigrations\201611091848117_Init.Designer.cs">
+      <DependentUpon>201611091848117_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GadanieMigrations\GadanieConfiguration.cs" />
     <Compile Include="EgorMigrations\201611031925246_Init.cs" />
     <Compile Include="EgorMigrations\201611031925246_Init.Designer.cs">
       <DependentUpon>201611031925246_Init.cs</DependentUpon>
@@ -832,6 +838,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EgorMigrations\201611031925246_Init.resx">
       <DependentUpon>201611031925246_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GadanieMigrations\201611091848117_Init.resx">
+      <DependentUpon>201611091848117_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201609051737107_Init.resx">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>

@@ -6,19 +6,19 @@ using Constants;
 using DataBase.DefaultData;
 using DataBase.Models;
 
-namespace DataBase.EgorMigrations
+namespace DataBase.GadanieMigrations
 {
-    internal sealed class EgorConfiguration : DbMigrationsConfiguration<DataBase.Contexts.EgorContext>
+    internal sealed class GadanieConfiguration : DbMigrationsConfiguration<DataBase.Contexts.GadanieContext>
     {
-        public EgorConfiguration()
+        public GadanieConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"EgorMigrations";
+            MigrationsDirectory = @"GadanieMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.EgorContext context)
+        protected override void Seed(DataBase.Contexts.GadanieContext context)
         {
-            /*if (!context.Users.Any())
+            if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -34,8 +34,8 @@ namespace DataBase.EgorMigrations
             var settings = new ProfileSettingsDbModel
             {
                 HomePageUrl = "https://www.instagram.com/tytyuk_egor/",
-                Login = "tytyuk_egor",
-                Password = "1756350Egor",
+                Login = "gadanie_lechenie_",
+                Password = "375296717155",
             };
             context.ProfileSettings.Add(settings);
 
@@ -63,7 +63,7 @@ namespace DataBase.EgorMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
         }
     }
 }

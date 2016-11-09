@@ -15,6 +15,7 @@
         Mirelle = 11,
         Canon = 12,
         Egor = 13,
+        Gadanie = 14,
 
         Mumia = 100,
 

@@ -44,6 +44,8 @@ namespace DataBase.Factories
                     return new CanonContext();
                 case AccountName.Egor:
                     return new EgorContext();
+                case AccountName.Gadanie:
+                    return new GadanieContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }
