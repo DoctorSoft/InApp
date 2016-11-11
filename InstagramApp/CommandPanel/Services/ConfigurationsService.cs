@@ -19,7 +19,10 @@ namespace CommandPanel.Services
                 AccountId = accountId,
                 Password = configs.Password,
                 Login = configs.Login,
-                HomePage = configs.HomePageUrl
+                HomePage = configs.HomePageUrl,
+                Proxy = configs.Proxy,
+                ProxyName = configs.ProxyLogin,
+                ProxyPassword = configs.ProxyPassword
             };
         }
 
@@ -32,7 +35,10 @@ namespace CommandPanel.Services
                 Password = model.Password,
                 Login = model.Login,
                 HomePage = model.HomePage,
-                AccountId = accountId
+                AccountId = accountId,
+                Proxy = model.Proxy,
+                ProxyPassword = model.ProxyPassword,
+                ProxyName = model.ProxyName
             });
         }
     }

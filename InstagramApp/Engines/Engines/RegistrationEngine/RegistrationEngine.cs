@@ -24,22 +24,22 @@ namespace Engines.Engines.RegistrationEngine
             }
             registrtionData.Click();
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
             IList<IWebElement> userNameInputs = driver.FindElements(By.Name("username"));
             userNameInputs.FirstOrDefault().SendKeys(model.UserName);
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
             IList<IWebElement> passwordInuts = driver.FindElements(By.Name("password"));
             passwordInuts.FirstOrDefault().SendKeys(model.Password);
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
             IList<IWebElement> buttons = driver.FindElements(By.TagName("button"));
             buttons.FirstOrDefault(element => element.Text == "Войти").Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
 
             if (!base.NavigateToUrl(driver))
             {

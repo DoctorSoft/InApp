@@ -145,7 +145,7 @@ namespace InstagramApp
                 //RegisterProccess<SalsaRikaContext>(),
                 //RegisterProccess<OzernyContext>(), 
                 //RegisterProccess<GalaxyContext>(), 
-                //RegisterProccess<KiotoContext>(), 
+                RegisterProccess<KiotoContext>(), 
                 //RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>(),
                 //RegisterProccess<NikonContext>(),
@@ -153,7 +153,7 @@ namespace InstagramApp
                 //RegisterProccess<MirelleContext>(),
                 //RegisterProccess<CanonContext>(),
                 //RegisterProccess<EgorContext>(),
-                RegisterProccess<GadanieContext>()
+                //RegisterProccess<GadanieContext>()
 
                 //RegisterProccess<MumiaContext>(),
             };

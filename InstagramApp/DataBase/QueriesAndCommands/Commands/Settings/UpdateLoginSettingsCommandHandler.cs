@@ -21,6 +21,9 @@ namespace DataBase.QueriesAndCommands.Commands.Settings
             settings.Password = command.Password;
             settings.HomePageUrl = command.HomePage;
             settings.Login = command.Login;
+            settings.Proxy = command.Proxy;
+            settings.ProxyLogin = command.ProxyName;
+            settings.ProxyPassword = command.ProxyPassword;
 
             context.ProfileSettings.AddOrUpdate(settings);
 
