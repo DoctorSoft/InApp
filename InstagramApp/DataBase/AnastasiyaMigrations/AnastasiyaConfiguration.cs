@@ -6,23 +6,23 @@ using Constants;
 using DataBase.DefaultData;
 using DataBase.Models;
 
-namespace DataBase.GadanieMigrations
+namespace DataBase.AnastasiyaMigrations
 {
-    internal sealed class GadanieConfiguration : DbMigrationsConfiguration<DataBase.Contexts.GadanieContext>
+    internal sealed class AnastastasiyaConfiguration : DbMigrationsConfiguration<DataBase.Contexts.AnastasiyaContext>
     {
-        public GadanieConfiguration()
+        public AnastastasiyaConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"GadanieMigrations";
+            MigrationsDirectory = @"AnastastasiyaMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.GadanieContext context)
+        protected override void Seed(DataBase.Contexts.AnastasiyaContext context)
         {
-            /*if (!context.Users.Any())
+            if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
-                    Link = "https://www.instagram.com/tutbylive/",
+                    Link = "https://www.instagram.com/s13.ru/",
                     ConfirmedByAdmin = true,
                     IncludingTime = DateTime.Now,
                     UserStatus = UserStatus.Required
@@ -33,9 +33,9 @@ namespace DataBase.GadanieMigrations
             context.ProfileSettings.RemoveRange(context.ProfileSettings);
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/tytyuk_egor/",
-                Login = "gadanie_lechenie_",
-                Password = "375296717155",
+                HomePageUrl = "https://www.instagram.com/anastasiya_chernik/",
+                Login = "anastasiya_chernik",
+                Password = "byNastenya1990",
             };
             context.ProfileSettings.Add(settings);
 
@@ -63,7 +63,7 @@ namespace DataBase.GadanieMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
         }
     }
 }

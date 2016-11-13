@@ -16,6 +16,7 @@
         Canon = 12,
         Egor = 13,
         Gadanie = 14,
+        Anastasiya = 15,
 
         Mumia = 100,
 

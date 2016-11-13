@@ -143,17 +143,18 @@ namespace InstagramApp
                 //RegisterProccess<AugustovskiContext>(),
                 //RegisterProccess<KarinaContext>(), //Karina
                 //RegisterProccess<SalsaRikaContext>(),
-                //RegisterProccess<OzernyContext>(), 
+                RegisterProccess<OzernyContext>(), 
                 //RegisterProccess<GalaxyContext>(), 
-                RegisterProccess<KiotoContext>(), 
+                //RegisterProccess<KiotoContext>(), 
                 //RegisterProccess<NazarContext>(), 
                 //RegisterProccess<LajkiContext>(),
                 //RegisterProccess<NikonContext>(),
                 //RegisterProccess<GreenDozorContext>(),
                 //RegisterProccess<MirelleContext>(),
-                //RegisterProccess<CanonContext>(),
+                RegisterProccess<CanonContext>(),
                 //RegisterProccess<EgorContext>(),
-                //RegisterProccess<GadanieContext>()
+                //RegisterProccess<GadanieContext>(),
+                //RegisterProccess<AnastasiyaContext>()
 
                 //RegisterProccess<MumiaContext>(),
             };

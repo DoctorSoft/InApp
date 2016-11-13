@@ -64,6 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnastastasiyaMigrations\201611122214441_Init.cs" />
+    <Compile Include="AnastastasiyaMigrations\201611122214441_Init.Designer.cs">
+      <DependentUpon>201611122214441_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="AugustovskiMigrations\201609171454295_Init.cs" />
     <Compile Include="AugustovskiMigrations\201609171454295_Init.Designer.cs">
       <DependentUpon>201609171454295_Init.cs</DependentUpon>
@@ -96,8 +100,10 @@
     <Compile Include="AugustovskiMigrations\201611010356507_AddProxyTable.Designer.cs">
       <DependentUpon>201611010356507_AddProxyTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\AnastasiyaContext.cs" />
     <Compile Include="Contexts\EgorContext.cs" />
     <Compile Include="Contexts\GadanieContext.cs" />
+    <Compile Include="AnastasiyaMigrations\AnastasiyaConfiguration.cs" />
     <Compile Include="GadanieMigrations\201611091848117_Init.cs" />
     <Compile Include="GadanieMigrations\201611091848117_Init.Designer.cs">
       <DependentUpon>201611091848117_Init.cs</DependentUpon>
@@ -809,6 +815,9 @@
     <Content Include="CommandsToUpdateDatabase.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AnastastasiyaMigrations\201611122214441_Init.resx">
+      <DependentUpon>201611122214441_Init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AugustovskiMigrations\201609171454295_Init.resx">
       <DependentUpon>201609171454295_Init.cs</DependentUpon>
     </EmbeddedResource>
