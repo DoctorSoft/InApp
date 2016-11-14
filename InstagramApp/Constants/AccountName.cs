@@ -17,6 +17,7 @@
         Egor = 13,
         Gadanie = 14,
         Anastasiya = 15,
+        Etalon = 16,
 
         Mumia = 100,
 

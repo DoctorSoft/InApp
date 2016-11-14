@@ -48,6 +48,8 @@ namespace DataBase.Factories
                     return new GadanieContext();
                 case AccountName.Anastasiya:
                     return new AnastasiyaContext();
+                case AccountName.Etalon:
+                    return new EtalonContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }

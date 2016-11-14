@@ -6,23 +6,23 @@ using Constants;
 using DataBase.DefaultData;
 using DataBase.Models;
 
-namespace DataBase.AnastasiyaMigrations
+namespace DataBase.EtalonMigrations
 {
-    internal sealed class AnastastasiyaConfiguration : DbMigrationsConfiguration<DataBase.Contexts.AnastasiyaContext>
+    internal sealed class EtalonConfiguration : DbMigrationsConfiguration<DataBase.Contexts.EtalonContext>
     {
-        public AnastastasiyaConfiguration()
+        public EtalonConfiguration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"AnastasiyaMigrations";
+            MigrationsDirectory = @"EtalonMigrations";
         }
 
-        protected override void Seed(DataBase.Contexts.AnastasiyaContext context)
+        protected override void Seed(DataBase.Contexts.EtalonContext context)
         {
             if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
-                    Link = "https://www.instagram.com/s13.ru/",
+                    Link = "https://www.instagram.com/typical_timaha/",
                     ConfirmedByAdmin = true,
                     IncludingTime = DateTime.Now,
                     UserStatus = UserStatus.Required
@@ -33,9 +33,9 @@ namespace DataBase.AnastasiyaMigrations
             context.ProfileSettings.RemoveRange(context.ProfileSettings);
             var settings = new ProfileSettingsDbModel
             {
-                HomePageUrl = "https://www.instagram.com/anastasiya_chernik/",
-                Login = "anastasiya_chernik",
-                Password = "byNastenya1990",
+                HomePageUrl = "https://www.instagram.com/salon_etalon_u_g/",
+                Login = "salon_etalon_u_g",
+                Password = "89181318881",
             };
             context.ProfileSettings.Add(settings);
 

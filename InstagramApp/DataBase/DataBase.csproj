@@ -64,8 +64,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnastastasiyaMigrations\201611122214441_Init.cs" />
-    <Compile Include="AnastastasiyaMigrations\201611122214441_Init.Designer.cs">
+    <Compile Include="Contexts\EtalonContext.cs" />
+    <Compile Include="EtalonMigrations\201611142134395_Init.cs" />
+    <Compile Include="EtalonMigrations\201611142134395_Init.Designer.cs">
+      <DependentUpon>201611142134395_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EtalonMigrations\EtalonConfiguration.cs" />
+    <Compile Include="AnastasiyaMigrations\201611122214441_Init.cs" />
+    <Compile Include="AnastasiyaMigrations\201611122214441_Init.Designer.cs">
       <DependentUpon>201611122214441_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="AugustovskiMigrations\201609171454295_Init.cs" />
@@ -815,7 +821,7 @@
     <Content Include="CommandsToUpdateDatabase.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AnastastasiyaMigrations\201611122214441_Init.resx">
+    <EmbeddedResource Include="AnastasiyaMigrations\201611122214441_Init.resx">
       <DependentUpon>201611122214441_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AugustovskiMigrations\201609171454295_Init.resx">
@@ -847,6 +853,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EgorMigrations\201611031925246_Init.resx">
       <DependentUpon>201611031925246_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EtalonMigrations\201611142134395_Init.resx">
+      <DependentUpon>201611142134395_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GadanieMigrations\201611091848117_Init.resx">
       <DependentUpon>201611091848117_Init.cs</DependentUpon>
