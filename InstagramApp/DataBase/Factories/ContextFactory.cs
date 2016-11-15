@@ -50,6 +50,12 @@ namespace DataBase.Factories
                     return new AnastasiyaContext();
                 case AccountName.Etalon:
                     return new EtalonContext();
+                case AccountName.Sport:
+                    return new SportContext();
+                case AccountName.GrodnoOfficial:
+                    return new GrodnoOfficialContext();
+                case AccountName.MyGrodno:
+                    return new MyGrodnoContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }

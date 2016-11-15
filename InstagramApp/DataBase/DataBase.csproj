@@ -64,7 +64,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexts\MyGrodnoContext.cs" />
+    <Compile Include="Contexts\GrodnoOfficialContext.cs" />
+    <Compile Include="Contexts\SportContext.cs" />
     <Compile Include="Contexts\EtalonContext.cs" />
+    <Compile Include="GrodnoOfficialMigrations\201611142238571_Init.cs" />
+    <Compile Include="GrodnoOfficialMigrations\201611142238571_Init.Designer.cs">
+      <DependentUpon>201611142238571_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyGrodnoMigrations\201611142238077_Init.cs" />
+    <Compile Include="MyGrodnoMigrations\201611142238077_Init.Designer.cs">
+      <DependentUpon>201611142238077_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyGrodnoMigrations\MyGrodnoConfiguration.cs" />
+    <Compile Include="GrodnoOfficialMigrations\GrodnoOfficialConfiguration.cs" />
+    <Compile Include="SportMigrations\201611142237518_Init.cs" />
+    <Compile Include="SportMigrations\201611142237518_Init.Designer.cs">
+      <DependentUpon>201611142237518_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SportMigrations\SportConfiguration.cs" />
     <Compile Include="EtalonMigrations\201611142134395_Init.cs" />
     <Compile Include="EtalonMigrations\201611142134395_Init.Designer.cs">
       <DependentUpon>201611142134395_Init.cs</DependentUpon>
@@ -911,6 +929,9 @@
     <EmbeddedResource Include="GreenDozorMigrations\201611010402448_AddProxyTable.resx">
       <DependentUpon>201611010402448_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GrodnoOfficialMigrations\201611142238571_Init.resx">
+      <DependentUpon>201611142238571_Init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201609282205179_Init.resx">
       <DependentUpon>201609282205179_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -1037,6 +1058,9 @@
     <EmbeddedResource Include="MumiaMigrations\201611010357326_AddProxyTable.resx">
       <DependentUpon>201611010357326_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyGrodnoMigrations\201611142238077_Init.resx">
+      <DependentUpon>201611142238077_Init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201610102058531_UpdateHistory.resx">
       <DependentUpon>201610102058531_UpdateHistory.cs</DependentUpon>
     </EmbeddedResource>
@@ -1096,6 +1120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201611010356443_AddProxyTable.resx">
       <DependentUpon>201611010356443_AddProxyTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SportMigrations\201611142237518_Init.resx">
+      <DependentUpon>201611142237518_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_KrissSpamMigrations\201610081310414_Init.resx">
       <DependentUpon>201610081310414_Init.cs</DependentUpon>

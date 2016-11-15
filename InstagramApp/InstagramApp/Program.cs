@@ -155,7 +155,10 @@ namespace InstagramApp
                 //RegisterProccess<EgorContext>(),
                 //RegisterProccess<GadanieContext>(),
                 //RegisterProccess<AnastasiyaContext>(),
-                RegisterProccess<EtalonContext>(),
+                //RegisterProccess<EtalonContext>(),
+                RegisterProccess<SportContext>(),
+                //RegisterProccess<GrodnoOfficialContext>(),
+                //RegisterProccess<MyGrodnoContext>(),
 
                 //RegisterProccess<MumiaContext>(),
             };

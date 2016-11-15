@@ -18,6 +18,9 @@
         Gadanie = 14,
         Anastasiya = 15,
         Etalon = 16,
+        Sport = 17,
+        GrodnoOfficial = 18,
+        MyGrodno = 19,
 
         Mumia = 100,
 
