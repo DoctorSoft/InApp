@@ -318,10 +318,13 @@ namespace InstagramApp
 
             foreach (var user in users)
             {
-                var extraUserInfo = new GetUserIdEngine().Execute(driver, new GetUserIdEngineModel
+                // open new 
+                var tempDriver = new ChromeDriver();
+                var extraUserInfo = new GetUserIdEngine().Execute(tempDriver, new GetUserIdEngineModel
                 {
                     UserLink = user
                 });
+                tempDriver.Close();
 
                 results.AddRange(new SearchUserFollowingsEngine().Execute(driver, new SearchUserFollowingsModel
                 {
@@ -376,10 +379,12 @@ namespace InstagramApp
 
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
-            var userInfo = new GetUserIdEngine().Execute(driver, new GetUserIdEngineModel
+            var tempDriver = new ChromeDriver();
+            var userInfo = new GetUserIdEngine().Execute(tempDriver, new GetUserIdEngineModel
             {
                 UserLink = settings.HomePageUrl
             });
+            tempDriver.Close();
 
             var followers =new SearchUserFollowersEngine().Execute(driver, new SearchUserFollowersModel
             {
