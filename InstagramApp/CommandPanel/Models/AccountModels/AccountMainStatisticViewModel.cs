@@ -26,7 +26,7 @@ namespace CommandPanel.Models.AccountModels
 
         public long UsersToDeleteCount { get; set; }
 
-        public long PoorFollowersCount { get; set; }
+        public long NormalUsersCount { get; set; }
 
         public List<FunctionalityMarkerViewModel> Functionalities { get; set; }
 

@@ -25,9 +25,9 @@ namespace DataBase.QueriesAndCommands.Commands.Users
                 .ToList();
             var usersAlreadyMarkerAsToDelete = context.Users.Where(model => model.UserStatus == UserStatus.ToDelete).Select(model => model.Link).ToList();
 
-            var usersToAddAsToDelete = command.Users.Except(allUsers).ToList();
+            var usersToAddAsToDelete = command.UsersToClear.Except(allUsers).ToList();
 
-            var usersToUpdateAsToDelete = command.Users.Except(usersToAddAsToDelete).Except(starsAndRequiredUsers).ToList();
+            var usersToUpdateAsToDelete = command.UsersToClear.Except(usersToAddAsToDelete).Except(starsAndRequiredUsers).ToList();
 
             var usersToMarkAsNormal = usersAlreadyMarkerAsToDelete.Except(usersToUpdateAsToDelete).ToList();
 
@@ -35,6 +35,13 @@ namespace DataBase.QueriesAndCommands.Commands.Users
             {
                 context.Users.Where(model => usersToMarkAsNormal.Contains(model.Link)).Update(model => new UserDbModel { UserStatus = UserStatus.Normal });
             }
+
+            context.BulkInsert(command.NormalUsers.Select(s => new UserDbModel
+            {
+                Link = s,
+                UserStatus = UserStatus.Normal
+            }));
+
             context.BulkInsert(usersToAddAsToDelete.Select(s => new UserDbModel
             {
                 UserStatus = UserStatus.ToDelete,

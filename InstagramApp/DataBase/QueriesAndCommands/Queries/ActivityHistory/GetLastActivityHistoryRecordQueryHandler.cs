@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Common;
 
@@ -16,6 +17,8 @@ namespace DataBase.QueriesAndCommands.Queries.ActivityHistory
 
         public ActivityHistoryModel Handle(GetLastActivityHistoryRecordQuery query)
         {
+            var normalUsers = context.Users.Count(model => model.UserStatus == UserStatus.Normal);
+
             var result = context
                 .ActivityHistories
                 .OrderByDescending(model => model.MarkDate)
@@ -24,7 +27,8 @@ namespace DataBase.QueriesAndCommands.Queries.ActivityHistory
                     FollowersCount = model.FollowersCount,
                     FollowingsCount = model.FollowingsCount,
                     MediaCount = model.MediaCount,
-                    ActivityDateTime = model.MarkDate
+                    ActivityDateTime = model.MarkDate,
+                    NormalUesrsCount = normalUsers
                 })
                 .FirstOrDefault();
 

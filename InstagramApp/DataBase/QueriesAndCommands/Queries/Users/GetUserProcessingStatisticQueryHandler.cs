@@ -17,7 +17,7 @@ namespace DataBase.QueriesAndCommands.Queries.Users
         public UserProcessingStatistic Handle(GetUserProcessingStatisticQuery query)
         {
             var usersToFollowCount = context.Users.Count(model => model.UserStatus == UserStatus.ToFollow);
-            var usersToDeleteCount = context.Users.Count(model => model.UserStatus == UserStatus.ToDelete);
+            var usersToDeleteCount = context.Users.Count(model => model.UserStatus == UserStatus.ToDelete || (query.RemoveAllUsers && model.UserStatus == UserStatus.Normal));
 
             return new UserProcessingStatistic
             {

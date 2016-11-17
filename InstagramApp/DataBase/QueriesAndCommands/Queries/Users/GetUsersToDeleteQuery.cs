@@ -9,5 +9,7 @@ namespace DataBase.QueriesAndCommands.Queries.Users
         public int MaxCount { get; set; }
 
         public TimeSpan BanTime { get; set; }
+
+        public bool RemoveAllUsers { get; set; }
     }
 }

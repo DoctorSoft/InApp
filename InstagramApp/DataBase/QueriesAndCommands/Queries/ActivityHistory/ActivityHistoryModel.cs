@@ -11,5 +11,7 @@ namespace DataBase.QueriesAndCommands.Queries.ActivityHistory
         public long FollowingsCount { get; set; }
 
         public long MediaCount { get; set; }
+
+        public long NormalUesrsCount { get; set; }
     }
 }

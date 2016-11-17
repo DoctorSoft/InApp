@@ -25,7 +25,12 @@ namespace CommandPanel.Services
 
             var activityStatistic = new GetFunctionalityStatisticQueryHandler(context).Handle(new GetFunctionalityStatisticQuery());
 
-            var userProcessingStatistic = new GetUserProcessingStatisticQueryHandler(context).Handle(new GetUserProcessingStatisticQuery());
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var userProcessingStatistic = new GetUserProcessingStatisticQueryHandler(context).Handle(new GetUserProcessingStatisticQuery
+            {
+                RemoveAllUsers = settings.RemoveAllUsers
+            });
 
             var configs = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
@@ -51,7 +56,7 @@ namespace CommandPanel.Services
                 MediaCount = statisticData.MediaCount,
                 UsersToDeleteCount = userProcessingStatistic.UsersToDeleteCount,
                 UsersToFollowCount = userProcessingStatistic.UsersToFollowCount,
-                PoorFollowersCount = statisticData.FollowersCount + userProcessingStatistic.UsersToDeleteCount - statisticData.FollowingsCount,
+                NormalUsersCount = statisticData.NormalUesrsCount,
                 LastStatisticDate = statisticData.ActivityDateTime,
                 Functionalities = activityStatistic.Select(statistic => new FunctionalityMarkerViewModel
                 {

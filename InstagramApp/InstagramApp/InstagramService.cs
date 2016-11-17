@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
@@ -131,7 +132,12 @@ namespace InstagramApp
                 return;
             }
 
-            var users = new GetUsersToDeleteQueryHandler(context).Handle(new GetUsersToDeleteQuery { MaxCount = 1, BanTime = new TimeSpan(1, 0, 0, 0)});
+            var users = new GetUsersToDeleteQueryHandler(context).Handle(new GetUsersToDeleteQuery
+            {
+                MaxCount = 1, 
+                BanTime = new TimeSpan(1, 0, 0, 0),
+                RemoveAllUsers = settings.RemoveAllUsers
+            });
 
             foreach (var user in users)
             {
@@ -406,10 +412,14 @@ namespace InstagramApp
             } 
 
             var usersToClear = followings.Except(followers).ToList();
+            var normalUsers = followers.Intersect(followings).ToList();
+
+            new RemoveAllUsersByStatusCommandHandler(context).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.Normal });
 
             new MarkUsersAsToDeleteCommandHandler(context).Handle(new MarkUsersAsToDeleteCommand
             {
-                Users = usersToClear
+                UsersToClear = usersToClear,
+                NormalUsers = normalUsers
             });
 
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand

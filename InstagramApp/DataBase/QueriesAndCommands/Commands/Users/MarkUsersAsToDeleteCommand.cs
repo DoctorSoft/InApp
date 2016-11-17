@@ -5,6 +5,8 @@ namespace DataBase.QueriesAndCommands.Commands.Users
 {
     public class MarkUsersAsToDeleteCommand : IVoidCommand
     {
-        public List<string> Users { get; set; } 
+        public List<string> UsersToClear { get; set; }
+
+        public List<string> NormalUsers { get; set; } 
     }
 }
