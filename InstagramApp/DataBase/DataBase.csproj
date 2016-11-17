@@ -64,23 +64,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnastasiyaMigrations\201611171745285_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="AnastasiyaMigrations\201611171745285_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745285_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AugustovskiMigrations\201611171744397_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="AugustovskiMigrations\201611171744397_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171744397_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CanonMigrations\201611171745075_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="CanonMigrations\201611171745075_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745075_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contexts\MyGrodnoContext.cs" />
     <Compile Include="Contexts\GrodnoOfficialContext.cs" />
     <Compile Include="Contexts\SportContext.cs" />
     <Compile Include="Contexts\EtalonContext.cs" />
+    <Compile Include="EgorMigrations\201611171745142_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="EgorMigrations\201611171745142_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745142_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EtalonMigrations\201611171745359_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="EtalonMigrations\201611171745359_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745359_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GadanieMigrations\201611171745212_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="GadanieMigrations\201611171745212_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745212_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GalaxyMigrations\201611171743582_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="GalaxyMigrations\201611171743582_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171743582_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GreenDozorMigrations\201611171744536_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="GreenDozorMigrations\201611171744536_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171744536_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="GrodnoOfficialMigrations\201611142238571_Init.cs" />
     <Compile Include="GrodnoOfficialMigrations\201611142238571_Init.Designer.cs">
       <DependentUpon>201611142238571_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrodnoOfficialMigrations\201611171745520_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="GrodnoOfficialMigrations\201611171745520_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745520_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KarinaMigrations\201611171744232_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="KarinaMigrations\201611171744232_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171744232_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\201611171744042_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="KiotoMigrations\201611171744042_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171744042_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LajkiMigrations\201611171744170_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="LajkiMigrations\201611171744170_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171744170_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MirelleMigrations\201611171745015_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="MirelleMigrations\201611171745015_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745015_AddRemoveAllUsersSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="MyGrodnoMigrations\201611142238077_Init.cs" />
     <Compile Include="MyGrodnoMigrations\201611142238077_Init.Designer.cs">
       <DependentUpon>201611142238077_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyGrodnoMigrations\201611171745595_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="MyGrodnoMigrations\201611171745595_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745595_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyGrodnoMigrations\MyGrodnoConfiguration.cs" />
     <Compile Include="GrodnoOfficialMigrations\GrodnoOfficialConfiguration.cs" />
+    <Compile Include="NazarMigrations\201611171744111_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="NazarMigrations\201611171744111_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171744111_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NikonMigrations\201611171744465_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="NikonMigrations\201611171744465_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171744465_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201611171743501_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="OzernyMigrations\201611171743501_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171743501_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalsaRikaMigrations\201611171744300_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="SalsaRikaMigrations\201611171744300_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171744300_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="SportMigrations\201611142237518_Init.cs" />
     <Compile Include="SportMigrations\201611142237518_Init.Designer.cs">
       <DependentUpon>201611142237518_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SportMigrations\201611171745445_AddRemoveAllUsersSetting.cs" />
+    <Compile Include="SportMigrations\201611171745445_AddRemoveAllUsersSetting.Designer.cs">
+      <DependentUpon>201611171745445_AddRemoveAllUsersSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="SportMigrations\SportConfiguration.cs" />
     <Compile Include="EtalonMigrations\201611142134395_Init.cs" />
@@ -842,6 +918,9 @@
     <EmbeddedResource Include="AnastasiyaMigrations\201611122214441_Init.resx">
       <DependentUpon>201611122214441_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AnastasiyaMigrations\201611171745285_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745285_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AugustovskiMigrations\201609171454295_Init.resx">
       <DependentUpon>201609171454295_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -866,17 +945,32 @@
     <EmbeddedResource Include="AugustovskiMigrations\201611010356507_AddProxyTable.resx">
       <DependentUpon>201611010356507_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AugustovskiMigrations\201611171744397_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171744397_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CanonMigrations\201611022224189_Init.resx">
       <DependentUpon>201611022224189_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CanonMigrations\201611171745075_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745075_AddRemoveAllUsersSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EgorMigrations\201611031925246_Init.resx">
       <DependentUpon>201611031925246_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EgorMigrations\201611171745142_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745142_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EtalonMigrations\201611142134395_Init.resx">
       <DependentUpon>201611142134395_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EtalonMigrations\201611171745359_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745359_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GadanieMigrations\201611091848117_Init.resx">
       <DependentUpon>201611091848117_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GadanieMigrations\201611171745212_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745212_AddRemoveAllUsersSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201609051737107_Init.resx">
       <DependentUpon>201609051737107_Init.cs</DependentUpon>
@@ -917,6 +1011,9 @@
     <EmbeddedResource Include="GalaxyMigrations\201611010356101_AddProxyTable.resx">
       <DependentUpon>201611010356101_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GalaxyMigrations\201611171743582_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171743582_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GreenDozorMigrations\201610162209151_Init.resx">
       <DependentUpon>201610162209151_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -929,8 +1026,14 @@
     <EmbeddedResource Include="GreenDozorMigrations\201611010402448_AddProxyTable.resx">
       <DependentUpon>201611010402448_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GreenDozorMigrations\201611171744536_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171744536_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GrodnoOfficialMigrations\201611142238571_Init.resx">
       <DependentUpon>201611142238571_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrodnoOfficialMigrations\201611171745520_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745520_AddRemoveAllUsersSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201609282205179_Init.resx">
       <DependentUpon>201609282205179_Init.cs</DependentUpon>
@@ -955,6 +1058,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201611010356375_AddProxyTable.resx">
       <DependentUpon>201611010356375_AddProxyTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KarinaMigrations\201611171744232_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171744232_AddRemoveAllUsersSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201609051737289_Init.resx">
       <DependentUpon>201609051737289_Init.cs</DependentUpon>
@@ -995,6 +1101,9 @@
     <EmbeddedResource Include="KiotoMigrations\201611010356175_AddProxyTable.resx">
       <DependentUpon>201611010356175_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201611171744042_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171744042_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LajkiMigrations\201609051738090_Init.resx">
       <DependentUpon>201609051738090_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -1034,6 +1143,9 @@
     <EmbeddedResource Include="LajkiMigrations\201611010356302_AddProxyTable.resx">
       <DependentUpon>201611010356302_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LajkiMigrations\201611171744170_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171744170_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610091151190_Init.resx">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -1049,6 +1161,9 @@
     <EmbeddedResource Include="MirelleMigrations\201611010357260_AddProxyTable.resx">
       <DependentUpon>201611010357260_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MirelleMigrations\201611171745015_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745015_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MumiaMigrations\201610212102347_Init.resx">
       <DependentUpon>201610212102347_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -1060,6 +1175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyGrodnoMigrations\201611142238077_Init.resx">
       <DependentUpon>201611142238077_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyGrodnoMigrations\201611171745595_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745595_AddRemoveAllUsersSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201610102058531_UpdateHistory.resx">
       <DependentUpon>201610102058531_UpdateHistory.cs</DependentUpon>
@@ -1076,6 +1194,9 @@
     <EmbeddedResource Include="NazarMigrations\201611010356239_AddProxyTable.resx">
       <DependentUpon>201611010356239_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NazarMigrations\201611171744111_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171744111_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NikonMigrations\201610102059212_UpdateHistory.resx">
       <DependentUpon>201610102059212_UpdateHistory.cs</DependentUpon>
     </EmbeddedResource>
@@ -1090,6 +1211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NikonMigrations\201611010357115_AddProxyTable.resx">
       <DependentUpon>201611010357115_AddProxyTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NikonMigrations\201611171744465_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171744465_AddRemoveAllUsersSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201610102058344_UpdateHistory.resx">
       <DependentUpon>201610102058344_UpdateHistory.cs</DependentUpon>
@@ -1106,6 +1230,9 @@
     <EmbeddedResource Include="OzernyMigrations\201611010356033_AddProxyTable.resx">
       <DependentUpon>201611010356033_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201611171743501_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171743501_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201610102059103_UpdateHistory.resx">
       <DependentUpon>201610102059103_UpdateHistory.cs</DependentUpon>
     </EmbeddedResource>
@@ -1121,8 +1248,14 @@
     <EmbeddedResource Include="SalsaRikaMigrations\201611010356443_AddProxyTable.resx">
       <DependentUpon>201611010356443_AddProxyTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalsaRikaMigrations\201611171744300_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171744300_AddRemoveAllUsersSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SportMigrations\201611142237518_Init.resx">
       <DependentUpon>201611142237518_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SportMigrations\201611171745445_AddRemoveAllUsersSetting.resx">
+      <DependentUpon>201611171745445_AddRemoveAllUsersSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_KrissSpamMigrations\201610081310414_Init.resx">
       <DependentUpon>201610081310414_Init.cs</DependentUpon>
