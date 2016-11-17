@@ -24,6 +24,7 @@ namespace DataBase.QueriesAndCommands.Commands.Settings
             settings.Proxy = command.Proxy;
             settings.ProxyLogin = command.ProxyName;
             settings.ProxyPassword = command.ProxyPassword;
+            settings.RemoveAllUsers = command.RemoveAllUsers;
 
             context.ProfileSettings.AddOrUpdate(settings);
 

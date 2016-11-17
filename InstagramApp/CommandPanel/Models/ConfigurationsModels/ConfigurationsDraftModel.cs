@@ -13,5 +13,7 @@
         public string ProxyName { get; set; }
 
         public string ProxyPassword { get; set; }
+
+        public bool RemoveAllUsers { get; set; }
     }
 }

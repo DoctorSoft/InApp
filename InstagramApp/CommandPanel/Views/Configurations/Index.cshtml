@@ -53,6 +53,13 @@
                 </div>
             </div>
 
+            <div class="input-hashtag ">
+                Remove all users
+                <div>
+                    @Html.CheckBoxFor(model => model.RemoveAllUsers, new { @class = "form-control" })
+                </div>
+            </div>
+
             <input type="submit" value="Save" class="btn btn-primary"/>
         }
     </div>

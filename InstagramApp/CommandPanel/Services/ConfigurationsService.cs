@@ -22,7 +22,8 @@ namespace CommandPanel.Services
                 HomePage = configs.HomePageUrl,
                 Proxy = configs.Proxy,
                 ProxyName = configs.ProxyLogin,
-                ProxyPassword = configs.ProxyPassword
+                ProxyPassword = configs.ProxyPassword,
+                RemoveAllUsers = configs.RemoveAllUsers
             };
         }
 
@@ -38,7 +39,8 @@ namespace CommandPanel.Services
                 AccountId = accountId,
                 Proxy = model.Proxy,
                 ProxyPassword = model.ProxyPassword,
-                ProxyName = model.ProxyName
+                ProxyName = model.ProxyName,
+                RemoveAllUsers = model.RemoveAllUsers
             });
         }
     }
