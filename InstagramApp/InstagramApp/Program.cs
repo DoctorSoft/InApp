@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Constants;
@@ -7,6 +8,8 @@ using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Queries.Functionality;
 using Engines.Exceptions;
+using InstagramApp.Properties;
+using InstagramApp.Tools;
 using OpenQA.Selenium.Remote;
 
 namespace InstagramApp
@@ -138,30 +141,109 @@ namespace InstagramApp
                 //RegisterProccess<KrissSpamContext>()
             };
 
-            var tasks = new List<Task>
-            {
-                //RegisterProccess<AugustovskiContext>(),
-                //RegisterProccess<KarinaContext>(), //Karina
-                //RegisterProccess<SalsaRikaContext>(),
-                //RegisterProccess<OzernyContext>(), 
-                //RegisterProccess<GalaxyContext>(), 
-                RegisterProccess<KiotoContext>(), 
-                //RegisterProccess<NazarContext>(), 
-                //RegisterProccess<LajkiContext>(),
-                //RegisterProccess<NikonContext>(),
-                //RegisterProccess<GreenDozorContext>(),
-                //RegisterProccess<MirelleContext>(),
-                //RegisterProccess<CanonContext>(),
-                //RegisterProccess<EgorContext>(),
-                //RegisterProccess<GadanieContext>(),
-                //RegisterProccess<AnastasiyaContext>(),
-                //RegisterProccess<EtalonContext>(),
-                //RegisterProccess<SportContext>(),
-                //RegisterProccess<GrodnoOfficialContext>(),
-                //RegisterProccess<MyGrodnoContext>(),
+            var accounts = new AllowedAccountsProvider().GetAllowedAccounts().ToList();
 
-                //RegisterProccess<MumiaContext>(),
-            };
+            var tasks = new List<Task>();
+
+            if (accounts.Contains(AccountName.Augustovski))
+            {
+                tasks.Add(RegisterProccess<AugustovskiContext>());
+            }
+
+            if (accounts.Contains(AccountName.Karina))
+            {
+                tasks.Add(RegisterProccess<KarinaContext>());
+            }
+
+            if (accounts.Contains(AccountName.Ozerny))
+            {
+                tasks.Add(RegisterProccess<OzernyContext>());
+            }
+
+            if (accounts.Contains(AccountName.Galaxy))
+            {
+                tasks.Add(RegisterProccess<GalaxyContext>());
+            }
+
+            if (accounts.Contains(AccountName.SalsaRika))
+            {
+                tasks.Add(RegisterProccess<SalsaRikaContext>());
+            }
+
+            if (accounts.Contains(AccountName.Kioto))
+            {
+                tasks.Add(RegisterProccess<KiotoContext>());
+            }
+
+            if (accounts.Contains(AccountName.Nazar))
+            {
+                tasks.Add(RegisterProccess<NazarContext>());
+            }
+
+            if (accounts.Contains(AccountName.Lajki))
+            {
+                tasks.Add(RegisterProccess<LajkiContext>());
+            }
+
+            if (accounts.Contains(AccountName.Nikon))
+            {
+                tasks.Add(RegisterProccess<NikonContext>());
+            }
+
+            if (accounts.Contains(AccountName.GreenDozor))
+            {
+                tasks.Add(RegisterProccess<GreenDozorContext>());
+            }
+
+            if (accounts.Contains(AccountName.Mirelle))
+            {
+                tasks.Add(RegisterProccess<MirelleContext>());
+            }
+
+            if (accounts.Contains(AccountName.Canon))
+            {
+                tasks.Add(RegisterProccess<CanonContext>());
+            }
+
+            if (accounts.Contains(AccountName.Egor))
+            {
+                tasks.Add(RegisterProccess<EgorContext>());
+            }
+
+            if (accounts.Contains(AccountName.Gadanie))
+            {
+                tasks.Add(RegisterProccess<GadanieContext>());
+            }
+
+            if (accounts.Contains(AccountName.Anastasiya))
+            {
+                tasks.Add(RegisterProccess<AnastasiyaContext>());
+            }
+
+            if (accounts.Contains(AccountName.Etalon))
+            {
+                tasks.Add(RegisterProccess<EtalonContext>());
+            }
+
+            if (accounts.Contains(AccountName.Sport))
+            {
+                tasks.Add(RegisterProccess<SportContext>());
+            }
+
+            if (accounts.Contains(AccountName.GrodnoOfficial))
+            {
+                tasks.Add(RegisterProccess<GrodnoOfficialContext>());
+            }
+
+            if (accounts.Contains(AccountName.MyGrodno))
+            {
+                tasks.Add(RegisterProccess<MyGrodnoContext>());
+            }
+
+            if (accounts.Contains(AccountName.Mumia))
+            {
+                tasks.Add(RegisterProccess<MumiaContext>());
+            }
 
             Task.WhenAll(spamTask.ToArray());
 
