@@ -18,7 +18,7 @@ namespace DataBase.SportMigrations
 
         protected override void Seed(DataBase.Contexts.SportContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -63,7 +63,7 @@ namespace DataBase.SportMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

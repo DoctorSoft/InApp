@@ -18,7 +18,7 @@ namespace DataBase.MyGrodnoMigrations
 
         protected override void Seed(DataBase.Contexts.MyGrodnoContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -63,7 +63,7 @@ namespace DataBase.MyGrodnoMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

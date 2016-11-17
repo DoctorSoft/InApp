@@ -15,7 +15,7 @@ namespace DataBase.LikeApplicationMigrations
 
         protected override void Seed(LikeApplicationContext context)
         {
-            var accounts = new List<LikeAccountDbModel>
+            /*var accounts = new List<LikeAccountDbModel>
             {
                 new LikeAccountDbModel
                 {
@@ -75,7 +75,7 @@ namespace DataBase.LikeApplicationMigrations
                 },
             };
 
-            context.Accounts.AddRange(accounts);
+            context.Accounts.AddRange(accounts);*/
         }
     }
 }
