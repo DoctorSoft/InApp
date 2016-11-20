@@ -4,7 +4,7 @@ namespace DataBase.Contexts
 {
     public class KiotoContext : DataBaseContext
     {
-        protected override AccountName GetAccountName()
+        public override AccountName GetAccountName()
         {
             return AccountName.Kioto;
         }

@@ -15,6 +15,12 @@ namespace DataBase.Contexts
             
         }
 
+        protected DataBaseContext(string connectionName)
+            : base(connectionName)
+        {
+            
+        }
+
         public DbSet<ActivityHistoryDbModel> ActivityHistories { get; set; }
 
         public DbSet<LanguageDbModel> Languages { get; set; }
@@ -47,9 +53,9 @@ namespace DataBase.Contexts
 
         public DbSet<FunctionalityRecordDbModel> FunctionalityRecords { get; set; }
 
-        public DbSet<FunctionalityReportDbModel> FunctionalityReports { get; set; } 
+        public DbSet<FunctionalityReportDbModel> FunctionalityReports { get; set; }
 
-        protected abstract AccountName GetAccountName(); 
+        public abstract AccountName GetAccountName(); 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

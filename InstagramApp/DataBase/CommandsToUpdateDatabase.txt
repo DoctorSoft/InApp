@@ -1,28 +1,28 @@
-﻿add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName OzernyConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName KiotoConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName NazarConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName LajkiConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName NikonConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName GreenDozorConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName MirelleConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName CanonConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName EgorConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName GadanieConfiguration 
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName AnastastasiyaConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName EtalonConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName SportConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName GrodnoOfficialConfiguration
-add-migration -Name AddRemoveAllUsersSetting -ConfigurationTypeName MyGrodnoConfiguration
+﻿add-migration -Name Init -ConfigurationTypeName OzernyConfiguration
+add-migration -Name Init -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name Init -ConfigurationTypeName KiotoConfiguration
+add-migration -Name Init -ConfigurationTypeName NazarConfiguration
+add-migration -Name Init -ConfigurationTypeName LajkiConfiguration
+add-migration -Name Init -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name Init -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name Init -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name Init -ConfigurationTypeName NikonConfiguration
+add-migration -Name Init -ConfigurationTypeName GreenDozorConfiguration
+add-migration -Name Init -ConfigurationTypeName MirelleConfiguration
+add-migration -Name Init -ConfigurationTypeName CanonConfiguration
+add-migration -Name Init -ConfigurationTypeName EgorConfiguration
+add-migration -Name Init -ConfigurationTypeName GadanieConfiguration 
+add-migration -Name Init -ConfigurationTypeName AnastastasiyaConfiguration
+add-migration -Name Init -ConfigurationTypeName EtalonConfiguration
+add-migration -Name Init -ConfigurationTypeName SportConfiguration
+add-migration -Name Init -ConfigurationTypeName GrodnoOfficialConfiguration
+add-migration -Name Init -ConfigurationTypeName MyGrodnoConfiguration
 
-add-migration -Name AddProxyTable -ConfigurationTypeName MumiaConfiguration
+add-migration -Name Init -ConfigurationTypeName MumiaConfiguration
 
-add-migration -Name AddProxyTable -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name AddProxyTable -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name AddProxyTable -ConfigurationTypeName KrissSpamConfiguration
+add-migration -Name Init -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name Init -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name Init -ConfigurationTypeName KrissSpamConfiguration
 
 
 

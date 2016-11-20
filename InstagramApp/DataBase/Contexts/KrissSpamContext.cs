@@ -4,7 +4,7 @@ namespace DataBase.Contexts
 {
     public class KrissSpamContext: DataBaseContext
     {
-        protected override AccountName GetAccountName()
+        public override AccountName GetAccountName()
         {
             return AccountName.KrissSpam;
         }
