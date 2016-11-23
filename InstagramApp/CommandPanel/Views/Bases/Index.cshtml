@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model CommandPanel.Models.BasesModels.BasesViewModel
+
+<h2>Add Base Link</h2>
+
+<div>
+    @using (Html.BeginForm("AddNewBase", "Bases", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.AccountId)
+
+        <div>
+            <input type="text" name="link" class="form-control" />
+        </div>
+
+        <div class="separated-inputs">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+        
+    }    
+</div>
+

@@ -92,7 +92,7 @@ namespace CommandPanel.Services
             new RemoveAllUsersByStatusCommandHandler(context).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.ToDelete });
         }
 
-        public void SwitchSwitchFunctionalityAccess(AccountName accountId, FunctionalityName functionalityName)
+        public void SwitchFunctionalityAccess(AccountName accountId, FunctionalityName functionalityName)
         {
             var context = new ContextFactory().GetContext(accountId);
 

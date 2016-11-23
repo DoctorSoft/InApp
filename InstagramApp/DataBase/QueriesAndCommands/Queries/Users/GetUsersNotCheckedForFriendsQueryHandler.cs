@@ -18,7 +18,7 @@ namespace DataBase.QueriesAndCommands.Queries.Users
         public List<string> Handle(GetUsersNotCheckedForFriendsQuery query)
         {
             var userList = context.Users
-                .Where(model => !model.FriendsWereSearched && model.UserStatus != UserStatus.ToDelete)
+                .Where(model => !model.FriendsWereSearched && model.UserStatus == UserStatus.Required)
                 .Select(model => model.Link)
                 .Take(query.MaxCount)
                 .ToList();

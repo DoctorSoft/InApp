@@ -305,9 +305,9 @@ namespace InstagramApp
 
             Registration(driver, context);
 
-            var count = new GetUsersToFollowCountQueryHandler(context).Handle(new GetUsersToFollowCountQuery());
+            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
 
-            if (count > 3000)
+            if (!users.Any())
             {
                 new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                 {
@@ -317,8 +317,6 @@ namespace InstagramApp
                 });
                 return;
             }
-
-            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
 
             var results = new List<string>();
 

@@ -214,6 +214,8 @@
     <Compile Include="OzernyMigrations\201611211507320_RenameTables.Designer.cs">
       <DependentUpon>201611211507320_RenameTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsRequiredCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUserAsRequiredCommandHandler.cs" />
     <Compile Include="SalsaRikaMigrations\201611201918308_Init.cs" />
     <Compile Include="SalsaRikaMigrations\201611201918308_Init.Designer.cs">
       <DependentUpon>201611201918308_Init.cs</DependentUpon>

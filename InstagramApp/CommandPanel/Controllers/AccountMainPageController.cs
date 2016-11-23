@@ -44,7 +44,7 @@ namespace CommandPanel.Controllers
 
         public ActionResult SwitchFunctionalityAccess(AccountName accountId, FunctionalityName functionalityName)
         {
-            accountService.SwitchSwitchFunctionalityAccess(accountId, functionalityName);
+            accountService.SwitchFunctionalityAccess(accountId, functionalityName);
 
             return RedirectToAction("Index", new { accountId = accountId });
         }
