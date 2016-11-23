@@ -14,7 +14,7 @@ namespace DataBase.Configurations.Content
     {
         public ContentColourConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_ContentColour");
+            ToTable("__" + accountName.ToString("G") + "_ContentColour");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

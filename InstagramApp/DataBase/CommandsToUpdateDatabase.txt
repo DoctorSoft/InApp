@@ -1,28 +1,28 @@
-﻿add-migration -Name Init -ConfigurationTypeName OzernyConfiguration
-add-migration -Name Init -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name Init -ConfigurationTypeName KiotoConfiguration
-add-migration -Name Init -ConfigurationTypeName NazarConfiguration
-add-migration -Name Init -ConfigurationTypeName LajkiConfiguration
-add-migration -Name Init -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name Init -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name Init -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name Init -ConfigurationTypeName NikonConfiguration
-add-migration -Name Init -ConfigurationTypeName GreenDozorConfiguration
-add-migration -Name Init -ConfigurationTypeName MirelleConfiguration
-add-migration -Name Init -ConfigurationTypeName CanonConfiguration
-add-migration -Name Init -ConfigurationTypeName EgorConfiguration
-add-migration -Name Init -ConfigurationTypeName GadanieConfiguration 
-add-migration -Name Init -ConfigurationTypeName AnastastasiyaConfiguration
-add-migration -Name Init -ConfigurationTypeName EtalonConfiguration
-add-migration -Name Init -ConfigurationTypeName SportConfiguration
-add-migration -Name Init -ConfigurationTypeName GrodnoOfficialConfiguration
-add-migration -Name Init -ConfigurationTypeName MyGrodnoConfiguration
+﻿add-migration -Name RenameTables -ConfigurationTypeName OzernyConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName KiotoConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName NazarConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName LajkiConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name RenameTables -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName NikonConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName GreenDozorConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName MirelleConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName CanonConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName EgorConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName GadanieConfiguration 
+add-migration -Name RenameTables -ConfigurationTypeName AnastastasiyaConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName EtalonConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName SportConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName GrodnoOfficialConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName MyGrodnoConfiguration
 
-add-migration -Name Init -ConfigurationTypeName MumiaConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName MumiaConfiguration
 
-add-migration -Name Init -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name Init -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name Init -ConfigurationTypeName KrissSpamConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name RenameTables -ConfigurationTypeName KrissSpamConfiguration
 
 
 

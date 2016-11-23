@@ -68,13 +68,25 @@
     <Compile Include="AnastasiyaMigrations\201611201919392_Init.Designer.cs">
       <DependentUpon>201611201919392_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnastasiyaMigrations\201611211509249_RenameTables.cs" />
+    <Compile Include="AnastasiyaMigrations\201611211509249_RenameTables.Designer.cs">
+      <DependentUpon>201611211509249_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="AugustovskiMigrations\201611201918383_Init.cs" />
     <Compile Include="AugustovskiMigrations\201611201918383_Init.Designer.cs">
       <DependentUpon>201611201918383_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="AugustovskiMigrations\201611211508466_RenameTables.cs" />
+    <Compile Include="AugustovskiMigrations\201611211508466_RenameTables.Designer.cs">
+      <DependentUpon>201611211508466_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="CanonMigrations\201611201919131_Init.cs" />
     <Compile Include="CanonMigrations\201611201919131_Init.Designer.cs">
       <DependentUpon>201611201919131_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CanonMigrations\201611211509077_RenameTables.cs" />
+    <Compile Include="CanonMigrations\201611211509077_RenameTables.Designer.cs">
+      <DependentUpon>201611211509077_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Contexts\MyGrodnoContext.cs" />
     <Compile Include="Contexts\GrodnoOfficialContext.cs" />
@@ -84,49 +96,97 @@
     <Compile Include="EgorMigrations\201611201919202_Init.Designer.cs">
       <DependentUpon>201611201919202_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="EgorMigrations\201611211509132_RenameTables.cs" />
+    <Compile Include="EgorMigrations\201611211509132_RenameTables.Designer.cs">
+      <DependentUpon>201611211509132_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="EtalonMigrations\201611201919476_Init.cs" />
     <Compile Include="EtalonMigrations\201611201919476_Init.Designer.cs">
       <DependentUpon>201611201919476_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EtalonMigrations\201611211509305_RenameTables.cs" />
+    <Compile Include="EtalonMigrations\201611211509305_RenameTables.Designer.cs">
+      <DependentUpon>201611211509305_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="GadanieMigrations\201611201919276_Init.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.Designer.cs">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="GadanieMigrations\201611211509197_RenameTables.cs" />
+    <Compile Include="GadanieMigrations\201611211509197_RenameTables.Designer.cs">
+      <DependentUpon>201611211509197_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="GalaxyMigrations\201611201917531_Init.cs" />
     <Compile Include="GalaxyMigrations\201611201917531_Init.Designer.cs">
       <DependentUpon>201611201917531_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GalaxyMigrations\201611211508137_RenameTables.cs" />
+    <Compile Include="GalaxyMigrations\201611211508137_RenameTables.Designer.cs">
+      <DependentUpon>201611211508137_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="GreenDozorMigrations\201611201918567_Init.cs" />
     <Compile Include="GreenDozorMigrations\201611201918567_Init.Designer.cs">
       <DependentUpon>201611201918567_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="GreenDozorMigrations\201611211508577_RenameTables.cs" />
+    <Compile Include="GreenDozorMigrations\201611211508577_RenameTables.Designer.cs">
+      <DependentUpon>201611211508577_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="GrodnoOfficialMigrations\201611201920033_Init.cs" />
     <Compile Include="GrodnoOfficialMigrations\201611201920033_Init.Designer.cs">
       <DependentUpon>201611201920033_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrodnoOfficialMigrations\201611211509417_RenameTables.cs" />
+    <Compile Include="GrodnoOfficialMigrations\201611211509417_RenameTables.Designer.cs">
+      <DependentUpon>201611211509417_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="KarinaMigrations\201611201918242_Init.cs" />
     <Compile Include="KarinaMigrations\201611201918242_Init.Designer.cs">
       <DependentUpon>201611201918242_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="KarinaMigrations\201611211508354_RenameTables.cs" />
+    <Compile Include="KarinaMigrations\201611211508354_RenameTables.Designer.cs">
+      <DependentUpon>201611211508354_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="KiotoMigrations\201611201918004_Init.cs" />
     <Compile Include="KiotoMigrations\201611201918004_Init.Designer.cs">
       <DependentUpon>201611201918004_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KiotoMigrations\201611211508193_RenameTables.cs" />
+    <Compile Include="KiotoMigrations\201611211508193_RenameTables.Designer.cs">
+      <DependentUpon>201611211508193_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="LajkiMigrations\201611201918146_Init.cs" />
     <Compile Include="LajkiMigrations\201611201918146_Init.Designer.cs">
       <DependentUpon>201611201918146_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="LajkiMigrations\201611211508298_RenameTables.cs" />
+    <Compile Include="LajkiMigrations\201611211508298_RenameTables.Designer.cs">
+      <DependentUpon>201611211508298_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="MirelleMigrations\201611201919039_Init.cs" />
     <Compile Include="MirelleMigrations\201611201919039_Init.Designer.cs">
       <DependentUpon>201611201919039_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MirelleMigrations\201611211509026_RenameTables.cs" />
+    <Compile Include="MirelleMigrations\201611211509026_RenameTables.Designer.cs">
+      <DependentUpon>201611211509026_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="MumiaMigrations\201611201920202_Init.cs" />
     <Compile Include="MumiaMigrations\201611201920202_Init.Designer.cs">
       <DependentUpon>201611201920202_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="MumiaMigrations\201611211509537_RenameTables.cs" />
+    <Compile Include="MumiaMigrations\201611211509537_RenameTables.Designer.cs">
+      <DependentUpon>201611211509537_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyGrodnoMigrations\201611201920112_Init.cs" />
     <Compile Include="MyGrodnoMigrations\201611201920112_Init.Designer.cs">
       <DependentUpon>201611201920112_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyGrodnoMigrations\201611211509479_RenameTables.cs" />
+    <Compile Include="MyGrodnoMigrations\201611211509479_RenameTables.Designer.cs">
+      <DependentUpon>201611211509479_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="MyGrodnoMigrations\MyGrodnoConfiguration.cs" />
     <Compile Include="GrodnoOfficialMigrations\GrodnoOfficialConfiguration.cs" />
@@ -134,21 +194,41 @@
     <Compile Include="NazarMigrations\201611201918078_Init.Designer.cs">
       <DependentUpon>201611201918078_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="NazarMigrations\201611211508246_RenameTables.cs" />
+    <Compile Include="NazarMigrations\201611211508246_RenameTables.Designer.cs">
+      <DependentUpon>201611211508246_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="NikonMigrations\201611201918500_Init.cs" />
     <Compile Include="NikonMigrations\201611201918500_Init.Designer.cs">
       <DependentUpon>201611201918500_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NikonMigrations\201611211508521_RenameTables.cs" />
+    <Compile Include="NikonMigrations\201611211508521_RenameTables.Designer.cs">
+      <DependentUpon>201611211508521_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="OzernyMigrations\201611201917414_Init.cs" />
     <Compile Include="OzernyMigrations\201611201917414_Init.Designer.cs">
       <DependentUpon>201611201917414_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="OzernyMigrations\201611211507320_RenameTables.cs" />
+    <Compile Include="OzernyMigrations\201611211507320_RenameTables.Designer.cs">
+      <DependentUpon>201611211507320_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalsaRikaMigrations\201611201918308_Init.cs" />
     <Compile Include="SalsaRikaMigrations\201611201918308_Init.Designer.cs">
       <DependentUpon>201611201918308_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalsaRikaMigrations\201611211508409_RenameTables.cs" />
+    <Compile Include="SalsaRikaMigrations\201611211508409_RenameTables.Designer.cs">
+      <DependentUpon>201611211508409_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="SportMigrations\201611201919554_Init.cs" />
     <Compile Include="SportMigrations\201611201919554_Init.Designer.cs">
       <DependentUpon>201611201919554_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SportMigrations\201611211509360_RenameTables.cs" />
+    <Compile Include="SportMigrations\201611211509360_RenameTables.Designer.cs">
+      <DependentUpon>201611211509360_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="SportMigrations\SportConfiguration.cs" />
     <Compile Include="EtalonMigrations\EtalonConfiguration.cs" />
@@ -276,6 +356,10 @@
     <Compile Include="_KrissSpamMigrations\201611201920443_Init.Designer.cs">
       <DependentUpon>201611201920443_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="_KrissSpamMigrations\201611211510128_RenameTables.cs" />
+    <Compile Include="_KrissSpamMigrations\201611211510128_RenameTables.Designer.cs">
+      <DependentUpon>201611211510128_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="_KrissSpamMigrations\KrissSpamConfiguration.cs" />
     <Compile Include="Models\Content\ColourDbModel.cs" />
     <Compile Include="Models\Content\ContentColourDbModel.cs" />
@@ -287,9 +371,17 @@
     <Compile Include="_MakarovaSpamMigrations\201611201920281_Init.Designer.cs">
       <DependentUpon>201611201920281_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="_MakarovaSpamMigrations\201611211510001_RenameTables.cs" />
+    <Compile Include="_MakarovaSpamMigrations\201611211510001_RenameTables.Designer.cs">
+      <DependentUpon>201611211510001_RenameTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="_NovikovaSpamMigrations\201611201920368_Init.cs" />
     <Compile Include="_NovikovaSpamMigrations\201611201920368_Init.Designer.cs">
       <DependentUpon>201611201920368_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_NovikovaSpamMigrations\201611211510057_RenameTables.cs" />
+    <Compile Include="_NovikovaSpamMigrations\201611211510057_RenameTables.Designer.cs">
+      <DependentUpon>201611211510057_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="_NovikovaSpamMigrations\NovikovaSpamConfiguration.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SwitchFunctionalityAccessCommand.cs" />
@@ -426,38 +518,74 @@
     <EmbeddedResource Include="AnastasiyaMigrations\201611201919392_Init.resx">
       <DependentUpon>201611201919392_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AnastasiyaMigrations\201611211509249_RenameTables.resx">
+      <DependentUpon>201611211509249_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AugustovskiMigrations\201611201918383_Init.resx">
       <DependentUpon>201611201918383_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AugustovskiMigrations\201611211508466_RenameTables.resx">
+      <DependentUpon>201611211508466_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CanonMigrations\201611201919131_Init.resx">
       <DependentUpon>201611201919131_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CanonMigrations\201611211509077_RenameTables.resx">
+      <DependentUpon>201611211509077_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EgorMigrations\201611201919202_Init.resx">
       <DependentUpon>201611201919202_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EgorMigrations\201611211509132_RenameTables.resx">
+      <DependentUpon>201611211509132_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EtalonMigrations\201611201919476_Init.resx">
       <DependentUpon>201611201919476_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EtalonMigrations\201611211509305_RenameTables.resx">
+      <DependentUpon>201611211509305_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GadanieMigrations\201611201919276_Init.resx">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GadanieMigrations\201611211509197_RenameTables.resx">
+      <DependentUpon>201611211509197_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201611201917531_Init.resx">
       <DependentUpon>201611201917531_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GalaxyMigrations\201611211508137_RenameTables.resx">
+      <DependentUpon>201611211508137_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GreenDozorMigrations\201611201918567_Init.resx">
       <DependentUpon>201611201918567_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GreenDozorMigrations\201611211508577_RenameTables.resx">
+      <DependentUpon>201611211508577_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrodnoOfficialMigrations\201611201920033_Init.resx">
       <DependentUpon>201611201920033_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GrodnoOfficialMigrations\201611211509417_RenameTables.resx">
+      <DependentUpon>201611211509417_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201611201918242_Init.resx">
       <DependentUpon>201611201918242_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KarinaMigrations\201611211508354_RenameTables.resx">
+      <DependentUpon>201611211508354_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201611201918004_Init.resx">
       <DependentUpon>201611201918004_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201611211508193_RenameTables.resx">
+      <DependentUpon>201611211508193_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LajkiMigrations\201611201918146_Init.resx">
       <DependentUpon>201611201918146_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LajkiMigrations\201611211508298_RenameTables.resx">
+      <DependentUpon>201611211508298_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610091151190_Init.resx">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
@@ -468,35 +596,68 @@
     <EmbeddedResource Include="MirelleMigrations\201611201919039_Init.resx">
       <DependentUpon>201611201919039_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MirelleMigrations\201611211509026_RenameTables.resx">
+      <DependentUpon>201611211509026_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MumiaMigrations\201611201920202_Init.resx">
       <DependentUpon>201611201920202_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MumiaMigrations\201611211509537_RenameTables.resx">
+      <DependentUpon>201611211509537_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyGrodnoMigrations\201611201920112_Init.resx">
       <DependentUpon>201611201920112_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyGrodnoMigrations\201611211509479_RenameTables.resx">
+      <DependentUpon>201611211509479_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201611201918078_Init.resx">
       <DependentUpon>201611201918078_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NazarMigrations\201611211508246_RenameTables.resx">
+      <DependentUpon>201611211508246_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NikonMigrations\201611201918500_Init.resx">
       <DependentUpon>201611201918500_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NikonMigrations\201611211508521_RenameTables.resx">
+      <DependentUpon>201611211508521_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201611201917414_Init.resx">
       <DependentUpon>201611201917414_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201611211507320_RenameTables.resx">
+      <DependentUpon>201611211507320_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201611201918308_Init.resx">
       <DependentUpon>201611201918308_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalsaRikaMigrations\201611211508409_RenameTables.resx">
+      <DependentUpon>201611211508409_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SportMigrations\201611201919554_Init.resx">
       <DependentUpon>201611201919554_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SportMigrations\201611211509360_RenameTables.resx">
+      <DependentUpon>201611211509360_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_KrissSpamMigrations\201611201920443_Init.resx">
       <DependentUpon>201611201920443_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_KrissSpamMigrations\201611211510128_RenameTables.resx">
+      <DependentUpon>201611211510128_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_MakarovaSpamMigrations\201611201920281_Init.resx">
       <DependentUpon>201611201920281_Init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_MakarovaSpamMigrations\201611211510001_RenameTables.resx">
+      <DependentUpon>201611211510001_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_NovikovaSpamMigrations\201611201920368_Init.resx">
       <DependentUpon>201611201920368_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_NovikovaSpamMigrations\201611211510057_RenameTables.resx">
+      <DependentUpon>201611211510057_RenameTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

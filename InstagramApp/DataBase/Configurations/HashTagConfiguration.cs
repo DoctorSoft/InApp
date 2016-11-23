@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public SpamWordConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_SpamWord");
+            ToTable("__" + accountName.ToString("G") + "_SpamWord");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

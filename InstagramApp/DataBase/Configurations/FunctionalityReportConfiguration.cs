@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public FunctionalityReportConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_FunctionalityReport");
+            ToTable("__" + accountName.ToString("G") + "_FunctionalityReport");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public ProfilesSettingsConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_ProfilesSettings");
+            ToTable("__" + accountName.ToString("G") + "_ProfilesSettings");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

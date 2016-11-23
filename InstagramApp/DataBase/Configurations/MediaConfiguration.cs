@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public MediaConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_Media");
+            ToTable("__" + accountName.ToString("G") + "_Media");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

@@ -9,7 +9,7 @@ namespace DataBase.Configurations.Content
     {
         public ColourConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_Colour");
+            ToTable("__" + accountName.ToString("G") + "_Colour");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

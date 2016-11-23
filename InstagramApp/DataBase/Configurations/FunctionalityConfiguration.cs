@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public FeaturesConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_Features");
+            ToTable("__" + accountName.ToString("G") + "_Features");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

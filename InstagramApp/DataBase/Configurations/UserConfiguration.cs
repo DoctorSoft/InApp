@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public UserConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_User");
+            ToTable("__" + accountName.ToString("G") + "_User");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

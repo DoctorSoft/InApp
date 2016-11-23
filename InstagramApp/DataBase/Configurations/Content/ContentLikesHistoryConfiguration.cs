@@ -9,7 +9,7 @@ namespace DataBase.Configurations.Content
     {
         public ContentLikesHistoryConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_ContentLikesHistory");
+            ToTable("__" + accountName.ToString("G") + "_ContentLikesHistory");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

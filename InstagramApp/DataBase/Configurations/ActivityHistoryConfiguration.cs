@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public ActivityHistoryConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_ActivityHistory");
+            ToTable("__" + accountName.ToString("G") + "_ActivityHistory");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

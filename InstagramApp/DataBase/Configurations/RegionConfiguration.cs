@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public RegionConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_Region");
+            ToTable("__" + accountName.ToString("G") + "_Region");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

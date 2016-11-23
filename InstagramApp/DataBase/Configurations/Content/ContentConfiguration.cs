@@ -9,7 +9,7 @@ namespace DataBase.Configurations.Content
     {
         public ContentConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_Content");
+            ToTable("__" + accountName.ToString("G") + "_Content");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

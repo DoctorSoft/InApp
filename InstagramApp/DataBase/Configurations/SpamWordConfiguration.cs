@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public HashTagConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_HashTag");
+            ToTable("__" + accountName.ToString("G") + "_HashTag");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

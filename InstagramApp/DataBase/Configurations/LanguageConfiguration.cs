@@ -9,7 +9,7 @@ namespace DataBase.Configurations
     {
         public LanguageConfiguration(AccountName accountName)
         {
-            ToTable(accountName.ToString("G") + "_Language");
+            ToTable("__" + accountName.ToString("G") + "_Language");
 
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
