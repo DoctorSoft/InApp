@@ -21,6 +21,7 @@
         Sport = 17,
         GrodnoOfficial = 18,
         MyGrodno = 19,
+        Sto = 20,
 
         Mumia = 100,
 

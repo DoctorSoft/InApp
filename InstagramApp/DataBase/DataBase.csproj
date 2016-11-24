@@ -88,6 +88,7 @@
     <Compile Include="CanonMigrations\201611211509077_RenameTables.Designer.cs">
       <DependentUpon>201611211509077_RenameTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\StoContext.cs" />
     <Compile Include="Contexts\MyGrodnoContext.cs" />
     <Compile Include="Contexts\GrodnoOfficialContext.cs" />
     <Compile Include="Contexts\SportContext.cs" />
@@ -148,6 +149,11 @@
     <Compile Include="KarinaMigrations\201611211508354_RenameTables.Designer.cs">
       <DependentUpon>201611211508354_RenameTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="StoMigrations\201611242121236_Init.cs" />
+    <Compile Include="StoMigrations\201611242121236_Init.Designer.cs">
+      <DependentUpon>201611242121236_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StoMigrations\StoConfiguration.cs" />
     <Compile Include="KiotoMigrations\201611201918004_Init.cs" />
     <Compile Include="KiotoMigrations\201611201918004_Init.Designer.cs">
       <DependentUpon>201611201918004_Init.cs</DependentUpon>
@@ -642,6 +648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SportMigrations\201611211509360_RenameTables.resx">
       <DependentUpon>201611211509360_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StoMigrations\201611242121236_Init.resx">
+      <DependentUpon>201611242121236_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_KrissSpamMigrations\201611201920443_Init.resx">
       <DependentUpon>201611201920443_Init.cs</DependentUpon>

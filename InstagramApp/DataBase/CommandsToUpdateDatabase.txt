@@ -17,6 +17,7 @@ add-migration -Name RenameTables -ConfigurationTypeName EtalonConfiguration
 add-migration -Name RenameTables -ConfigurationTypeName SportConfiguration
 add-migration -Name RenameTables -ConfigurationTypeName GrodnoOfficialConfiguration
 add-migration -Name RenameTables -ConfigurationTypeName MyGrodnoConfiguration
+add-migration -Name Init -ConfigurationTypeName StoConfiguration
 
 add-migration -Name RenameTables -ConfigurationTypeName MumiaConfiguration
 
@@ -45,6 +46,7 @@ update-database -ConfigurationTypeName EtalonConfiguration
 update-database -ConfigurationTypeName SportConfiguration
 update-database -ConfigurationTypeName GrodnoOfficialConfiguration
 update-database -ConfigurationTypeName MyGrodnoConfiguration
+update-database -ConfigurationTypeName StoConfiguration
 
 update-database -ConfigurationTypeName MumiaConfiguration
 
