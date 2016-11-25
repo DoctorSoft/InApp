@@ -56,6 +56,8 @@ namespace DataBase.Factories
                     return new GrodnoOfficialContext();
                 case AccountName.MyGrodno:
                     return new MyGrodnoContext();
+                case AccountName.Sto:
+                    return new StoContext();
                 default:
                     throw new ArgumentOutOfRangeException("accountId", accountId, null);
             }
