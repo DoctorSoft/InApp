@@ -245,6 +245,11 @@ namespace InstagramApp
                 tasks.Add(RegisterProccess<MumiaContext>());
             }
 
+            if (accounts.Contains(AccountName.Sto))
+            {
+                tasks.Add(RegisterProccess<StoContext>());
+            }
+
             Task.WhenAll(spamTask.ToArray());
 
             while (true)

@@ -20,7 +20,7 @@ namespace DataBase.StoMigrations
 
         protected override void Seed(DataBase.Contexts.StoContext context)
         {
-            if (!context.Users.Any())
+            /*if (!context.Users.Any())
             {
                 var user = new UserDbModel
                 {
@@ -65,7 +65,7 @@ namespace DataBase.StoMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

@@ -138,6 +138,8 @@
     <Compile Include="Engines\RegistrationEngine\RegistrationModel.cs" />
     <Compile Include="Engines\RegistrationLikeAccountEngine\RegistrationLikeAccountEngine.cs" />
     <Compile Include="Engines\RegistrationLikeAccountEngine\RegistrationLikeAccountModel.cs" />
+    <Compile Include="Engines\RegistrationWithFacebookEngine\RegistrationWithFacebookEngine.cs" />
+    <Compile Include="Engines\RegistrationWithFacebookEngine\RegistrationWithFacebookModel.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowersEngine.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowingsEngine.cs" />
     <Compile Include="Engines\SearchUserFriendsEngine\SearchUserFollowersModel.cs" />

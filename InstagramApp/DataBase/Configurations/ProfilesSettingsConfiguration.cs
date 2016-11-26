@@ -14,6 +14,7 @@ namespace DataBase.Configurations
             HasKey(model => model.Id);
             Property(model => model.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
+            Property(model => model.InstagramtId);
             Property(model => model.Login);
             Property(model => model.Password);
             Property(model => model.HomePageUrl);
