@@ -36,32 +36,59 @@ namespace Engines.Engines.RegistrationWithFacebookEngine
             Thread.Sleep(1000);
 
             //
-//
-//
-//            var registrtionData = links.FirstOrDefault(element => element.Text == "Вход");
-//            if (registrtionData == null)
-//            {
-//                return new VoidResult();
-//            }
-//            registrtionData.Click();
-//
-//            Thread.Sleep(1000);
-//
-//
-//
-//            Thread.Sleep(1000);
-//
-//            IList<IWebElement> buttons = driver.FindElements(By.TagName("button"));
-//            buttons.FirstOrDefault(element => element.Text == "Войти").Click();
-//
-//            Thread.Sleep(10000);
-//
-//            if (!base.NavigateToUrl(driver))
-//            {
-//                return GetDefaultResult();
-//            }
-//
-//            Thread.Sleep(1000);
+
+
+            var registrtionButton = driver.FindElement(By.Id("loginbutton"));
+            if (registrtionButton == null)
+            {
+                return new VoidResult();
+            }
+            registrtionButton.Click();
+
+            Thread.Sleep(2000);
+
+            var stepOneButton = driver.FindElement(By.Name("__CONFIRM__"));
+            if (stepOneButton == null)
+            {
+                return new VoidResult();
+            }
+            stepOneButton.Click();
+
+            Thread.Sleep(2000);
+
+            var stepTwoButton = driver.FindElement(By.Id("checkpointSubmitButton"));
+            if (stepTwoButton == null)
+            {
+                return new VoidResult();
+            }
+            stepTwoButton.Click();
+
+            Thread.Sleep(2000);
+
+            var stepThreeButton = driver.FindElement(By.Id("checkpointSubmitButton"));
+            if (stepThreeButton == null)
+            {
+                return new VoidResult();
+            }
+            stepThreeButton.Click();
+
+            Thread.Sleep(2000);
+
+            var stepFourButton = driver.FindElements(By.TagName("a")).FirstOrDefault(element => element.Text == "I can't upload a photo");
+            if (stepFourButton == null)
+            {
+                return new VoidResult();
+            }
+            stepFourButton.Click();
+
+            Thread.Sleep(2000);
+
+            if (!base.NavigateToUrl(driver))
+            {
+                return GetDefaultResult();
+            }
+
+            Thread.Sleep(1000);
 
             return new VoidResult();
         }
