@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
@@ -16,25 +17,23 @@ namespace Engines.Engines.GetUserIdEngine
             }
             userName = userName.Split('/').Last();
 
-            var linkToCheckId = "https://smashballoon.com/instagram-feed/find-instagram-user-id/?username=" + userName;
+            NavigateToUrl(driver, model.UserLink);
 
-            driver.Navigate().GoToUrl(linkToCheckId);
+            var text = driver.PageSource;
 
-            Thread.Sleep(1500);
+            var regex = new Regex("owner[^.]*{[^}]*");
 
-            var elementWithId = driver.FindElementById("show_id");
-            var userElements = elementWithId.FindElements(By.ClassName("user"));
-            var matchElements = userElements.Where(element => element.Text.ToUpper().Contains(userName.ToUpper()));
-            var matchElement = matchElements.FirstOrDefault();
-            var id = matchElement.FindElements(By.TagName("b")).Last().Text.Split(' ').Last();
+            var idMatchData = regex.Match(text).Value;
 
-            var result = new UserInfo
+            regex = new Regex("\\d[^\\D]*");
+
+            var id = regex.Match(idMatchData).Value;
+
+            return new UserInfo
             {
-                UserName = userName,
-                Id = id
+                Id = id,
+                UserName = userName
             };
-
-            return result;
         }
     }
 }

@@ -296,7 +296,7 @@ namespace InstagramApp
 
         public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            /*new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
             {
                 Note = "Start searching new users",
                 Name = FunctionalityName.SearchNewUsers,
@@ -324,11 +324,6 @@ namespace InstagramApp
             {
                 // open new 
                 var tempDriver = new ChromeDriver();
-
-                var profileSettings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery
-                {
-
-                });
                 var extraUserInfo = new GetUserIdEngine().Execute(tempDriver, new GetUserIdEngineModel
                 {
                     UserLink = user
@@ -372,7 +367,7 @@ namespace InstagramApp
                 Note = "Success searching new users",
                 Name = FunctionalityName.SearchNewUsers,
                 WorkStatus = WorkStatus.Success
-            });*/
+            });
         }
 
         public void SearchUselessUsers(RemoteWebDriver driver, DataBaseContext context)
