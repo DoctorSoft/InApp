@@ -322,13 +322,10 @@ namespace InstagramApp
 
             foreach (var user in users)
             {
-                // open new 
-                var tempDriver = new ChromeDriver();
-                var extraUserInfo = new GetUserIdEngine().Execute(tempDriver, new GetUserIdEngineModel
+                var extraUserInfo = new GetUserIdEngine().Execute(driver, new GetUserIdEngineModel
                 {
                     UserLink = user
                 });
-                tempDriver.Close();
 
                 results.AddRange(new SearchUserFollowingsEngine().Execute(driver, new SearchUserFollowingsModel
                 {
