@@ -1,0 +1,28 @@
+var driver = new ChromeDriver();
+
+var database = new NazarContext();
+
+var service = new InstagramService();
+
+service.Registration(driver, database);
+
+var secondDriver = new ChromeDriver();
+
+var cookies = driver.Manage().Cookies;
+
+secondDriver.Navigate().GoToUrl("https://www.instagram.com/");
+
+Thread.Sleep(1000);
+
+foreach (var cookie in cookies.AllCookies)
+{
+	try
+	{
+		secondDriver.Manage().Cookies.AddCookie(cookie);
+	}
+	catch (Exception)
+	{
+	}
+}
+
+secondDriver.Navigate().GoToUrl("https://instagram.com");
