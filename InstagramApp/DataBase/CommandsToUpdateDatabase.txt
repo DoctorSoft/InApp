@@ -1,29 +1,29 @@
-﻿add-migration -Name AddInstagramId -ConfigurationTypeName OzernyConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName KiotoConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName NazarConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName LajkiConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name AddInstagramId -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName NikonConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName GreenDozorConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName MirelleConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName CanonConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName EgorConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName GadanieConfiguration 
-add-migration -Name AddInstagramId -ConfigurationTypeName AnastastasiyaConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName EtalonConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName SportConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName GrodnoOfficialConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName MyGrodnoConfiguration
-add-migration -Name Init -ConfigurationTypeName StoConfiguration
+﻿add-migration -Name AddCookies -ConfigurationTypeName OzernyConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName KiotoConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName NazarConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName LajkiConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name AddCookies -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName NikonConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName GreenDozorConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName MirelleConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName CanonConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName EgorConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName GadanieConfiguration 
+add-migration -Name AddCookies -ConfigurationTypeName AnastastasiyaConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName EtalonConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName SportConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName GrodnoOfficialConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName MyGrodnoConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName StoConfiguration
 
-add-migration -Name AddInstagramId -ConfigurationTypeName MumiaConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName MumiaConfiguration
 
-add-migration -Name AddInstagramId -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name AddInstagramId -ConfigurationTypeName KrissSpamConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName MakarovaSpamConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName NovikovaSpamConfiguration
+add-migration -Name AddCookies -ConfigurationTypeName KrissSpamConfiguration
 
 
 

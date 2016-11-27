@@ -19,6 +19,7 @@ namespace DataBase.Configurations
             Property(model => model.Password);
             Property(model => model.HomePageUrl);
             Property(model => model.PreviousFollowingsSynchDate);
+            Property(model => model.Cookies);
         }
     }
 }

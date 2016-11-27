@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Commands.History;
 using DataBase.QueriesAndCommands.Commands.Media;
+using DataBase.QueriesAndCommands.Commands.Settings;
 using DataBase.QueriesAndCommands.Commands.Users;
 using DataBase.QueriesAndCommands.Queries.Features;
 using DataBase.QueriesAndCommands.Queries.Functionality;
@@ -90,14 +92,54 @@ namespace InstagramApp
             });
         }
 
-        private void Registration(RemoteWebDriver driver, DataBaseContext context)
+        private class CookieMainData
+        {
+            public string Name { get; set; }
+
+            public DateTime? Expiry { get; set; }
+
+            public string Domain { get; set; }
+
+            public string Path { get; set; }
+
+            public string Value { get; set; }
+        }
+
+        public void Registration(RemoteWebDriver driver, DataBaseContext context)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var driverCookies = driver.Manage().Cookies.AllCookies;
+
+            if (!string.IsNullOrWhiteSpace(settings.Cookies) && driverCookies.All(cookie => cookie.Name != "mid"))
+            {
+                var cookieData = new JavaScriptSerializer().Deserialize<List<CookieMainData>>(settings.Cookies);
+
+                driver.Navigate().GoToUrl("https://www.instagram.com/");
+                foreach (var cookie in cookieData)
+                {
+                    try
+                    {
+                        var cookieValue = new Cookie(cookie.Name, cookie.Value, cookie.Domain, cookie.Path, cookie.Expiry);
+                        driver.Manage().Cookies.AddCookie(cookieValue);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            }
 
             new RegistrationEngine().Execute(driver, new RegistrationModel
             {
                 UserName = settings.Login,
                 Password = settings.Password
+            });
+
+            var refreshedCookies = new JavaScriptSerializer().Serialize(driver.Manage().Cookies.AllCookies);
+
+            new UpdateCookiesCommandHandler(context).Handle(new UpdateCookiesCommand
+            {
+                Cookies = refreshedCookies
             });
         }
 

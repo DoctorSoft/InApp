@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
@@ -11,6 +12,8 @@ using Engines.Engines.GetUserIdEngine;
 using Engines.Exceptions;
 using InstagramApp.Properties;
 using InstagramApp.Tools;
+using Newtonsoft.Json;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
@@ -129,6 +132,19 @@ namespace InstagramApp
                     }
                 }
             }
+        }
+
+        private class CookieMainData
+        {
+            public string Name { get; set; }
+
+            public DateTime? Expiry { get; set; }
+
+            public string Domain { get; set; }
+
+            public string Path { get; set; }
+
+            public string Value { get; set; }
         }
 
         /// <summary>

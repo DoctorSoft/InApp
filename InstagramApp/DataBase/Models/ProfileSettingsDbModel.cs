@@ -23,5 +23,7 @@ namespace DataBase.Models
         public string ProxyPassword { get; set; }
 
         public bool RemoveAllUsers { get; set; }
+
+        public string Cookies { get; set; }
     }
 }
