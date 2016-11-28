@@ -112,6 +112,7 @@
     <Compile Include="CanonMigrations\201611272118146_AddCookies.Designer.cs">
       <DependentUpon>201611272118146_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />
     <Compile Include="Contexts\MyGrodnoContext.cs" />
     <Compile Include="Contexts\GrodnoOfficialContext.cs" />
@@ -311,6 +312,11 @@
     <Compile Include="SportMigrations\201611272118525_AddCookies.Designer.cs">
       <DependentUpon>201611272118525_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sto2Migrations\201611282002421_Init.cs" />
+    <Compile Include="Sto2Migrations\201611282002421_Init.Designer.cs">
+      <DependentUpon>201611282002421_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sto2Migrations\Sto2Configuration.cs" />
     <Compile Include="StoMigrations\201611242121236_Init.cs" />
     <Compile Include="StoMigrations\201611242121236_Init.Designer.cs">
       <DependentUpon>201611242121236_Init.cs</DependentUpon>
@@ -962,6 +968,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SportMigrations\201611272118525_AddCookies.resx">
       <DependentUpon>201611272118525_AddCookies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sto2Migrations\201611282002421_Init.resx">
+      <DependentUpon>201611282002421_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StoMigrations\201611242121236_Init.resx">
       <DependentUpon>201611242121236_Init.cs</DependentUpon>

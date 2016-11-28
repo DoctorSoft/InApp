@@ -22,6 +22,7 @@
         GrodnoOfficial = 18,
         MyGrodno = 19,
         Sto = 20,
+        Sto2 = 21,
 
         Mumia = 100,
 
