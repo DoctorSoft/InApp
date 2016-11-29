@@ -268,6 +268,11 @@ namespace InstagramApp
                 tasks.Add(RegisterProccess<StoContext>());
             }
 
+            if (accounts.Contains(AccountName.Sto2))
+            {
+                tasks.Add(RegisterProccess<Sto2Context>());
+            }
+
             Task.WhenAll(spamTask.ToArray());
 
             while (true)
