@@ -60,7 +60,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
             {
                 if (element.GetAttribute("href") != null)
                 {
-                    return element.GetAttribute("href").ToLower().Contains(model.UserName.ToLower() + "/followers");
+                    return element.GetAttribute("href").ToLower().Contains("followers");
                 }
                 return false;
             })

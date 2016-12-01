@@ -13,7 +13,11 @@ namespace Engines.Engines.SetProxyEngine
 
             Thread.Sleep(1000);
 
-            SendKeys.SendWait(model.ProxyLogin);
+            foreach (var nextChar in model.ProxyLogin)
+            {
+                SendKeys.SendWait(nextChar.ToString());
+                Thread.Sleep(100);
+            }
 
             Thread.Sleep(1000);
 
@@ -21,7 +25,11 @@ namespace Engines.Engines.SetProxyEngine
 
             Thread.Sleep(1000);
 
-            SendKeys.SendWait(model.ProxyPassword);
+            foreach (var nextChar in model.ProxyPassword)
+            {
+                SendKeys.SendWait(nextChar.ToString());
+                Thread.Sleep(100);
+            }
 
             Thread.Sleep(1000);
             

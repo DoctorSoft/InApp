@@ -54,13 +54,16 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 throw new CaptchaException();
             }
 
+            var buttons = driver
+                .FindElements(By.ClassName("_s53mj"));
+
             var followersButton = driver
             .FindElements(By.ClassName("_s53mj"))
             .Where(element =>
             {
                 if (element.GetAttribute("href") != null)
                 {
-                    return element.GetAttribute("href").ToLower().Contains(model.UserName.ToLower() + "/following");
+                    return element.GetAttribute("href").ToLower().Contains("following");
                 }
                 return false;
             })
@@ -117,7 +120,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 var requestRest = new RestRequest("query/", Method.POST);
                 requestRest.Parameters.Clear();
 
-                var userCount = 1000;
+                var userCount = 100;
                 var startString =
                     "ig_user(" + model.Id + ") {  follows.first(" + userCount +
                     ") {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}";

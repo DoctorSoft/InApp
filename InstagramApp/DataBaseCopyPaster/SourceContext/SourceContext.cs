@@ -13,6 +13,11 @@ namespace DataBaseCopyPaster.SourceContext
             this.accountName = accountName;
         }
 
+        public override DataBaseContext OpenCopyContext()
+        {
+            return new SourceContext(accountName);
+        }
+
         public override AccountName GetAccountName()
         {
             return accountName;
