@@ -1,7 +1,10 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using Constants;
@@ -336,47 +339,30 @@ namespace InstagramApp
             }
         }
 
-        public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
+        private async Task RunBackgroundSearchingNewUsers(DataBaseContext context, List<string> users)
         {
-            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-            {
-                Note = "Start searching new users",
-                Name = FunctionalityName.SearchNewUsers,
-                WorkStatus = WorkStatus.Started
-            });
-
-            Registration(driver, context);
-
-            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
-
-            if (!users.Any())
-            {
-                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-                {
-                    Note = "Stop searching new users",
-                    Name = FunctionalityName.SearchNewUsers,
-                    WorkStatus = WorkStatus.Calcelled
-                });
-                return;
-            }
+            var spyContext = new NazarContext(); // Spy !!!
+            var spyDriver = RegisterNewDriver(spyContext);
+            
+            Registration(spyDriver, spyContext);
 
             var results = new List<string>();
 
             foreach (var user in users)
             {
-                var extraUserInfo = new GetUserIdEngine().Execute(driver, new GetUserIdEngineModel
+                var extraUserInfo = new GetUserIdEngine().Execute(spyDriver, new GetUserIdEngineModel
                 {
                     UserLink = user
                 });
 
-                results.AddRange(new SearchUserFollowingsEngine().Execute(driver, new SearchUserFollowingsModel
+                results.AddRange(new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
                 {
                     UserLink = user,
                     UserName = extraUserInfo.UserName,
                     Id = extraUserInfo.Id
                 }));
 
-                results.AddRange(new SearchUserFollowersEngine().Execute(driver, new SearchUserFollowersModel
+                results.AddRange(new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
                 {
                     UserLink = user,
                     UserName = extraUserInfo.UserName,
@@ -407,33 +393,57 @@ namespace InstagramApp
                 Name = FunctionalityName.SearchNewUsers,
                 WorkStatus = WorkStatus.Success
             });
+
+            spyDriver.Close();
         }
 
-        public void SearchUselessUsers(RemoteWebDriver driver, DataBaseContext context)
+        public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
         {
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
             {
-                Note = "Start searching useless users",
-                Name = FunctionalityName.SearchUselessUsers,
+                Note = "Start searching new users",
+                Name = FunctionalityName.SearchNewUsers,
                 WorkStatus = WorkStatus.Started
             });
 
             Registration(driver, context);
 
+            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
+
+            if (!users.Any())
+            {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Stop searching new users",
+                    Name = FunctionalityName.SearchNewUsers,
+                    WorkStatus = WorkStatus.Calcelled
+                });
+                return;
+            }
+
+            Task.Factory.StartNew(() => RunBackgroundSearchingNewUsers(context.OpenCopyContext(), users),
+                      CancellationToken.None,
+                      TaskCreationOptions.None,
+                      TaskScheduler.Default);
+        }
+
+        private async Task RunBackgroundSearchingUslessUsers(DataBaseContext context)
+        {
+            var spyContext = new NazarContext(); // Spy !!!
+            var spyDriver = RegisterNewDriver(spyContext);
+
+            Registration(spyDriver, spyContext);
+
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
-            var tempDriver = new ChromeDriver();
-
-            tempDriver.Close();
-
-            var followers =new SearchUserFollowersEngine().Execute(driver, new SearchUserFollowersModel
+            var followers = new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
             {
                 UserLink = settings.HomePageUrl,
                 UserName = settings.Login,
                 Id = settings.InstagramtId.ToString()
             });
 
-            var followings = new SearchUserFollowingsEngine().Execute(driver, new SearchUserFollowingsModel
+            var followings = new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
             {
                 UserLink = settings.HomePageUrl,
                 UserName = settings.Login,
@@ -443,7 +453,7 @@ namespace InstagramApp
             if (followings == null || !followings.Any() || followers == null || !followers.Any())
             {
                 return;
-            } 
+            }
 
             var usersToClear = followings.Except(followers).ToList();
             var normalUsers = followers.Intersect(followings).ToList();
@@ -462,6 +472,25 @@ namespace InstagramApp
                 Name = FunctionalityName.SearchUselessUsers,
                 WorkStatus = WorkStatus.Success
             });
+
+            spyDriver.Close();
+        }
+
+        public void SearchUselessUsers(RemoteWebDriver driver, DataBaseContext context)
+        {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start searching useless users",
+                Name = FunctionalityName.SearchUselessUsers,
+                WorkStatus = WorkStatus.Started
+            });
+
+            Registration(driver, context);
+
+            Task.Factory.StartNew(() => RunBackgroundSearchingUslessUsers(context.OpenCopyContext()),
+                      CancellationToken.None,
+                      TaskCreationOptions.None,
+                      TaskScheduler.Default);
         }
 
         public void SaveMediaByHashTag(RemoteWebDriver driver, DataBaseContext context)
