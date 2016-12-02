@@ -341,6 +341,14 @@ namespace InstagramApp
 
         private async Task RunBackgroundSearchingNewUsers(DataBaseContext context, List<string> users)
         {
+            //take risk of skipping bugs
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success searching new users",
+                Name = FunctionalityName.SearchNewUsers,
+                WorkStatus = WorkStatus.Success
+            });
+
             var spyContext = new NazarContext(); // Spy !!!
             var spyDriver = RegisterNewDriver(spyContext);
             
@@ -387,13 +395,6 @@ namespace InstagramApp
                 });
             }
 
-            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-            {
-                Note = "Success searching new users",
-                Name = FunctionalityName.SearchNewUsers,
-                WorkStatus = WorkStatus.Success
-            });
-
             spyDriver.Close();
         }
 
@@ -429,6 +430,14 @@ namespace InstagramApp
 
         private async Task RunBackgroundSearchingUslessUsers(DataBaseContext context)
         {
+            //take risk of skipping bugs
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success searching useless users",
+                Name = FunctionalityName.SearchUselessUsers,
+                WorkStatus = WorkStatus.Success
+            });
+
             var spyContext = new NazarContext(); // Spy !!!
             var spyDriver = RegisterNewDriver(spyContext);
 
@@ -464,13 +473,6 @@ namespace InstagramApp
             {
                 UsersToClear = usersToClear,
                 NormalUsers = normalUsers
-            });
-
-            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-            {
-                Note = "Success searching useless users",
-                Name = FunctionalityName.SearchUselessUsers,
-                WorkStatus = WorkStatus.Success
             });
 
             spyDriver.Close();
