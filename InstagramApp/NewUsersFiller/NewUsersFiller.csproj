@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D52F2BBB-F156-4143-B73F-5310028B43FE}</ProjectGuid>
+    <ProjectGuid>{912986AA-91B8-4D99-BF38-6943D9D93A3F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UselessUsersAnalizing</RootNamespace>
-    <AssemblyName>UselessUsersAnalizing</AssemblyName>
+    <RootNamespace>NewUsersFiller</RootNamespace>
+    <AssemblyName>NewUsersFiller</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -72,16 +72,12 @@
       <Project>{70cfdd79-abdb-4bc6-aeb8-7d49bd639858}</Project>
       <Name>DataBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Engines\Engines.csproj">
-      <Project>{cf94e912-8ae4-4a0e-8567-e732e5e2210d}</Project>
-      <Name>Engines</Name>
-    </ProjectReference>
     <ProjectReference Include="..\InstagramApp\InstagramApp.csproj">
       <Project>{81d70cf3-8374-4404-b473-eb5cfe0f163a}</Project>
       <Name>InstagramApp</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tools\Tools.csproj">
-      <Project>{1c2bf2eb-0fcc-4746-a85f-0fb27d67a8e5}</Project>
+      <Project>{1C2BF2EB-0FCC-4746-A85F-0FB27D67A8E5}</Project>
       <Name>Tools</Name>
     </ProjectReference>
   </ItemGroup>

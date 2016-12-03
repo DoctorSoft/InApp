@@ -339,7 +339,7 @@ namespace InstagramApp
             }
         }
 
-        private async Task RunBackgroundSearchingNewUsers(DataBaseContext context, List<string> users)
+        public void RunBackgroundSearchingNewUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext)
         {
             //take risk of skipping bugs
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
@@ -349,8 +349,18 @@ namespace InstagramApp
                 WorkStatus = WorkStatus.Success
             });
 
-            var spyContext = new NazarContext(); // Spy !!!
-            var spyDriver = RegisterNewDriver(spyContext);
+            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
+
+            if (!users.Any())
+            {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Stop searching new users",
+                    Name = FunctionalityName.SearchNewUsers,
+                    WorkStatus = WorkStatus.Calcelled
+                });
+                return;
+            }
             
             Registration(spyDriver, spyContext);
 
@@ -400,7 +410,7 @@ namespace InstagramApp
 
         public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            /*new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
             {
                 Note = "Start searching new users",
                 Name = FunctionalityName.SearchNewUsers,
@@ -409,26 +419,13 @@ namespace InstagramApp
 
             Registration(driver, context);
 
-            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
-
-            if (!users.Any())
-            {
-                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-                {
-                    Note = "Stop searching new users",
-                    Name = FunctionalityName.SearchNewUsers,
-                    WorkStatus = WorkStatus.Calcelled
-                });
-                return;
-            }
-
-            Task.Factory.StartNew(() => RunBackgroundSearchingNewUsers(context.OpenCopyContext(), users),
+            Task.Factory.StartNew(() => RunBackgroundSearchingNewUsers(context.OpenCopyContext()),
                       CancellationToken.None,
                       TaskCreationOptions.None,
-                      TaskScheduler.Default);
+                      TaskScheduler.Default);*/
         }
 
-        private async Task RunBackgroundSearchingUslessUsers(DataBaseContext context)
+        public void RunBackgroundSearchingUslessUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext)
         {
             //take risk of skipping bugs
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
@@ -437,9 +434,6 @@ namespace InstagramApp
                 Name = FunctionalityName.SearchUselessUsers,
                 WorkStatus = WorkStatus.Success
             });
-
-            var spyContext = new NazarContext(); // Spy !!!
-            var spyDriver = RegisterNewDriver(spyContext);
 
             Registration(spyDriver, spyContext);
 
@@ -474,13 +468,11 @@ namespace InstagramApp
                 UsersToClear = usersToClear,
                 NormalUsers = normalUsers
             });
-
-            spyDriver.Close();
         }
 
         public void SearchUselessUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            /*new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
             {
                 Note = "Start searching useless users",
                 Name = FunctionalityName.SearchUselessUsers,
@@ -492,7 +484,7 @@ namespace InstagramApp
             Task.Factory.StartNew(() => RunBackgroundSearchingUslessUsers(context.OpenCopyContext()),
                       CancellationToken.None,
                       TaskCreationOptions.None,
-                      TaskScheduler.Default);
+                      TaskScheduler.Default);*/
         }
 
         public void SaveMediaByHashTag(RemoteWebDriver driver, DataBaseContext context)

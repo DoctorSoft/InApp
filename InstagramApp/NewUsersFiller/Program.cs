@@ -1,52 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Constants;
 using DataBase.Contexts;
 using InstagramApp;
 using Tools.DatabaseSearcher;
 
-namespace UselessUsersAnalizing
+namespace NewUsersFiller
 {
     public class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             var accounts = new[]
             {
-                AccountName.MyGrodno,
-                AccountName.Anastasiya,
                 AccountName.Gadanie,
-                AccountName.GrodnoOfficial,
-                AccountName.Karina,
-                AccountName.Kioto,
-                AccountName.Augustovski,
-                AccountName.MyGrodno,
-                AccountName.Sport,
-                AccountName.Sto,
-                AccountName.Sto2,
-                AccountName.Ozerny
             };
-            
+
             var bases = DataBaseSearcher.GetTypesWithAttribute(
                 AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.Contains("DataBase")),
                 name => accounts.Contains(name))
                 .ToList();
 
             var count = bases.Count;
-            var index = 1;
+            var index = 0;
 
             var service = new InstagramService();
 
             var spyContext = new NazarContext(); // Spy !!!
             var spyDriver = service.RegisterNewDriver(spyContext);
 
-            while (true)
+            while (index != count)
             {
                 try
                 {
                     var dbData = bases[index];
-                    var db = (DataBaseContext) Activator.CreateInstance(dbData.DataBaseType);
-                    service.RunBackgroundSearchingUslessUsers(db, spyDriver, spyContext);
+                    var db = (DataBaseContext)Activator.CreateInstance(dbData.DataBaseType);
+                    service.RunBackgroundSearchingNewUsers(db, spyDriver, spyContext);
                 }
                 catch (Exception)
                 {
@@ -54,7 +46,7 @@ namespace UselessUsersAnalizing
                 }
                 finally
                 {
-                    index = (index + 1) % count;
+                    index++;
                 }
             }
         }
