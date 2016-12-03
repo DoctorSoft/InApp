@@ -1,7 +1,9 @@
 ﻿using Constants;
+using Constants.Attributes;
 
 namespace DataBase.Contexts
 {
+    [AccountBase(AccountName = AccountName.Mumia)]
     public class MumiaContext : DataBaseContext
     {
         public override DataBaseContext OpenCopyContext()

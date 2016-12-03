@@ -1,7 +1,9 @@
 ﻿using Constants;
+using Constants.Attributes;
 
 namespace DataBase.Contexts
 {
+    [AccountBase(AccountName = AccountName.Sto)]
     public class StoContext : DataBaseContext
     {
         public override DataBaseContext OpenCopyContext()

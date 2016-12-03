@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
+using Tools.DatabaseSearcher;
 
 namespace InstagramApp
 {
@@ -25,6 +26,23 @@ namespace InstagramApp
         /// Ozerny
         /// </summary>
 
+        private static Task RegisterProccess<TContext>(TContext context)
+            where TContext : DataBaseContext
+        {
+            // My Dev Page Jobs
+            var aproveUsersTokenSource = new CancellationTokenSource();
+
+            var instagramService = new InstagramService();
+
+            var driver = instagramService.RegisterNewDriver(context);
+            var taskRunner = new TaskRunner();
+
+            return Task.Run(() => taskRunner.RunPeriodically(() =>
+                taskRunner.Run(instagramService, driver, context.OpenCopyContext()),
+                TimeSpan.FromSeconds(5),
+                aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
+        }
+
         private static Task RegisterProccess<TContext>()
             where TContext : DataBaseContext, new()
         {
@@ -33,11 +51,28 @@ namespace InstagramApp
 
             var instagramService = new InstagramService();
 
-            var driver = instagramService.RegisterNewDriver(new TContext());
+            var context = new TContext();
+            var driver = instagramService.RegisterNewDriver(context);
             var taskRunner = new TaskRunner();
 
             return Task.Run(() => taskRunner.RunPeriodically(() =>
-                taskRunner.Run<TContext>(instagramService, driver),
+                taskRunner.Run(instagramService, driver, context.OpenCopyContext()),
+                TimeSpan.FromSeconds(5),
+                aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
+        }
+
+        private static Task RegisterProccess(DataBaseContext context)
+        {
+            // My Dev Page Jobs
+            var aproveUsersTokenSource = new CancellationTokenSource();
+
+            var instagramService = new InstagramService();
+
+            var driver = instagramService.RegisterNewDriver(context.OpenCopyContext());
+            var taskRunner = new TaskRunner();
+
+            return Task.Run(() => taskRunner.RunPeriodically(() =>
+                taskRunner.Run(instagramService, driver, context.OpenCopyContext()),
                 TimeSpan.FromSeconds(5),
                 aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
         } 
@@ -56,8 +91,7 @@ namespace InstagramApp
                 }
             }
 
-            private FunctionalityWithTokenModel GetFunctionality<TContext>(InstagramService service, RemoteWebDriver driver, TContext context)
-                where TContext : DataBaseContext, new()
+            private FunctionalityWithTokenModel GetFunctionality(InstagramService service, RemoteWebDriver driver, DataBaseContext context)
             {
                 try
                 {
@@ -79,10 +113,9 @@ namespace InstagramApp
                 }
             }
 
-            public void Run<TContext>(InstagramService service, RemoteWebDriver driver)
-                where TContext : DataBaseContext, new()
+            public void Run(InstagramService service, RemoteWebDriver driver, DataBaseContext contextData)
             {
-                var actions = new Dictionary<FunctionalityName, Action<RemoteWebDriver, TContext>>
+                var actions = new Dictionary<FunctionalityName, Action<RemoteWebDriver, DataBaseContext>>
                 {
                     {FunctionalityName.SaveMediaByHashTag, service.SaveMediaByHashTag},
                     {FunctionalityName.SaveMediaByHomePage, service.SaveMediaByHomePage}, 
@@ -96,7 +129,7 @@ namespace InstagramApp
                     {FunctionalityName.AddActivityHistoryMark, service.AddActivityHistoryMark} 
                 };
 
-                using (var context = new TContext())
+                using (var context = contextData.OpenCopyContext())
                 {
                     var actionData = GetFunctionality(service, driver, context);
 
@@ -134,19 +167,6 @@ namespace InstagramApp
             }
         }
 
-        private class CookieMainData
-        {
-            public string Name { get; set; }
-
-            public DateTime? Expiry { get; set; }
-
-            public string Domain { get; set; }
-
-            public string Path { get; set; }
-
-            public string Value { get; set; }
-        }
-
         /// <summary>
         /// Run Jobs
         /// </summary>
@@ -163,114 +183,15 @@ namespace InstagramApp
 
             var tasks = new List<Task>();
 
-            if (accounts.Contains(AccountName.Augustovski))
-            {
-                tasks.Add(RegisterProccess<AugustovskiContext>());
-            }
+            var allowedBases = DataBaseSearcher.GetTypesWithAttribute(
+                AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.Contains("DataBase")),
+                name => accounts.Contains(name))
+                .ToList();
 
-            if (accounts.Contains(AccountName.Karina))
+            foreach (var allowedBase in allowedBases)
             {
-                tasks.Add(RegisterProccess<KarinaContext>());
-            }
-
-            if (accounts.Contains(AccountName.Ozerny))
-            {
-                tasks.Add(RegisterProccess<OzernyContext>());
-            }
-
-            if (accounts.Contains(AccountName.Galaxy))
-            {
-                tasks.Add(RegisterProccess<GalaxyContext>());
-            }
-
-            if (accounts.Contains(AccountName.SalsaRika))
-            {
-                tasks.Add(RegisterProccess<SalsaRikaContext>());
-            }
-
-            if (accounts.Contains(AccountName.Kioto))
-            {
-                tasks.Add(RegisterProccess<KiotoContext>());
-            }
-
-            if (accounts.Contains(AccountName.Nazar))
-            {
-                tasks.Add(RegisterProccess<NazarContext>());
-            }
-
-            if (accounts.Contains(AccountName.Lajki))
-            {
-                tasks.Add(RegisterProccess<LajkiContext>());
-            }
-
-            if (accounts.Contains(AccountName.Nikon))
-            {
-                tasks.Add(RegisterProccess<NikonContext>());
-            }
-
-            if (accounts.Contains(AccountName.GreenDozor))
-            {
-                tasks.Add(RegisterProccess<GreenDozorContext>());
-            }
-
-            if (accounts.Contains(AccountName.Mirelle))
-            {
-                tasks.Add(RegisterProccess<MirelleContext>());
-            }
-
-            if (accounts.Contains(AccountName.Canon))
-            {
-                tasks.Add(RegisterProccess<CanonContext>());
-            }
-
-            if (accounts.Contains(AccountName.Egor))
-            {
-                tasks.Add(RegisterProccess<EgorContext>());
-            }
-
-            if (accounts.Contains(AccountName.Gadanie))
-            {
-                tasks.Add(RegisterProccess<GadanieContext>());
-            }
-
-            if (accounts.Contains(AccountName.Anastasiya))
-            {
-                tasks.Add(RegisterProccess<AnastasiyaContext>());
-            }
-
-            if (accounts.Contains(AccountName.Etalon))
-            {
-                tasks.Add(RegisterProccess<EtalonContext>());
-            }
-
-            if (accounts.Contains(AccountName.Sport))
-            {
-                tasks.Add(RegisterProccess<SportContext>());
-            }
-
-            if (accounts.Contains(AccountName.GrodnoOfficial))
-            {
-                tasks.Add(RegisterProccess<GrodnoOfficialContext>());
-            }
-
-            if (accounts.Contains(AccountName.MyGrodno))
-            {
-                tasks.Add(RegisterProccess<MyGrodnoContext>());
-            }
-
-            if (accounts.Contains(AccountName.Mumia))
-            {
-                tasks.Add(RegisterProccess<MumiaContext>());
-            }
-
-            if (accounts.Contains(AccountName.Sto))
-            {
-                tasks.Add(RegisterProccess<StoContext>());
-            }
-
-            if (accounts.Contains(AccountName.Sto2))
-            {
-                tasks.Add(RegisterProccess<Sto2Context>());
+                var db = (DataBaseContext)Activator.CreateInstance(allowedBase.DataBaseType);
+                tasks.Add(RegisterProccess(db));
             }
 
             Task.WhenAll(spamTask.ToArray());

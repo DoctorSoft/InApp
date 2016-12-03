@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewUserMigrationsGenerator"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseCopyPaster", "DataBaseCopyPaster\DataBaseCopyPaster.csproj", "{5A38E265-DD77-47C2-AE99-853E7F73223A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{1C2BF2EB-0FCC-4746-A85F-0FB27D67A8E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UselessUsersAnalizing", "UselessUsersAnalizing\UselessUsersAnalizing.csproj", "{D52F2BBB-F156-4143-B73F-5310028B43FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{5A38E265-DD77-47C2-AE99-853E7F73223A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A38E265-DD77-47C2-AE99-853E7F73223A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A38E265-DD77-47C2-AE99-853E7F73223A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C2BF2EB-0FCC-4746-A85F-0FB27D67A8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C2BF2EB-0FCC-4746-A85F-0FB27D67A8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C2BF2EB-0FCC-4746-A85F-0FB27D67A8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C2BF2EB-0FCC-4746-A85F-0FB27D67A8E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D52F2BBB-F156-4143-B73F-5310028B43FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52F2BBB-F156-4143-B73F-5310028B43FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52F2BBB-F156-4143-B73F-5310028B43FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52F2BBB-F156-4143-B73F-5310028B43FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
