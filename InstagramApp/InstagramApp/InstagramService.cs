@@ -1,11 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using Constants;
 using DataBase.Contexts;
@@ -34,7 +30,6 @@ using Engines.Engines.RegistrationEngine;
 using Engines.Engines.SearchUserFriendsEngine;
 using Engines.Engines.SetProxyEngine;
 using Engines.Engines.WaitingCaptchEngine;
-using NTextCat;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
@@ -339,7 +334,7 @@ namespace InstagramApp
             }
         }
 
-        public void RunBackgroundSearchingNewUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext)
+        public void RunBackgroundSearchingNewUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, Action<int> showProcess = null)
         {
             //take risk of skipping bugs
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
@@ -377,14 +372,16 @@ namespace InstagramApp
                 {
                     UserLink = user,
                     UserName = extraUserInfo.UserName,
-                    Id = extraUserInfo.Id
+                    Id = extraUserInfo.Id,
+                    ShowProcess = showProcess
                 }));
 
                 results.AddRange(new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
                 {
                     UserLink = user,
                     UserName = extraUserInfo.UserName,
-                    Id = extraUserInfo.Id
+                    Id = extraUserInfo.Id,
+                    ShowProcess = showProcess
                 }));
             }
 
@@ -404,8 +401,6 @@ namespace InstagramApp
                     User = user
                 });
             }
-
-            spyDriver.Close();
         }
 
         public void SearchNewUsers(RemoteWebDriver driver, DataBaseContext context)
@@ -425,7 +420,7 @@ namespace InstagramApp
                       TaskScheduler.Default);*/
         }
 
-        public void RunBackgroundSearchingUslessUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext)
+        public void RunBackgroundSearchingUslessUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, Action<int> showProcess = null)
         {
             //take risk of skipping bugs
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
@@ -443,14 +438,16 @@ namespace InstagramApp
             {
                 UserLink = settings.HomePageUrl,
                 UserName = settings.Login,
-                Id = settings.InstagramtId.ToString()
+                Id = settings.InstagramtId.ToString(),
+                ShowProcess = showProcess
             });
 
             var followings = new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
             {
                 UserLink = settings.HomePageUrl,
                 UserName = settings.Login,
-                Id = settings.InstagramtId.ToString()
+                Id = settings.InstagramtId.ToString(),
+                ShowProcess = showProcess
             });
 
             if (followings == null || !followings.Any() || followers == null || !followers.Any())

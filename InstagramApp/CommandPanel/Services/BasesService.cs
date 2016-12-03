@@ -15,11 +15,6 @@ namespace CommandPanel.Services
             {
                 UserLink = link
             });
-
-            new SetFunctionalityAsAsapCommandHandler(context).Handle(new SetFunctionalityAsAsapCommand
-            {
-                FunctionalityName = FunctionalityName.SearchNewUsers
-            });
         }
     }
 }

@@ -117,7 +117,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 var requestRest = new RestRequest("query/", Method.POST);
                 requestRest.Parameters.Clear();
 
-                var userCount = 1000;
+                var userCount = 100;
                 var startString =
                     "ig_user(" + model.Id + ") {  followed_by.first(" + userCount +
                     ") {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}";
@@ -173,6 +173,11 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 }
 
                 Thread.Sleep(1000);
+
+                if (model.ShowProcess != null)
+                {
+                    model.ShowProcess(userList.Count);
+                }
             }
 
             driver.Keyboard.SendKeys(Keys.Escape);

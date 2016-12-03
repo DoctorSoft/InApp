@@ -176,6 +176,11 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 }
 
                 Thread.Sleep(1000);
+
+                if (model.ShowProcess != null)
+                {
+                    model.ShowProcess(userList.Count);
+                }
             }
 
             driver.Keyboard.SendKeys(Keys.Escape);

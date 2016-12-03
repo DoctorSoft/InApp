@@ -16,7 +16,7 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.Gadanie,
+                AccountName.Karina,
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -38,7 +38,10 @@ namespace NewUsersFiller
                 {
                     var dbData = bases[index];
                     var db = (DataBaseContext)Activator.CreateInstance(dbData.DataBaseType);
-                    service.RunBackgroundSearchingNewUsers(db, spyDriver, spyContext);
+
+                    Console.WriteLine("=======Start=====");
+
+                    service.RunBackgroundSearchingNewUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="));
                 }
                 catch (Exception)
                 {
@@ -49,6 +52,8 @@ namespace NewUsersFiller
                     index++;
                 }
             }
+
+            spyDriver.Close();
         }
     }
 }

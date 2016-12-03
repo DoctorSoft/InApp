@@ -1,4 +1,6 @@
-﻿namespace Engines.Engines.SearchUserFriendsEngine
+﻿using System;
+
+namespace Engines.Engines.SearchUserFriendsEngine
 {
     public class SearchUserFollowersModel
     {
@@ -7,5 +9,7 @@
         public string Id { get; set; }
 
         public string UserName { get; set; }
+
+        public Action<int> ShowProcess { get; set; }
     }
 }

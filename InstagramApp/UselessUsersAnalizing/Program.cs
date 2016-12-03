@@ -33,7 +33,7 @@ namespace UselessUsersAnalizing
                 .ToList();
 
             var count = bases.Count;
-            var index = 1;
+            var index = 0;
 
             var service = new InstagramService();
 
@@ -45,8 +45,11 @@ namespace UselessUsersAnalizing
                 try
                 {
                     var dbData = bases[index];
-                    var db = (DataBaseContext) Activator.CreateInstance(dbData.DataBaseType);
-                    service.RunBackgroundSearchingUslessUsers(db, spyDriver, spyContext);
+                    var db = (DataBaseContext)Activator.CreateInstance(dbData.DataBaseType);
+
+                    Console.WriteLine("=======Start=====");
+
+                    service.RunBackgroundSearchingUslessUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="));
                 }
                 catch (Exception)
                 {
