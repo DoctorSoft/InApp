@@ -1,6 +1,5 @@
 namespace DataBase.GalaxyMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class AddInstagramId : DbMigration

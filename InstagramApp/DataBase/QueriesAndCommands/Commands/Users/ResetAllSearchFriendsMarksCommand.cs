@@ -1,5 +1,4 @@
-﻿using DataBase.Contexts;
-using DataBase.QueriesAndCommands.Common;
+﻿using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Commands.Users
 {

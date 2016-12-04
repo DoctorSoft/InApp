@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
 using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Queries.Functionality;
-using Engines.Engines.GetUserIdEngine;
 using Engines.Exceptions;
-using InstagramApp.Properties;
 using InstagramApp.Tools;
-using Newtonsoft.Json;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using Tools.DatabaseSearcher;
 

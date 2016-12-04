@@ -23,6 +23,7 @@
         MyGrodno = 19,
         Sto = 20,
         Sto2 = 21,
+        Firuza = 22,
 
         Mumia = 100,
 

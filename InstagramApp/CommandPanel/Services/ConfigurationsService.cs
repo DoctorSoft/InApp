@@ -1,8 +1,8 @@
 ﻿using CommandPanel.Models.ConfigurationsModels;
 using Constants;
-using DataBase.Factories;
 using DataBase.QueriesAndCommands.Commands.Settings;
 using DataBase.QueriesAndCommands.Queries.Settings;
+using Tools.Factories;
 
 namespace CommandPanel.Services
 {

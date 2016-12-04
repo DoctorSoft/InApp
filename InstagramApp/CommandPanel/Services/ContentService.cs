@@ -2,8 +2,8 @@
 using System.Linq;
 using CommandPanel.Models.ContentModels;
 using Constants;
-using DataBase.Factories;
 using DataBase.QueriesAndCommands.Queries.Content;
+using Tools.Factories;
 
 namespace CommandPanel.Services
 {

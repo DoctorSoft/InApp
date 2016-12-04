@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Threading;
 using DataBase.Contexts.LikeApplication;
 using DataBase.QueriesAndCommands.Commands.Proxy;
 using DataBase.QueriesAndCommands.Queries.Proxy;

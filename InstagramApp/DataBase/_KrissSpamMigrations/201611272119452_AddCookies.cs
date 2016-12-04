@@ -1,6 +1,5 @@
 namespace DataBase._KrissSpamMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class AddCookies : DbMigration

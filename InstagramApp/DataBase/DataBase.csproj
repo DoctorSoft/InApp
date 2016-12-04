@@ -112,6 +112,7 @@
     <Compile Include="CanonMigrations\201611272118146_AddCookies.Designer.cs">
       <DependentUpon>201611272118146_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />
     <Compile Include="Contexts\MyGrodnoContext.cs" />
@@ -150,6 +151,11 @@
     <Compile Include="EtalonMigrations\201611272118447_AddCookies.Designer.cs">
       <DependentUpon>201611272118447_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="FiruzaMigrations\201612041956306_Init.cs" />
+    <Compile Include="FiruzaMigrations\201612041956306_Init.Designer.cs">
+      <DependentUpon>201612041956306_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FiruzaMigrations\FiruzaConfiguration.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.Designer.cs">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>
@@ -462,8 +468,6 @@
     <Compile Include="Contexts\OzernyContext.cs" />
     <Compile Include="Contexts\GalaxyContext.cs" />
     <Compile Include="DefaultData\DefaultFunctionalityFiller.cs" />
-    <Compile Include="Factories\ContextFactory.cs" />
-    <Compile Include="Factories\IContextFactory.cs" />
     <Compile Include="AugustovskiMigrations\AugustovskiConfiguration.cs" />
     <Compile Include="GreenDozorMigrations\GreenDozorConfiguration.cs" />
     <Compile Include="LikeApplicationMigrations\201610091151190_Init.cs" />
@@ -782,6 +786,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EtalonMigrations\201611272118447_AddCookies.resx">
       <DependentUpon>201611272118447_AddCookies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FiruzaMigrations\201612041956306_Init.resx">
+      <DependentUpon>201612041956306_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GadanieMigrations\201611201919276_Init.resx">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>

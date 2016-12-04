@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CommandPanel.Models.AccountModels
+﻿namespace CommandPanel.Models.AccountModels
 {
     public class ChartData
     {

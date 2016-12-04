@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.Threading;
+﻿using System.Threading;
 using System.Windows.Forms;
 using OpenQA.Selenium.Remote;
 

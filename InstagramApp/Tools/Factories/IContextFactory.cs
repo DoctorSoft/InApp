@@ -1,7 +1,7 @@
 ﻿using Constants;
 using DataBase.Contexts;
 
-namespace DataBase.Factories
+namespace Tools.Factories
 {
     public interface IContextFactory
     {

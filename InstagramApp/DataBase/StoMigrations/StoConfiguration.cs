@@ -1,12 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Drawing;
-using System.Linq;
-using Constants;
-using DataBase.DefaultData;
-using DataBase.Models;
-using DataBase.Models.Content;
 
 namespace DataBase.StoMigrations
 {

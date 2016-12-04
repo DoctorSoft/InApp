@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using CommandPanel.Models.HashTagModels;
 using Constants;
 
 namespace CommandPanel.Models.ImportantUserModels

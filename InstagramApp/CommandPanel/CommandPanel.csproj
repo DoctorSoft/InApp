@@ -255,6 +255,10 @@
       <Project>{70cfdd79-abdb-4bc6-aeb8-7d49bd639858}</Project>
       <Name>DataBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{1C2BF2EB-0FCC-4746-A85F-0FB27D67A8E5}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

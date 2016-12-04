@@ -1,7 +1,5 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Engines.Engines.GetUserIdEngine

@@ -1,7 +1,6 @@
 ﻿using Constants;
-using DataBase.Factories;
-using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Commands.Users;
+using Tools.Factories;
 
 namespace CommandPanel.Services
 {

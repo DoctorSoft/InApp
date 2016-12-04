@@ -1,6 +1,5 @@
 namespace DataBase.LikeApplicationMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class Init : DbMigration

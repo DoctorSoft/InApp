@@ -2,9 +2,9 @@
 using System.Linq;
 using CommandPanel.Models.HashTagModels;
 using Constants;
-using DataBase.Factories;
 using DataBase.QueriesAndCommands.Commands.HashTag;
 using DataBase.QueriesAndCommands.Queries.HashTag;
+using Tools.Factories;
 
 namespace CommandPanel.Services
 {

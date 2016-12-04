@@ -1,6 +1,5 @@
 namespace DataBase.NazarMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class RenameTables : DbMigration

@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using DataBase.Contexts;
-using DataBase.QueriesAndCommands.Commands.HashTag;
 using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Commands.Languages

@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity.Migrations;
 using System.Linq;
-using Constants;
 using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Common;
 

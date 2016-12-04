@@ -1,6 +1,5 @@
 namespace DataBase.GadanieMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class Init : DbMigration

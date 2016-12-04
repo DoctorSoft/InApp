@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Script.Serialization;
 using CommandPanel.Models.AccountModels;
 using Constants;
-using DataBase.Factories;
 using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Commands.Users;
 using DataBase.QueriesAndCommands.Queries.ActivityHistory;
-using DataBase.QueriesAndCommands.Queries.Features;
 using DataBase.QueriesAndCommands.Queries.Functionality;
 using DataBase.QueriesAndCommands.Queries.Settings;
 using DataBase.QueriesAndCommands.Queries.Users;
+using Tools.Factories;
 
 namespace CommandPanel.Services
 {

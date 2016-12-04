@@ -1,6 +1,5 @@
 namespace DataBase.CanonMigrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class AddCookies : DbMigration

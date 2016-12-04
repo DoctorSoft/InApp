@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using DataBase.Contexts.LikeApplication;
-using DataBase.Models.LikeApplication;
 
 namespace DataBase.LikeApplicationMigrations
 {

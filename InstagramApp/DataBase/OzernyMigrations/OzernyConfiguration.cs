@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using Constants;
-using DataBase.DefaultData;
-using DataBase.Models;
 
 namespace DataBase.OzernyMigrations
 {

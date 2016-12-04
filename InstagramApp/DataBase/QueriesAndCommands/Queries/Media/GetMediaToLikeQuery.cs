@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Queries.Media

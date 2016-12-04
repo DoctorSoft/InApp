@@ -169,7 +169,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 }
                 catch (Exception exception)
                 {
-                    hasNextPage = false;
+                    return userList;
                 }
 
                 Thread.Sleep(1000);
