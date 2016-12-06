@@ -24,6 +24,7 @@
         Sto = 20,
         Sto2 = 21,
         Firuza = 22,
+        Keratin = 23,
 
         Mumia = 100,
 

@@ -20,6 +20,7 @@ add-migration -Name AddCookies -ConfigurationTypeName MyGrodnoConfiguration
 add-migration -Name AddCookies -ConfigurationTypeName StoConfiguration
 add-migration -Name AddCookies -ConfigurationTypeName Sto2Configuration
 add-migration -Name Init -ConfigurationTypeName FiruzaConfiguration
+add-migration -Name Init -ConfigurationTypeName KeratinConfiguration
 
 add-migration -Name AddCookies -ConfigurationTypeName MumiaConfiguration
 
@@ -51,6 +52,7 @@ update-database -ConfigurationTypeName MyGrodnoConfiguration
 update-database -ConfigurationTypeName StoConfiguration
 update-database -ConfigurationTypeName Sto2Configuration
 update-database -ConfigurationTypeName FiruzaConfiguration
+update-database -ConfigurationTypeName KeratinConfiguration
 
 update-database -ConfigurationTypeName MumiaConfiguration
 

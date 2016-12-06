@@ -112,6 +112,7 @@
     <Compile Include="CanonMigrations\201611272118146_AddCookies.Designer.cs">
       <DependentUpon>201611272118146_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\KeratinContext.cs" />
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />
@@ -156,6 +157,11 @@
       <DependentUpon>201612041956306_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="FiruzaMigrations\FiruzaConfiguration.cs" />
+    <Compile Include="KeratinMigrations\201612061832043_Init.cs" />
+    <Compile Include="KeratinMigrations\201612061832043_Init.Designer.cs">
+      <DependentUpon>201612061832043_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeratinMigrations\KeratinConfiguration.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.Designer.cs">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>
@@ -849,6 +855,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201611272117328_AddCookies.resx">
       <DependentUpon>201611272117328_AddCookies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeratinMigrations\201612061832043_Init.resx">
+      <DependentUpon>201612061832043_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201611201918004_Init.resx">
       <DependentUpon>201611201918004_Init.cs</DependentUpon>
