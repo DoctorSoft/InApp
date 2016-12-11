@@ -24,7 +24,8 @@ namespace UselessUsersAnalizing
                 AccountName.Sport,
                 AccountName.Sto,
                 AccountName.Sto2,
-                AccountName.Ozerny
+                AccountName.Ozerny,
+                AccountName.Firuza
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(

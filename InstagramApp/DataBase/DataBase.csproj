@@ -96,72 +96,17 @@
     <Compile Include="AugustovskiMigrations\201611272117457_AddCookies.Designer.cs">
       <DependentUpon>201611272117457_AddCookies.cs</DependentUpon>
     </Compile>
-    <Compile Include="CanonMigrations\201611201919131_Init.cs" />
-    <Compile Include="CanonMigrations\201611201919131_Init.Designer.cs">
-      <DependentUpon>201611201919131_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CanonMigrations\201611211509077_RenameTables.cs" />
-    <Compile Include="CanonMigrations\201611211509077_RenameTables.Designer.cs">
-      <DependentUpon>201611211509077_RenameTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CanonMigrations\201611261935070_AddInstagramId.cs" />
-    <Compile Include="CanonMigrations\201611261935070_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261935070_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CanonMigrations\201611272118146_AddCookies.cs" />
-    <Compile Include="CanonMigrations\201611272118146_AddCookies.Designer.cs">
-      <DependentUpon>201611272118146_AddCookies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contexts\KeratinContext.cs" />
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />
     <Compile Include="Contexts\MyGrodnoContext.cs" />
     <Compile Include="Contexts\GrodnoOfficialContext.cs" />
     <Compile Include="Contexts\SportContext.cs" />
-    <Compile Include="Contexts\EtalonContext.cs" />
-    <Compile Include="EgorMigrations\201611201919202_Init.cs" />
-    <Compile Include="EgorMigrations\201611201919202_Init.Designer.cs">
-      <DependentUpon>201611201919202_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EgorMigrations\201611211509132_RenameTables.cs" />
-    <Compile Include="EgorMigrations\201611211509132_RenameTables.Designer.cs">
-      <DependentUpon>201611211509132_RenameTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EgorMigrations\201611261935178_AddInstagramId.cs" />
-    <Compile Include="EgorMigrations\201611261935178_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261935178_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EgorMigrations\201611272118222_AddCookies.cs" />
-    <Compile Include="EgorMigrations\201611272118222_AddCookies.Designer.cs">
-      <DependentUpon>201611272118222_AddCookies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EtalonMigrations\201611201919476_Init.cs" />
-    <Compile Include="EtalonMigrations\201611201919476_Init.Designer.cs">
-      <DependentUpon>201611201919476_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EtalonMigrations\201611211509305_RenameTables.cs" />
-    <Compile Include="EtalonMigrations\201611211509305_RenameTables.Designer.cs">
-      <DependentUpon>201611211509305_RenameTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EtalonMigrations\201611261935487_AddInstagramId.cs" />
-    <Compile Include="EtalonMigrations\201611261935487_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261935487_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EtalonMigrations\201611272118447_AddCookies.cs" />
-    <Compile Include="EtalonMigrations\201611272118447_AddCookies.Designer.cs">
-      <DependentUpon>201611272118447_AddCookies.cs</DependentUpon>
-    </Compile>
     <Compile Include="FiruzaMigrations\201612041956306_Init.cs" />
     <Compile Include="FiruzaMigrations\201612041956306_Init.Designer.cs">
       <DependentUpon>201612041956306_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="FiruzaMigrations\FiruzaConfiguration.cs" />
-    <Compile Include="KeratinMigrations\201612061832043_Init.cs" />
-    <Compile Include="KeratinMigrations\201612061832043_Init.Designer.cs">
-      <DependentUpon>201612061832043_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="KeratinMigrations\KeratinConfiguration.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.Designer.cs">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>
@@ -250,30 +195,6 @@
     <Compile Include="KiotoMigrations\201611272117125_AddCookies.Designer.cs">
       <DependentUpon>201611272117125_AddCookies.cs</DependentUpon>
     </Compile>
-    <Compile Include="LajkiMigrations\201611261933551_AddInstagramId.cs" />
-    <Compile Include="LajkiMigrations\201611261933551_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261933551_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LajkiMigrations\201611272117261_AddCookies.cs" />
-    <Compile Include="LajkiMigrations\201611272117261_AddCookies.Designer.cs">
-      <DependentUpon>201611272117261_AddCookies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MirelleMigrations\201611261934557_AddInstagramId.cs" />
-    <Compile Include="MirelleMigrations\201611261934557_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261934557_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MirelleMigrations\201611272118071_AddCookies.cs" />
-    <Compile Include="MirelleMigrations\201611272118071_AddCookies.Designer.cs">
-      <DependentUpon>201611272118071_AddCookies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MumiaMigrations\201611261936460_AddInstagramId.cs" />
-    <Compile Include="MumiaMigrations\201611261936460_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261936460_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MumiaMigrations\201611272119220_AddCookies.cs" />
-    <Compile Include="MumiaMigrations\201611272119220_AddCookies.Designer.cs">
-      <DependentUpon>201611272119220_AddCookies.cs</DependentUpon>
-    </Compile>
     <Compile Include="MyGrodnoMigrations\201611261936231_AddInstagramId.cs" />
     <Compile Include="MyGrodnoMigrations\201611261936231_AddInstagramId.Designer.cs">
       <DependentUpon>201611261936231_AddInstagramId.cs</DependentUpon>
@@ -350,30 +271,6 @@
     <Compile Include="KiotoMigrations\201611211508193_RenameTables.Designer.cs">
       <DependentUpon>201611211508193_RenameTables.cs</DependentUpon>
     </Compile>
-    <Compile Include="LajkiMigrations\201611201918146_Init.cs" />
-    <Compile Include="LajkiMigrations\201611201918146_Init.Designer.cs">
-      <DependentUpon>201611201918146_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LajkiMigrations\201611211508298_RenameTables.cs" />
-    <Compile Include="LajkiMigrations\201611211508298_RenameTables.Designer.cs">
-      <DependentUpon>201611211508298_RenameTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MirelleMigrations\201611201919039_Init.cs" />
-    <Compile Include="MirelleMigrations\201611201919039_Init.Designer.cs">
-      <DependentUpon>201611201919039_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MirelleMigrations\201611211509026_RenameTables.cs" />
-    <Compile Include="MirelleMigrations\201611211509026_RenameTables.Designer.cs">
-      <DependentUpon>201611211509026_RenameTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MumiaMigrations\201611201920202_Init.cs" />
-    <Compile Include="MumiaMigrations\201611201920202_Init.Designer.cs">
-      <DependentUpon>201611201920202_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MumiaMigrations\201611211509537_RenameTables.cs" />
-    <Compile Include="MumiaMigrations\201611211509537_RenameTables.Designer.cs">
-      <DependentUpon>201611211509537_RenameTables.cs</DependentUpon>
-    </Compile>
     <Compile Include="MyGrodnoMigrations\201611201920112_Init.cs" />
     <Compile Include="MyGrodnoMigrations\201611201920112_Init.Designer.cs">
       <DependentUpon>201611201920112_Init.cs</DependentUpon>
@@ -427,13 +324,10 @@
       <DependentUpon>201611211509360_RenameTables.cs</DependentUpon>
     </Compile>
     <Compile Include="SportMigrations\SportConfiguration.cs" />
-    <Compile Include="EtalonMigrations\EtalonConfiguration.cs" />
     <Compile Include="Contexts\AnastasiyaContext.cs" />
-    <Compile Include="Contexts\EgorContext.cs" />
     <Compile Include="Contexts\GadanieContext.cs" />
     <Compile Include="AnastasiyaMigrations\AnastasiyaConfiguration.cs" />
     <Compile Include="GadanieMigrations\GadanieConfiguration.cs" />
-    <Compile Include="EgorMigrations\EgorConfiguration.cs" />
     <Compile Include="Configurations\ActivityHistoryConfiguration.cs" />
     <Compile Include="Configurations\Content\ColourConfiguration.cs" />
     <Compile Include="Configurations\Content\ContentColourConfiguration.cs" />
@@ -457,18 +351,11 @@
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contexts\DataBaseContext.cs" />
     <Compile Include="Contexts\AugustovskiContext.cs" />
-    <Compile Include="Contexts\KrissSpamContext.cs" />
     <Compile Include="Contexts\LikeApplication\LikeApplicationContext.cs" />
-    <Compile Include="Contexts\MakarovaSpamContext.cs" />
     <Compile Include="Contexts\GreenDozorContext.cs" />
-    <Compile Include="Contexts\MirelleContext.cs" />
-    <Compile Include="Contexts\MumiaContext.cs" />
-    <Compile Include="Contexts\CanonContext.cs" />
     <Compile Include="Contexts\NikonContext.cs" />
-    <Compile Include="Contexts\NovikovaSpamContext.cs" />
     <Compile Include="Contexts\SalsaRikaContext.cs" />
     <Compile Include="Contexts\KarinaContext.cs" />
-    <Compile Include="Contexts\LajkiContext.cs" />
     <Compile Include="Contexts\NazarContext.cs" />
     <Compile Include="Contexts\KiotoContext.cs" />
     <Compile Include="Contexts\OzernyContext.cs" />
@@ -485,15 +372,12 @@
       <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
     </Compile>
     <Compile Include="LikeApplicationMigrations\LikeApplicationConfiguration.cs" />
-    <Compile Include="MirelleMigrations\MirelleConfiguration.cs" />
     <Compile Include="Models\FunctionalityRecordDbModel.cs" />
     <Compile Include="Models\FunctionalityReportDbModel.cs" />
     <Compile Include="Models\LikeApplication\AccountToLikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeAccountDbModel.cs" />
     <Compile Include="Models\LikeApplication\LikeMediaDbModel.cs" />
     <Compile Include="Models\LikeApplication\ProxyDbModel.cs" />
-    <Compile Include="MumiaMigrations\MumiaConfiguration.cs" />
-    <Compile Include="CanonMigrations\CanonConfiguration.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\ClearFunctionalityRecordsCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\FunctionalityReportRecord.cs" />
@@ -546,62 +430,12 @@
     <Compile Include="QueriesAndCommands\Queries\Proxy\GetRandomProxyQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Proxy\GetRandomProxyQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Proxy\ProxyModel.cs" />
-    <Compile Include="_KrissSpamMigrations\201611201920443_Init.cs" />
-    <Compile Include="_KrissSpamMigrations\201611201920443_Init.Designer.cs">
-      <DependentUpon>201611201920443_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_KrissSpamMigrations\201611211510128_RenameTables.cs" />
-    <Compile Include="_KrissSpamMigrations\201611211510128_RenameTables.Designer.cs">
-      <DependentUpon>201611211510128_RenameTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_KrissSpamMigrations\201611261937194_AddInstagramId.cs" />
-    <Compile Include="_KrissSpamMigrations\201611261937194_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261937194_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_KrissSpamMigrations\201611272119452_AddCookies.cs" />
-    <Compile Include="_KrissSpamMigrations\201611272119452_AddCookies.Designer.cs">
-      <DependentUpon>201611272119452_AddCookies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_KrissSpamMigrations\KrissSpamConfiguration.cs" />
     <Compile Include="Models\Content\ColourDbModel.cs" />
     <Compile Include="Models\Content\ContentColourDbModel.cs" />
     <Compile Include="Models\Content\ContentDbModel.cs" />
     <Compile Include="Models\Content\ContentLikesHistoryDbModel.cs" />
     <Compile Include="Models\Content\ContentTypeDbModel.cs" />
     <Compile Include="NikonMigrations\NikonConfiguration.cs" />
-    <Compile Include="_MakarovaSpamMigrations\201611201920281_Init.cs" />
-    <Compile Include="_MakarovaSpamMigrations\201611201920281_Init.Designer.cs">
-      <DependentUpon>201611201920281_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_MakarovaSpamMigrations\201611211510001_RenameTables.cs" />
-    <Compile Include="_MakarovaSpamMigrations\201611211510001_RenameTables.Designer.cs">
-      <DependentUpon>201611211510001_RenameTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_MakarovaSpamMigrations\201611261936567_AddInstagramId.cs" />
-    <Compile Include="_MakarovaSpamMigrations\201611261936567_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261936567_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_MakarovaSpamMigrations\201611272119296_AddCookies.cs" />
-    <Compile Include="_MakarovaSpamMigrations\201611272119296_AddCookies.Designer.cs">
-      <DependentUpon>201611272119296_AddCookies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_NovikovaSpamMigrations\201611201920368_Init.cs" />
-    <Compile Include="_NovikovaSpamMigrations\201611201920368_Init.Designer.cs">
-      <DependentUpon>201611201920368_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_NovikovaSpamMigrations\201611211510057_RenameTables.cs" />
-    <Compile Include="_NovikovaSpamMigrations\201611211510057_RenameTables.Designer.cs">
-      <DependentUpon>201611211510057_RenameTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_NovikovaSpamMigrations\201611261937079_AddInstagramId.cs" />
-    <Compile Include="_NovikovaSpamMigrations\201611261937079_AddInstagramId.Designer.cs">
-      <DependentUpon>201611261937079_AddInstagramId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_NovikovaSpamMigrations\201611272119369_AddCookies.cs" />
-    <Compile Include="_NovikovaSpamMigrations\201611272119369_AddCookies.Designer.cs">
-      <DependentUpon>201611272119369_AddCookies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_NovikovaSpamMigrations\NovikovaSpamConfiguration.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SwitchFunctionalityAccessCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Functionality\SwitchFunctionalityAccessCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\HashTag\AddHashTagCommand.cs" />
@@ -637,11 +471,9 @@
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToDeleteCountQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowCountQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersToFollowCountQueryHandler.cs" />
-    <Compile Include="_MakarovaSpamMigrations\MakarovaSpamConfiguration.cs" />
     <Compile Include="SalsaRikaMigrations\SalsaRikaConfiguration.cs" />
     <Compile Include="KarinaMigrations\KarinaConfiguration.cs" />
     <Compile Include="KiotoMigrations\KiotoConfiguration.cs" />
-    <Compile Include="LajkiMigrations\LajkiConfiguration.cs" />
     <Compile Include="NazarMigrations\NazarConfiguration.cs" />
     <Compile Include="Models\ActivityHistoryDbModel.cs" />
     <Compile Include="Models\FeaturesDbModel.cs" />
@@ -757,42 +589,6 @@
     <EmbeddedResource Include="AugustovskiMigrations\201611272117457_AddCookies.resx">
       <DependentUpon>201611272117457_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CanonMigrations\201611201919131_Init.resx">
-      <DependentUpon>201611201919131_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CanonMigrations\201611211509077_RenameTables.resx">
-      <DependentUpon>201611211509077_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CanonMigrations\201611261935070_AddInstagramId.resx">
-      <DependentUpon>201611261935070_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CanonMigrations\201611272118146_AddCookies.resx">
-      <DependentUpon>201611272118146_AddCookies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EgorMigrations\201611201919202_Init.resx">
-      <DependentUpon>201611201919202_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EgorMigrations\201611211509132_RenameTables.resx">
-      <DependentUpon>201611211509132_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EgorMigrations\201611261935178_AddInstagramId.resx">
-      <DependentUpon>201611261935178_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EgorMigrations\201611272118222_AddCookies.resx">
-      <DependentUpon>201611272118222_AddCookies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EtalonMigrations\201611201919476_Init.resx">
-      <DependentUpon>201611201919476_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EtalonMigrations\201611211509305_RenameTables.resx">
-      <DependentUpon>201611211509305_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EtalonMigrations\201611261935487_AddInstagramId.resx">
-      <DependentUpon>201611261935487_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EtalonMigrations\201611272118447_AddCookies.resx">
-      <DependentUpon>201611272118447_AddCookies.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FiruzaMigrations\201612041956306_Init.resx">
       <DependentUpon>201612041956306_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -856,9 +652,6 @@
     <EmbeddedResource Include="KarinaMigrations\201611272117328_AddCookies.resx">
       <DependentUpon>201611272117328_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KeratinMigrations\201612061832043_Init.resx">
-      <DependentUpon>201612061832043_Init.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201611201918004_Init.resx">
       <DependentUpon>201611201918004_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -871,47 +664,11 @@
     <EmbeddedResource Include="KiotoMigrations\201611272117125_AddCookies.resx">
       <DependentUpon>201611272117125_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LajkiMigrations\201611201918146_Init.resx">
-      <DependentUpon>201611201918146_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LajkiMigrations\201611211508298_RenameTables.resx">
-      <DependentUpon>201611211508298_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LajkiMigrations\201611261933551_AddInstagramId.resx">
-      <DependentUpon>201611261933551_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LajkiMigrations\201611272117261_AddCookies.resx">
-      <DependentUpon>201611272117261_AddCookies.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610091151190_Init.resx">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.resx">
       <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MirelleMigrations\201611201919039_Init.resx">
-      <DependentUpon>201611201919039_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MirelleMigrations\201611211509026_RenameTables.resx">
-      <DependentUpon>201611211509026_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MirelleMigrations\201611261934557_AddInstagramId.resx">
-      <DependentUpon>201611261934557_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MirelleMigrations\201611272118071_AddCookies.resx">
-      <DependentUpon>201611272118071_AddCookies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MumiaMigrations\201611201920202_Init.resx">
-      <DependentUpon>201611201920202_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MumiaMigrations\201611211509537_RenameTables.resx">
-      <DependentUpon>201611211509537_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MumiaMigrations\201611261936460_AddInstagramId.resx">
-      <DependentUpon>201611261936460_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MumiaMigrations\201611272119220_AddCookies.resx">
-      <DependentUpon>201611272119220_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyGrodnoMigrations\201611201920112_Init.resx">
       <DependentUpon>201611201920112_Init.cs</DependentUpon>
@@ -996,42 +753,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StoMigrations\201611272119150_Init2.resx">
       <DependentUpon>201611272119150_Init2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_KrissSpamMigrations\201611201920443_Init.resx">
-      <DependentUpon>201611201920443_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_KrissSpamMigrations\201611211510128_RenameTables.resx">
-      <DependentUpon>201611211510128_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_KrissSpamMigrations\201611261937194_AddInstagramId.resx">
-      <DependentUpon>201611261937194_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_KrissSpamMigrations\201611272119452_AddCookies.resx">
-      <DependentUpon>201611272119452_AddCookies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_MakarovaSpamMigrations\201611201920281_Init.resx">
-      <DependentUpon>201611201920281_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_MakarovaSpamMigrations\201611211510001_RenameTables.resx">
-      <DependentUpon>201611211510001_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_MakarovaSpamMigrations\201611261936567_AddInstagramId.resx">
-      <DependentUpon>201611261936567_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_MakarovaSpamMigrations\201611272119296_AddCookies.resx">
-      <DependentUpon>201611272119296_AddCookies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_NovikovaSpamMigrations\201611201920368_Init.resx">
-      <DependentUpon>201611201920368_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_NovikovaSpamMigrations\201611211510057_RenameTables.resx">
-      <DependentUpon>201611211510057_RenameTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_NovikovaSpamMigrations\201611261937079_AddInstagramId.resx">
-      <DependentUpon>201611261937079_AddInstagramId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_NovikovaSpamMigrations\201611272119369_AddCookies.resx">
-      <DependentUpon>201611272119369_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
