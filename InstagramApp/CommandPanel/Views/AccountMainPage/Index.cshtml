@@ -156,30 +156,57 @@
         </div>
 
         <div class="center-data">
-            @if (Model.FunctionalityReport != null)
-            {
+            <div>
                 <div class="inner-box">
-                    <div><h2>Last report</h2></div>
-                    <div><h4>Start date: <span class="followers-count">@Model.FunctionalityReport.StartDate</span></h4></div>
-                    <div><h4>End date: <span class="followers-count">@Model.FunctionalityReport.EndDate</span></h4></div>
-
-                    <br />
-
-                    @foreach (var record in @Model.FunctionalityReport.Records)
-                    {
-                        <div class="inline-box box200">
+                    <div>
+                        <h2>Common information</h2>
+                    </div>
+                    <div>
+                        First report: @Model.Info.FirstReportDate (@Model.Info.FirstReportFollowersCount Followers)
+                    </div>
+                    <div class="bottom-line">
+                        <h3>Bases</h3>
+                        @foreach (var baseData in @Model.Info.Bases)
+                        {
                             <div>
-                                <b>@record.FunctionalityName</b>
+                                @baseData.BaseLink
                             </div>
-                            <div>Cancelled: @record.Cancelled</div>
-                            <div>Exceptions: @record.Exceptions</div>
-                            <div>Successed: @record.Successed</div>
-                            <div>Started: @record.Started</div>
-                            <br />
+                        }
+                    </div>
+                </div>    
+            </div>
+            <div>
+                @if (Model.FunctionalityReport != null)
+                {
+                    <div class="inner-box">
+                        <div>
+                            <h2>Last report</h2>
                         </div>
-                    }
-                </div>
-            }
+                        <div>
+                            <h4>Start date: <span class="followers-count">@Model.FunctionalityReport.StartDate</span></h4>
+                        </div>
+                        <div>
+                            <h4>End date: <span class="followers-count">@Model.FunctionalityReport.EndDate</span></h4>
+                        </div>
+
+                        <br/>
+
+                        @foreach (var record in @Model.FunctionalityReport.Records)
+                        {
+                            <div class="inline-box box200">
+                                <div>
+                                    <b>@record.FunctionalityName</b>
+                                </div>
+                                <div>Cancelled: @record.Cancelled</div>
+                                <div>Exceptions: @record.Exceptions</div>
+                                <div>Successed: @record.Successed</div>
+                                <div>Started: @record.Started</div>
+                                <br/>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
         </div>
 
         <div class="functionality-section alert alert-primary">

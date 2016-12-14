@@ -29,6 +29,8 @@ namespace CommandPanel.Models.AccountModels
 
         public List<FunctionalityMarkerViewModel> Functionalities { get; set; }
 
+        public InfoData Info { get; set; }
+
         public string ChartJsonData { get; set; }
 
         public FunctionalityReport FunctionalityReport { get; set; }

@@ -168,8 +168,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels\AccountMainStatisticViewModel.cs" />
+    <Compile Include="Models\AccountModels\BaseData.cs" />
     <Compile Include="Models\AccountModels\ChartData.cs" />
     <Compile Include="Models\AccountModels\FunctionalityMarkerViewModel.cs" />
+    <Compile Include="Models\AccountModels\InfoData.cs" />
     <Compile Include="Models\AccountModels\Report.cs" />
     <Compile Include="Models\AccountModels\ReportData.cs" />
     <Compile Include="Models\BasesModels\BasesViewModel.cs" />

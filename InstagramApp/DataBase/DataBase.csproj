@@ -229,6 +229,10 @@
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateCookiesCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateCookiesCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetFirstActivityHistoryRecordQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetFirstActivityHistoryRecordQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersForBaseQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Users\GetUsersForBaseQueryHandler.cs" />
     <Compile Include="SalsaRikaMigrations\201611261934147_AddInstagramId.cs" />
     <Compile Include="SalsaRikaMigrations\201611261934147_AddInstagramId.Designer.cs">
       <DependentUpon>201611261934147_AddInstagramId.cs</DependentUpon>

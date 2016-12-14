@@ -235,3 +235,7 @@ textarea {
 .separated-inputs {
     padding-top: 15px;
 }
+
+.bottom-line {
+    padding-bottom: 10px;
+}

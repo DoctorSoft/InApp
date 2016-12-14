@@ -2,6 +2,7 @@
 using System.Web.Script.Serialization;
 using CommandPanel.Models.AccountModels;
 using Constants;
+using DataBase.Contexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Commands.Users;
 using DataBase.QueriesAndCommands.Queries.ActivityHistory;
@@ -29,7 +30,14 @@ namespace CommandPanel.Services
                 RemoveAllUsers = settings.RemoveAllUsers
             });
 
+            var bases = new GetUsersForBaseQueryHandler(context).Handle(new GetUsersForBaseQuery
+            {
+                MaxCount = int.MaxValue
+            });
+
             var configs = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var firstReport = new GetFirstActivityHistoryRecordQueryHandler(context).Handle(new GetFirstActivityHistoryRecordQuery());
 
             var chart = new GetActivityStatisticQueryHandler(context).Handle(new GetActivityStatisticQuery { MaxCount = 14 });
             var formedChart = chart.Select(model => new ChartData
@@ -64,7 +72,16 @@ namespace CommandPanel.Services
                     Asap = statistic.Asap
                 }).ToList(),
                 ChartJsonData = chartData,
-                FunctionalityReport = report
+                FunctionalityReport = report,
+                Info = new InfoData
+                {
+                    Bases = bases.Select(s => new BaseData
+                    {
+                        BaseLink = s
+                    }).ToList(),
+                    FirstReportDate = firstReport.ActivityDateTime,
+                    FirstReportFollowersCount = firstReport.FollowersCount
+                }
             };
         }
 
