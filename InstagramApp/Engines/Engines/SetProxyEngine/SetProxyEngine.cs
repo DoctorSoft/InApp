@@ -10,6 +10,19 @@ namespace Engines.Engines.SetProxyEngine
         {
             this.NavigateToUrl(driver, "https://www.google.by/?gws_rd=ssl");
 
+            const string testWord = "TEST";
+            foreach (var nextChar in testWord)
+            {
+                SendKeys.SendWait(nextChar.ToString());
+                Thread.Sleep(100);
+            }
+
+            for (var index = 0; index < testWord.Length*2; index++)
+            {
+                SendKeys.SendWait("{BACKSPACE}");
+                Thread.Sleep(50);
+            }
+
             Thread.Sleep(1000);
 
             foreach (var nextChar in model.ProxyLogin)
