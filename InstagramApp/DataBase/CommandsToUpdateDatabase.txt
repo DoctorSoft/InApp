@@ -34,31 +34,20 @@ update-database -ConfigurationTypeName OzernyConfiguration
 update-database -ConfigurationTypeName GalaxyConfiguration
 update-database -ConfigurationTypeName KiotoConfiguration
 update-database -ConfigurationTypeName NazarConfiguration
-update-database -ConfigurationTypeName LajkiConfiguration
 update-database -ConfigurationTypeName KarinaConfiguration  
 update-database -ConfigurationTypeName SalsaRikaConfiguration
 update-database -ConfigurationTypeName AugustovskiConfiguration
 update-database -ConfigurationTypeName NikonConfiguration
 update-database -ConfigurationTypeName GreenDozorConfiguration
-update-database -ConfigurationTypeName MirelleConfiguration
 update-database -ConfigurationTypeName CanonConfiguration
-update-database -ConfigurationTypeName EgorConfiguration
 update-database -ConfigurationTypeName GadanieConfiguration
 update-database -ConfigurationTypeName AnastastasiyaConfiguration
-update-database -ConfigurationTypeName EtalonConfiguration
 update-database -ConfigurationTypeName SportConfiguration
 update-database -ConfigurationTypeName GrodnoOfficialConfiguration
 update-database -ConfigurationTypeName MyGrodnoConfiguration
 update-database -ConfigurationTypeName StoConfiguration
 update-database -ConfigurationTypeName Sto2Configuration
 update-database -ConfigurationTypeName FiruzaConfiguration
-update-database -ConfigurationTypeName KeratinConfiguration
-
-update-database -ConfigurationTypeName MumiaConfiguration
-
-update-database -ConfigurationTypeName MakarovaSpamConfiguration
-update-database -ConfigurationTypeName NovikovaSpamConfiguration
-update-database -ConfigurationTypeName KrissSpamConfiguration
 
 
 

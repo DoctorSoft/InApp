@@ -13,7 +13,7 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.Sto2,
+                AccountName.Karina, 
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(

@@ -10,7 +10,7 @@ namespace DataBaseCopyPaster
     {
         public static void Main(string[] args)
         {
-            var destinationConnection = new SportContext();
+            var destinationConnection = new Sto2Context();
             var sourceConnection = new SourceContext.SourceContext(destinationConnection.GetAccountName());
 
             Console.WriteLine("Start Functionalities");
