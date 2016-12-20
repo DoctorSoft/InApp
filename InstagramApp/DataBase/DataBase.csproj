@@ -80,6 +80,10 @@
     <Compile Include="AnastasiyaMigrations\201611272118372_AddCookies.Designer.cs">
       <DependentUpon>201611272118372_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnastasiyaMigrations\201612201826545_AddStars.cs" />
+    <Compile Include="AnastasiyaMigrations\201612201826545_AddStars.Designer.cs">
+      <DependentUpon>201612201826545_AddStars.cs</DependentUpon>
+    </Compile>
     <Compile Include="AugustovskiMigrations\201611201918383_Init.cs" />
     <Compile Include="AugustovskiMigrations\201611201918383_Init.Designer.cs">
       <DependentUpon>201611201918383_Init.cs</DependentUpon>
@@ -96,6 +100,11 @@
     <Compile Include="AugustovskiMigrations\201611272117457_AddCookies.Designer.cs">
       <DependentUpon>201611272117457_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="AugustovskiMigrations\201612201826200_AddStars.cs" />
+    <Compile Include="AugustovskiMigrations\201612201826200_AddStars.Designer.cs">
+      <DependentUpon>201612201826200_AddStars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configurations\StarRecordConfiguration.cs" />
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />
@@ -105,6 +114,10 @@
     <Compile Include="FiruzaMigrations\201612041956306_Init.cs" />
     <Compile Include="FiruzaMigrations\201612041956306_Init.Designer.cs">
       <DependentUpon>201612041956306_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FiruzaMigrations\201612201827477_AddStars.cs" />
+    <Compile Include="FiruzaMigrations\201612201827477_AddStars.Designer.cs">
+      <DependentUpon>201612201827477_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="FiruzaMigrations\FiruzaConfiguration.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.cs" />
@@ -123,6 +136,10 @@
     <Compile Include="GadanieMigrations\201611272118298_AddCookies.Designer.cs">
       <DependentUpon>201611272118298_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="GadanieMigrations\201612201826465_AddStars.cs" />
+    <Compile Include="GadanieMigrations\201612201826465_AddStars.Designer.cs">
+      <DependentUpon>201612201826465_AddStars.cs</DependentUpon>
+    </Compile>
     <Compile Include="GalaxyMigrations\201611201917531_Init.cs" />
     <Compile Include="GalaxyMigrations\201611201917531_Init.Designer.cs">
       <DependentUpon>201611201917531_Init.cs</DependentUpon>
@@ -138,6 +155,10 @@
     <Compile Include="GalaxyMigrations\201611272117056_AddCookies.cs" />
     <Compile Include="GalaxyMigrations\201611272117056_AddCookies.Designer.cs">
       <DependentUpon>201611272117056_AddCookies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GalaxyMigrations\201612201825419_AddStars.cs" />
+    <Compile Include="GalaxyMigrations\201612201825419_AddStars.Designer.cs">
+      <DependentUpon>201612201825419_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="GreenDozorMigrations\201611201918567_Init.cs" />
     <Compile Include="GreenDozorMigrations\201611201918567_Init.Designer.cs">
@@ -155,6 +176,10 @@
     <Compile Include="GreenDozorMigrations\201611272118000_AddCookies.Designer.cs">
       <DependentUpon>201611272118000_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="GreenDozorMigrations\201612201826376_AddStars.cs" />
+    <Compile Include="GreenDozorMigrations\201612201826376_AddStars.Designer.cs">
+      <DependentUpon>201612201826376_AddStars.cs</DependentUpon>
+    </Compile>
     <Compile Include="GrodnoOfficialMigrations\201611201920033_Init.cs" />
     <Compile Include="GrodnoOfficialMigrations\201611201920033_Init.Designer.cs">
       <DependentUpon>201611201920033_Init.cs</DependentUpon>
@@ -170,6 +195,10 @@
     <Compile Include="GrodnoOfficialMigrations\201611272118594_AddCookies.cs" />
     <Compile Include="GrodnoOfficialMigrations\201611272118594_AddCookies.Designer.cs">
       <DependentUpon>201611272118594_AddCookies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrodnoOfficialMigrations\201612201827129_AddStars.cs" />
+    <Compile Include="GrodnoOfficialMigrations\201612201827129_AddStars.Designer.cs">
+      <DependentUpon>201612201827129_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="KarinaMigrations\201611201918242_Init.cs" />
     <Compile Include="KarinaMigrations\201611201918242_Init.Designer.cs">
@@ -187,6 +216,10 @@
     <Compile Include="KarinaMigrations\201611272117328_AddCookies.Designer.cs">
       <DependentUpon>201611272117328_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="KarinaMigrations\201612201826048_AddStars.cs" />
+    <Compile Include="KarinaMigrations\201612201826048_AddStars.Designer.cs">
+      <DependentUpon>201612201826048_AddStars.cs</DependentUpon>
+    </Compile>
     <Compile Include="KiotoMigrations\201611261933355_AddInstagramId.cs" />
     <Compile Include="KiotoMigrations\201611261933355_AddInstagramId.Designer.cs">
       <DependentUpon>201611261933355_AddInstagramId.cs</DependentUpon>
@@ -195,6 +228,11 @@
     <Compile Include="KiotoMigrations\201611272117125_AddCookies.Designer.cs">
       <DependentUpon>201611272117125_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="KiotoMigrations\201612201825498_AddStars.cs" />
+    <Compile Include="KiotoMigrations\201612201825498_AddStars.Designer.cs">
+      <DependentUpon>201612201825498_AddStars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StarRecordDbModel.cs" />
     <Compile Include="MyGrodnoMigrations\201611261936231_AddInstagramId.cs" />
     <Compile Include="MyGrodnoMigrations\201611261936231_AddInstagramId.Designer.cs">
       <DependentUpon>201611261936231_AddInstagramId.cs</DependentUpon>
@@ -202,6 +240,10 @@
     <Compile Include="MyGrodnoMigrations\201611272119067_AddCookies.cs" />
     <Compile Include="MyGrodnoMigrations\201611272119067_AddCookies.Designer.cs">
       <DependentUpon>201611272119067_AddCookies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyGrodnoMigrations\201612201827242_AddStars.cs" />
+    <Compile Include="MyGrodnoMigrations\201612201827242_AddStars.Designer.cs">
+      <DependentUpon>201612201827242_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="NazarMigrations\201611261933447_AddInstagramId.cs" />
     <Compile Include="NazarMigrations\201611261933447_AddInstagramId.Designer.cs">
@@ -211,6 +253,10 @@
     <Compile Include="NazarMigrations\201611272117195_AddCookies.Designer.cs">
       <DependentUpon>201611272117195_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="NazarMigrations\201612201825577_AddStars.cs" />
+    <Compile Include="NazarMigrations\201612201825577_AddStars.Designer.cs">
+      <DependentUpon>201612201825577_AddStars.cs</DependentUpon>
+    </Compile>
     <Compile Include="NikonMigrations\201611261934355_AddInstagramId.cs" />
     <Compile Include="NikonMigrations\201611261934355_AddInstagramId.Designer.cs">
       <DependentUpon>201611261934355_AddInstagramId.cs</DependentUpon>
@@ -219,6 +265,10 @@
     <Compile Include="NikonMigrations\201611272117531_AddCookies.Designer.cs">
       <DependentUpon>201611272117531_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="NikonMigrations\201612201826278_AddStars.cs" />
+    <Compile Include="NikonMigrations\201612201826278_AddStars.Designer.cs">
+      <DependentUpon>201612201826278_AddStars.cs</DependentUpon>
+    </Compile>
     <Compile Include="OzernyMigrations\201611261933134_AddInstagramId.cs" />
     <Compile Include="OzernyMigrations\201611261933134_AddInstagramId.Designer.cs">
       <DependentUpon>201611261933134_AddInstagramId.cs</DependentUpon>
@@ -226,6 +276,10 @@
     <Compile Include="OzernyMigrations\201611272116575_AddCookies.cs" />
     <Compile Include="OzernyMigrations\201611272116575_AddCookies.Designer.cs">
       <DependentUpon>201611272116575_AddCookies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OzernyMigrations\201612201825314_AddStars.cs" />
+    <Compile Include="OzernyMigrations\201612201825314_AddStars.Designer.cs">
+      <DependentUpon>201612201825314_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateCookiesCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateCookiesCommandHandler.cs" />
@@ -241,6 +295,10 @@
     <Compile Include="SalsaRikaMigrations\201611272117392_AddCookies.Designer.cs">
       <DependentUpon>201611272117392_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalsaRikaMigrations\201612201826125_AddStars.cs" />
+    <Compile Include="SalsaRikaMigrations\201612201826125_AddStars.Designer.cs">
+      <DependentUpon>201612201826125_AddStars.cs</DependentUpon>
+    </Compile>
     <Compile Include="SportMigrations\201611261936002_AddInstagramId.cs" />
     <Compile Include="SportMigrations\201611261936002_AddInstagramId.Designer.cs">
       <DependentUpon>201611261936002_AddInstagramId.cs</DependentUpon>
@@ -249,9 +307,17 @@
     <Compile Include="SportMigrations\201611272118525_AddCookies.Designer.cs">
       <DependentUpon>201611272118525_AddCookies.cs</DependentUpon>
     </Compile>
+    <Compile Include="SportMigrations\201612201827046_AddStars.cs" />
+    <Compile Include="SportMigrations\201612201827046_AddStars.Designer.cs">
+      <DependentUpon>201612201827046_AddStars.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sto2Migrations\201611282002421_Init.cs" />
     <Compile Include="Sto2Migrations\201611282002421_Init.Designer.cs">
       <DependentUpon>201611282002421_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sto2Migrations\201612201827400_AddStars.cs" />
+    <Compile Include="Sto2Migrations\201612201827400_AddStars.Designer.cs">
+      <DependentUpon>201612201827400_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="Sto2Migrations\Sto2Configuration.cs" />
     <Compile Include="StoMigrations\201611242121236_Init.cs" />
@@ -265,6 +331,10 @@
     <Compile Include="StoMigrations\201611272119150_Init2.cs" />
     <Compile Include="StoMigrations\201611272119150_Init2.Designer.cs">
       <DependentUpon>201611272119150_Init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StoMigrations\201612201827321_AddStars.cs" />
+    <Compile Include="StoMigrations\201612201827321_AddStars.Designer.cs">
+      <DependentUpon>201612201827321_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="StoMigrations\StoConfiguration.cs" />
     <Compile Include="KiotoMigrations\201611201918004_Init.cs" />
@@ -581,6 +651,9 @@
     <EmbeddedResource Include="AnastasiyaMigrations\201611272118372_AddCookies.resx">
       <DependentUpon>201611272118372_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AnastasiyaMigrations\201612201826545_AddStars.resx">
+      <DependentUpon>201612201826545_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AugustovskiMigrations\201611201918383_Init.resx">
       <DependentUpon>201611201918383_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -593,8 +666,14 @@
     <EmbeddedResource Include="AugustovskiMigrations\201611272117457_AddCookies.resx">
       <DependentUpon>201611272117457_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AugustovskiMigrations\201612201826200_AddStars.resx">
+      <DependentUpon>201612201826200_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FiruzaMigrations\201612041956306_Init.resx">
       <DependentUpon>201612041956306_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FiruzaMigrations\201612201827477_AddStars.resx">
+      <DependentUpon>201612201827477_AddStars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GadanieMigrations\201611201919276_Init.resx">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>
@@ -608,6 +687,9 @@
     <EmbeddedResource Include="GadanieMigrations\201611272118298_AddCookies.resx">
       <DependentUpon>201611272118298_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GadanieMigrations\201612201826465_AddStars.resx">
+      <DependentUpon>201612201826465_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201611201917531_Init.resx">
       <DependentUpon>201611201917531_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -619,6 +701,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GalaxyMigrations\201611272117056_AddCookies.resx">
       <DependentUpon>201611272117056_AddCookies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GalaxyMigrations\201612201825419_AddStars.resx">
+      <DependentUpon>201612201825419_AddStars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GreenDozorMigrations\201611201918567_Init.resx">
       <DependentUpon>201611201918567_Init.cs</DependentUpon>
@@ -632,6 +717,9 @@
     <EmbeddedResource Include="GreenDozorMigrations\201611272118000_AddCookies.resx">
       <DependentUpon>201611272118000_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GreenDozorMigrations\201612201826376_AddStars.resx">
+      <DependentUpon>201612201826376_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GrodnoOfficialMigrations\201611201920033_Init.resx">
       <DependentUpon>201611201920033_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -643,6 +731,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GrodnoOfficialMigrations\201611272118594_AddCookies.resx">
       <DependentUpon>201611272118594_AddCookies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrodnoOfficialMigrations\201612201827129_AddStars.resx">
+      <DependentUpon>201612201827129_AddStars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201611201918242_Init.resx">
       <DependentUpon>201611201918242_Init.cs</DependentUpon>
@@ -656,6 +747,9 @@
     <EmbeddedResource Include="KarinaMigrations\201611272117328_AddCookies.resx">
       <DependentUpon>201611272117328_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KarinaMigrations\201612201826048_AddStars.resx">
+      <DependentUpon>201612201826048_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201611201918004_Init.resx">
       <DependentUpon>201611201918004_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -667,6 +761,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KiotoMigrations\201611272117125_AddCookies.resx">
       <DependentUpon>201611272117125_AddCookies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KiotoMigrations\201612201825498_AddStars.resx">
+      <DependentUpon>201612201825498_AddStars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610091151190_Init.resx">
       <DependentUpon>201610091151190_Init.cs</DependentUpon>
@@ -686,6 +783,9 @@
     <EmbeddedResource Include="MyGrodnoMigrations\201611272119067_AddCookies.resx">
       <DependentUpon>201611272119067_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyGrodnoMigrations\201612201827242_AddStars.resx">
+      <DependentUpon>201612201827242_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201611201918078_Init.resx">
       <DependentUpon>201611201918078_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -697,6 +797,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NazarMigrations\201611272117195_AddCookies.resx">
       <DependentUpon>201611272117195_AddCookies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NazarMigrations\201612201825577_AddStars.resx">
+      <DependentUpon>201612201825577_AddStars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NikonMigrations\201611201918500_Init.resx">
       <DependentUpon>201611201918500_Init.cs</DependentUpon>
@@ -710,6 +813,9 @@
     <EmbeddedResource Include="NikonMigrations\201611272117531_AddCookies.resx">
       <DependentUpon>201611272117531_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NikonMigrations\201612201826278_AddStars.resx">
+      <DependentUpon>201612201826278_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201611201917414_Init.resx">
       <DependentUpon>201611201917414_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -721,6 +827,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201611272116575_AddCookies.resx">
       <DependentUpon>201611272116575_AddCookies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzernyMigrations\201612201825314_AddStars.resx">
+      <DependentUpon>201612201825314_AddStars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201611201918308_Init.resx">
       <DependentUpon>201611201918308_Init.cs</DependentUpon>
@@ -734,6 +843,9 @@
     <EmbeddedResource Include="SalsaRikaMigrations\201611272117392_AddCookies.resx">
       <DependentUpon>201611272117392_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalsaRikaMigrations\201612201826125_AddStars.resx">
+      <DependentUpon>201612201826125_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SportMigrations\201611201919554_Init.resx">
       <DependentUpon>201611201919554_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -746,8 +858,14 @@
     <EmbeddedResource Include="SportMigrations\201611272118525_AddCookies.resx">
       <DependentUpon>201611272118525_AddCookies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SportMigrations\201612201827046_AddStars.resx">
+      <DependentUpon>201612201827046_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sto2Migrations\201611282002421_Init.resx">
       <DependentUpon>201611282002421_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sto2Migrations\201612201827400_AddStars.resx">
+      <DependentUpon>201612201827400_AddStars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StoMigrations\201611242121236_Init.resx">
       <DependentUpon>201611242121236_Init.cs</DependentUpon>
@@ -757,6 +875,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StoMigrations\201611272119150_Init2.resx">
       <DependentUpon>201611272119150_Init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StoMigrations\201612201827321_AddStars.resx">
+      <DependentUpon>201612201827321_AddStars.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

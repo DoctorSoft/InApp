@@ -1,33 +1,21 @@
-﻿add-migration -Name AddCookies -ConfigurationTypeName OzernyConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName KiotoConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName NazarConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName LajkiConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name AddCookies -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName NikonConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName GreenDozorConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName MirelleConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName CanonConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName EgorConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName GadanieConfiguration 
-add-migration -Name AddCookies -ConfigurationTypeName AnastastasiyaConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName EtalonConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName SportConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName GrodnoOfficialConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName MyGrodnoConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName StoConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName Sto2Configuration
-add-migration -Name Init -ConfigurationTypeName FiruzaConfiguration
-add-migration -Name Init -ConfigurationTypeName KeratinConfiguration
-
-add-migration -Name AddCookies -ConfigurationTypeName MumiaConfiguration
-
-add-migration -Name AddCookies -ConfigurationTypeName MakarovaSpamConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName NovikovaSpamConfiguration
-add-migration -Name AddCookies -ConfigurationTypeName KrissSpamConfiguration
-
+﻿add-migration -Name AddStars -ConfigurationTypeName OzernyConfiguration
+add-migration -Name AddStars -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name AddStars -ConfigurationTypeName KiotoConfiguration
+add-migration -Name AddStars -ConfigurationTypeName NazarConfiguration
+add-migration -Name AddStars -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name AddStars -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name AddStars -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name AddStars -ConfigurationTypeName NikonConfiguration
+add-migration -Name AddStars -ConfigurationTypeName GreenDozorConfiguration
+add-migration -Name AddStars -ConfigurationTypeName CanonConfiguration
+add-migration -Name AddStars -ConfigurationTypeName GadanieConfiguration 
+add-migration -Name AddStars -ConfigurationTypeName AnastastasiyaConfiguration
+add-migration -Name AddStars -ConfigurationTypeName SportConfiguration
+add-migration -Name AddStars -ConfigurationTypeName GrodnoOfficialConfiguration
+add-migration -Name AddStars -ConfigurationTypeName MyGrodnoConfiguration
+add-migration -Name AddStars -ConfigurationTypeName StoConfiguration
+add-migration -Name AddStars -ConfigurationTypeName Sto2Configuration
+add-migration -Name AddStars -ConfigurationTypeName FiruzaConfiguration
 
 
 update-database -ConfigurationTypeName OzernyConfiguration

@@ -57,6 +57,8 @@ namespace DataBase.Contexts
 
         public DbSet<FunctionalityReportDbModel> FunctionalityReports { get; set; }
 
+        public DbSet<StarRecordDbModel> StarRecords { get; set; } 
+
         public abstract AccountName GetAccountName(); 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -73,6 +75,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new FunctionalityConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FunctionalityRecordConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FunctionalityReportConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new StarRecordConfiguration(GetAccountName()));
 
             modelBuilder.Configurations.Add(new ContentTypeConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new ContentConfiguration(GetAccountName()));
