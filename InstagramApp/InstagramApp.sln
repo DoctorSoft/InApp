@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UselessUsersAnalizing", "Us
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewUsersFiller", "NewUsersFiller\NewUsersFiller.csproj", "{912986AA-91B8-4D99-BF38-6943D9D93A3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewStarsFiller", "NewStarsFiller\NewStarsFiller.csproj", "{F391B6A5-323B-4C0B-97AC-D1133C7C3EB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{912986AA-91B8-4D99-BF38-6943D9D93A3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{912986AA-91B8-4D99-BF38-6943D9D93A3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{912986AA-91B8-4D99-BF38-6943D9D93A3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F391B6A5-323B-4C0B-97AC-D1133C7C3EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F391B6A5-323B-4C0B-97AC-D1133C7C3EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F391B6A5-323B-4C0B-97AC-D1133C7C3EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F391B6A5-323B-4C0B-97AC-D1133C7C3EB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

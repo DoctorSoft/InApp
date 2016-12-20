@@ -37,7 +37,7 @@ namespace DataBase.QueriesAndCommands.Commands.Functionality
                 var reportRecord = new FunctionalityReportRecord
                 {
                     FunctionalityName = functionalityName.ToString("G"),
-                    Cancelled = functionalityRecords.Count(model => model.WorkStatus == WorkStatus.Calcelled),
+                    Cancelled = functionalityRecords.Count(model => model.WorkStatus == WorkStatus.Cancelled),
                     Exceptions = functionalityRecords.Count(model => model.WorkStatus == WorkStatus.Exception),
                     Started = functionalityRecords.Count(model => model.WorkStatus == WorkStatus.Started),
                     Successed = functionalityRecords.Count(model => model.WorkStatus == WorkStatus.Success)

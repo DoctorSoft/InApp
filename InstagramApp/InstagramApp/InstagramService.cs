@@ -9,6 +9,7 @@ using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Commands.History;
 using DataBase.QueriesAndCommands.Commands.Media;
 using DataBase.QueriesAndCommands.Commands.Settings;
+using DataBase.QueriesAndCommands.Commands.Stars;
 using DataBase.QueriesAndCommands.Commands.Users;
 using DataBase.QueriesAndCommands.Queries.Features;
 using DataBase.QueriesAndCommands.Queries.Functionality;
@@ -166,7 +167,7 @@ namespace InstagramApp
                 {
                     Note = "Stop unfollowing users",
                     Name = FunctionalityName.UnfollowUsers,
-                    WorkStatus = WorkStatus.Calcelled
+                    WorkStatus = WorkStatus.Cancelled
                 });
 
                 return;
@@ -206,7 +207,7 @@ namespace InstagramApp
                     {
                         Note = "Error unfollowing users: " + user,
                         Name = FunctionalityName.UnfollowUsers,
-                        WorkStatus = WorkStatus.Calcelled
+                        WorkStatus = WorkStatus.Cancelled
                     });
                 }
             }
@@ -274,7 +275,7 @@ namespace InstagramApp
                         {
                             Note = "Error following users: " + user,
                             Name = FunctionalityName.FollowUsers,
-                            WorkStatus = WorkStatus.Calcelled
+                            WorkStatus = WorkStatus.Cancelled
                         });
                     }
 
@@ -297,7 +298,7 @@ namespace InstagramApp
                     {
                         Note = "Error following users: " + user,
                         Name = FunctionalityName.FollowUsers,
-                        WorkStatus = WorkStatus.Calcelled
+                        WorkStatus = WorkStatus.Cancelled
                     });
 
                     return;
@@ -328,13 +329,13 @@ namespace InstagramApp
                     {
                         Note = "Error following users: " + user,
                         Name = FunctionalityName.FollowUsers,
-                        WorkStatus = WorkStatus.Calcelled
+                        WorkStatus = WorkStatus.Cancelled
                     });
                 }
             }
         }
 
-        public void RunBackgroundSearchingNewUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, Action<int> showProcess = null)
+        public void RunBackgroundSearchingNewUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, Action<int> showProcess = null, bool followings = true, bool followers = true)
         {
             //take risk of skipping bugs
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
@@ -352,7 +353,7 @@ namespace InstagramApp
                 {
                     Note = "Stop searching new users",
                     Name = FunctionalityName.SearchNewUsers,
-                    WorkStatus = WorkStatus.Calcelled
+                    WorkStatus = WorkStatus.Cancelled
                 });
                 return;
             }
@@ -368,21 +369,27 @@ namespace InstagramApp
                     UserLink = user
                 });
 
-                results.AddRange(new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
+                if (followings)
                 {
-                    UserLink = user,
-                    UserName = extraUserInfo.UserName,
-                    Id = extraUserInfo.Id,
-                    ShowProcess = showProcess
-                }));
+                    results.AddRange(new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
+                    {
+                        UserLink = user,
+                        UserName = extraUserInfo.UserName,
+                        Id = extraUserInfo.Id,
+                        ShowProcess = showProcess
+                    }));
+                }
 
-                results.AddRange(new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
+                if (followers)
                 {
-                    UserLink = user,
-                    UserName = extraUserInfo.UserName,
-                    Id = extraUserInfo.Id,
-                    ShowProcess = showProcess
-                }));
+                    results.AddRange(new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
+                    {
+                        UserLink = user,
+                        UserName = extraUserInfo.UserName,
+                        Id = extraUserInfo.Id,
+                        ShowProcess = showProcess
+                    }));
+                }
             }
 
             var knownUsers = new GetAllKnownUsersQueryHandler(context).Handle(new GetAllKnownUsersQuery());
@@ -392,6 +399,75 @@ namespace InstagramApp
             new MarkUsersAsToFollowCommandHandler(context).Handle(new MarkUsersAsToFollowCommand
             {
                 Users = usersToMark
+            });
+
+            foreach (var user in users)
+            {
+                new MarkUserAsCheckedForFriendsCommandHandler(context).Handle(new MarkUserAsCheckedForFriendsCommand
+                {
+                    User = user
+                });
+            }
+        }
+
+        public void RunBackgroundSearchingNewStars(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, List<string> users, Action<int> showProcess = null, bool followings = true, bool followers = false)
+        {
+            //take risk of skipping bugs
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success searching new stars",
+                Name = FunctionalityName.SearchNewUsers,
+                WorkStatus = WorkStatus.Success
+            });
+
+            if (!users.Any())
+            {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Stop searching new stars",
+                    Name = FunctionalityName.SearchNewUsers,
+                    WorkStatus = WorkStatus.Cancelled
+                });
+                return;
+            }
+
+            Registration(spyDriver, spyContext);
+
+            var results = new List<string>();
+
+            foreach (var user in users)
+            {
+                var extraUserInfo = new GetUserIdEngine().Execute(spyDriver, new GetUserIdEngineModel
+                {
+                    UserLink = user
+                });
+
+                if (followings)
+                {
+                    results.AddRange(new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
+                    {
+                        UserLink = user,
+                        UserName = extraUserInfo.UserName,
+                        Id = extraUserInfo.Id,
+                        ShowProcess = showProcess
+                    }));
+                }
+
+                if (followers)
+                {
+                    results.AddRange(new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
+                    {
+                        UserLink = user,
+                        UserName = extraUserInfo.UserName,
+                        Id = extraUserInfo.Id,
+                        ShowProcess = showProcess
+                    }));
+                }
+            }
+
+            new AddStarsCommandHandler(context).Handle(new AddStarsCommand
+            {
+                StarsUrls = results
             });
 
             foreach (var user in users)
@@ -503,7 +579,7 @@ namespace InstagramApp
                 {
                     Note = "Stop saving media by hash tag",
                     Name = FunctionalityName.SaveMediaByHashTag,
-                    WorkStatus = WorkStatus.Calcelled
+                    WorkStatus = WorkStatus.Cancelled
                 });
                 return;
             }
@@ -539,7 +615,7 @@ namespace InstagramApp
                     {
                         Note = "Error saving media by hash tag: " + hasTag,
                         Name = FunctionalityName.SaveMediaByHashTag,
-                        WorkStatus = WorkStatus.Calcelled
+                        WorkStatus = WorkStatus.Cancelled
                     });
                 }
             }   
@@ -564,7 +640,7 @@ namespace InstagramApp
                 {
                     Note = "Stop saving media by home page",
                     Name = FunctionalityName.SaveMediaByHomePage,
-                    WorkStatus = WorkStatus.Calcelled
+                    WorkStatus = WorkStatus.Cancelled
                 });
                 return;
             }
@@ -709,7 +785,7 @@ namespace InstagramApp
                 {
                     Note = "Stop adding comments",
                     Name = FunctionalityName.AddComments,
-                    WorkStatus = WorkStatus.Calcelled
+                    WorkStatus = WorkStatus.Cancelled
                 });
             }
         }
@@ -738,7 +814,7 @@ namespace InstagramApp
                 {
                     Note = "Error adding notes",
                     Name = FunctionalityName.AddActivityHistoryMark,
-                    WorkStatus = WorkStatus.Calcelled
+                    WorkStatus = WorkStatus.Cancelled
                 });
                 return;
             }

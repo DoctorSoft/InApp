@@ -283,6 +283,8 @@
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateCookiesCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateCookiesCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Stars\AddStarsCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Stars\AddStarsCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetFirstActivityHistoryRecordQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetFirstActivityHistoryRecordQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersForBaseQuery.cs" />
