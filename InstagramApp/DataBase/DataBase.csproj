@@ -106,6 +106,7 @@
     </Compile>
     <Compile Include="Configurations\StarRecordConfiguration.cs" />
     <Compile Include="Contexts\FiruzaContext.cs" />
+    <Compile Include="Contexts\GadalkaTamaraContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />
     <Compile Include="Contexts\MyGrodnoContext.cs" />
@@ -120,6 +121,11 @@
       <DependentUpon>201612201827477_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="FiruzaMigrations\FiruzaConfiguration.cs" />
+    <Compile Include="GadalkaTamaraMigrations\201612212252440_Init.cs" />
+    <Compile Include="GadalkaTamaraMigrations\201612212252440_Init.Designer.cs">
+      <DependentUpon>201612212252440_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GadalkaTamaraMigrations\GadalkaTamaraConfiguration.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.cs" />
     <Compile Include="GadanieMigrations\201611201919276_Init.Designer.cs">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>
@@ -676,6 +682,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FiruzaMigrations\201612201827477_AddStars.resx">
       <DependentUpon>201612201827477_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GadalkaTamaraMigrations\201612212252440_Init.resx">
+      <DependentUpon>201612212252440_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GadanieMigrations\201611201919276_Init.resx">
       <DependentUpon>201611201919276_Init.cs</DependentUpon>
