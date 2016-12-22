@@ -291,8 +291,14 @@
     <Compile Include="QueriesAndCommands\Commands\Settings\UpdateCookiesCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Commands\Stars\AddStarsCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Stars\AddStarsCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Stars\MarkStarAsFollowedCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Stars\MarkStarAsFollowedCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Stars\MarkStarAsUnfollowedCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Stars\MarkStarAsUnfollowedCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetFirstActivityHistoryRecordQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\ActivityHistory\GetFirstActivityHistoryRecordQueryHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Stars\GetStarsQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Stars\GetStarsQueryHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersForBaseQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Users\GetUsersForBaseQueryHandler.cs" />
     <Compile Include="SalsaRikaMigrations\201611261934147_AddInstagramId.cs" />

@@ -17,41 +17,6 @@ namespace StarFollowingApp
 {
     public class Program
     {
-        private static Task RegisterProccess<TContext>(TContext context)
-               where TContext : DataBaseContext
-        {
-            // My Dev Page Jobs
-            var aproveUsersTokenSource = new CancellationTokenSource();
-
-            var instagramService = new InstagramService();
-
-            var driver = instagramService.RegisterNewDriver(context);
-            var taskRunner = new TaskRunner();
-
-            return Task.Run(() => taskRunner.RunPeriodically(() =>
-                taskRunner.Run(instagramService, driver, context.OpenCopyContext()),
-                TimeSpan.FromSeconds(5),
-                aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
-        }
-
-        private static Task RegisterProccess<TContext>()
-            where TContext : DataBaseContext, new()
-        {
-            // My Dev Page Jobs
-            var aproveUsersTokenSource = new CancellationTokenSource();
-
-            var instagramService = new InstagramService();
-
-            var context = new TContext();
-            var driver = instagramService.RegisterNewDriver(context);
-            var taskRunner = new TaskRunner();
-
-            return Task.Run(() => taskRunner.RunPeriodically(() =>
-                taskRunner.Run(instagramService, driver, context.OpenCopyContext()),
-                TimeSpan.FromSeconds(5),
-                aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
-        }
-
         private static Task RegisterProccess(DataBaseContext context)
         {
             // My Dev Page Jobs
@@ -81,58 +46,42 @@ namespace StarFollowingApp
                     await Task.Delay(interval, token);
                 }
             }
-
-            private FunctionalityWithTokenModel GetFunctionality(InstagramService service, RemoteWebDriver driver, DataBaseContext context)
-            {
-                try
-                {
-                    return service.GetFreeFunctionality(driver, context);
-
-                }
-                catch (Exception exception)
-                {
-                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-                    {
-                        Note = "Get Functionality Exception: " + exception.Message,
-                        Name = FunctionalityName.AddActivityHistoryMark,
-                        WorkStatus = WorkStatus.Exception
-                    });
-
-                    Thread.Sleep(TimeSpan.FromSeconds(10));
-
-                    return GetFunctionality(service, driver, context);
-                }
-            }
-
+            
             public void Run(InstagramService service, RemoteWebDriver driver, DataBaseContext contextData)
             {
-                /*try
-                {
-                    actions[actionData.FunctionalityName](driver, context);
-                }
-                catch (CaptchaException exception)
-                {
-                    service.HandleCaptchaException(driver, context);
-                }
-                catch (Exception exception)
+                using (var context = contextData.OpenCopyContext())
                 {
                     try
                     {
-                        new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-                        {
-                            Note = "Exception: " + exception.Message,
-                            Name = actionData.FunctionalityName,
-                            WorkStatus = WorkStatus.Exception
-                        });
+                        Thread.Sleep(TimeSpan.FromMinutes(1));
+
+                        new StarService().FollowStar(driver, context);
+
+                        Thread.Sleep(TimeSpan.FromMinutes(1));
+
+                        new StarService().FollowStar(driver, context);
+
                     }
-                    catch (Exception)
+                    catch (CaptchaException exception)
                     {
+                        service.HandleCaptchaException(driver, context);
+                    }
+                    catch (Exception exception)
+                    {
+                        try
+                        {
+                            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                            {
+                                Note = "Exception: " + exception.Message,
+                                Name = FunctionalityName.FollowUsers,
+                                WorkStatus = WorkStatus.Exception
+                            });
+                        }
+                        catch (Exception)
+                        {
+                        }
                     }
                 }
-                finally
-                {
-                    service.LeaveFunctionality(driver, context, actionData);
-                }*/
             }
         }
 
