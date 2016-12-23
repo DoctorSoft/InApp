@@ -53,13 +53,14 @@ namespace StarFollowingApp
                 {
                     try
                     {
-                        Thread.Sleep(TimeSpan.FromMinutes(1));
 
                         new StarService().FollowStar(driver, context);
 
                         Thread.Sleep(TimeSpan.FromMinutes(1));
 
-                        new StarService().FollowStar(driver, context);
+                        new StarService().UnfollowStar(driver, context);
+                        
+                        Thread.Sleep(TimeSpan.FromMinutes(1));
 
                     }
                     catch (CaptchaException exception)
