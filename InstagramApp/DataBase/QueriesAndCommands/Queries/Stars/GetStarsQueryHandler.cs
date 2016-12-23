@@ -35,7 +35,7 @@ namespace DataBase.QueriesAndCommands.Queries.Stars
 
             var accountsToUnfollow =
                     context.StarRecords
-                        .Where(model => model.LastFollowing == null || model.LastUnfollowing.Value > limitDate)
+                        .Where(model => model.LastFollowing == null || model.LastFollowing.Value > limitDate)
                         .Where(model => model.Followed)
                         .OrderBy(model => model.Id)
                         .Take(query.MaxCount)
