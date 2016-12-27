@@ -2,6 +2,7 @@
 using System.Linq;
 using Constants;
 using DataBase.Contexts;
+using DataBase.Contexts.InnerTools;
 using InstagramApp;
 using Tools.DatabaseSearcher;
 
@@ -13,7 +14,7 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.GrodnoOfficial, 
+                AccountName.Sto2, 
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(

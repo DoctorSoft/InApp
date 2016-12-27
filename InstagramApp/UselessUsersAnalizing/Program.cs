@@ -2,6 +2,7 @@
 using System.Linq;
 using Constants;
 using DataBase.Contexts;
+using DataBase.Contexts.InnerTools;
 using InstagramApp;
 using Tools.DatabaseSearcher;
 
@@ -13,7 +14,7 @@ namespace UselessUsersAnalizing
         {
             var accounts = new[]
             {
-                AccountName.MyGrodno,
+                /*AccountName.MyGrodno,
                 AccountName.Anastasiya,
                 AccountName.Gadanie,
                 AccountName.GrodnoOfficial,
@@ -22,10 +23,10 @@ namespace UselessUsersAnalizing
                 AccountName.Augustovski,
                 AccountName.MyGrodno,
                 AccountName.Sport,
-                AccountName.Sto,
+                AccountName.Sto,*/
                 AccountName.Sto2,
-                AccountName.Ozerny,
-                AccountName.Firuza
+                /*AccountName.Ozerny,*/
+                //AccountName.Firuza
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(

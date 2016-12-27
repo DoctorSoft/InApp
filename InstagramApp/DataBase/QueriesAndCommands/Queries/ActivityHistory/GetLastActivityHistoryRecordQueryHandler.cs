@@ -2,6 +2,7 @@
 using System.Linq;
 using Constants;
 using DataBase.Contexts;
+using DataBase.Contexts.InnerTools;
 using DataBase.QueriesAndCommands.Common;
 
 namespace DataBase.QueriesAndCommands.Queries.ActivityHistory

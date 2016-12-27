@@ -5,9 +5,9 @@ using DataBase.Configurations.Content;
 using DataBase.Models;
 using DataBase.Models.Content;
 
-namespace DataBase.Contexts
+namespace DataBase.Contexts.InnerTools
 {
-    public abstract class DataBaseContext : DbContext
+    public abstract class DataBaseContext : SettingsContext
     {
         public DataBaseContext()
             :base("DefaultConnection")
@@ -32,8 +32,6 @@ namespace DataBase.Contexts
         public DbSet<RegionDbModel> Regions { get; set; }
 
         public DbSet<UserDbModel> Users { get; set; }
-		
-        public DbSet<ProfileSettingsDbModel> ProfileSettings { get; set; }
 
         public DbSet<SpamWordDbModel> SpamWords { get; set; }
 
@@ -59,8 +57,6 @@ namespace DataBase.Contexts
 
         public DbSet<StarRecordDbModel> StarRecords { get; set; } 
 
-        public abstract AccountName GetAccountName(); 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ActivityHistoryConfiguration(GetAccountName()));
@@ -68,7 +64,7 @@ namespace DataBase.Contexts
             modelBuilder.Configurations.Add(new MediaConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new RegionConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new UserConfiguration(GetAccountName()));
-            modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration(GetAccountName()));
+            //// modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new SpamWordConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new HashTagConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FeaturesConfiguration(GetAccountName()));

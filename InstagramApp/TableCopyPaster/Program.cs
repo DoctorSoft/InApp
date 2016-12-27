@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using DataBase.Contexts;
+using DataBase.Contexts.InnerTools;
 using DataBase.Models;
 using EntityFramework.BulkInsert.Extensions;
 
@@ -10,7 +11,7 @@ namespace TableCopyPaster
         public static void Main(string[] args)
         {
             DataBaseContext source = new NazarContext();
-            DataBaseContext destination = new GadalkaTamaraContext();
+            DataBaseContext destination = new Sto2Context();
 
             var list = source.StarRecords
                 .ToList().Select(model => new StarRecordDbModel

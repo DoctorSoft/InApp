@@ -107,6 +107,7 @@
     <Compile Include="Configurations\StarRecordConfiguration.cs" />
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\GadalkaTamaraContext.cs" />
+    <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />
     <Compile Include="Contexts\MyGrodnoContext.cs" />
@@ -437,7 +438,7 @@
     <Compile Include="Configurations\ProfilesSettingsConfiguration.cs" />
     <Compile Include="Configurations\RegionConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
-    <Compile Include="Contexts\DataBaseContext.cs" />
+    <Compile Include="Contexts\InnerTools\DataBaseContext.cs" />
     <Compile Include="Contexts\AugustovskiContext.cs" />
     <Compile Include="Contexts\LikeApplication\LikeApplicationContext.cs" />
     <Compile Include="Contexts\GreenDozorContext.cs" />
