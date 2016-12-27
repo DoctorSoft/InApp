@@ -40,7 +40,7 @@ namespace InstagramApp
 {
     public class InstagramService
     {
-        public RemoteWebDriver RegisterNewDriver(DataBaseContext context)
+        public RemoteWebDriver RegisterNewDriver(SettingsContext context)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
@@ -105,7 +105,7 @@ namespace InstagramApp
             public string Value { get; set; }
         }
 
-        public void Registration(RemoteWebDriver driver, DataBaseContext context)
+        public void Registration(RemoteWebDriver driver, SettingsContext context)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 

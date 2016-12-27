@@ -8,14 +8,14 @@ namespace DataBase.QueriesAndCommands.Queries.Settings
 {
     public class GetProfileSettingsQueryHandler : IQueryHandler<GetProfileSettingsQuery, ProfileSettingsDbModel>
     {
-        private readonly DataBaseContext context;
-        public GetProfileSettingsQueryHandler(DataBaseContext context)
+        private readonly SettingsContext context;
+        public GetProfileSettingsQueryHandler(SettingsContext context)
         {
             this.context = context;
         }
         public ProfileSettingsDbModel Handle(GetProfileSettingsQuery query)
         {
-            ProfileSettingsDbModel profile = context
+            var profile = context
             .ProfileSettings
             .FirstOrDefault();
 
