@@ -19,6 +19,11 @@
         Sto = 20,
         Sto2 = 21,
         Firuza = 22,
-        GadalkaTamara=23
+        GadalkaTamara = 23,
+
+        _Bot_1 = 1001,
+        _Bot_2 = 1002,
+        _Bot_3 = 1003,
+        _Bot_4 = 1004
     }
 }
