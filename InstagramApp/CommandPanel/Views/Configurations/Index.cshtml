@@ -56,7 +56,14 @@
             <div class="input-hashtag ">
                 Remove all users
                 <div>
-                    @Html.CheckBoxFor(model => model.RemoveAllUsers, new { @class = "form-control" })
+                    @Html.CheckBoxFor(model => model.RemoveAllUsers, new {@class = "form-control"})
+                </div>
+            </div>
+
+            <div class="input-hashtag ">
+                Instagram Id
+                <div>
+                    <input type="text" name="InstagramId" class="form-control" value="@Model.InstagramId" />
                 </div>
             </div>
 

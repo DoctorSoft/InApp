@@ -15,5 +15,7 @@
         public string ProxyPassword { get; set; }
 
         public bool RemoveAllUsers { get; set; }
+
+        public string InstagramId { get; set; }
     }
 }

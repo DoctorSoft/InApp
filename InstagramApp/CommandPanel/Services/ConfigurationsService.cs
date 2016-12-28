@@ -23,7 +23,8 @@ namespace CommandPanel.Services
                 Proxy = configs.Proxy,
                 ProxyName = configs.ProxyLogin,
                 ProxyPassword = configs.ProxyPassword,
-                RemoveAllUsers = configs.RemoveAllUsers
+                RemoveAllUsers = configs.RemoveAllUsers,
+                InstagramId = configs.InstagramtId.ToString()
             };
         }
 
@@ -40,7 +41,8 @@ namespace CommandPanel.Services
                 Proxy = model.Proxy,
                 ProxyPassword = model.ProxyPassword,
                 ProxyName = model.ProxyName,
-                RemoveAllUsers = model.RemoveAllUsers
+                RemoveAllUsers = model.RemoveAllUsers,
+                InstagramId = long.Parse(model.InstagramId)
             });
         }
     }

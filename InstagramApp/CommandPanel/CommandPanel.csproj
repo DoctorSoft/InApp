@@ -158,6 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountMainPageController.cs" />
     <Compile Include="Controllers\BasesController.cs" />
+    <Compile Include="Controllers\BotController.cs" />
     <Compile Include="Controllers\ConfigurationsController.cs" />
     <Compile Include="Controllers\ContentDataController.cs" />
     <Compile Include="Controllers\HashTagController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\BasesService.cs" />
+    <Compile Include="Services\BotService.cs" />
     <Compile Include="Services\ConfigurationsService.cs" />
     <Compile Include="Services\ContentService.cs" />
     <Compile Include="Services\HashTagService.cs" />
@@ -237,6 +239,7 @@
     <Content Include="Views\ImportantUsers\Index.cshtml" />
     <Content Include="Views\Configurations\Index.cshtml" />
     <Content Include="Views\Bases\Index.cshtml" />
+    <Content Include="Views\Bot\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,6 +12,7 @@ namespace CommandPanel.Services
         {
             return Enum.GetValues(typeof (AccountName))
                 .Cast<AccountName>()
+                .Where(name => (int)name < 1000)
                 .Select(name => new AccountViewModel
                 {
                     Name = name.ToString("G"),

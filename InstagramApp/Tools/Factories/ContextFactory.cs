@@ -21,5 +21,10 @@ namespace Tools.Factories
 
             return db;
         }
+
+        public SettingsContext GetBotContext(AccountName accountId)
+        {
+            return new BotContext(accountId);
+        }
     }
 }

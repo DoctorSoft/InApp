@@ -107,6 +107,7 @@
     <Compile Include="Configurations\StarRecordConfiguration.cs" />
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\GadalkaTamaraContext.cs" />
+    <Compile Include="Contexts\InnerTools\BotContext.cs" />
     <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />

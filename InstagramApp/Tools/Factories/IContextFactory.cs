@@ -7,5 +7,7 @@ namespace Tools.Factories
     public interface IContextFactory
     {
         DataBaseContext GetContext(AccountName accountId);
+
+        SettingsContext GetBotContext(AccountName accountId);
     }
 }

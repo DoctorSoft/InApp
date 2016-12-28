@@ -5,6 +5,14 @@
 @model List<CommandPanel.Models.HomeModels.AccountViewModel>
 
 <div class="row">
+    <div>
+        <a href="@Url.Action("Index", "Bot")" class="btn btn-primary pull-right">Go to bots</a>
+    </div>
+</div>
+
+<hr/>
+
+<div class="row">
 
     @foreach (var account in Model)
     {

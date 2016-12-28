@@ -26,6 +26,7 @@ namespace DataBase.QueriesAndCommands.Commands.Settings
             settings.ProxyLogin = command.ProxyName;
             settings.ProxyPassword = command.ProxyPassword;
             settings.RemoveAllUsers = command.RemoveAllUsers;
+            settings.InstagramtId = command.InstagramId;
 
             context.ProfileSettings.AddOrUpdate(settings);
 

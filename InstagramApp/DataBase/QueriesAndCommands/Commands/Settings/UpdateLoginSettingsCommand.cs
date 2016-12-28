@@ -20,5 +20,7 @@ namespace DataBase.QueriesAndCommands.Commands.Settings
         public string ProxyPassword { get; set; }
 
         public bool RemoveAllUsers { get; set; }
+
+        public long InstagramId { get; set; }
     }
 }

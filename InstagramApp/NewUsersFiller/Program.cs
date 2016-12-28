@@ -14,7 +14,7 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.Sto2, 
+                AccountName.GrodnoOfficial, 
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(
