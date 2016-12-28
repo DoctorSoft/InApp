@@ -24,7 +24,15 @@ namespace Tools.Factories
 
         public SettingsContext GetBotContext(AccountName accountId)
         {
-            return new BotContext(accountId);
+            var bases = DataBaseSearcher.GetTypesWithAttribute(
+                AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.Contains("DataBase")),
+                name => name == accountId)
+                .ToList();
+
+            var dbData = bases.FirstOrDefault();
+            var db = (SettingsContext)Activator.CreateInstance(dbData.DataBaseType);
+
+            return db;
         }
     }
 }

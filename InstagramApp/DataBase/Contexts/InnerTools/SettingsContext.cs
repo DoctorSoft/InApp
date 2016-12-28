@@ -10,7 +10,6 @@ namespace DataBase.Contexts.InnerTools
         public SettingsContext()
             :base("DefaultConnection")
         {
-            
         }
 
         protected SettingsContext(string connectionName)

@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
+using CommandPanel.Models.ConfigurationsModels;
 using CommandPanel.Services;
+using Constants;
 
 namespace CommandPanel.Controllers
 {
@@ -16,7 +18,13 @@ namespace CommandPanel.Controllers
         public ActionResult Index()
         {
             var bots = botService.GetConfigurations();
-            return View();
+            return View(bots);
+        }
+
+        public ActionResult UpdateSettings(AccountName accountId, ConfigurationsDraftModel model)
+        {
+            botService.UpdateConfigurations(accountId, model);
+            return RedirectToAction("Index", new { accountId = accountId });
         }
     }
 }

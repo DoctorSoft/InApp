@@ -239,3 +239,9 @@ textarea {
 .bottom-line {
     padding-bottom: 10px;
 }
+
+.vertical-padding {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 10px;
+}

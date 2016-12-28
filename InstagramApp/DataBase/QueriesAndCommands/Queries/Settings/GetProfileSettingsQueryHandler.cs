@@ -1,8 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Data.Entity;
+using System.Linq;
 using DataBase.Contexts;
 using DataBase.Contexts.InnerTools;
 using DataBase.Models;
 using DataBase.QueriesAndCommands.Common;
+using LikeBotMigrator;
 
 namespace DataBase.QueriesAndCommands.Queries.Settings
 {
@@ -17,10 +20,8 @@ namespace DataBase.QueriesAndCommands.Queries.Settings
 
         public ProfileSettingsDbModel Handle(GetProfileSettingsQuery query)
         {
-            var profile = context
-            .ProfileSettings
-            .FirstOrDefault();
-
+            var profile = context.ProfileSettings.FirstOrDefault();
+            
             if (profile == null)
             {
                 return new ProfileSettingsDbModel

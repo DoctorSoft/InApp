@@ -7,6 +7,7 @@ namespace DataBase.Contexts.InnerTools
         private readonly AccountName accountName;
         
         public BotContext(AccountName accountName)
+            :base()
         {
             this.accountName = accountName;
         }

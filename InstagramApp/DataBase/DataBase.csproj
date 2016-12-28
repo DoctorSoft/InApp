@@ -108,6 +108,10 @@
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\GadalkaTamaraContext.cs" />
     <Compile Include="Contexts\InnerTools\BotContext.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot4Context.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot3Context.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot2Context.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot1Context.cs" />
     <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\StoContext.cs" />
@@ -649,6 +653,10 @@
     <ProjectReference Include="..\Constants\Constants.csproj">
       <Project>{2EAC08C2-2A80-47B0-872C-91578FB53C7C}</Project>
       <Name>Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LikeBotMigrator\LikeBotMigrator.csproj">
+      <Project>{4c8ed1f0-2881-44d7-aa28-a38a5f3ee6c6}</Project>
+      <Name>LikeBotMigrator</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

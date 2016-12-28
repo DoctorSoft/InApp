@@ -3,5 +3,87 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@model List<CommandPanel.Models.ConfigurationsModels.ConfigurationsViewModel>
+
+<div class="table-bordered vertical-padding">
+</div>
+
+@foreach (var configs in @Model)
+{
+    <div class="table-bordered vertical-padding">
+        <div class="head-panel">
+            <h3> @configs.AccountId.ToString("G") </h3>
+        </div>
+        <div class="body-content">
+            <div class="row">
+                @using (Html.BeginForm("UpdateSettings", "Bot", FormMethod.Post))
+                {
+                    <input type="hidden" name="accountId" value="@configs.AccountId"/>
+
+                    <div class="input-hashtag ">
+                        Login
+                        <div>
+                            <input type="text" name="Login" class="form-control" value="@configs.Login"/>
+                        </div>
+                    </div>
+
+                    <div class="input-hashtag ">
+                        Password
+                        <div>
+                            <input type="text" name="Password" class="form-control" value="@configs.Password"/>
+                        </div>
+                    </div>
+
+                    <div class="input-hashtag ">
+                        Home Url
+                        <div>
+                            <input type="text" name="HomePage" class="form-control" value="@configs.HomePage"/>
+                        </div>
+                    </div>
+
+                    <div class="input-hashtag ">
+                        Proxy
+                        <div>
+                            <input type="text" name="Proxy" class="form-control" value="@configs.Proxy"/>
+                        </div>
+                    </div>
+
+                    <div class="input-hashtag ">
+                        Proxy Name
+                        <div>
+                            <input type="text" name="ProxyName" class="form-control" value="@configs.ProxyName"/>
+                        </div>
+                    </div>
+
+                    <div class="input-hashtag ">
+                        Proxy Password
+                        <div>
+                            <input type="text" name="ProxyPassword" class="form-control" value="@configs.ProxyPassword"/>
+                        </div>
+                    </div>
+
+                    <div class="input-hashtag ">
+                        Remove all users
+                        <div>
+                            @Html.CheckBoxFor(model => configs.RemoveAllUsers, new {@class = "form-control"})
+                        </div>
+                    </div>
+
+                    <div class="input-hashtag ">
+                        Instagram Id
+                        <div>
+                            <input type="text" name="InstagramId" class="form-control" value="@configs.InstagramId"/>
+                        </div>
+                    </div>
+
+                    <div class="input-hashtag ">
+                        <input type="submit" value="Save" class="btn btn-primary"/>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <hr/>
+}
+
 
