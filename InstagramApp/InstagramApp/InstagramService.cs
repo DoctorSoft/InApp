@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web.Script.Serialization;
 using Constants;
 using DataBase.Contexts.InnerTools;
@@ -662,6 +663,21 @@ namespace InstagramApp
                 Name = FunctionalityName.SaveMediaByHomePage,
                 WorkStatus = WorkStatus.Success
             });
+        }
+
+        public void LikeMedias(RemoteWebDriver driver, SettingsContext context, List<string> medias)
+        {
+            Registration(driver, context);
+
+            foreach (var media in medias)
+            {
+                new LikeMediaEngine().Execute(driver, new LikeMediaModel
+                {
+                    Link = media
+                });
+
+                Thread.Sleep(500);
+            }
         }
 
         public void LikeMedias(RemoteWebDriver driver, DataBaseContext context)

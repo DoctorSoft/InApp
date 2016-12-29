@@ -1,77 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using DataBase.Contexts.LikeApplication;
-using DataBase.QueriesAndCommands.Commands.LikeApplication;
-using DataBase.QueriesAndCommands.Commands.Proxy;
-using DataBase.QueriesAndCommands.Queries.LikeApplication;
-using DataBase.QueriesAndCommands.Queries.Proxy;
-using Engines.Engines.LikeMediaEngine;
-using Engines.Engines.RegistrationEngine;
-using Engines.Engines.CheckProxyListEngine;
-using Engines.Engines.GetProxyListEngine;
-using OpenQA.Selenium.Remote;
+using Constants;
+using DataBase.Contexts.InnerTools;
+using Tools.Factories;
 
 namespace LikeApplication
 {
     public class LikeApplicationService
     {
-        public void GetProxyList(RemoteWebDriver driver, LikeApplicationContext context)
-        {
-            var proxyList = GetListOfWorkingProxies(driver, new GetProxyListEngine().Execute(driver, new GetProxyListModel()));
-            if (proxyList.Count == 0) return;
-
-            new SaveProxyListCommandHandler(context).Handle(new SaveProxyListCommand
-            {
-                Proxies = proxyList.Select(inputElement => new ProxyModel()
-                {
-                    IpAddress = inputElement.Ip,
-                    Port = inputElement.Port,
-                    Speed = inputElement.Speed
-                }).ToList()
-            });
-        }
+        private static readonly Random random = new Random();
         
-        public List<CheckProxyListAnswerModel> GetListOfWorkingProxies(RemoteWebDriver driver, List<CheckProxyListAnswerModel> proxyList)
+        public List<SettingsContext> GetRadnomBots()
         {
-            return new CheckProxyListEngine().Execute(driver, new CheckProxyListModel
-            {
-                PageLoadTime = 50,
-                ProxyList = proxyList
-            });
+            var bots = Enum.GetValues(typeof(AccountName))
+                .Cast<AccountName>()
+                .Where(name => (int)name > 1000)
+                .Where(name => random.Next(2) == 0)
+                .ToList();
+
+            return bots.Select(name => new ContextFactory().GetBotContext(name)).ToList();
         }
 
-        public List<long> GetActiveAccountIds(LikeApplicationContext context)
+        public List<string> GetMidiasToLike()
         {
-            var accountIds = new GetActiveLikeAccountIdListQueryHandler(context).Handle(new GetActiveLikeAccountIdListQuery());
-
-            return accountIds;
-        }
-
-        public void LikeMediaList(RemoteWebDriver driver, LikeApplicationContext context, long accountId)
-        {
-            var data = new GetLikeAccountDataQueryHandler(context).Handle(new GetLikeAccountDataQuery
+            return new List<string>
             {
-                Id = accountId
-            });
-
-            new RegistrationEngine().Execute(driver, new RegistrationModel
-            {
-                Password = data.Password,
-                UserName = data.Login
-            });
-
-            foreach (var media in data.MediasToLike)
-            {
-                new LikeMediaEngine().Execute(driver, new LikeMediaModel
-                {
-                    Link = media
-                });
-                new RemoveAccountToLikeMediaCommandHandler(context).Handle(new RemoveAccountToLikeMediaCommand
-                {
-                    LikeAccountId = accountId,
-                    LikeMediaLink = media
-                });
-            }
-        }
+                "https://www.instagram.com/p/BOiVmmHjfMj/"
+            };
+        } 
     }
 }

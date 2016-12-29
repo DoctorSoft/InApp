@@ -88,6 +88,10 @@
       <Project>{cf94e912-8ae4-4a0e-8567-e732e5e2210d}</Project>
       <Name>Engines</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InstagramApp\InstagramApp.csproj">
+      <Project>{81d70cf3-8374-4404-b473-eb5cfe0f163a}</Project>
+      <Name>InstagramApp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LanguageDetector\LanguageDetector.csproj">
       <Project>{5e08df87-c7db-4184-8102-7e730a43c91b}</Project>
       <Name>LanguageDetector</Name>
@@ -95,6 +99,10 @@
     <ProjectReference Include="..\Engines\Engines.csproj">
       <Project>{CF94E912-8AE4-4A0E-8567-E732E5E2210D}</Project>
       <Name>Engines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{1C2BF2EB-0FCC-4746-A85F-0FB27D67A8E5}</Project>
+      <Name>Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
