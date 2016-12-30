@@ -145,33 +145,41 @@ namespace InstagramApp
 
         public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-            {
-                Note = "Start unfollowing users",
-                Name = FunctionalityName.UnfollowUsers,
-                WorkStatus = WorkStatus.Started
-            });
+            UnfollowUsers(driver, context, 3);
+        }
 
-            Registration(driver, context);
-
+        public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
-
-            var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
-            {
-                UserLink = settings.HomePageUrl
-            });
-
-            // todo: move to settings
-            if (userInfo.FollowingCount < 1000)
+            
+            if (attempts == 3)
             {
                 new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                 {
-                    Note = "Stop unfollowing users",
+                    Note = "Start unfollowing users",
                     Name = FunctionalityName.UnfollowUsers,
-                    WorkStatus = WorkStatus.Cancelled
+                    WorkStatus = WorkStatus.Started
                 });
 
-                return;
+                Registration(driver, context);
+
+                var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+                {
+                    UserLink = settings.HomePageUrl
+                });
+
+                // todo: move to settings
+                if (userInfo.FollowingCount < 1000)
+                {
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Stop unfollowing users",
+                        Name = FunctionalityName.UnfollowUsers,
+                        WorkStatus = WorkStatus.Cancelled
+                    });
+
+                    return;
+                }
             }
 
             var users = new GetUsersToDeleteQueryHandler(context).Handle(new GetUsersToDeleteQuery
@@ -204,38 +212,60 @@ namespace InstagramApp
                 }
                 else
                 {
-                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    if (attempts > 0)
                     {
-                        Note = "Error unfollowing users: " + user,
-                        Name = FunctionalityName.UnfollowUsers,
-                        WorkStatus = WorkStatus.Cancelled
-                    });
+                        UnfollowUsers(driver, context, attempts - 1);
+                    }
+                    else
+                    {
+                        new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                        {
+                            Note = "Error unfollowing users: " + user,
+                            Name = FunctionalityName.UnfollowUsers,
+                            WorkStatus = WorkStatus.Cancelled
+                        });
+                    }
                 }
             }
         }
 
         public void FollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
-            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            FollowUsers(driver, context, 3);
+        }
+
+        public void FollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        {
+            if (attempts == 3)
             {
-                Note = "Start following users",
-                Name = FunctionalityName.FollowUsers,
-                WorkStatus = WorkStatus.Started
-            });
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Start following users",
+                    Name = FunctionalityName.FollowUsers,
+                    WorkStatus = WorkStatus.Started
+                });
 
-            Registration(driver, context);
+                Registration(driver, context);
 
-            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+                var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
-            var mainUserInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
-            {
-                UserLink = settings.HomePageUrl
-            });
+                var mainUserInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+                {
+                    UserLink = settings.HomePageUrl
+                });
 
-            // todo: move to settings
-            if (mainUserInfo.FollowingCount > 6000)
-            {
-                return;
+                // todo: move to settings
+                if (mainUserInfo.FollowingCount > 6000)
+                {
+                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    {
+                        Note = "Error following users",
+                        Name = FunctionalityName.FollowUsers,
+                        WorkStatus = WorkStatus.Cancelled
+                    });
+
+                    return;
+                }
             }
 
             var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 1 });
@@ -272,12 +302,19 @@ namespace InstagramApp
                     }
                     else
                     {
-                        new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                        if (attempts > 0)
                         {
-                            Note = "Error following users: " + user,
-                            Name = FunctionalityName.FollowUsers,
-                            WorkStatus = WorkStatus.Cancelled
-                        });
+                            FollowUsers(driver, context, attempts - 1);
+                        }
+                        else
+                        {
+                            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                            {
+                                Note = "Error following users: " + user,
+                                Name = FunctionalityName.FollowUsers,
+                                WorkStatus = WorkStatus.Cancelled
+                            });
+                        }
                     }
 
                     return;
@@ -295,12 +332,19 @@ namespace InstagramApp
                         UserLink = user
                     });
 
-                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    if (attempts > 0)
                     {
-                        Note = "Error following users: " + user,
-                        Name = FunctionalityName.FollowUsers,
-                        WorkStatus = WorkStatus.Cancelled
-                    });
+                        FollowUsers(driver, context, attempts - 1);
+                    }
+                    else
+                    {
+                        new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                        {
+                            Note = "Error following users: " + user,
+                            Name = FunctionalityName.FollowUsers,
+                            WorkStatus = WorkStatus.Cancelled
+                        });
+                    }
 
                     return;
                 }
@@ -326,12 +370,19 @@ namespace InstagramApp
                 }
                 else
                 {
-                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                    if (attempts > 0)
                     {
-                        Note = "Error following users: " + user,
-                        Name = FunctionalityName.FollowUsers,
-                        WorkStatus = WorkStatus.Cancelled
-                    });
+                        FollowUsers(driver, context, attempts - 1);
+                    }
+                    else
+                    {
+                        new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                        {
+                            Note = "Error following users: " + user,
+                            Name = FunctionalityName.FollowUsers,
+                            WorkStatus = WorkStatus.Cancelled
+                        });
+                    }
                 }
             }
         }
