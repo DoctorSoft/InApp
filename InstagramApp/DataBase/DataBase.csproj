@@ -108,6 +108,12 @@
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\GadalkaTamaraContext.cs" />
     <Compile Include="Contexts\InnerTools\BotContext.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot5Context.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot6Context.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot9Context.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot7Context.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot10Context.cs" />
+    <Compile Include="Contexts\InnerTools\BotContexts\Bot8Context.cs" />
     <Compile Include="Contexts\InnerTools\BotContexts\Bot4Context.cs" />
     <Compile Include="Contexts\InnerTools\BotContexts\Bot3Context.cs" />
     <Compile Include="Contexts\InnerTools\BotContexts\Bot2Context.cs" />

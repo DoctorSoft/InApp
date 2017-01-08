@@ -18,7 +18,7 @@ namespace DataBase.QueriesAndCommands.Queries.Stars
 
         public List<string> Handle(GetStarsQuery query)
         {
-            var limitDate = DateTime.Now.AddHours(-3);
+            var limitDate = DateTime.Now.AddMinutes(-30);
 
             if (query.ToFollow)
             {

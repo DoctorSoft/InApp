@@ -15,7 +15,7 @@ namespace NewStarsFiller
         {
             var accounts = new[]
             {
-                AccountName.Nazar, 
+                AccountName.SalsaRika, 
             };
 
             var sources = new List<string>

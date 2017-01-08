@@ -13,7 +13,7 @@ namespace LikeApplication
         static void Main(string[] args)
         {
             var likeService = new LikeApplicationService();
-            var bots = likeService.GetRadnomBots();
+            var bots = likeService.GetRandomBots();
             var medias = likeService.GetMidiasToLike();
 
             foreach (var bot in bots)
@@ -25,7 +25,7 @@ namespace LikeApplication
 
                 driver.Close();
 
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
             }
         }
     }

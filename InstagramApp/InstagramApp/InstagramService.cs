@@ -727,7 +727,7 @@ namespace InstagramApp
                     Link = media
                 });
 
-                Thread.Sleep(500);
+                Thread.Sleep(1500);
             }
         }
 

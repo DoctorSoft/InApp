@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Constants;
 using DataBase.Contexts;
 using DataBase.Contexts.InnerTools;
 using DataBase.Models;
@@ -10,8 +11,8 @@ namespace TableCopyPaster
     {
         public static void Main(string[] args)
         {
-            DataBaseContext source = new NazarContext();
-            DataBaseContext destination = new Sto2Context();
+            DataBaseContext source = new SalsaRikaContext();
+            DataBaseContext destination = new NikonContext();
 
             var list = source.StarRecords
                 .ToList().Select(model => new StarRecordDbModel

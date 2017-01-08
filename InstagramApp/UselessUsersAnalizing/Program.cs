@@ -14,19 +14,18 @@ namespace UselessUsersAnalizing
         {
             var accounts = new[]
             {
-                /*AccountName.MyGrodno,
                 AccountName.Anastasiya,
                 AccountName.Gadanie,
-                AccountName.GrodnoOfficial,
                 AccountName.Karina,
                 AccountName.Kioto,
-                AccountName.Augustovski,
                 AccountName.MyGrodno,
                 AccountName.Sport,
-                AccountName.Sto,*/
+                AccountName.Sto,
                 AccountName.Sto2,
-                /*AccountName.Ozerny,*/
-                //AccountName.Firuza
+                AccountName.Ozerny,
+                AccountName.Firuza,
+                AccountName.GreenDozor, 
+                AccountName.Nazar, 
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(
