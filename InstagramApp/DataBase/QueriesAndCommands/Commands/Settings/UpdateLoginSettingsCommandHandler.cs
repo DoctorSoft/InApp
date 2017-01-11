@@ -11,9 +11,9 @@ namespace DataBase.QueriesAndCommands.Commands.Settings
 {
     public class UpdateLoginSettingsCommandHandler : ICommandHandler<UpdateLoginSettingsCommand, VoidCommandResponse>
     {
-        private readonly SettingsContext context;
+        private readonly ISettingsContext context;
 
-        public UpdateLoginSettingsCommandHandler(SettingsContext context)
+        public UpdateLoginSettingsCommandHandler(ISettingsContext context)
         {
             this.context = context;
         }

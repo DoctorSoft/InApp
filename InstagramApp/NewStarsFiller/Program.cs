@@ -15,12 +15,12 @@ namespace NewStarsFiller
         {
             var accounts = new[]
             {
-                AccountName.SalsaRika, 
+                AccountName.WeHeartGrodno, 
             };
 
             var sources = new List<string>
             {
-                "https://www.instagram.com/canon.by/"
+                "https://www.instagram.com/WeHeartGrodno/"
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(

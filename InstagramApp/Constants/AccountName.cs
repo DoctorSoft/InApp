@@ -20,6 +20,7 @@
         Sto2 = 21,
         Firuza = 22,
         GadalkaTamara = 23,
+        WeHeartGrodno = 24,
 
         _Bot_1 = 1001,
         _Bot_2 = 1002,
@@ -30,6 +31,9 @@
         _Bot_7 = 1007,
         _Bot_8 = 1008,
         _Bot_9 = 1009,
-        _Bot_10 = 1010
+        _Bot_10 = 1010,
+
+        __Store_Minsk = 2001,
+        __Store_Grodno = 2002
     }
 }

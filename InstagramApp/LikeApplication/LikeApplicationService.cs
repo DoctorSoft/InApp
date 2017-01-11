@@ -10,8 +10,8 @@ namespace LikeApplication
     public class LikeApplicationService
     {
         private static readonly Random random = new Random();
-        
-        public List<SettingsContext> GetRandomBots()
+
+        public List<ISettingsContext> GetRandomBots()
         {
             var bots = Enum.GetValues(typeof(AccountName))
                 .Cast<AccountName>()

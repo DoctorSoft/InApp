@@ -5,7 +5,7 @@ using DataBase.Models;
 
 namespace DataBase.Contexts.InnerTools
 {
-    public abstract class SettingsContext : DbContext
+    public abstract class SettingsContext : DbContext, ISettingsContext
     {
         public SettingsContext()
             :base("DefaultConnection")

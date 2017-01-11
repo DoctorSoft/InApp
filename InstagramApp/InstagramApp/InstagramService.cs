@@ -40,7 +40,7 @@ namespace InstagramApp
 {
     public class InstagramService
     {
-        public RemoteWebDriver RegisterNewDriver(SettingsContext context)
+        public RemoteWebDriver RegisterNewDriver(ISettingsContext context)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
@@ -105,7 +105,7 @@ namespace InstagramApp
             public string Value { get; set; }
         }
 
-        public void Registration(RemoteWebDriver driver, SettingsContext context)
+        public void Registration(RemoteWebDriver driver, ISettingsContext context)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
@@ -387,26 +387,12 @@ namespace InstagramApp
             }
         }
 
-        public void RunBackgroundSearchingNewUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, Action<int> showProcess = null, bool followings = true, bool followers = true)
+        public void RunBackgroundSearchingNewUsers(IStoreContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, Action<int> showProcess = null, bool followings = true, bool followers = true)
         {
-            //take risk of skipping bugs
-            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-            {
-                Note = "Success searching new users",
-                Name = FunctionalityName.SearchNewUsers,
-                WorkStatus = WorkStatus.Success
-            });
-
-            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = 1 });
+            var users = new GetUsersNotCheckedForFriendsQueryHandler(context).Handle(new GetUsersNotCheckedForFriendsQuery { MaxCount = int.MaxValue });
 
             if (!users.Any())
             {
-                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-                {
-                    Note = "Stop searching new users",
-                    Name = FunctionalityName.SearchNewUsers,
-                    WorkStatus = WorkStatus.Cancelled
-                });
                 return;
             }
             
@@ -716,7 +702,7 @@ namespace InstagramApp
             });
         }
 
-        public void LikeMedias(RemoteWebDriver driver, SettingsContext context, List<string> medias)
+        public void LikeMedias(RemoteWebDriver driver, ISettingsContext context, List<string> medias)
         {
             Registration(driver, context);
 

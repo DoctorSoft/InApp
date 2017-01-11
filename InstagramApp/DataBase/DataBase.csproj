@@ -118,8 +118,14 @@
     <Compile Include="Contexts\InnerTools\BotContexts\Bot3Context.cs" />
     <Compile Include="Contexts\InnerTools\BotContexts\Bot2Context.cs" />
     <Compile Include="Contexts\InnerTools\BotContexts\Bot1Context.cs" />
+    <Compile Include="Contexts\InnerTools\ISettingsContext.cs" />
+    <Compile Include="Contexts\InnerTools\IStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\MinskStoreContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
+    <Compile Include="Contexts\WeHeartGrodnoContext.cs" />
     <Compile Include="Contexts\StoContext.cs" />
     <Compile Include="Contexts\MyGrodnoContext.cs" />
     <Compile Include="Contexts\GrodnoOfficialContext.cs" />
@@ -346,6 +352,11 @@
       <DependentUpon>201612201827400_AddStars.cs</DependentUpon>
     </Compile>
     <Compile Include="Sto2Migrations\Sto2Configuration.cs" />
+    <Compile Include="WeHeartGrodnoMigrations\201701092146370_Init.cs" />
+    <Compile Include="WeHeartGrodnoMigrations\201701092146370_Init.Designer.cs">
+      <DependentUpon>201701092146370_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeHeartGrodnoMigrations\WeHeartGrodnoConfiguration.cs" />
     <Compile Include="StoMigrations\201611242121236_Init.cs" />
     <Compile Include="StoMigrations\201611242121236_Init.Designer.cs">
       <DependentUpon>201611242121236_Init.cs</DependentUpon>
@@ -911,6 +922,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StoMigrations\201612201827321_AddStars.resx">
       <DependentUpon>201612201827321_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeHeartGrodnoMigrations\201701092146370_Init.resx">
+      <DependentUpon>201701092146370_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

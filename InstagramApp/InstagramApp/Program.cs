@@ -21,7 +21,7 @@ namespace InstagramApp
         /// Ozerny
         /// </summary>
 
-        private static Task RegisterProccess<TContext>(TContext context)
+        /*private static Task RegisterProccess<TContext>(TContext context)
             where TContext : DataBaseContext
         {
             // My Dev Page Jobs
@@ -54,7 +54,7 @@ namespace InstagramApp
                 taskRunner.Run(instagramService, driver, context.OpenCopyContext()),
                 TimeSpan.FromSeconds(5),
                 aproveUsersTokenSource.Token), aproveUsersTokenSource.Token);
-        }
+        }*/
 
         private static Task RegisterProccess(DataBaseContext context)
         {
@@ -110,54 +110,61 @@ namespace InstagramApp
 
             public void Run(InstagramService service, RemoteWebDriver driver, DataBaseContext contextData)
             {
-                var actions = new Dictionary<FunctionalityName, Action<RemoteWebDriver, DataBaseContext>>
+                try
                 {
-                    {FunctionalityName.SaveMediaByHashTag, service.SaveMediaByHashTag},
-                    {FunctionalityName.SaveMediaByHomePage, service.SaveMediaByHomePage}, 
-                    {FunctionalityName.LikeMedias, service.LikeMedias},
-                    {FunctionalityName.SearchNewUsers, service.SearchNewUsers},
-                    {FunctionalityName.FollowUsers, service.FollowUsers},
-                    {FunctionalityName.SearchUselessUsers, service.SearchUselessUsers},
-                    {FunctionalityName.UnfollowUsers, service.UnfollowUsers},
-                    {FunctionalityName.ClearOldMedia, service.ClearOldMedia}, 
-                    {FunctionalityName.AddComments, service.AddComments},
-                    {FunctionalityName.AddActivityHistoryMark, service.AddActivityHistoryMark} 
-                };
-
-                using (var context = contextData.OpenCopyContext())
-                {
-                    var actionData = GetFunctionality(service, driver, context);
-
-                    if (service.FunctionalityIsAllowed(driver, context, actionData))
+                    var actions = new Dictionary<FunctionalityName, Action<RemoteWebDriver, DataBaseContext>>
                     {
-                        try
-                        {
-                            actions[actionData.FunctionalityName](driver, context);
-                        }
-                        catch (CaptchaException exception)
-                        {
-                            service.HandleCaptchaException(driver, context);
-                        }
-                        catch (Exception exception)
+                        {FunctionalityName.SaveMediaByHashTag, service.SaveMediaByHashTag},
+                        {FunctionalityName.SaveMediaByHomePage, service.SaveMediaByHomePage},
+                        {FunctionalityName.LikeMedias, service.LikeMedias},
+                        {FunctionalityName.SearchNewUsers, service.SearchNewUsers},
+                        {FunctionalityName.FollowUsers, service.FollowUsers},
+                        {FunctionalityName.SearchUselessUsers, service.SearchUselessUsers},
+                        {FunctionalityName.UnfollowUsers, service.UnfollowUsers},
+                        {FunctionalityName.ClearOldMedia, service.ClearOldMedia},
+                        {FunctionalityName.AddComments, service.AddComments},
+                        {FunctionalityName.AddActivityHistoryMark, service.AddActivityHistoryMark}
+                    };
+
+                    using (var context = contextData.OpenCopyContext())
+                    {
+                        var actionData = GetFunctionality(service, driver, context);
+
+                        if (service.FunctionalityIsAllowed(driver, context, actionData))
                         {
                             try
                             {
-                                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
-                                {
-                                    Note = "Exception: " + exception.Message,
-                                    Name = actionData.FunctionalityName,
-                                    WorkStatus = WorkStatus.Exception
-                                });
+                                actions[actionData.FunctionalityName](driver, context);
                             }
-                            catch (Exception)
+                            catch (CaptchaException exception)
                             {
+                                service.HandleCaptchaException(driver, context);
                             }
-                        }
-                        finally
-                        {
-                            service.LeaveFunctionality(driver, context, actionData);
+                            catch (Exception exception)
+                            {
+                                try
+                                {
+                                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                                    {
+                                        Note = "Exception: " + exception.Message,
+                                        Name = actionData.FunctionalityName,
+                                        WorkStatus = WorkStatus.Exception
+                                    });
+                                }
+                                catch (Exception)
+                                {
+                                }
+                            }
+                            finally
+                            {
+                                service.LeaveFunctionality(driver, context, actionData);
+                            }
                         }
                     }
+                }
+                catch
+                {
+                    
                 }
             }
         }

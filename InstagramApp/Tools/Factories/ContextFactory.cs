@@ -22,7 +22,7 @@ namespace Tools.Factories
             return db;
         }
 
-        public SettingsContext GetBotContext(AccountName accountId)
+        public ISettingsContext GetBotContext(AccountName accountId)
         {
             var bases = DataBaseSearcher.GetTypesWithAttribute(
                 AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.Contains("DataBase")),
@@ -30,7 +30,7 @@ namespace Tools.Factories
                 .ToList();
 
             var dbData = bases.FirstOrDefault();
-            var db = (SettingsContext)Activator.CreateInstance(dbData.DataBaseType);
+            var db = (ISettingsContext)Activator.CreateInstance(dbData.DataBaseType);
 
             return db;
         }

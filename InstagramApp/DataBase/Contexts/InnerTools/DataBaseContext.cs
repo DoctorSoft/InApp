@@ -1,13 +1,18 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Runtime.Remoting.Contexts;
 using Constants;
 using DataBase.Configurations;
 using DataBase.Configurations.Content;
 using DataBase.Models;
 using DataBase.Models.Content;
+using EntityFramework.BulkInsert.Extensions;
 
 namespace DataBase.Contexts.InnerTools
 {
-    public abstract class DataBaseContext : SettingsContext
+    public abstract class DataBaseContext : DbContext, ISettingsContext, IStoreContext
     {
         public DataBaseContext()
             :base("DefaultConnection")
@@ -55,7 +60,32 @@ namespace DataBase.Contexts.InnerTools
 
         public DbSet<FunctionalityReportDbModel> FunctionalityReports { get; set; }
 
-        public DbSet<StarRecordDbModel> StarRecords { get; set; } 
+        public DbSet<StarRecordDbModel> StarRecords { get; set; }
+
+        public DbSet<ProfileSettingsDbModel> ProfileSettings { get; set; }
+
+        public abstract AccountName GetAccountName();
+
+        public void BulkInsert<T>(IEnumerable<T> entities, int? batchSize = null)
+        {
+            BulkInsertExtension.BulkInsert(this, entities, batchSize);
+        }
+
+        public void BulkInsert<T>(IEnumerable<T> entities, BulkInsertOptions options)
+        {
+            BulkInsertExtension.BulkInsert(this, entities, options);
+        }
+
+        public void BulkInsert<T>(IEnumerable<T> entities, SqlBulkCopyOptions sqlBulkCopyOptions, int? batchSize = null)
+        {
+            BulkInsertExtension.BulkInsert(this, entities, sqlBulkCopyOptions, batchSize);
+        }
+
+        public void BulkInsert<T>(IEnumerable<T> entities, IDbTransaction transaction,
+            SqlBulkCopyOptions sqlBulkCopyOptions = SqlBulkCopyOptions.Default, int? batchSize = null)
+        {
+            BulkInsertExtension.BulkInsert(this, entities, transaction, sqlBulkCopyOptions, batchSize);
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -64,7 +94,7 @@ namespace DataBase.Contexts.InnerTools
             modelBuilder.Configurations.Add(new MediaConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new RegionConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new UserConfiguration(GetAccountName()));
-            //// modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration(GetAccountName()));
+            modelBuilder.Configurations.Add(new ProfilesSettingsConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new SpamWordConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new HashTagConfiguration(GetAccountName()));
             modelBuilder.Configurations.Add(new FeaturesConfiguration(GetAccountName()));

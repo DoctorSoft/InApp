@@ -8,9 +8,9 @@ namespace DataBase.QueriesAndCommands.Commands.Users
 {
     public class MarkUserAsCheckedForFriendsCommandHandler : ICommandHandler<MarkUserAsCheckedForFriendsCommand, VoidCommandResponse>
     {
-        private readonly DataBaseContext context;
+        private readonly IStoreContext context;
 
-        public MarkUserAsCheckedForFriendsCommandHandler(DataBaseContext context)
+        public MarkUserAsCheckedForFriendsCommandHandler(IStoreContext context)
         {
             this.context = context;
         }

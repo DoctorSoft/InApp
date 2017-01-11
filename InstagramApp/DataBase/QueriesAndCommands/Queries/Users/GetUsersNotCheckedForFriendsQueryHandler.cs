@@ -9,9 +9,9 @@ namespace DataBase.QueriesAndCommands.Queries.Users
 {
     public class GetUsersNotCheckedForFriendsQueryHandler : IQueryHandler<GetUsersNotCheckedForFriendsQuery, List<string>>
     {
-        private readonly DataBaseContext context;
+        private readonly IStoreContext context;
 
-        public GetUsersNotCheckedForFriendsQueryHandler(DataBaseContext context)
+        public GetUsersNotCheckedForFriendsQueryHandler(IStoreContext context)
         {
             this.context = context;
         }

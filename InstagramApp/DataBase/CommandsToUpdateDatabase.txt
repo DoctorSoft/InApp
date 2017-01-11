@@ -17,6 +17,7 @@ add-migration -Name AddStars -ConfigurationTypeName StoConfiguration
 add-migration -Name AddStars -ConfigurationTypeName Sto2Configuration
 add-migration -Name AddStars -ConfigurationTypeName FiruzaConfiguration
 add-migration -Name Init -ConfigurationTypeName GadalkaTamaraConfiguration
+add-migration -Name Init -ConfigurationTypeName WeHeartgrodnoConfiguration
 
 
 update-database -ConfigurationTypeName OzernyConfiguration
@@ -38,6 +39,7 @@ update-database -ConfigurationTypeName StoConfiguration
 update-database -ConfigurationTypeName Sto2Configuration
 update-database -ConfigurationTypeName FiruzaConfiguration
 update-database -ConfigurationTypeName GadalkaTamaraConfiguration
+update-database -ConfigurationTypeName WeHeartgrodnoConfiguration
 
 
 

@@ -8,9 +8,9 @@ namespace DataBase.QueriesAndCommands.Commands.Settings
 {
     public class UpdateCookiesCommandHandler : ICommandHandler<UpdateCookiesCommand, VoidCommandResponse>
     {
-        private readonly SettingsContext context;
+        private readonly ISettingsContext context;
 
-        public UpdateCookiesCommandHandler(SettingsContext context)
+        public UpdateCookiesCommandHandler(ISettingsContext context)
         {
             this.context = context;
         }

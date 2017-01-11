@@ -8,9 +8,9 @@ namespace DataBase.QueriesAndCommands.Queries.Users
 {
     public class GetAllKnownUsersQueryHandler : IQueryHandler<GetAllKnownUsersQuery, List<string>>
     {
-        private readonly DataBaseContext context;
+        private readonly IStoreContext context;
 
-        public GetAllKnownUsersQueryHandler(DataBaseContext context)
+        public GetAllKnownUsersQueryHandler(IStoreContext context)
         {
             this.context = context;
         }

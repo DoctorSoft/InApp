@@ -14,7 +14,7 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.Galaxy, 
+                AccountName.__Store_Minsk, 
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -35,7 +35,7 @@ namespace NewUsersFiller
                 try
                 {
                     var dbData = bases[index];
-                    var db = (DataBaseContext)Activator.CreateInstance(dbData.DataBaseType);
+                    var db = (IStoreContext)Activator.CreateInstance(dbData.DataBaseType);
 
                     Console.WriteLine("=======Start=====");
 

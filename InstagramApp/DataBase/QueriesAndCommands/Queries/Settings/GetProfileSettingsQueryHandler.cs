@@ -11,9 +11,9 @@ namespace DataBase.QueriesAndCommands.Queries.Settings
 {
     public class GetProfileSettingsQueryHandler : IQueryHandler<GetProfileSettingsQuery, ProfileSettingsDbModel>
     {
-        private readonly SettingsContext context;
+        private readonly ISettingsContext context;
 
-        public GetProfileSettingsQueryHandler(SettingsContext context)
+        public GetProfileSettingsQueryHandler(ISettingsContext context)
         {
             this.context = context;
         }

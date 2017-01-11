@@ -8,6 +8,6 @@ namespace Tools.Factories
     {
         DataBaseContext GetContext(AccountName accountId);
 
-        SettingsContext GetBotContext(AccountName accountId);
+        ISettingsContext GetBotContext(AccountName accountId);
     }
 }
