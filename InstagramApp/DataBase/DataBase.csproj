@@ -123,6 +123,7 @@
     <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\GomelStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\MinskStoreContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\WeHeartGrodnoContext.cs" />

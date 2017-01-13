@@ -34,6 +34,7 @@
         _Bot_10 = 1010,
 
         __Store_Minsk = 2001,
-        __Store_Grodno = 2002
+        __Store_Grodno = 2002,
+        __Store_Gomel = 2003,
     }
 }
