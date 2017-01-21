@@ -21,6 +21,7 @@
         Firuza = 22,
         GadalkaTamara = 23,
         WeHeartGrodno = 24,
+        SystemDoctor = 25,
 
         _Bot_1 = 1001,
         _Bot_2 = 1002,

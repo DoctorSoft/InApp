@@ -125,6 +125,7 @@
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GomelStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\MinskStoreContext.cs" />
+    <Compile Include="Contexts\SystemDoctorContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />
     <Compile Include="Contexts\WeHeartGrodnoContext.cs" />
     <Compile Include="Contexts\StoContext.cs" />
@@ -245,6 +246,11 @@
     <Compile Include="KarinaMigrations\201612201826048_AddStars.Designer.cs">
       <DependentUpon>201612201826048_AddStars.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemDoctorMigrations\201701172301226_Init.cs" />
+    <Compile Include="SystemDoctorMigrations\201701172301226_Init.Designer.cs">
+      <DependentUpon>201701172301226_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemDoctorMigrations\SystemDoctorConfiguration.cs" />
     <Compile Include="KiotoMigrations\201611261933355_AddInstagramId.cs" />
     <Compile Include="KiotoMigrations\201611261933355_AddInstagramId.Designer.cs">
       <DependentUpon>201611261933355_AddInstagramId.cs</DependentUpon>
@@ -923,6 +929,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StoMigrations\201612201827321_AddStars.resx">
       <DependentUpon>201612201827321_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemDoctorMigrations\201701172301226_Init.resx">
+      <DependentUpon>201701172301226_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeHeartGrodnoMigrations\201701092146370_Init.resx">
       <DependentUpon>201701092146370_Init.cs</DependentUpon>

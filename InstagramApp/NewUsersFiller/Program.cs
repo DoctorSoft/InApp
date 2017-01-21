@@ -14,7 +14,7 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.__Store_Gomel, 
+                AccountName.SystemDoctor, 
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -39,7 +39,7 @@ namespace NewUsersFiller
 
                     Console.WriteLine("=======Start=====");
 
-                    service.RunBackgroundSearchingNewUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="), true, false);
+                    service.RunBackgroundSearchingNewUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="), true, true);
                 }
                 catch (Exception)
                 {
