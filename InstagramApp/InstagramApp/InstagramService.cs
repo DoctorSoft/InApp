@@ -611,7 +611,7 @@ namespace InstagramApp
 
             var count = new GetMediaToLikeCountQueryHandler(context).Handle(new GetMediaToLikeCountQuery());
 
-            if (count > 3000)
+            if (count > 10000)
             {
                 new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                 {

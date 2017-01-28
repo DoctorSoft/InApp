@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Constants;
 using DataBase.Contexts;
@@ -22,6 +23,7 @@ namespace DataBase.QueriesAndCommands.Queries.Media
                 .Medias
                 .Where(model => model.MediaStatus == MediaStatus.ToLike)
                 .Select(model => model.Link)
+                .OrderBy(s => Guid.NewGuid())
                 .Take(query.MaxCount)
                 .ToList();
 
