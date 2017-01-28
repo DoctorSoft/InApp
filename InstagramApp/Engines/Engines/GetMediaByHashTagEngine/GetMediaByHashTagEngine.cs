@@ -72,10 +72,12 @@ namespace Engines.Engines.GetMediaByHashTagEngine
 
         private IEnumerable<IWebElement> GetLinksToImages(RemoteWebDriver driver, int countImages)
         {
+            var linksToIgnore = driver.FindElement(By.ClassName("_5kftd")).FindElements(By.ClassName("_8mlbc"));
+
             var linksToImages = driver
             .FindElements(By.ClassName("_8mlbc")).Take(countImages);
 
-            return linksToImages;
+            return linksToImages.Except(linksToIgnore);
         }
 
     }
