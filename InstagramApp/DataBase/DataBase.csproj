@@ -107,6 +107,7 @@
     <Compile Include="Configurations\StarRecordConfiguration.cs" />
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\GadalkaTamaraContext.cs" />
+    <Compile Include="Contexts\GreenShopContext.cs" />
     <Compile Include="Contexts\InnerTools\BotContext.cs" />
     <Compile Include="Contexts\InnerTools\BotContexts\Bot5Context.cs" />
     <Compile Include="Contexts\InnerTools\BotContexts\Bot6Context.cs" />
@@ -186,6 +187,11 @@
     <Compile Include="GalaxyMigrations\201612201825419_AddStars.Designer.cs">
       <DependentUpon>201612201825419_AddStars.cs</DependentUpon>
     </Compile>
+    <Compile Include="GreenShopMigrations\201701302214078_Init.cs" />
+    <Compile Include="GreenShopMigrations\201701302214078_Init.Designer.cs">
+      <DependentUpon>201701302214078_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GreenShopMigrations\GreenShopConfiguration.cs" />
     <Compile Include="GreenDozorMigrations\201611201918567_Init.cs" />
     <Compile Include="GreenDozorMigrations\201611201918567_Init.Designer.cs">
       <DependentUpon>201611201918567_Init.cs</DependentUpon>
@@ -770,6 +776,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GreenDozorMigrations\201612201826376_AddStars.resx">
       <DependentUpon>201612201826376_AddStars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GreenShopMigrations\201701302214078_Init.resx">
+      <DependentUpon>201701302214078_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrodnoOfficialMigrations\201611201920033_Init.resx">
       <DependentUpon>201611201920033_Init.cs</DependentUpon>

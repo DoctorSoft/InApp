@@ -19,6 +19,7 @@ add-migration -Name AddStars -ConfigurationTypeName FiruzaConfiguration
 add-migration -Name Init -ConfigurationTypeName GadalkaTamaraConfiguration
 add-migration -Name Init -ConfigurationTypeName WeHeartgrodnoConfiguration
 add-migration -Name Init -ConfigurationTypeName SystemDoctorConfiguration
+add-migration -Name Init -ConfigurationTypeName GreenShopConfiguration
 
 
 update-database -ConfigurationTypeName OzernyConfiguration
@@ -42,6 +43,8 @@ update-database -ConfigurationTypeName FiruzaConfiguration
 update-database -ConfigurationTypeName GadalkaTamaraConfiguration
 update-database -ConfigurationTypeName WeHeartgrodnoConfiguration
 update-database -ConfigurationTypeName SystemDoctorConfiguration
+update-database -ConfigurationTypeName GreenShopConfiguration
+
 
 
 
