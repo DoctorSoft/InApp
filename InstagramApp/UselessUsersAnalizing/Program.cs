@@ -25,7 +25,8 @@ namespace UselessUsersAnalizing
                 AccountName.GreenDozor, 
                 AccountName.Nazar, 
                 AccountName.SystemDoctor, 
-                AccountName.GreenShop
+                AccountName.GreenShop,
+                AccountName.GadalkaTamara, 
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(

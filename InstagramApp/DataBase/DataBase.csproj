@@ -123,8 +123,12 @@
     <Compile Include="Contexts\InnerTools\IStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Grodno2StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GomelStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Minsk2StoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\VladivostokStoreContext - Copy 1.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\VladivostokStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\MinskStoreContext.cs" />
     <Compile Include="Contexts\SystemDoctorContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />

@@ -61,9 +61,8 @@ namespace TableCopyPaster
 
         public static void Main(string[] args)
         {
-            IStoreContext source = new GrodnoStoreContext();
-            IStoreContext destination = new GreenShopContext();
-
+            IStoreContext source = new MinskStoreContext();
+            IStoreContext destination = new GadalkaTamaraContext();
             CopyUsers(source, destination);
         }
     }

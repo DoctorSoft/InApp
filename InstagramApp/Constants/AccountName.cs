@@ -38,5 +38,9 @@
         __Store_Minsk = 2001,
         __Store_Grodno = 2002,
         __Store_Gomel = 2003,
+        __Store_Grodno2 = 2004,
+        __Store_Minsk2 = 2005,
+        __Store_Vladivostok = 2006,
+        __Store_Vladivostok2 = 2007,
     }
 }
