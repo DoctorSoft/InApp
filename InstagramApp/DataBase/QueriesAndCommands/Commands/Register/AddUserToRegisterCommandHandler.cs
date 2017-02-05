@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Constants;
 using DataBase.Contexts.InnerTools;
 using DataBase.Models;
@@ -17,6 +18,11 @@ namespace DataBase.QueriesAndCommands.Commands.Register
 
         public VoidCommandResponse Handle(AddUserToRegisterCommand command)
         {
+            if (context.Users.Any(model => model.Link.ToUpper() == command.Link.ToUpper()))
+            {
+                return new VoidCommandResponse();
+            }
+
             context.Users.Add(new UserDbModel
             {
                 Link = command.Link,

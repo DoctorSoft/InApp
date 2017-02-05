@@ -289,7 +289,7 @@ namespace InstagramApp
                     UserLink = user
                 });
 
-                if (userInfo.FollowerCount < 3500 && userInfo.FollowingCount > 5000)
+                if (userInfo.FollowerCount < 3000 && userInfo.FollowingCount > 6800)
                 {
                     var register = new ReesterStoreContext(); //Reester
                     new AddUserToRegisterCommandHandler(register).Handle(new AddUserToRegisterCommand
