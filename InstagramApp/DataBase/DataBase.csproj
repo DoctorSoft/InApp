@@ -123,6 +123,7 @@
     <Compile Include="Contexts\InnerTools\IStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\ReesterStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Gomel2StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno2StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoStoreContext.cs" />
@@ -257,6 +258,8 @@
     <Compile Include="KarinaMigrations\201612201826048_AddStars.Designer.cs">
       <DependentUpon>201612201826048_AddStars.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueriesAndCommands\Commands\Register\AddUserToRegisterCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Register\AddUserToRegisterCommandHandler.cs" />
     <Compile Include="SystemDoctorMigrations\201701172301226_Init.cs" />
     <Compile Include="SystemDoctorMigrations\201701172301226_Init.Designer.cs">
       <DependentUpon>201701172301226_Init.cs</DependentUpon>

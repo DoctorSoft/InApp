@@ -6,9 +6,11 @@ using System.Threading;
 using System.Web.Script.Serialization;
 using Constants;
 using DataBase.Contexts.InnerTools;
+using DataBase.Contexts.InnerTools.StoreContexts;
 using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Commands.History;
 using DataBase.QueriesAndCommands.Commands.Media;
+using DataBase.QueriesAndCommands.Commands.Register;
 using DataBase.QueriesAndCommands.Commands.Settings;
 using DataBase.QueriesAndCommands.Commands.Stars;
 using DataBase.QueriesAndCommands.Commands.Users;
@@ -184,12 +186,13 @@ namespace InstagramApp
 
             var users = new GetUsersToDeleteQueryHandler(context).Handle(new GetUsersToDeleteQuery
             {
-                MaxCount = 1, 
+                MaxCount = 4, 
                 BanTime = new TimeSpan(1, 0, 0, 0),
                 RemoveAllUsers = settings.RemoveAllUsers
-            });
+            }).ToList();
 
-            foreach (var user in users)
+            var user = users[attempts];
+
             {
                 var result = new UnFollowUserEngine().Execute(driver, new UnFollowUserModel()
                 {
@@ -276,14 +279,24 @@ namespace InstagramApp
                 }
             }
 
-            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 1 });
+            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 4 }).ToList();
 
-            foreach (var user in users)
+            var user = users[attempts];
+            
             {
                 var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
                 {
                     UserLink = user
                 });
+
+                if (userInfo.FollowerCount < 3500 && userInfo.FollowingCount > 5000)
+                {
+                    var register = new ReesterStoreContext(); //Reester
+                    new AddUserToRegisterCommandHandler(register).Handle(new AddUserToRegisterCommand
+                    {
+                        Link = user
+                    });
+                }
 
                 bool result;
 

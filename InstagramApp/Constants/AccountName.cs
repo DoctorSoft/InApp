@@ -43,5 +43,7 @@
         __Store_Vladivostok = 2006,
         __Store_Vladivostok2 = 2007,
         __Store_Gomel2 = 2008,
+
+        __Reester = 3001
     }
 }

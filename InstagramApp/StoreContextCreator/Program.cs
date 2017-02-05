@@ -7,7 +7,7 @@ namespace StoreContextCreator
     {
         public static void Main(string[] args)
         {
-            var store = AccountName.__Store_Gomel2;
+            var store = AccountName.__Reester;
             var name = "__" + store.ToString("G") + "_User";
 
             var context = new NazarContext(); // Bot
