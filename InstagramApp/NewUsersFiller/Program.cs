@@ -14,9 +14,19 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.__Store_Minsk2,
-                AccountName.__Store_Vladivostok, 
-                AccountName.__Store_Vladivostok2, 
+                AccountName.__Store_Gomel2
+            };
+
+            var links = new[]
+            {
+                "https://www.instagram.com/yana_medvezhenko/",
+                "https://www.instagram.com/mylushko/",
+                "https://www.instagram.com/sayana_gomel/",
+                "https://www.instagram.com/dasha_959_/",
+                "https://www.instagram.com/komissionka.lux.shop/",
+                "https://www.instagram.com/dress_of_dream_gomel/",
+                "https://www.instagram.com/nemo_gomel/",
+                "https://www.instagram.com/thematic_foto_gomel/"
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -40,6 +50,13 @@ namespace NewUsersFiller
                     var db = (IStoreContext)Activator.CreateInstance(dbData.DataBaseType);
 
                     Console.WriteLine("=======Start=====");
+
+                    //service. 
+
+                    foreach (var link in links)
+                    {
+                        service.AddBase(db, link);
+                    }
 
                     service.RunBackgroundSearchingNewUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="), true, true);
                 }

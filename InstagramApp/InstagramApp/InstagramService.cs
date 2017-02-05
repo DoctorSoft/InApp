@@ -234,6 +234,14 @@ namespace InstagramApp
             FollowUsers(driver, context, 3);
         }
 
+        public void AddBase(IStoreContext context, string link)
+        {
+            new MarkUserAsRequiredCommandHandler(context).Handle(new MarkUserAsRequiredCommand
+            {
+                UserLink = link
+            });
+        }
+
         public void FollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
         {
             if (attempts == 3)

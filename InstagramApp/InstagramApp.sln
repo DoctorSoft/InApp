@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeBotMigrator", "LikeBotM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeBotCookieCreator", "LikeBotCookieCreator\LikeBotCookieCreator.csproj", "{4B262A45-F413-4E3C-B96F-76F893D0F8D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreContextCreator", "StoreContextCreator\StoreContextCreator.csproj", "{9A7AC530-D0B6-4300-86FE-3FD3105A8FA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{4B262A45-F413-4E3C-B96F-76F893D0F8D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B262A45-F413-4E3C-B96F-76F893D0F8D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B262A45-F413-4E3C-B96F-76F893D0F8D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7AC530-D0B6-4300-86FE-3FD3105A8FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7AC530-D0B6-4300-86FE-3FD3105A8FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7AC530-D0B6-4300-86FE-3FD3105A8FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7AC530-D0B6-4300-86FE-3FD3105A8FA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
