@@ -173,6 +173,19 @@
                             </div>
                         }
                     </div>
+                    <div class="bottom-line">
+                        <h3>Succeed actions per day (@Model.DaylyFunctionalityReport.StartDate.ToString("d"))</h3>
+                        <div>
+                            <ul>
+                                @foreach (var record in @Model.DaylyFunctionalityReport.Records)
+                                {
+                                    <li>
+                                        @record.FunctionalityName: @record.Successed
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
                 </div>    
             </div>
             <div>

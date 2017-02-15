@@ -7,10 +7,10 @@ namespace StoreContextCreator
     {
         public static void Main(string[] args)
         {
-            var store = AccountName.__Reester;
+            var store = AccountName.__Store_Grodno6;
             var name = "__" + store.ToString("G") + "_User";
 
-            var context = new NazarContext(); // Bot
+            var context = new SportContext(); // Bot
 
             var command = string.Format(
                     @"USE [SystemDoctor]

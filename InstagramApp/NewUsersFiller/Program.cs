@@ -14,19 +14,24 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.__Store_Gomel2
+                AccountName.__Store_Grodno5
             };
+
+            const bool following = true; //подписки
+            const bool followers = false; //Подпищики
 
             var links = new[]
             {
-                "https://www.instagram.com/yana_medvezhenko/",
-                "https://www.instagram.com/mylushko/",
-                "https://www.instagram.com/sayana_gomel/",
-                "https://www.instagram.com/dasha_959_/",
-                "https://www.instagram.com/komissionka.lux.shop/",
-                "https://www.instagram.com/dress_of_dream_gomel/",
-                "https://www.instagram.com/nemo_gomel/",
-                "https://www.instagram.com/thematic_foto_gomel/"
+                "https://www.instagram.com/honeykabany/",
+                "https://www.instagram.com/taboobargrodno/",
+                "https://www.instagram.com/mcdonalds.grodno/",
+                "https://www.instagram.com/trendy_grodno/",
+
+               
+                
+
+
+
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -39,7 +44,7 @@ namespace NewUsersFiller
 
             var service = new InstagramService();
 
-            var spyContext = new NazarContext(); // Spy !!!
+            var spyContext = new SportContext(); // Spy !!!
             var spyDriver = service.RegisterNewDriver(spyContext);
 
             while (index != count)
@@ -58,7 +63,7 @@ namespace NewUsersFiller
                         service.AddBase(db, link);
                     }
 
-                    service.RunBackgroundSearchingNewUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="), true, true);
+                    service.RunBackgroundSearchingNewUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="), following, followers);
                 }
                 catch (Exception)
                 {

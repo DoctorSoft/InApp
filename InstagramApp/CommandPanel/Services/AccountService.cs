@@ -51,6 +51,8 @@ namespace CommandPanel.Services
 
             var report = new GetLastReportQueryHandler(context).Handle(new GetLastReportQuery());
 
+            var daylyReport = new GetDaylyReportQueryHandler(context).Handle(new GetDaylyReportQuery());
+
             return new AccountMainStatisticViewModel
             {
                 Name = accountId.ToString("G"),
@@ -73,6 +75,7 @@ namespace CommandPanel.Services
                 }).ToList(),
                 ChartJsonData = chartData,
                 FunctionalityReport = report,
+                DaylyFunctionalityReport = daylyReport,
                 Info = new InfoData
                 {
                     Bases = bases.Select(s => new BaseData

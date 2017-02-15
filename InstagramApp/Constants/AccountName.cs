@@ -43,6 +43,13 @@
         __Store_Vladivostok = 2006,
         __Store_Vladivostok2 = 2007,
         __Store_Gomel2 = 2008,
+        __Store_Grodno3 = 2009,
+        __Store_GrodnoNews = 2010,
+        __Store_Grodno4 = 2011,
+        __BelarusCommercial = 2012,
+        __Vrangel = 2013,
+        __Store_Grodno5 = 2014,
+        __Store_Grodno6 = 2015,
 
         __Reester = 3001
     }

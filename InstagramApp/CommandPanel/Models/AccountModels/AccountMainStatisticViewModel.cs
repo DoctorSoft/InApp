@@ -34,5 +34,7 @@ namespace CommandPanel.Models.AccountModels
         public string ChartJsonData { get; set; }
 
         public FunctionalityReport FunctionalityReport { get; set; }
+
+        public FunctionalityReport DaylyFunctionalityReport { get; set; }
     }
 }

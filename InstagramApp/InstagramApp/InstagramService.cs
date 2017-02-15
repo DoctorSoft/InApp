@@ -266,7 +266,7 @@ namespace InstagramApp
                 });
 
                 // todo: move to settings
-                if (mainUserInfo.FollowingCount > 6000)
+                if (mainUserInfo.FollowingCount > 7000)
                 {
                     new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                     {

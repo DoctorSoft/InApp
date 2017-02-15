@@ -14,19 +14,17 @@ namespace UselessUsersAnalizing
         {
             var accounts = new[]
             {
-                AccountName.Anastasiya,
-                AccountName.Karina,
-                AccountName.Kioto,
+                /*AccountName.Kioto,
                 AccountName.MyGrodno,
                 AccountName.Sport,
                 AccountName.Sto,
                 AccountName.Sto2,
-                AccountName.Ozerny,
-                AccountName.GreenDozor, 
-                AccountName.Nazar, 
+                AccountName.Ozerny,*/
+                AccountName.GreenDozor,
                 AccountName.SystemDoctor, 
                 AccountName.GreenShop,
                 AccountName.GadalkaTamara, 
+                AccountName.Firuza,
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -39,7 +37,7 @@ namespace UselessUsersAnalizing
 
             var service = new InstagramService();
 
-            var spyContext = new NazarContext(); // Spy !!!
+            var spyContext = new NikonContext(); // Spy !!!
             var spyDriver = service.RegisterNewDriver(spyContext);
 
             while (true)

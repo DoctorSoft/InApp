@@ -123,6 +123,13 @@
     <Compile Include="Contexts\InnerTools\IStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Grodno6StoreContex.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Grodno5StoreContex.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Grodno4StoreContex.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\BelarusCommercialContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\VrangelContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoNewsContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Grodno3StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\ReesterStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Gomel2StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno2StoreContext.cs" />
@@ -260,6 +267,8 @@
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Register\AddUserToRegisterCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Register\AddUserToRegisterCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\GetDaylyReportQuery.cs" />
+    <Compile Include="QueriesAndCommands\Queries\Functionality\GetDaylyReportQueryHandler.cs" />
     <Compile Include="SystemDoctorMigrations\201701172301226_Init.cs" />
     <Compile Include="SystemDoctorMigrations\201701172301226_Init.Designer.cs">
       <DependentUpon>201701172301226_Init.cs</DependentUpon>
