@@ -127,6 +127,7 @@
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno5StoreContex.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno4StoreContex.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\BelarusCommercialContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\FilterResultStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\VrangelContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoNewsContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno3StoreContext.cs" />
@@ -136,8 +137,8 @@
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GomelStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Minsk2StoreContext.cs" />
-    <Compile Include="Contexts\InnerTools\StoreContexts\VladivostokStoreContext - Copy 1.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\VladivostokStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Vladivostok2StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\MinskStoreContext.cs" />
     <Compile Include="Contexts\SystemDoctorContext.cs" />
     <Compile Include="Contexts\Sto2Context.cs" />

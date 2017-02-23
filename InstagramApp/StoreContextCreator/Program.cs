@@ -7,7 +7,7 @@ namespace StoreContextCreator
     {
         public static void Main(string[] args)
         {
-            var store = AccountName.__Store_Grodno6;
+            var store = AccountName.__FilterResult;
             var name = "__" + store.ToString("G") + "_User";
 
             var context = new SportContext(); // Bot

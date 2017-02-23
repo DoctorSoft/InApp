@@ -15,12 +15,12 @@ namespace NewStarsFiller
         {
             var accounts = new[]
             {
-                AccountName.Gadanie, 
+                AccountName.Nazar, 
             };
 
             var sources = new List<string>
             {
-                "https://www.instagram.com/essens_europe/"
+                "https://www.instagram.com/gadanie.ru/"
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -33,7 +33,7 @@ namespace NewStarsFiller
 
             var service = new InstagramService();
 
-            var spyContext = new NazarContext(); // Spy !!!
+            var spyContext = new SportContext(); // Spy !!!
             var spyDriver = service.RegisterNewDriver(spyContext);
 
             while (index != count)

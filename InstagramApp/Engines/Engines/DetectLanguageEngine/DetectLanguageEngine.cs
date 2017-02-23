@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
@@ -16,13 +17,15 @@ namespace Engines.Engines.DetectLanguageEngine
 
             driver.Navigate().GoToUrl("https://translate.google.ru/#auto/ru/");
 
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
             
             var textArea = driver.FindElementByTagName("textarea");
 
-            textArea.SendKeys(model.Text);
+            var textData = new string(model.Text.Where(c => char.IsLetter(c) || char.IsWhiteSpace(c) || char.IsPunctuation(c)).ToArray());
 
-            Thread.Sleep(1000);
+            textArea.SendKeys(textData);
+
+            Thread.Sleep(2000);
 
             //gt-sl-sugg
 

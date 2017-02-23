@@ -1,4 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Text.RegularExpressions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
@@ -8,53 +12,72 @@ namespace Engines.Engines.GetUserInfoEngine
     {
         protected override GetUserInfoEngineResponse ExecuteEngine(RemoteWebDriver driver, GetUserInfoEngineModel model)
         {
-            if (!base.NavigateToUrl(driver, model.UserLink))
-            {
-                return GetDefaultResult();
-            }
+            var client = new HttpClient();
 
-            var followersCount = driver
-            .FindElements(By.ClassName("_s53mj"))
-            .Where(element => !string.IsNullOrWhiteSpace(element.GetAttribute("href")))
-            .Where(element => element.GetAttribute("href").Contains("followers"))
-            .SelectMany(element => element.FindElements(By.ClassName("_bkw5z")))
-            .Where(element => !string.IsNullOrWhiteSpace(element.GetAttribute("title")))
-            .Select(element => int.Parse(element.GetAttribute("title").Replace(" ", "")))
-            .FirstOrDefault();
+            var page = client.GetAsync(model.UserLink.Replace("\\\\", "/")).Result.Content.ReadAsStringAsync().Result;
 
-            var followingCount = driver
-            .FindElements(By.ClassName("_s53mj"))
-            .Where(element => !string.IsNullOrWhiteSpace(element.GetAttribute("href")))
-            .Where(element => element.GetAttribute("href").Contains("following"))
-            .SelectMany(element => element.FindElements(By.ClassName("_bkw5z")))
-            .Select(element => int.Parse(element.Text.Replace(" ", "")))
-            .FirstOrDefault();
+            var regex = new Regex("full_name[^:]*:[^\\\"]*\\\"[^\\\"]*\\\",");
+            var fullName = regex.Match(page).Value.Replace("full_name", "").Replace("\"", "").Replace(",", "").Replace(":", "").Trim();
 
-            var publicationCount = driver
-            .FindElements(By.ClassName("_s53mj"))
-            .Where(element => string.IsNullOrWhiteSpace(element.GetAttribute("href")))
-            .SelectMany(element => element.FindElements(By.ClassName("_bkw5z")))
-            .Select(element => int.Parse(element.Text.Replace(" ", "")))
-            .FirstOrDefault();
+            regex = new Regex("\"biography\\\":((?!\\\",).)*");
+            var biography =
+                string.Join("",
+                    regex.Match(page)
+                        .Value.Replace("biography", "")
+                        .Replace(":", "")
+                        .Replace("\"", "")
+                        .Replace(",", "")
+                        .Replace(":", "")
+                        .Replace("-", "")
+                        .Split('\\', 'u')
+                        .Select(item =>
+                        {
+                            if (string.IsNullOrWhiteSpace(item))
+                            {
+                                return item;
+                            }
 
-            var text = driver
-            .FindElements(By.ClassName("_bugdy"))
-            .Where(element => string.IsNullOrWhiteSpace(element.GetAttribute("href")))
-            .SelectMany(element => element.FindElements(By.TagName("span")))
-            .Select(element => element.Text)
-            .FirstOrDefault();
+                            try
+                            {
+                                var parsed = Convert.ToInt32(item.Substring(0, 4), 16);
 
-            var isStar = driver
-                .FindElements(By.TagName("span"))
-                .Any(element => element.Text.Contains("Подтвержденный"));
+                                if (item.Length > 4)
+                                {
+                                    return char.ConvertFromUtf32(parsed) + item.Substring(4);
+                                }
+                                return char.ConvertFromUtf32(parsed);
+                            }
+                            catch (Exception)
+                            {
+                                return item;
+                            }
+                        })).Trim();
+
+            regex = new Regex("is_verified[^:]*:[^,]*,");
+            var verified = regex.Match(page).Value.Replace("is_verified", "").Replace("\"", "").Replace(",", "").Replace(":", "").Trim();
+
+            regex = new Regex("language_code[^:]*:[^,]*,");
+            var language = regex.Match(page).Value.Replace("language_code", "").Replace("\"", "").Replace(",", "").Replace(":", "").Trim();
+
+            regex = new Regex("meta content=[^>]*>");
+            var meta = regex.Match(page).Value;
+
+            regex = new Regex("\"[^F]*Followers");
+            var fBy = regex.Match(meta).Value.Replace("Followers", "").Replace("\"", "").Replace(",", "").Trim();
+
+            regex = new Regex(",[^F]*Following");
+            var fTo = regex.Match(meta).Value.Replace("Following", "").Replace("\"", "").Replace(",", "").Trim();
+
+            regex = new Regex(",[^F]*Posts");
+            var posts = regex.Match(meta).Value.Replace("Posts", "").Replace("\"", "").Replace(",", "").Trim();
 
             return new GetUserInfoEngineResponse
             {
-                FollowerCount = followersCount,
-                FollowingCount = followingCount,
-                PublicationCount = publicationCount,
-                Text = text,
-                IsStar = isStar
+                FollowerCount = int.Parse(fBy),
+                FollowingCount = int.Parse(fTo),
+                PublicationCount = int.Parse(posts),
+                Text = biography,
+                IsStar = bool.Parse(verified)
             };
         }
     }

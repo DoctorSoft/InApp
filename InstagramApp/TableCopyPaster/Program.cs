@@ -4,7 +4,6 @@ using DataBase.Contexts;
 using DataBase.Contexts.InnerTools;
 using DataBase.Contexts.InnerTools.StoreContexts;
 using DataBase.Models;
-using EntityFramework.BulkInsert.Extensions;
 
 namespace TableCopyPaster
 {
@@ -61,8 +60,8 @@ namespace TableCopyPaster
 
         public static void Main(string[] args)
         {
-            IStoreContext source = new Minsk2StoreContext();
-            IStoreContext destination = new OzernyContext();
+            var source = new Minsk2StoreContext();
+            var destination = new SystemDoctorContext();
             CopyUsers(source, destination);
         }
     }

@@ -10,9 +10,9 @@ namespace DataBase.QueriesAndCommands.Commands.Users
 {
     public class MarkUserAsToFollowCommandHandler : IVoidCommandHandler<MarkUserAsToFollowCommand>
     {
-        private readonly DataBaseContext context;
+        private readonly IStoreContext context;
 
-        public MarkUserAsToFollowCommandHandler(DataBaseContext context)
+        public MarkUserAsToFollowCommandHandler(IStoreContext context)
         {
             this.context = context;
         }

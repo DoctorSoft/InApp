@@ -51,6 +51,7 @@
         __Store_Grodno5 = 2014,
         __Store_Grodno6 = 2015,
 
-        __Reester = 3001
+        __Reester = 3001,
+        __FilterResult = 3002
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Web.Script.Serialization;
 using Constants;
@@ -243,6 +244,43 @@ namespace InstagramApp
             {
                 UserLink = link
             });
+        }
+
+        public void FilterUsers(IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages)
+        {
+            var users = new GetAllKnownUsersQueryHandler(sourceContext).Handle(new GetAllKnownUsersQuery());
+
+            RemoteWebDriver nullDriver = null;
+
+            foreach (var user in users)
+            {
+                try
+                {
+                    var userInfo = new GetUserInfoEngine().Execute(nullDriver, new GetUserInfoEngineModel
+                    {
+                        UserLink = user
+                    });
+
+                    /*var language = new DetectLanguageEngine().Execute(nullDriver, new DetectLanguageEngineModel
+                    {
+                        Text = userInfo.Text
+                    });
+
+                    if (language != null && !languages.Contains(language.Language))
+                    {
+                        continue;
+                    }
+
+                    new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                    {
+                        UserLink = user
+                    });*/
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+            }
         }
 
         public void FollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
