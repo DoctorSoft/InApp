@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
@@ -12,73 +13,167 @@ namespace Engines.Engines.GetUserInfoEngine
     {
         protected override GetUserInfoEngineResponse ExecuteEngine(RemoteWebDriver driver, GetUserInfoEngineModel model)
         {
-            var client = new HttpClient();
+            HttpClient client;
+            string page = string.Empty;
+            string biography;
+            string verified;
+            string meta;
+            string fBy;
+            string fTo;
+            string posts;
+            HttpResponseMessage message;
+            int attempt = 0;
+            bool passed = false;
+            string url = model.UserLink.Replace("\\", "/");
 
-            var page = client.GetAsync(model.UserLink.Replace("\\\\", "/")).Result.Content.ReadAsStringAsync().Result;
+            try
+            {
+                client = new HttpClient();
 
-            var regex = new Regex("full_name[^:]*:[^\\\"]*\\\"[^\\\"]*\\\",");
-            var fullName = regex.Match(page).Value.Replace("full_name", "").Replace("\"", "").Replace(",", "").Replace(":", "").Trim();
+                attempt = 0;
+                const int maxAttempts = 2;
 
-            regex = new Regex("\"biography\\\":((?!\\\",).)*");
-            var biography =
-                string.Join("",
+                while (!passed)
+                {
+                    try
+                    {
+                        message = client.GetAsync(url).Result;
+                        page = message.Content.ReadAsStringAsync().Result;
+                        passed = true;
+                    }
+                    catch (Exception)
+                    {
+                        attempt++;
+                        Thread.Sleep(attempt * 500);
+                        if (attempt > maxAttempts)
+                        {
+                            throw;
+                        }
+                    }
+                }
+
+                var regex = new Regex("full_name[^:]*:[^\\\"]*\\\"[^\\\"]*\\\",");
+                var fullName =
                     regex.Match(page)
-                        .Value.Replace("biography", "")
-                        .Replace(":", "")
+                        .Value.Replace("full_name", "")
                         .Replace("\"", "")
                         .Replace(",", "")
                         .Replace(":", "")
-                        .Replace("-", "")
-                        .Split('\\', 'u')
-                        .Select(item =>
-                        {
-                            if (string.IsNullOrWhiteSpace(item))
-                            {
-                                return item;
-                            }
+                        .Trim();
 
-                            try
-                            {
-                                var parsed = Convert.ToInt32(item.Substring(0, 4), 16);
+                regex = new Regex("\"biography\\\":((?!\\\",).)*");
 
-                                if (item.Length > 4)
+                biography = regex.Match(page).Value;
+
+                if (!biography.Contains("null"))
+                {
+                    biography =
+                    string.Join("", biography.Replace("\"biography\":", "")
+                            .Replace("script", "")
+                            .Replace("\"", "")
+                            .Split('\\')
+                            .Select(item =>
+                            {
+                                if (string.IsNullOrWhiteSpace(item))
                                 {
-                                    return char.ConvertFromUtf32(parsed) + item.Substring(4);
+                                    return item;
                                 }
-                                return char.ConvertFromUtf32(parsed);
-                            }
-                            catch (Exception)
-                            {
-                                return item;
-                            }
-                        })).Trim();
 
-            regex = new Regex("is_verified[^:]*:[^,]*,");
-            var verified = regex.Match(page).Value.Replace("is_verified", "").Replace("\"", "").Replace(",", "").Replace(":", "").Trim();
+                                try
+                                {
+                                    if (item.First() != 'u')
+                                    {
+                                        return item;
+                                    }
 
-            regex = new Regex("language_code[^:]*:[^,]*,");
-            var language = regex.Match(page).Value.Replace("language_code", "").Replace("\"", "").Replace(",", "").Replace(":", "").Trim();
+                                    item = item.Remove(0, 1);
+                                    var parsed = Convert.ToInt32(item.Substring(0, 4), 16);
 
-            regex = new Regex("meta content=[^>]*>");
-            var meta = regex.Match(page).Value;
+                                    if (item.Length > 4)
+                                    {
+                                        return char.ConvertFromUtf32(parsed) + item.Substring(4);
+                                    }
+                                    return char.ConvertFromUtf32(parsed);
+                                }
+                                catch (Exception ex)
+                                {
+                                    return " ";
+                                }
+                            })).Trim();
 
-            regex = new Regex("\"[^F]*Followers");
-            var fBy = regex.Match(meta).Value.Replace("Followers", "").Replace("\"", "").Replace(",", "").Trim();
+                    biography =
+                        new string(
+                            biography.Where(c => char.IsLetter(c) || char.IsWhiteSpace(c) || char.IsPunctuation(c))
+                                .ToArray()).Trim();
+                }
+                else
+                {
+                    biography = null;
+                }
+                
+                regex = new Regex("is_verified[^:]*:[^,]*,");
+                verified =
+                    regex.Match(page)
+                        .Value.Replace("is_verified", "")
+                        .Replace("\"", "")
+                        .Replace(",", "")
+                        .Replace(":", "")
+                        .Trim();
 
-            regex = new Regex(",[^F]*Following");
-            var fTo = regex.Match(meta).Value.Replace("Following", "").Replace("\"", "").Replace(",", "").Trim();
+                regex = new Regex("language_code[^:]*:[^,]*,");
+                var language =
+                    regex.Match(page)
+                        .Value.Replace("language_code", "")
+                        .Replace("\"", "")
+                        .Replace(",", "")
+                        .Replace(":", "")
+                        .Trim();
 
-            regex = new Regex(",[^F]*Posts");
-            var posts = regex.Match(meta).Value.Replace("Posts", "").Replace("\"", "").Replace(",", "").Trim();
+                regex = new Regex("meta((?!content).)*content[^>]*Followers[^>]*>");
+                meta = regex.Match(page).Value;
 
-            return new GetUserInfoEngineResponse
+                regex = new Regex("\"[^F]*Followers");
+                fBy =regex.Match(meta).Value.Replace("Followers", "")
+                        .Replace("\"", "")
+                        .Replace(",", "")
+                        .Replace("description", "")
+                        .Replace("content", "")
+                        .Replace("=", "")
+                        .Trim();
+
+                regex = new Regex(",[^F]*Following");
+                fTo = regex.Match(meta).Value.Replace("Following", "")
+                    .Replace("\"", "")
+                        .Replace(",", "")
+                        .Replace("description", "")
+                        .Replace("content", "")
+                        .Replace("=", "")
+                        .Trim();
+
+                regex = new Regex(",[^F]*Posts");
+                posts = regex.Match(meta).Value.Replace("Posts", "")
+                    .Replace("\"", "")
+                        .Replace(",", "")
+                        .Replace("description", "")
+                        .Replace("content", "")
+                        .Replace("=", "")
+                        .Trim();
+
+                return new GetUserInfoEngineResponse
+                {
+                    FollowerCount = int.Parse(fBy),
+                    FollowingCount = int.Parse(fTo),
+                    PublicationCount = int.Parse(posts),
+                    Text = biography,
+                    IsStar = verified.ToLower().Contains("true"),
+                    Page = page
+                };
+
+            }
+            catch (Exception exception)
             {
-                FollowerCount = int.Parse(fBy),
-                FollowingCount = int.Parse(fTo),
-                PublicationCount = int.Parse(posts),
-                Text = biography,
-                IsStar = bool.Parse(verified)
-            };
+                throw;
+            }
         }
     }
 }

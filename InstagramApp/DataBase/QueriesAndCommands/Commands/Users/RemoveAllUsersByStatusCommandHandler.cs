@@ -8,9 +8,9 @@ namespace DataBase.QueriesAndCommands.Commands.Users
 {
     public class RemoveAllUsersByStatusCommandHandler : ICommandHandler<RemoveAllUsersByStatusCommand, VoidCommandResponse>
     {
-        private readonly DataBaseContext context;
+        private readonly IStoreContext context;
 
-        public RemoveAllUsersByStatusCommandHandler(DataBaseContext context)
+        public RemoveAllUsersByStatusCommandHandler(IStoreContext context)
         {
             this.context = context;
         }

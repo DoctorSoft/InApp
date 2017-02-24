@@ -11,5 +11,7 @@
         public int PublicationCount { get; set; }
 
         public bool IsStar { get; set; }
+
+        public string Page { get; set; }
     }
 }

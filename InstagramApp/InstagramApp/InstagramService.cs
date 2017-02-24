@@ -246,38 +246,87 @@ namespace InstagramApp
             });
         }
 
-        public void FilterUsers(IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages)
+        public void FilterUsers(RemoteWebDriver driver, IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages, int followersLimit, List<string> passWords, Action<int, int, string, bool> MakeRecord)
         {
+            new RemoveAllUsersByStatusCommandHandler(destinationContext).Handle(new RemoveAllUsersByStatusCommand
+            {
+                UserStatus = UserStatus.ToFollow
+            });
+
             var users = new GetAllKnownUsersQueryHandler(sourceContext).Handle(new GetAllKnownUsersQuery());
 
-            RemoteWebDriver nullDriver = null;
+            var index = 0;
+            var count = users.Count;
 
             foreach (var user in users)
             {
+                Thread.Sleep(100);
+                index++;
                 try
                 {
-                    var userInfo = new GetUserInfoEngine().Execute(nullDriver, new GetUserInfoEngineModel
+                    var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
                     {
                         UserLink = user
                     });
 
-                    /*var language = new DetectLanguageEngine().Execute(nullDriver, new DetectLanguageEngineModel
+                    if (userInfo.FollowerCount == 0 && userInfo.FollowingCount == 0 && userInfo.PublicationCount == 0 && string.IsNullOrWhiteSpace(userInfo.Text))
+                    {
+                        MakeRecord(index, count, user, false);
+                        continue;
+                    }
+
+                    if (followersLimit < userInfo.FollowerCount)
+                    {
+                        MakeRecord(index, count, user, false);
+                        continue;
+                    }
+
+                    if (userInfo.IsStar)
+                    {
+                        MakeRecord(index, count, user, false);
+                        continue;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(userInfo.Text))
+                    {
+                        new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                        {
+                            UserLink = user
+                        });
+                        MakeRecord(index, count, user, true);
+                        continue;
+                    }
+
+                    if (passWords.Any(s => userInfo.Text.ToUpper().Contains(s.ToUpper())))
+                    {
+                        new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                        {
+                            UserLink = user
+                        });
+                        MakeRecord(index, count, user, true);
+                        continue;
+                    }
+
+                    var language = new DetectLanguageEngine().Execute(driver, new DetectLanguageEngineModel
                     {
                         Text = userInfo.Text
                     });
 
                     if (language != null && !languages.Contains(language.Language))
                     {
+                        MakeRecord(index, count, user, false);
                         continue;
                     }
 
                     new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
                     {
                         UserLink = user
-                    });*/
+                    });
+                    MakeRecord(index, count, user, true);
                 }
-                catch (Exception)
+                catch (Exception exception)
                 {
+                    MakeRecord(index, count, user, false);
                     continue;
                 }
             }
