@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DataBase.Contexts.InnerTools.StoreContexts;
 using InstagramApp;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 
 namespace UserQualityFilter
 {
@@ -12,10 +13,10 @@ namespace UserQualityFilter
         {
             var service = new InstagramService();
 
-            var sourceBase = new Grodno2StoreContext();
+            var sourceBase = new Minsk2StoreContext();
             var destinationBase = new FilterResultStoreContext();
 
-            var driver = new ChromeDriver();
+            RemoteWebDriver driver = null;
 
             var languages = new List<string>
             {

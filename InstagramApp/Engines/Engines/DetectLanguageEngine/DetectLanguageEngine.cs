@@ -31,12 +31,7 @@ namespace Engines.Engines.DetectLanguageEngine
 
         protected override LanguageModel ExecuteEngine(RemoteWebDriver driver, DetectLanguageEngineModel model)
         {
-            if (random.Next(2) == 0)
-            {
-                return ExecuteByDetector(model);
-            }
-
-            return ExecuteByGoogle(driver, model);
+            return ExecuteByDetector(model);
         }
 
         private LanguageModel ExecuteByDetector(DetectLanguageEngineModel model)
@@ -62,6 +57,14 @@ namespace Engines.Engines.DetectLanguageEngine
                 {"en", "английский" },
                 {"ru", "русский"}
             };
+
+            if (detection.confidence < 1.5)
+            {
+                return new LanguageModel
+                {
+                    Language = null
+                };
+            }
 
             if (dictionary.ContainsKey(detection.language))
             {

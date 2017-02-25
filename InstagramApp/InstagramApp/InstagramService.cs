@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using Constants;
 using DataBase.Contexts.InnerTools;
@@ -38,6 +39,7 @@ using Engines.Engines.WaitingCaptchEngine;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
+using ServiceStack;
 
 namespace InstagramApp
 {
@@ -246,7 +248,88 @@ namespace InstagramApp
             });
         }
 
-        public void FilterUsers(RemoteWebDriver driver, IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages, int followersLimit, List<string> passWords, Action<int, int, string, bool> MakeRecord)
+        public void FilterUser(string user, int index, int count, RemoteWebDriver driver, IStoreContext destinationContext, List<string> languages, int followersLimit, List<string> passWords, Action<int, int, string, bool> makeRecord)
+        {
+            try
+            {
+                var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+                {
+                    UserLink = user
+                });
+
+                if (userInfo.FollowerCount == 0 && userInfo.FollowingCount == 0 && userInfo.PublicationCount == 0 && string.IsNullOrWhiteSpace(userInfo.Text))
+                {
+                    makeRecord(index, count, user, false);
+                    return;
+                }
+
+                if (followersLimit < userInfo.FollowerCount)
+                {
+                    makeRecord(index, count, user, false);
+                    return;
+                }
+
+                if (userInfo.IsStar)
+                {
+                    makeRecord(index, count, user, false);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(userInfo.Text))
+                {
+                    new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                    {
+                        UserLink = user
+                    });
+                    makeRecord(index, count, user, true);
+                    return;
+                }
+
+                if (userInfo.Text.Length < 3)
+                {
+                    new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                    {
+                        UserLink = user
+                    });
+                    makeRecord(index, count, user, true);
+                    return;
+                }
+
+                if (passWords.Any(s => userInfo.Text.ToUpper().Contains(s.ToUpper())))
+                {
+                    new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                    {
+                        UserLink = user
+                    });
+                    makeRecord(index, count, user, true);
+                    return;
+                }
+
+                var language = new DetectLanguageEngine().Execute(driver, new DetectLanguageEngineModel
+                {
+                    Text = userInfo.Text
+                });
+
+                if (language != null && !languages.Contains(language.Language))
+                {
+                    makeRecord(index, count, user, false);
+                    return;
+                }
+
+                new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                {
+                    UserLink = user
+                });
+                makeRecord(index, count, user, true);
+            }
+            catch (Exception exception)
+            {
+                makeRecord(index, count, user, false);
+                return;
+            }
+        }
+
+        public void FilterUsers(RemoteWebDriver driver, IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages, int followersLimit, List<string> passWords, Action<int, int, string, bool> makeRecord)
         {
             new RemoveAllUsersByStatusCommandHandler(destinationContext).Handle(new RemoveAllUsersByStatusCommand
             {
@@ -258,77 +341,14 @@ namespace InstagramApp
             var index = 0;
             var count = users.Count;
 
-            foreach (var user in users)
+            //foreach (var user in users)
+            while (index < count)
             {
                 Thread.Sleep(100);
+
                 index++;
-                try
-                {
-                    var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
-                    {
-                        UserLink = user
-                    });
-
-                    if (userInfo.FollowerCount == 0 && userInfo.FollowingCount == 0 && userInfo.PublicationCount == 0 && string.IsNullOrWhiteSpace(userInfo.Text))
-                    {
-                        MakeRecord(index, count, user, false);
-                        continue;
-                    }
-
-                    if (followersLimit < userInfo.FollowerCount)
-                    {
-                        MakeRecord(index, count, user, false);
-                        continue;
-                    }
-
-                    if (userInfo.IsStar)
-                    {
-                        MakeRecord(index, count, user, false);
-                        continue;
-                    }
-
-                    if (string.IsNullOrWhiteSpace(userInfo.Text))
-                    {
-                        new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
-                        {
-                            UserLink = user
-                        });
-                        MakeRecord(index, count, user, true);
-                        continue;
-                    }
-
-                    if (passWords.Any(s => userInfo.Text.ToUpper().Contains(s.ToUpper())))
-                    {
-                        new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
-                        {
-                            UserLink = user
-                        });
-                        MakeRecord(index, count, user, true);
-                        continue;
-                    }
-
-                    var language = new DetectLanguageEngine().Execute(driver, new DetectLanguageEngineModel
-                    {
-                        Text = userInfo.Text
-                    });
-
-                    if (language != null && !languages.Contains(language.Language))
-                    {
-                        MakeRecord(index, count, user, false);
-                        continue;
-                    }
-
-                    new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
-                    {
-                        UserLink = user
-                    });
-                    MakeRecord(index, count, user, true);
-                }
-                catch (Exception exception)
-                {
-                    MakeRecord(index, count, user, false);
-                    continue;
-                }
+                var user = users[index];
+                FilterUser(user, index, count, driver, destinationContext, users, followersLimit, passWords, makeRecord);
             }
         }
 
