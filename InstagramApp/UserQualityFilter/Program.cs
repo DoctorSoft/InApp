@@ -13,7 +13,7 @@ namespace UserQualityFilter
         {
             var service = new InstagramService();
 
-            var sourceBase = new Minsk2StoreContext();
+            var sourceBase = new MinskStoreContext();
             var destinationBase = new FilterResultStoreContext();
 
             RemoteWebDriver driver = null;
@@ -21,8 +21,8 @@ namespace UserQualityFilter
             var languages = new List<string>
             {
                 "русский",
-                "английский",
-                "белорусский"
+                //"английский",
+                //"белорусский"
             };
 
             var words = new List<string>()
@@ -37,16 +37,33 @@ namespace UserQualityFilter
                 "Belar",
                 "Белар",
                 "Белор",
+                "minsk",
+                "brest", 
+                "минск",
+                "брест",
+                "vitebsk",
+                "витебск",
+                "mogil",
+                "могил",
+                "lida",
+                "лида",
+                "витеб",
+                "viteb",
+                "gomel",
+                "гомел",
+                "homel",
+                "бобруй"
             };
 
-            var limit = 10000;
+            var limit = 5000;
+            var emptyAllowed = false;
 
-            Action<int, int, string, bool> makeRecors = (index, count, link, passed) =>
+            Action<int, int, string, bool, string> makeRecors = (index, count, link, passed, cause) =>
             {
-                Console.WriteLine("{0}/{1} ({3}) - {2}", index, count, link, passed ? "Passed" : "Failed");
+                Console.WriteLine("{0}/{1} ({3}) - {2} \n {4} \n\n", index, count, link, passed ? "Passed" : "Failed", cause);
             };
 
-            service.FilterUsers(driver, sourceBase, destinationBase, languages, limit, words, makeRecors);
+            service.FilterUsers(driver, sourceBase, destinationBase, languages, limit, emptyAllowed, words, makeRecors);
         }
     }
 }

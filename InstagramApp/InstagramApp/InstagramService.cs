@@ -248,7 +248,7 @@ namespace InstagramApp
             });
         }
 
-        public void FilterUser(string user, int index, int count, RemoteWebDriver driver, IStoreContext destinationContext, List<string> languages, int followersLimit, List<string> passWords, Action<int, int, string, bool> makeRecord)
+        public void FilterUser(string user, int index, int count, RemoteWebDriver driver, IStoreContext destinationContext, List<string> languages, int followersLimit, bool emptyAllowed, List<string> passWords, Action<int, int, string, bool, string> makeRecord)
         {
             try
             {
@@ -259,39 +259,63 @@ namespace InstagramApp
 
                 if (userInfo.FollowerCount == 0 && userInfo.FollowingCount == 0 && userInfo.PublicationCount == 0 && string.IsNullOrWhiteSpace(userInfo.Text))
                 {
-                    makeRecord(index, count, user, false);
+                    makeRecord(index, count, user, false, "exception");
+                    return;
+                }
+
+                if (userInfo.PublicationCount == 0)
+                {
+                    makeRecord(index, count, user, false, "no publication");
+                    return;
+                }
+
+                if (userInfo.PublicationCount == 0)
+                {
+                    makeRecord(index, count, user, false, "no followings");
                     return;
                 }
 
                 if (followersLimit < userInfo.FollowerCount)
                 {
-                    makeRecord(index, count, user, false);
+                    makeRecord(index, count, user, false, "followers");
                     return;
                 }
 
                 if (userInfo.IsStar)
                 {
-                    makeRecord(index, count, user, false);
+                    makeRecord(index, count, user, false, "star");
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(userInfo.Text))
                 {
+                    if (!emptyAllowed)
+                    {
+                        makeRecord(index, count, user, false, "no text");
+                        return;
+                    }
+
                     new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
                     {
                         UserLink = user
                     });
-                    makeRecord(index, count, user, true);
+                    makeRecord(index, count, user, true, "no text");
                     return;
                 }
 
                 if (userInfo.Text.Length < 3)
                 {
+                    if (!emptyAllowed)
+                    {
+                        makeRecord(index, count, user, false, "too small text to detect language");
+                        return;
+                    }
+
                     new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
                     {
                         UserLink = user
                     });
-                    makeRecord(index, count, user, true);
+                    makeRecord(index, count, user, true, "too small text to detect language");
                     return;
                 }
 
@@ -301,7 +325,7 @@ namespace InstagramApp
                     {
                         UserLink = user
                     });
-                    makeRecord(index, count, user, true);
+                    makeRecord(index, count, user, true, "there are pass words");
                     return;
                 }
 
@@ -310,9 +334,9 @@ namespace InstagramApp
                     Text = userInfo.Text
                 });
 
-                if (language != null && !languages.Contains(language.Language))
+                if (language != null && language.Language != null && !languages.Contains(language.Language))
                 {
-                    makeRecord(index, count, user, false);
+                    makeRecord(index, count, user, false, "incorrect language");
                     return;
                 }
 
@@ -320,16 +344,16 @@ namespace InstagramApp
                 {
                     UserLink = user
                 });
-                makeRecord(index, count, user, true);
+                makeRecord(index, count, user, true, "correct language");
             }
             catch (Exception exception)
             {
-                makeRecord(index, count, user, false);
+                makeRecord(index, count, user, false, "exception");
                 return;
             }
         }
 
-        public void FilterUsers(RemoteWebDriver driver, IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages, int followersLimit, List<string> passWords, Action<int, int, string, bool> makeRecord)
+        public void FilterUsers(RemoteWebDriver driver, IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages, int followersLimit, bool emptyAllowed, List<string> passWords, Action<int, int, string, bool, string> makeRecord)
         {
             new RemoveAllUsersByStatusCommandHandler(destinationContext).Handle(new RemoveAllUsersByStatusCommand
             {
@@ -346,9 +370,9 @@ namespace InstagramApp
             {
                 Thread.Sleep(100);
 
-                index++;
                 var user = users[index];
-                FilterUser(user, index, count, driver, destinationContext, users, followersLimit, passWords, makeRecord);
+                index++;
+                FilterUser(user, index, count, driver, destinationContext, languages, followersLimit, emptyAllowed, passWords, makeRecord);
             }
         }
 

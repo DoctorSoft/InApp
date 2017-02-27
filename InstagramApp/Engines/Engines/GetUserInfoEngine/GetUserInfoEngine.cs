@@ -159,10 +159,18 @@ namespace Engines.Engines.GetUserInfoEngine
                         .Replace("=", "")
                         .Trim();
 
+                var followerCount = fBy.ToLower().Contains("k") ? double.Parse(fBy.ToLower().Replace("k", "").Replace(".", ",")) * 1000 : 
+                                    fBy.ToLower().Contains("m") ? double.Parse(fBy.ToLower().Replace("m", "").Replace(".", ",")) * 1000000 :
+                                    double.Parse(fBy);
+
+                var followingCount = fTo.ToLower().Contains("k") ? double.Parse(fTo.ToLower().Replace("k", "").Replace(".", ",")) * 1000 :
+                                    fTo.ToLower().Contains("m") ? double.Parse(fTo.ToLower().Replace("m", "").Replace(".", ",")) * 1000000 :
+                                    double.Parse(fTo);
+
                 return new GetUserInfoEngineResponse
                 {
-                    FollowerCount = int.Parse(fBy),
-                    FollowingCount = int.Parse(fTo),
+                    FollowerCount = (int)followerCount,
+                    FollowingCount = (int)followingCount,
                     PublicationCount = int.Parse(posts),
                     Text = biography,
                     IsStar = verified.ToLower().Contains("true"),
