@@ -1,25 +1,25 @@
-﻿add-migration -Name AddStars -ConfigurationTypeName OzernyConfiguration
-add-migration -Name AddStars -ConfigurationTypeName GalaxyConfiguration
-add-migration -Name AddStars -ConfigurationTypeName KiotoConfiguration
-add-migration -Name AddStars -ConfigurationTypeName NazarConfiguration
-add-migration -Name AddStars -ConfigurationTypeName KarinaConfiguration  
-add-migration -Name AddStars -ConfigurationTypeName SalsaRikaConfiguration
-add-migration -Name AddStars -ConfigurationTypeName AugustovskiConfiguration
-add-migration -Name AddStars -ConfigurationTypeName NikonConfiguration
-add-migration -Name AddStars -ConfigurationTypeName GreenDozorConfiguration
-add-migration -Name AddStars -ConfigurationTypeName CanonConfiguration
-add-migration -Name AddStars -ConfigurationTypeName GadanieConfiguration 
-add-migration -Name AddStars -ConfigurationTypeName AnastastasiyaConfiguration
-add-migration -Name AddStars -ConfigurationTypeName SportConfiguration
-add-migration -Name AddStars -ConfigurationTypeName GrodnoOfficialConfiguration
-add-migration -Name AddStars -ConfigurationTypeName MyGrodnoConfiguration
-add-migration -Name AddStars -ConfigurationTypeName StoConfiguration
-add-migration -Name AddStars -ConfigurationTypeName Sto2Configuration
-add-migration -Name AddStars -ConfigurationTypeName FiruzaConfiguration
-add-migration -Name Init -ConfigurationTypeName GadalkaTamaraConfiguration
-add-migration -Name Init -ConfigurationTypeName WeHeartgrodnoConfiguration
-add-migration -Name Init -ConfigurationTypeName SystemDoctorConfiguration
-add-migration -Name Init -ConfigurationTypeName GreenShopConfiguration
+﻿add-migration -Name AddOptions -ConfigurationTypeName OzernyConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName GalaxyConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName KiotoConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName NazarConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName KarinaConfiguration  
+add-migration -Name AddOptions -ConfigurationTypeName SalsaRikaConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName AugustovskiConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName NikonConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName GreenDozorConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName CanonConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName GadanieConfiguration 
+add-migration -Name AddOptions -ConfigurationTypeName AnastastasiyaConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName SportConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName GrodnoOfficialConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName MyGrodnoConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName StoConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName Sto2Configuration
+add-migration -Name AddOptions -ConfigurationTypeName FiruzaConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName GadalkaTamaraConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName WeHeartgrodnoConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName SystemDoctorConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName GreenShopConfiguration
 
 
 update-database -ConfigurationTypeName OzernyConfiguration
@@ -52,5 +52,5 @@ update-database -ConfigurationTypeName GreenShopConfiguration
 
 
 
-add-migration -Name Init -ConfigurationTypeName LikeApplicationConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName LikeApplicationConfiguration
 update-database -ConfigurationTypeName LikeApplicationConfiguration

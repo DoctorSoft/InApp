@@ -25,5 +25,15 @@ namespace DataBase.Models
         public bool RemoveAllUsers { get; set; }
 
         public string Cookies { get; set; }
+
+        public bool SwitchingEnabled { get; set; }
+
+        public int FollowingStartHour { get; set; }
+
+        public int UnfollowingStartHour { get; set; }
+
+        public int MinUsersToFollowCount { get; set; }
+
+        public int MaxUsersToFollowCount { get; set; }
     }
 }

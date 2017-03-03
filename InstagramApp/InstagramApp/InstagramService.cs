@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using Constants;
 using DataBase.Contexts.InnerTools;
@@ -39,7 +37,6 @@ using Engines.Engines.WaitingCaptchEngine;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
-using ServiceStack;
 
 namespace InstagramApp
 {
@@ -110,6 +107,68 @@ namespace InstagramApp
             public string Value { get; set; }
         }
 
+        public void SwitchFollowingPolicy(DataBaseContext context)
+        {
+            var nowHour = DateTime.Now.Hour;
+
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var functionalities = new GetFunctionalityStatisticQueryHandler(context).Handle(new GetFunctionalityStatisticQuery
+            {
+
+            });
+
+            var functionalityToFollow = functionalities.FirstOrDefault(statistic => statistic.FunctionalityName == FunctionalityName.FollowUsers);
+            var functionalityToUnfollow = functionalities.FirstOrDefault(statistic => statistic.FunctionalityName == FunctionalityName.UnfollowUsers);
+
+            if (functionalityToUnfollow == null || functionalityToFollow == null)
+            {
+                return;
+            }
+
+            if (!settings.SwitchingEnabled)
+            {
+                return;
+            }
+
+            if (settings.FollowingStartHour == nowHour)
+            {
+                if (functionalityToFollow.Stopped)
+                {
+                    new SwitchFunctionalityAccessCommandHandler(context).Handle(new SwitchFunctionalityAccessCommand
+                    {
+                        FunctionalityName = functionalityToFollow.FunctionalityName
+                    });
+                }
+                if (!functionalityToUnfollow.Stopped)
+                {
+                    new SwitchFunctionalityAccessCommandHandler(context).Handle(new SwitchFunctionalityAccessCommand
+                    {
+                        FunctionalityName = functionalityToUnfollow.FunctionalityName
+                    });
+                }
+            }
+
+            if (settings.UnfollowingStartHour == nowHour)
+            {
+                if (functionalityToUnfollow.Stopped)
+                {
+                    new SwitchFunctionalityAccessCommandHandler(context).Handle(new SwitchFunctionalityAccessCommand
+                    {
+                        FunctionalityName = functionalityToUnfollow.FunctionalityName
+                    });
+                }
+                if (!functionalityToFollow.Stopped)
+                {
+                    new SwitchFunctionalityAccessCommandHandler(context).Handle(new SwitchFunctionalityAccessCommand
+                    {
+                        FunctionalityName = functionalityToFollow.FunctionalityName
+                    });
+                }
+            }
+
+        }
+
         public void Registration(RemoteWebDriver driver, ISettingsContext context)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
@@ -173,8 +232,7 @@ namespace InstagramApp
                     UserLink = settings.HomePageUrl
                 });
 
-                // todo: move to settings
-                if (userInfo.FollowingCount < 1000)
+                if (userInfo.FollowingCount < settings.MinUsersToFollowCount)
                 {
                     new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                     {
@@ -248,7 +306,7 @@ namespace InstagramApp
             });
         }
 
-        public void FilterUser(string user, int index, int count, RemoteWebDriver driver, IStoreContext destinationContext, List<string> languages, int followersLimit, bool emptyAllowed, List<string> passWords, Action<int, int, string, bool, string> makeRecord)
+        public void FilterUser(string user, int index, int count, RemoteWebDriver driver, IStoreContext destinationContext, List<string> languages, int followersLimit, bool emptyAllowed, List<string> passWords, List<string> passNames, Action<int, int, string, bool, string> makeRecord)
         {
             try
             {
@@ -287,6 +345,16 @@ namespace InstagramApp
                     return;
                 }
 
+                if (!string.IsNullOrWhiteSpace(user) && (passNames.Any(s => user.ToUpper().Contains(s.ToUpper())) || passWords.Any(s => user.ToUpper().Contains(s.ToUpper()))))
+                {
+                    new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                    {
+                        UserLink = user
+                    });
+                    makeRecord(index, count, user, true, "there are pass url");
+                    return;
+                }
+
                 if (string.IsNullOrWhiteSpace(userInfo.Text))
                 {
                     if (!emptyAllowed)
@@ -303,6 +371,16 @@ namespace InstagramApp
                     return;
                 }
 
+                if (!string.IsNullOrWhiteSpace(userInfo.Name) && (passNames.Any(s => userInfo.Name.ToUpper().Contains(s.ToUpper())) || passWords.Any(s => userInfo.Name.ToUpper().Contains(s.ToUpper()))))
+                {
+                    new MarkUserAsToFollowCommandHandler(destinationContext).Handle(new MarkUserAsToFollowCommand
+                    {
+                        UserLink = user
+                    });
+                    makeRecord(index, count, user, true, "there are pass names");
+                    return;
+                }
+                
                 if (userInfo.Text.Length < 3)
                 {
                     if (!emptyAllowed)
@@ -353,7 +431,7 @@ namespace InstagramApp
             }
         }
 
-        public void FilterUsers(RemoteWebDriver driver, IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages, int followersLimit, bool emptyAllowed, List<string> passWords, Action<int, int, string, bool, string> makeRecord)
+        public void FilterUsers(RemoteWebDriver driver, IStoreContext sourceContext, IStoreContext destinationContext, List<string> languages, int followersLimit, bool emptyAllowed, List<string> passWords, List<string> passNames, Action<int, int, string, bool, string> makeRecord)
         {
             new RemoveAllUsersByStatusCommandHandler(destinationContext).Handle(new RemoveAllUsersByStatusCommand
             {
@@ -372,7 +450,7 @@ namespace InstagramApp
 
                 var user = users[index];
                 index++;
-                FilterUser(user, index, count, driver, destinationContext, languages, followersLimit, emptyAllowed, passWords, makeRecord);
+                FilterUser(user, index, count, driver, destinationContext, languages, followersLimit, emptyAllowed, passWords, passNames, makeRecord);
             }
         }
 
@@ -396,8 +474,7 @@ namespace InstagramApp
                     UserLink = settings.HomePageUrl
                 });
 
-                // todo: move to settings
-                if (mainUserInfo.FollowingCount > 7000)
+                if (mainUserInfo.FollowingCount > settings.MaxUsersToFollowCount)
                 {
                     new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                     {

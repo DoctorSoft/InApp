@@ -13,5 +13,7 @@
         public bool IsStar { get; set; }
 
         public string Page { get; set; }
+
+        public string Name { get; set; }
     }
 }

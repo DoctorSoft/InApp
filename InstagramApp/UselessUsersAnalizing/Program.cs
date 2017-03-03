@@ -17,8 +17,6 @@ namespace UselessUsersAnalizing
                 /*AccountName.Kioto,
                 AccountName.MyGrodno,
                 AccountName.Sport,
-                AccountName.Sto,
-                AccountName.Sto2,
                 AccountName.Ozerny,*/
                 AccountName.GreenDozor,
                 AccountName.SystemDoctor, 
@@ -37,7 +35,7 @@ namespace UselessUsersAnalizing
 
             var service = new InstagramService();
 
-            var spyContext = new NikonContext(); // Spy !!!
+            var spyContext = new SportContext(); // Spy !!!
             var spyDriver = service.RegisterNewDriver(spyContext);
 
             while (true)

@@ -60,8 +60,8 @@ namespace TableCopyPaster
 
         public static void Main(string[] args)
         {
-            var source = new MinskStoreContext();
-            var destination = new SystemDoctorContext();
+            var source = new Minsk2StoreContext();
+            var destination = new OzernyContext();
             CopyUsers(source, destination);
         }
     }

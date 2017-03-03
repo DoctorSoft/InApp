@@ -25,6 +25,7 @@ namespace Engines.Engines.GetUserInfoEngine
             int attempt = 0;
             bool passed = false;
             string url = model.UserLink.Replace("\\", "/");
+            string name = string.Empty;
 
             try
             {
@@ -53,7 +54,7 @@ namespace Engines.Engines.GetUserInfoEngine
                 }
 
                 var regex = new Regex("full_name[^:]*:[^\\\"]*\\\"[^\\\"]*\\\",");
-                var fullName =
+                name =
                     regex.Match(page)
                         .Value.Replace("full_name", "")
                         .Replace("\"", "")
@@ -174,7 +175,8 @@ namespace Engines.Engines.GetUserInfoEngine
                     PublicationCount = int.Parse(posts),
                     Text = biography,
                     IsStar = verified.ToLower().Contains("true"),
-                    Page = page
+                    Page = page,
+                    Name = name
                 };
 
             }
