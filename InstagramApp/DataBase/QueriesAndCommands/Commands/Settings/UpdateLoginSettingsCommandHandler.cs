@@ -35,6 +35,11 @@ namespace DataBase.QueriesAndCommands.Commands.Settings
             settings.ProxyPassword = command.ProxyPassword;
             settings.RemoveAllUsers = command.RemoveAllUsers;
             settings.InstagramtId = command.InstagramId;
+            settings.FollowingStartHour = command.FollowingStartHour;
+            settings.MaxUsersToFollowCount = command.MaxUsersToFollowCount;
+            settings.MinUsersToFollowCount = command.MinUsersToFollowCount;
+            settings.UnfollowingStartHour = command.UnfollowingStartHour;
+            settings.SwitchingEnabled = command.SwitchingEnabled;
 
             context.ProfileSettings.AddOrUpdate(settings);
 

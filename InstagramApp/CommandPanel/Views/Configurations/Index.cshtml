@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
@@ -14,49 +13,49 @@
             <div class="input-hashtag ">
                 Login
                 <div>
-                    <input type="text" name="Login" class="form-control" value="@Model.Login"/>
+                    <input type="text" name="Login" class="form-control" value="@Model.Login" />
                 </div>
             </div>
 
             <div class="input-hashtag ">
                 Password
                 <div>
-                    <input type="text" name="Password" class="form-control" value="@Model.Password"/>
+                    <input type="text" name="Password" class="form-control" value="@Model.Password" />
                 </div>
             </div>
 
             <div class="input-hashtag ">
                 Home Url
                 <div>
-                    <input type="text" name="HomePage" class="form-control" value="@Model.HomePage"/>
+                    <input type="text" name="HomePage" class="form-control" value="@Model.HomePage" />
                 </div>
             </div>
 
             <div class="input-hashtag ">
                 Proxy
                 <div>
-                    <input type="text" name="Proxy" class="form-control" value="@Model.Proxy"/>
+                    <input type="text" name="Proxy" class="form-control" value="@Model.Proxy" />
                 </div>
             </div>
 
             <div class="input-hashtag ">
                 Proxy Name
                 <div>
-                    <input type="text" name="ProxyName" class="form-control" value="@Model.ProxyName"/>
+                    <input type="text" name="ProxyName" class="form-control" value="@Model.ProxyName" />
                 </div>
             </div>
 
             <div class="input-hashtag ">
                 Proxy Password
                 <div>
-                    <input type="text" name="ProxyPassword" class="form-control" value="@Model.ProxyPassword"/>
+                    <input type="text" name="ProxyPassword" class="form-control" value="@Model.ProxyPassword" />
                 </div>
             </div>
 
             <div class="input-hashtag ">
                 Remove all users
                 <div>
-                    @Html.CheckBoxFor(model => model.RemoveAllUsers, new {@class = "form-control"})
+                    @Html.CheckBoxFor(model => model.RemoveAllUsers, new { @class = "form-control" })
                 </div>
             </div>
 
@@ -66,9 +65,43 @@
                     <input type="text" name="InstagramId" class="form-control" value="@Model.InstagramId" />
                 </div>
             </div>
+            
+            <div class="input-hashtag ">
+                Switching enabled
+                <div>
+                    @Html.CheckBoxFor(model => model.SwitchingEnabled, new {@class = "form-control"})
+                </div>
+            </div>
 
-            <input type="submit" value="Save" class="btn btn-primary"/>
+            <div class="input-hashtag ">
+                Start hour to follow users
+                <div>
+                    <input type="number" name="FollowingStartHour" class="form-control" value="@Model.FollowingStartHour"/>
+                </div>
+            </div>
+
+            <div class="input-hashtag ">
+                Start hour to unfollow users
+                <div>
+                    <input type="number" name="UnfollowingStartHour" class="form-control" value="@Model.UnfollowingStartHour"/>
+                </div>
+            </div>
+
+            <div class="input-hashtag ">
+                Min users to follow
+                <div>
+                    <input type="number" name="MinUsersToFollowCount" class="form-control" value="@Model.MinUsersToFollowCount"/>
+                </div>
+            </div>
+
+            <div class="input-hashtag ">
+                Max users to follow
+                <div>
+                    <input type="number" name="MaxUsersToFollowCount" class="form-control" value="@Model.MaxUsersToFollowCount" />
+                </div>
+            </div>
+
+            <input type="submit" value="Save" class="btn btn-primary" />
         }
     </div>
 </div>
-

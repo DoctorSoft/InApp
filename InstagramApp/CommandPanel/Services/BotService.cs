@@ -44,7 +44,12 @@ namespace CommandPanel.Services
                     ProxyName = configs.ProxyLogin,
                     ProxyPassword = configs.ProxyPassword,
                     RemoveAllUsers = configs.RemoveAllUsers,
-                    InstagramId = configs.InstagramtId.ToString()
+                    InstagramId = configs.InstagramtId.ToString(),
+                    UnfollowingStartHour = configs.UnfollowingStartHour,
+                    MinUsersToFollowCount = configs.MinUsersToFollowCount,
+                    MaxUsersToFollowCount = configs.MaxUsersToFollowCount,
+                    FollowingStartHour = configs.FollowingStartHour,
+                    SwitchingEnabled = configs.SwitchingEnabled
                 };
 
                 result.Add(botModel);
@@ -67,7 +72,12 @@ namespace CommandPanel.Services
                 ProxyPassword = model.ProxyPassword,
                 ProxyName = model.ProxyName,
                 RemoveAllUsers = model.RemoveAllUsers,
-                InstagramId = long.Parse(model.InstagramId ?? "0")
+                InstagramId = long.Parse(model.InstagramId ?? "0"),
+                UnfollowingStartHour = model.UnfollowingStartHour,
+                MinUsersToFollowCount = model.MinUsersToFollowCount,
+                MaxUsersToFollowCount = model.MaxUsersToFollowCount,
+                FollowingStartHour = model.FollowingStartHour,
+                SwitchingEnabled = model.SwitchingEnabled
             });
         }
     }
