@@ -31,7 +31,7 @@ namespace DataBase.QueriesAndCommands.Commands.Users
             }
             else
             {
-                // if this user there is in base, do nothing
+                // if this user is in base, do nothing
                 return new VoidCommandResponse();
             }
 

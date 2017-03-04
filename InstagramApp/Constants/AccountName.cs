@@ -52,6 +52,9 @@
         __Store_Grodno6 = 2015,
 
         __Reester = 3001,
-        __FilterResult = 3002
+        __FilterResult = 3002,
+
+        __GrodnoGeo = 4001,
+        __MinskGeo = 4002
     }
 }

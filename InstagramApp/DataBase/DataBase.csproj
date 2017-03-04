@@ -136,6 +136,8 @@
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno4StoreContex.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\BelarusCommercialContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\FilterResultStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\MinskGeoStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoGeoStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\VrangelContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoNewsContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno3StoreContext.cs" />

@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserQualityFilter", "UserQu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchFollowingWindowsService", "SwitchFollowingWindowsService\SwitchFollowingWindowsService.csproj", "{201A7135-5FED-4F99-A478-A16FA926E0A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoBasesFiller", "GeoBasesFiller\GeoBasesFiller.csproj", "{91015052-2CCC-4682-AF30-40ED9ABBCEE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{201A7135-5FED-4F99-A478-A16FA926E0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{201A7135-5FED-4F99-A478-A16FA926E0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{201A7135-5FED-4F99-A478-A16FA926E0A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91015052-2CCC-4682-AF30-40ED9ABBCEE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91015052-2CCC-4682-AF30-40ED9ABBCEE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91015052-2CCC-4682-AF30-40ED9ABBCEE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91015052-2CCC-4682-AF30-40ED9ABBCEE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

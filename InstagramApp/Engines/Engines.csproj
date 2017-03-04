@@ -114,6 +114,11 @@
     <Compile Include="Engines\GetFioForRegistrationEngine\GetFioForRegistrationEngine.cs" />
     <Compile Include="Engines\GetFioForRegistrationEngine\GetFioForRegistrationModel.cs" />
     <Compile Include="Engines\GetFioForRegistrationEngine\GetFioForRegistrationResponseModel.cs" />
+    <Compile Include="Engines\GetMediaAuthorEngine\GetMediaAuthorEngine.cs" />
+    <Compile Include="Engines\GetMediaAuthorEngine\GetMediaAuthorEngineResponse.cs" />
+    <Compile Include="Engines\GetMediaAuthorEngine\GetMediaAuthorModel.cs" />
+    <Compile Include="Engines\GetMediaByGeoEngine\GetMediaByGeoEngine.cs" />
+    <Compile Include="Engines\GetMediaByGeoEngine\GetMediaByGeoModel.cs" />
     <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageEngine.cs" />
     <Compile Include="Engines\GetMediaByMainPageEngine\GetMediaByMainPageModel.cs" />
     <Compile Include="Engines\GetProxyListEngine\GetProxyListEngine.cs" />
@@ -170,6 +175,10 @@
     <Folder Include="Requesters\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Constants\Constants.csproj">
+      <Project>{2EAC08C2-2A80-47B0-872C-91578FB53C7C}</Project>
+      <Name>Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataBase\DataBase.csproj">
       <Project>{70CFDD79-ABDB-4BC6-AEB8-7D49BD639858}</Project>
       <Name>DataBase</Name>

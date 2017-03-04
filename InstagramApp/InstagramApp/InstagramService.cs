@@ -25,6 +25,8 @@ using DataBase.QueriesAndCommands.Queries.Words;
 using Engines.Engines.AddCommentEngine;
 using Engines.Engines.DetectLanguageEngine;
 using Engines.Engines.FollowUserEngine;
+using Engines.Engines.GetMediaAuthorEngine;
+using Engines.Engines.GetMediaByGeoEngine;
 using Engines.Engines.GetMediaByHashTagEngine;
 using Engines.Engines.GetMediaByMainPageEngine;
 using Engines.Engines.GetUserIdEngine;
@@ -210,6 +212,44 @@ namespace InstagramApp
         public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context)
         {
             UnfollowUsers(driver, context, 3);
+        }
+
+        public void SaveUsersByGeo(RemoteWebDriver driver, IStoreContext context, GeoName geo)
+        {
+            var medias = new List<string>();
+
+            try
+            {
+                medias = new GetMediaByGeoEngine().Execute(driver, new GetMediaByGeoModel
+                {
+                    Geo = geo,
+                    CountMedia = 12
+                });
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            foreach (var media in medias)
+            {
+                try
+                {
+                    var user = new GetMediaAuthorEngine().Execute(driver, new GetMediaAuthorModel
+                    {
+                        Link = media
+                    });
+
+                    new MarkUserAsToFollowCommandHandler(context).Handle(new MarkUserAsToFollowCommand
+                    {
+                        UserLink = user.UserLink
+                    });
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+            }
         }
 
         public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
