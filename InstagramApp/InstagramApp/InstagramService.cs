@@ -805,6 +805,8 @@ namespace InstagramApp
 
         public void RunBackgroundSearchingUslessUsers(DataBaseContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, Action<int> showProcess = null)
         {
+            var buffer = new AnalizingBufferContext();
+
             //take risk of skipping bugs
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
             {
@@ -814,40 +816,144 @@ namespace InstagramApp
             });
 
             Registration(spyDriver, spyContext);
+            Thread.Sleep(1000);
 
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+            Thread.Sleep(1000);
 
-            var followers = new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
-            {
-                UserLink = settings.HomePageUrl,
-                UserName = settings.Login,
-                Id = settings.InstagramtId.ToString(),
-                ShowProcess = showProcess
-            });
+            new RemoveAllUsersByStatusCommandHandler(buffer).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.Normal });
+            new RemoveAllUsersByStatusCommandHandler(buffer).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.ToDelete });
 
-            var followings = new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
+            var attempt = 0;
+            List<string> followers;
+            List<string> followings;
+            do
             {
-                UserLink = settings.HomePageUrl,
-                UserName = settings.Login,
-                Id = settings.InstagramtId.ToString(),
-                ShowProcess = showProcess
-            });
+                followers = new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
+                {
+                    UserLink = settings.HomePageUrl,
+                    UserName = settings.Login,
+                    Id = settings.InstagramtId.ToString(),
+                    ShowProcess = showProcess,
+                });
+
+                attempt++;
+
+                if (attempt > 3)
+                {
+                    Console.WriteLine("Something went wrong with this account (searching followers)");
+                    return;
+                }
+
+            } while (!followers.Any());
+
+            Thread.Sleep(1000);
+
+            attempt = 0;
+            do
+            {
+                followings = new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
+                {
+                    UserLink = settings.HomePageUrl,
+                    UserName = settings.Login,
+                    Id = settings.InstagramtId.ToString(),
+                    ShowProcess = showProcess
+                });
+
+                attempt++;
+
+                if (attempt > 3)
+                {
+                    Console.WriteLine("Something went wrong with this account (searching followings)");
+                    return;
+                }
+
+            } while (!followings.Any());
 
             if (followings == null || !followings.Any() || followers == null || !followers.Any())
             {
+                Console.WriteLine("Something went wrong with this account (searching followings or followers)");
                 return;
             }
 
             var usersToClear = followings.Except(followers).ToList();
             var normalUsers = followers.Intersect(followings).ToList();
 
-            new RemoveAllUsersByStatusCommandHandler(context).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.Normal });
+            bool passed = false;
+            attempt = 0;
 
-            new MarkUsersAsToDeleteCommandHandler(context).Handle(new MarkUsersAsToDeleteCommand
+            do
             {
-                UsersToClear = usersToClear,
-                NormalUsers = normalUsers
-            });
+                try
+                {
+                    new RemoveAllUsersByStatusCommandHandler(context).Handle(new RemoveAllUsersByStatusCommand
+                    {
+                        UserStatus = UserStatus.Normal
+                    });
+                    new RemoveAllUsersByStatusCommandHandler(context).Handle(new RemoveAllUsersByStatusCommand
+                    {
+                        UserStatus = UserStatus.ToDelete
+                    });
+                    passed = true;
+                }
+                catch (Exception)
+                {
+                    attempt++;
+                    if (attempt > 3)
+                    {
+                        Console.WriteLine("Something went wrong with this account (remove old users)");
+                        return;
+                    }
+                }
+            } while (!passed);
+
+            passed = false;
+            attempt = 0;
+
+            do
+            {
+                try
+                {
+                    new MarkUsersAsToDeleteCommandHandler(context).Handle(new MarkUsersAsToDeleteCommand
+                    {
+                        UsersToClear = usersToClear,
+                    });
+                    passed = true;
+                }
+                catch (Exception)
+                {
+                    attempt++;
+                    if (attempt > 3)
+                    {
+                        Console.WriteLine("Something went wrong with this account (add users to delete)");
+                        return;
+                    }
+                }
+            } while (!passed);
+
+            passed = false;
+            attempt = 0;
+
+            do
+            {
+                try
+                {
+                    new MarkUsersAsNormalCommandHandler(context).Handle(new MarkUsersAsNormalCommand
+                    {
+                        UsersToMarkAsNormal = normalUsers,
+                    });
+                    passed = true;
+                }
+                catch (Exception)
+                {
+                    attempt++;
+                    if (attempt > 3)
+                    {
+                        Console.WriteLine("Something went wrong with this account (add users to delete)");
+                        return;
+                    }
+                }
+            } while (!passed);
         }
 
         public void SearchUselessUsers(RemoteWebDriver driver, DataBaseContext context)
@@ -1014,13 +1120,13 @@ namespace InstagramApp
                     Link = media
                 });
 
-                if (!string.IsNullOrEmpty(userLink.UserLink))
+                /*if (!string.IsNullOrEmpty(userLink.UserLink))
                 {
                     new MarkUserAsToFollowCommandHandler(context).Handle(new MarkUserAsToFollowCommand
                     {
                         UserLink = userLink.UserLink
                     });
-                }
+                }*/
 
                 new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                 {

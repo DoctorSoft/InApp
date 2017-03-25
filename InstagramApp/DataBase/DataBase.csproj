@@ -131,6 +131,7 @@
     <Compile Include="Contexts\InnerTools\IStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\SettingsContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\AnalizingBufferContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno6StoreContex.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno5StoreContex.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno4StoreContex.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Contexts\InnerTools\StoreContexts\FilterResultStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\MinskGeoStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoGeoStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\MogilevMinskStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\VrangelContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoNewsContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\Grodno3StoreContext.cs" />
@@ -330,6 +332,8 @@
     </Compile>
     <Compile Include="QueriesAndCommands\Commands\Register\AddUserToRegisterCommand.cs" />
     <Compile Include="QueriesAndCommands\Commands\Register\AddUserToRegisterCommandHandler.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsNormalCommand.cs" />
+    <Compile Include="QueriesAndCommands\Commands\Users\MarkUsersAsNormalCommandHandler.cs" />
     <Compile Include="QueriesAndCommands\Queries\Functionality\GetDaylyReportQuery.cs" />
     <Compile Include="QueriesAndCommands\Queries\Functionality\GetDaylyReportQueryHandler.cs" />
     <Compile Include="SalsaRikaMigrations\201703021241276_AddOptions.cs" />

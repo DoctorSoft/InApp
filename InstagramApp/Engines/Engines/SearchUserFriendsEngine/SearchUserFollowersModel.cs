@@ -1,4 +1,5 @@
 ﻿using System;
+using DataBase.Contexts.InnerTools;
 
 namespace Engines.Engines.SearchUserFriendsEngine
 {

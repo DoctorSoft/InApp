@@ -1,31 +1,28 @@
 ﻿using System.Linq;
 using Constants;
-using DataBase.Contexts;
 using DataBase.Contexts.InnerTools;
 using DataBase.Models;
 using DataBase.QueriesAndCommands.Common;
-using EntityFramework.BulkInsert.Extensions;
-using EntityFramework.Extensions;
 
 namespace DataBase.QueriesAndCommands.Commands.Users
 {
-    public class MarkUsersAsToDeleteCommandHandler : ICommandHandler<MarkUsersAsToDeleteCommand, VoidCommandResponse>
+    public class MarkUsersAsNormalCommandHandler : ICommandHandler<MarkUsersAsNormalCommand, VoidCommandResponse>
     {
         private readonly DataBaseContext context;
 
-        public MarkUsersAsToDeleteCommandHandler(DataBaseContext context)
+        public MarkUsersAsNormalCommandHandler(DataBaseContext context)
         {
             this.context = context;
         }
 
-        public VoidCommandResponse Handle(MarkUsersAsToDeleteCommand command)
+        public VoidCommandResponse Handle(MarkUsersAsNormalCommand command)
         {
             var allUsers = context.Users.Select(model => model.Link).ToList();
-            var usersToAddAsToDelete = command.UsersToClear.Except(allUsers).ToList();
+            var usersToAddAsToDelete = command.UsersToMarkAsNormal.Except(allUsers).ToList();
 
             context.BulkInsert(usersToAddAsToDelete.Select(s => new UserDbModel
             {
-                UserStatus = UserStatus.ToDelete,
+                UserStatus = UserStatus.Normal,
                 Link = s
             }));
 

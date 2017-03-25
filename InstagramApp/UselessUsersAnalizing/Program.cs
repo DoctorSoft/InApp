@@ -14,15 +14,16 @@ namespace UselessUsersAnalizing
         {
             var accounts = new[]
             {
-                /*AccountName.Kioto,
+                AccountName.GrodnoOfficial,
+                AccountName.Kioto,
                 AccountName.MyGrodno,
-                AccountName.Sport,
-                AccountName.Ozerny,*/
-                AccountName.GreenDozor,
+                AccountName.Ozerny,
+                AccountName.Sport, 
                 AccountName.SystemDoctor, 
-                AccountName.GreenShop,
-                AccountName.GadalkaTamara, 
+                AccountName.Gadanie, 
+                AccountName.Nazar, 
                 AccountName.Firuza,
+                AccountName.GreenShop, 
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -31,11 +32,11 @@ namespace UselessUsersAnalizing
                 .ToList();
 
             var count = bases.Count;
-            var index = 0;
+            var index = 1;
 
             var service = new InstagramService();
 
-            var spyContext = new SportContext(); // Spy !!!
+            var spyContext = new WeHeartGrodnoContext(); // Spy !!!
             var spyDriver = service.RegisterNewDriver(spyContext);
 
             while (true)
@@ -45,7 +46,7 @@ namespace UselessUsersAnalizing
                     var dbData = bases[index];
                     var db = (DataBaseContext)Activator.CreateInstance(dbData.DataBaseType);
 
-                    Console.WriteLine("=======Start=====");
+                    Console.WriteLine("=======Start=====" + dbData.AccountName.ToString("G"));
 
                     service.RunBackgroundSearchingUslessUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="));
                 }

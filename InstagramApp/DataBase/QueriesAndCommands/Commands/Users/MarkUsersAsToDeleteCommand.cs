@@ -7,6 +7,5 @@ namespace DataBase.QueriesAndCommands.Commands.Users
     {
         public List<string> UsersToClear { get; set; }
 
-        public List<string> NormalUsers { get; set; } 
     }
 }

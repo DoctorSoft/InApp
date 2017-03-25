@@ -50,9 +50,11 @@
         __Vrangel = 2013,
         __Store_Grodno5 = 2014,
         __Store_Grodno6 = 2015,
+        __Store_Mogilev_Minsk = 2016,
 
         __Reester = 3001,
         __FilterResult = 3002,
+        __AnializingBuffer = 3003,
 
         __GrodnoGeo = 4001,
         __MinskGeo = 4002

@@ -45,7 +45,7 @@ namespace NewStarsFiller
 
                     Console.WriteLine("=======Start=====");
 
-                    service.RunBackgroundSearchingNewStars(db, spyDriver, spyContext, sources, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="));
+                    service.RunBackgroundSearchingNewStars(db, spyDriver, spyContext, sources, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="), true, false);
                 }
                 catch (Exception)
                 {

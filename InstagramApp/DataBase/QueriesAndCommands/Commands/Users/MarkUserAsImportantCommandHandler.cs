@@ -10,9 +10,9 @@ namespace DataBase.QueriesAndCommands.Commands.Users
 {
     public class MarkUserAsImportantCommandHandler : ICommandHandler<MarkUserAsImportantCommand, VoidCommandResponse>
     {
-        private readonly DataBaseContext context;
+        private readonly IStoreContext context;
 
-        public MarkUserAsImportantCommandHandler(DataBaseContext context)
+        public MarkUserAsImportantCommandHandler(IStoreContext context)
         {
             this.context = context;
         }

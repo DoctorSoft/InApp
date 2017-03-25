@@ -9,7 +9,7 @@ namespace TableCopyPaster
 {
     public class Program
     {
-        private static void CopyStars(DataBaseContext source, DataBaseContext destination)
+        public static void CopyStars(DataBaseContext source, DataBaseContext destination)
         {
             var list = source.StarRecords
                 .ToList().Select(model => new StarRecordDbModel
@@ -32,7 +32,7 @@ namespace TableCopyPaster
             destination.SaveChanges();
         }
 
-        private static void CopyUsers(IStoreContext source, IStoreContext destination)
+        public static void CopyUsers(IStoreContext source, IStoreContext destination)
         {
             var list = source.Users
                 .ToList().Select(model => new UserDbModel
@@ -60,8 +60,8 @@ namespace TableCopyPaster
 
         public static void Main(string[] args)
         {
-            var source = new Minsk2StoreContext();
-            var destination = new OzernyContext();
+            var source = new FilterResultStoreContext();
+            var destination = new MogilevMinskStoreContext();
             CopyUsers(source, destination);
         }
     }

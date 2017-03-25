@@ -14,7 +14,7 @@ namespace UserQualityFilter
         {
             var service = new InstagramService();
 
-            var sourceBase = new Minsk2StoreContext();
+            var sourceBase = new MogilevMinskStoreContext();
             var destinationBase = new FilterResultStoreContext();
 
             RemoteWebDriver driver = null;

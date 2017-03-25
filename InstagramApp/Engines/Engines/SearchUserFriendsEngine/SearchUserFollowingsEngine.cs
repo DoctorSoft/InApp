@@ -35,7 +35,9 @@ namespace Engines.Engines.SearchUserFriendsEngine
             {
                 return GetDefaultResult();
             }
-           
+            
+            Thread.Sleep(1000);
+
             var breakButtonExists = driver
                 .FindElements(By.TagName("h2"))
                 .Any(element => element.Text.Contains("недоступна"));
@@ -53,9 +55,6 @@ namespace Engines.Engines.SearchUserFriendsEngine
             {
                 throw new CaptchaException();
             }
-
-            var buttons = driver
-                .FindElements(By.ClassName("_s53mj"));
 
             var followersButton = driver
             .FindElements(By.ClassName("_s53mj"))
@@ -86,7 +85,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             window.Click();
 
-            Thread.Sleep(500);
+            Thread.Sleep(1500);
 
             for (var i = 0; i < 3; i++)
             {
@@ -120,7 +119,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 var requestRest = new RestRequest("query/", Method.POST);
                 requestRest.Parameters.Clear();
 
-                var userCount = 100;
+                var userCount = 20;
                 var startString =
                     "ig_user(" + model.Id + ") {  follows.first(" + userCount +
                     ") {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}";
@@ -175,7 +174,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                     return userList;
                 }
 
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
 
                 if (model.ShowProcess != null)
                 {

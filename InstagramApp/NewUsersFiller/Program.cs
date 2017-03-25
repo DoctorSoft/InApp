@@ -14,24 +14,15 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.__Store_Grodno5
+                AccountName.__Store_Mogilev_Minsk
             };
 
             const bool following = true; //подписки
-            const bool followers = false; //Подпищики
+            const bool followers = true; //Подпищики
 
             var links = new[]
             {
-                "https://www.instagram.com/honeykabany/",
-                "https://www.instagram.com/taboobargrodno/",
-                "https://www.instagram.com/mcdonalds.grodno/",
-                "https://www.instagram.com/trendy_grodno/",
-
-               
-                
-
-
-
+                "https://www.instagram.com/mogilev.life.style/"
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(
