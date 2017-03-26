@@ -14,7 +14,7 @@ namespace UselessUsersAnalizing
         {
             var accounts = new[]
             {
-                AccountName.GrodnoOfficial,
+                /*AccountName.GrodnoOfficial,
                 AccountName.Kioto,
                 AccountName.MyGrodno,
                 AccountName.Ozerny,
@@ -22,8 +22,9 @@ namespace UselessUsersAnalizing
                 AccountName.SystemDoctor, 
                 AccountName.Gadanie, 
                 AccountName.Nazar, 
-                AccountName.Firuza,
+                AccountName.Firuza,*/
                 AccountName.GreenShop, 
+                //AccountName.MogilevTurism, 
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -48,6 +49,16 @@ namespace UselessUsersAnalizing
 
                     Console.WriteLine("=======Start=====" + dbData.AccountName.ToString("G"));
 
+                    try
+                    {
+                        service.AddActivityHistoryMarkBySpy(spyDriver, spyContext, db);
+                        Console.WriteLine("Account got activity mark");
+
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Account failed to get activity mark");
+                    }
                     service.RunBackgroundSearchingUslessUsers(db, spyDriver, spyContext, i => Console.WriteLine("===" + db.GetAccountName().ToString("G") + "====" + i + "===="));
                 }
                 catch (Exception)

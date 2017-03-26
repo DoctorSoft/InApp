@@ -36,7 +36,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 return GetDefaultResult();
             }
             
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
 
             var breakButtonExists = driver
                 .FindElements(By.TagName("h2"))
@@ -77,7 +77,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 return new List<string>();
             }
 
-            Thread.Sleep(1500);
+            Thread.Sleep(3500);
 
             var window = driver
                 .FindElements(By.TagName("li"))

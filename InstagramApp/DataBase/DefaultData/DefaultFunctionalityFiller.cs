@@ -30,7 +30,7 @@ namespace DataBase.DefaultData
                     FunctionalityName = FunctionalityName.ClearOldMedia.ToString("G"),
                     FunctionalityNumber = FunctionalityName.ClearOldMedia,
                     Token = null,
-                    ApplyInterval = TimeSpan.FromSeconds(30),
+                    ApplyInterval = TimeSpan.FromMinutes(30),
                     ExpectingTime = TimeSpan.FromMinutes(5)
                 },
                 new FunctionalityDbModel
@@ -49,7 +49,7 @@ namespace DataBase.DefaultData
                     FunctionalityNumber = FunctionalityName.SaveMediaByHashTag,
                     Token = null,
                     ApplyInterval = TimeSpan.FromMinutes(30),
-                    ExpectingTime = TimeSpan.FromMinutes(10)
+                    ExpectingTime = TimeSpan.FromMinutes(10),
                 },
                 new FunctionalityDbModel
                 {
@@ -67,7 +67,8 @@ namespace DataBase.DefaultData
                     FunctionalityNumber = FunctionalityName.SearchNewUsers,
                     Token = null,
                     ApplyInterval = TimeSpan.FromHours(12),
-                    ExpectingTime = TimeSpan.FromMinutes(10)
+                    ExpectingTime = TimeSpan.FromMinutes(10),
+                    Stopped = true
                 },
                 new FunctionalityDbModel
                 {
@@ -76,7 +77,8 @@ namespace DataBase.DefaultData
                     FunctionalityNumber = FunctionalityName.SearchUselessUsers,
                     Token = null,
                     ApplyInterval = TimeSpan.FromHours(12),
-                    ExpectingTime = TimeSpan.FromHours(2)
+                    ExpectingTime = TimeSpan.FromHours(2),
+                    Stopped = true
                 },
                 new FunctionalityDbModel
                 {
@@ -94,7 +96,8 @@ namespace DataBase.DefaultData
                     FunctionalityNumber = FunctionalityName.AddComments,
                     Token = null,
                     ApplyInterval = TimeSpan.FromHours(1),
-                    ExpectingTime = TimeSpan.FromMinutes(10)
+                    ExpectingTime = TimeSpan.FromMinutes(10),
+                    Stopped = true
                 },
                 new FunctionalityDbModel
                 {
@@ -102,7 +105,7 @@ namespace DataBase.DefaultData
                     FunctionalityName = FunctionalityName.AddActivityHistoryMark.ToString("G"),
                     FunctionalityNumber = FunctionalityName.AddActivityHistoryMark,
                     Token = null,
-                    ApplyInterval = TimeSpan.FromHours(3),
+                    ApplyInterval = TimeSpan.FromHours(1),
                     ExpectingTime = TimeSpan.FromHours(1)
                 }
             };

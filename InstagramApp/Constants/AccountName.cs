@@ -23,6 +23,7 @@
         WeHeartGrodno = 24,
         SystemDoctor = 25,
         GreenShop = 26,
+        MogilevTurism = 27,
 
         _Bot_1 = 1001,
         _Bot_2 = 1002,
@@ -51,6 +52,7 @@
         __Store_Grodno5 = 2014,
         __Store_Grodno6 = 2015,
         __Store_Mogilev_Minsk = 2016,
+        __Store_Grodno_S13_Love_Auto = 2017,
 
         __Reester = 3001,
         __FilterResult = 3002,

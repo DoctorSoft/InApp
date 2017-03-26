@@ -17,7 +17,7 @@ namespace DataBase.QueriesAndCommands.Commands.Users
 
         public VoidCommandResponse Handle(MarkUsersAsNormalCommand command)
         {
-            var allUsers = context.Users.Select(model => model.Link).ToList();
+            var allUsers = context.Users.Where(model => model.UserStatus == UserStatus.ImportantForOwner && model.UserStatus == UserStatus.Required).Select(model => model.Link).ToList();
             var usersToAddAsToDelete = command.UsersToMarkAsNormal.Except(allUsers).ToList();
 
             context.BulkInsert(usersToAddAsToDelete.Select(s => new UserDbModel

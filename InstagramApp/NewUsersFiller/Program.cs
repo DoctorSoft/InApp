@@ -14,15 +14,15 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.__Store_Mogilev_Minsk
+                AccountName.MogilevTurism
             };
 
-            const bool following = true; //подписки
+            const bool following = false; //подписки
             const bool followers = true; //Подпищики
 
             var links = new[]
             {
-                "https://www.instagram.com/mogilev.life.style/"
+                "https://www.instagram.com/mogilevoblturist/"
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(

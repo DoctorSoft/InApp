@@ -20,6 +20,7 @@ add-migration -Name AddOptions -ConfigurationTypeName GadalkaTamaraConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName WeHeartgrodnoConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName SystemDoctorConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName GreenShopConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName MogilevTurismConfiguration
 
 
 update-database -ConfigurationTypeName OzernyConfiguration
@@ -44,6 +45,8 @@ update-database -ConfigurationTypeName GadalkaTamaraConfiguration
 update-database -ConfigurationTypeName WeHeartgrodnoConfiguration
 update-database -ConfigurationTypeName SystemDoctorConfiguration
 update-database -ConfigurationTypeName GreenShopConfiguration
+update-database -ConfigurationTypeName MogilevTurismConfiguration
+
 
 
 

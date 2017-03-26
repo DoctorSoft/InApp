@@ -829,6 +829,8 @@ namespace InstagramApp
             List<string> followings;
             do
             {
+                Console.WriteLine("attempt {0} SearchUserFollowers", attempt);
+                Thread.Sleep(5000);
                 followers = new SearchUserFollowersEngine().Execute(spyDriver, new SearchUserFollowersModel
                 {
                     UserLink = settings.HomePageUrl,
@@ -852,6 +854,8 @@ namespace InstagramApp
             attempt = 0;
             do
             {
+                Console.WriteLine("attempt {0} SearchUserFollowings", attempt);
+                Thread.Sleep(5000);
                 followings = new SearchUserFollowingsEngine().Execute(spyDriver, new SearchUserFollowingsModel
                 {
                     UserLink = settings.HomePageUrl,
@@ -1216,6 +1220,52 @@ namespace InstagramApp
                     WorkStatus = WorkStatus.Cancelled
                 });
             }
+        }
+
+        public void AddActivityHistoryMarkBySpy(RemoteWebDriver spy, DataBaseContext spyContext, DataBaseContext context)
+        {
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Start adding notes",
+                Name = FunctionalityName.AddActivityHistoryMark,
+                WorkStatus = WorkStatus.Started
+            });
+
+            Registration(spy, spyContext);
+
+            var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+
+            var userInfo = new GetUserInfoEngine().Execute(spy, new GetUserInfoEngineModel
+            {
+                UserLink = settings.HomePageUrl
+            });
+
+            if (userInfo.FollowerCount == 0 || userInfo.FollowingCount == 0)
+            {
+                new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                {
+                    Note = "Error adding notes",
+                    Name = FunctionalityName.AddActivityHistoryMark,
+                    WorkStatus = WorkStatus.Cancelled
+                });
+                return;
+            }
+
+            new AddFollowersNoteCommandHandler(context).Handle(new AddFollowersNoteCommand
+            {
+                FollowersCount = userInfo.FollowerCount,
+                MediaCount = userInfo.PublicationCount,
+                FollowingsCount = userInfo.FollowingCount
+            });
+
+            new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+            {
+                Note = "Success adding notes",
+                Name = FunctionalityName.AddActivityHistoryMark,
+                WorkStatus = WorkStatus.Success
+            });
+
+            new MakeFunctionalityReportCommandHandler(context).Handle(new MakeFunctionalityReportCommand());
         }
 
         public void AddActivityHistoryMark(RemoteWebDriver driver, DataBaseContext context)
