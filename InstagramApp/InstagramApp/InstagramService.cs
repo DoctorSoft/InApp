@@ -252,10 +252,10 @@ namespace InstagramApp
             }
         }
 
-        public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        public WorkStatus UnfollowUserWithStatus(RemoteWebDriver driver, DataBaseContext context, int attempts)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
-            
+
             if (attempts == 3)
             {
                 new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
@@ -281,13 +281,13 @@ namespace InstagramApp
                         WorkStatus = WorkStatus.Cancelled
                     });
 
-                    return;
+                    return WorkStatus.Cancelled;
                 }
             }
 
             var users = new GetUsersToDeleteQueryHandler(context).Handle(new GetUsersToDeleteQuery
             {
-                MaxCount = 4, 
+                MaxCount = 4,
                 BanTime = new TimeSpan(1, 0, 0, 0),
                 RemoveAllUsers = settings.RemoveAllUsers
             }).ToList();
@@ -313,12 +313,14 @@ namespace InstagramApp
                         Name = FunctionalityName.UnfollowUsers,
                         WorkStatus = WorkStatus.Success
                     });
+
+                    return WorkStatus.Success;
                 }
                 else
                 {
                     if (attempts > 0)
                     {
-                        UnfollowUsers(driver, context, attempts - 1);
+                        return UnfollowUserWithStatus(driver, context, attempts - 1);
                     }
                     else
                     {
@@ -328,9 +330,16 @@ namespace InstagramApp
                             Name = FunctionalityName.UnfollowUsers,
                             WorkStatus = WorkStatus.Cancelled
                         });
+
+                        return WorkStatus.Cancelled;
                     }
                 }
             }
+        }
+
+        public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        {
+            UnfollowUserWithStatus(driver, context, attempts);
         }
 
         public void FollowUsers(RemoteWebDriver driver, DataBaseContext context)
@@ -494,7 +503,7 @@ namespace InstagramApp
             }
         }
 
-        public void FollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        public WorkStatus FollorUserWithStatus(RemoteWebDriver driver, DataBaseContext context, int attempts)
         {
             if (attempts == 3)
             {
@@ -523,14 +532,14 @@ namespace InstagramApp
                         WorkStatus = WorkStatus.Cancelled
                     });
 
-                    return;
+                    return WorkStatus.Cancelled;
                 }
             }
 
             var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 4 }).ToList();
 
             var user = users[attempts];
-            
+
             {
                 var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
                 {
@@ -561,19 +570,21 @@ namespace InstagramApp
                         {
                             UserLink = user
                         });
-                        
+
                         new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                         {
                             Note = "Success following users: " + user,
                             Name = FunctionalityName.FollowUsers,
                             WorkStatus = WorkStatus.Success
                         });
+
+                        return WorkStatus.Success;
                     }
                     else
                     {
                         if (attempts > 0)
                         {
-                            FollowUsers(driver, context, attempts - 1);
+                            return FollorUserWithStatus(driver, context, attempts - 1);
                         }
                         else
                         {
@@ -584,9 +595,9 @@ namespace InstagramApp
                                 WorkStatus = WorkStatus.Cancelled
                             });
                         }
-                    }
 
-                    return;
+                        return WorkStatus.Cancelled;
+                    }
                 }
 
                 var access = new CheckFeaturesAccessQueryHandler(context).Handle(new CheckFeaturesAccessQuery()
@@ -603,7 +614,7 @@ namespace InstagramApp
 
                     if (attempts > 0)
                     {
-                        FollowUsers(driver, context, attempts - 1);
+                        return FollorUserWithStatus(driver, context, attempts - 1);
                     }
                     else
                     {
@@ -615,7 +626,7 @@ namespace InstagramApp
                         });
                     }
 
-                    return;
+                    return WorkStatus.Cancelled;
                 }
 
                 result = new FollowUserEngine().Execute(driver, new FollowUserModel
@@ -636,12 +647,14 @@ namespace InstagramApp
                         Name = FunctionalityName.FollowUsers,
                         WorkStatus = WorkStatus.Success
                     });
+
+                    return WorkStatus.Success;
                 }
                 else
                 {
                     if (attempts > 0)
                     {
-                        FollowUsers(driver, context, attempts - 1);
+                        return FollorUserWithStatus(driver, context, attempts - 1);
                     }
                     else
                     {
@@ -651,9 +664,16 @@ namespace InstagramApp
                             Name = FunctionalityName.FollowUsers,
                             WorkStatus = WorkStatus.Cancelled
                         });
+
+                        return WorkStatus.Cancelled;
                     }
                 }
             }
+        }
+
+        public void FollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        {
+            FollorUserWithStatus(driver, context, attempts);
         }
 
         public void RunBackgroundSearchingNewUsers(IStoreContext context, RemoteWebDriver spyDriver, DataBaseContext spyContext, Action<int> showProcess = null, bool followings = true, bool followers = true)
@@ -1096,7 +1116,7 @@ namespace InstagramApp
             }
         }
 
-        public void LikeMedias(RemoteWebDriver driver, DataBaseContext context)
+        public WorkStatus LikeMediasWithStatus(RemoteWebDriver driver, DataBaseContext context)
         {
             new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
             {
@@ -1112,25 +1132,25 @@ namespace InstagramApp
                 MaxCount = 1
             });
 
-            foreach (var media in medias)
+            var media = medias.FirstOrDefault();
             {
-                var userLink = new LikeMediaEngine().Execute(driver, new LikeMediaModel
+                try
                 {
-                    Link = media
-                });
-
-                new MarkMediaAsLikedCommandHandler(context).Handle(new MarkMediaAsLikedCommand
-                {
-                    Link = media
-                });
-
-                /*if (!string.IsNullOrEmpty(userLink.UserLink))
-                {
-                    new MarkUserAsToFollowCommandHandler(context).Handle(new MarkUserAsToFollowCommand
+                    var userLink = new LikeMediaEngine().Execute(driver, new LikeMediaModel
                     {
-                        UserLink = userLink.UserLink
+                        Link = media
                     });
-                }*/
+
+                    new MarkMediaAsLikedCommandHandler(context).Handle(new MarkMediaAsLikedCommand
+                    {
+                        Link = media
+                    });
+
+                }
+                catch (Exception)
+                {
+                    return WorkStatus.Exception;
+                }
 
                 new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                 {
@@ -1139,6 +1159,12 @@ namespace InstagramApp
                     WorkStatus = WorkStatus.Success
                 });
             }
+            return WorkStatus.Success;
+        }
+
+        public void LikeMedias(RemoteWebDriver driver, DataBaseContext context)
+        {
+            LikeMediasWithStatus(driver, context);
         }
 
         public void ClearOldMedia(RemoteWebDriver driver, DataBaseContext context)

@@ -6,6 +6,14 @@ using Constants;
 
 namespace InstagramApp.Tools
 {
+    public class Settings
+    {
+        public int Cicles { get; set; }
+        public int Follows { get; set; }
+        public int UnFollows { get; set; }
+        public int Likes { get; set; }
+    }
+
     public class AllowedAccountsProvider
     {
         public IEnumerable<AccountName> GetAllowedAccounts()
@@ -37,5 +45,20 @@ namespace InstagramApp.Tools
                 }
             }
         }
+
+        public Settings GetSettings()
+        {
+            var settings = new Settings();
+            using (var reader = new StreamReader("settings.txt"))
+            {
+                settings.Cicles = int.Parse(reader.ReadLine().Split(' ').First());
+                settings.Follows = int.Parse(reader.ReadLine().Split(' ').First());
+                settings.UnFollows = int.Parse(reader.ReadLine().Split(' ').First());
+                settings.Likes = int.Parse(reader.ReadLine().Split(' ').First());
+            }
+
+            return settings;
+        }
+
     }
 }

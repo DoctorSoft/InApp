@@ -112,9 +112,22 @@
     <Compile Include="AugustovskiMigrations\201703021241479_AddOptions.Designer.cs">
       <DependentUpon>201703021241479_AddOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaxiMigrations\201704250711410_AddOptions.cs" />
+    <Compile Include="TaxiMigrations\201704250711410_AddOptions.Designer.cs">
+      <DependentUpon>201704250711410_AddOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaxiMigrations\TaxiConfiguration.cs" />
+    <Compile Include="AxFitnessMigrations\201704150708474_AddOptions.cs" />
+    <Compile Include="AxFitnessMigrations\201704150708474_AddOptions.Designer.cs">
+      <DependentUpon>201704150708474_AddOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configurations\StarRecordConfiguration.cs" />
+    <Compile Include="Contexts\TaxiContext.cs" />
     <Compile Include="Contexts\FiruzaContext.cs" />
     <Compile Include="Contexts\GadalkaTamaraContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\BelarusStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Grodno7StoreContex.cs" />
+    <Compile Include="Contexts\AxFitnessContext.cs" />
     <Compile Include="Contexts\MogilevTurismContext.cs" />
     <Compile Include="Contexts\GreenShopContext.cs" />
     <Compile Include="Contexts\InnerTools\BotContext.cs" />
@@ -235,6 +248,7 @@
     <Compile Include="GreenDozorMigrations\201703021242233_AddOptions.Designer.cs">
       <DependentUpon>201703021242233_AddOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="AxFitnessMigrations\AxFitnessConfiguration.cs" />
     <Compile Include="MogilevTurismMigrations\201703252137043_AddOptions.cs" />
     <Compile Include="MogilevTurismMigrations\201703252137043_AddOptions.Designer.cs">
       <DependentUpon>201703252137043_AddOptions.cs</DependentUpon>
@@ -844,6 +858,9 @@
     <EmbeddedResource Include="AugustovskiMigrations\201703021241479_AddOptions.resx">
       <DependentUpon>201703021241479_AddOptions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AxFitnessMigrations\201704150708474_AddOptions.resx">
+      <DependentUpon>201704150708474_AddOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FiruzaMigrations\201612041956306_Init.resx">
       <DependentUpon>201612041956306_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -1119,6 +1136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SystemDoctorMigrations\201703021245382_AddOptions.resx">
       <DependentUpon>201703021245382_AddOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaxiMigrations\201704250711410_AddOptions.resx">
+      <DependentUpon>201704250711410_AddOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeHeartGrodnoMigrations\201701092146370_Init.resx">
       <DependentUpon>201701092146370_Init.cs</DependentUpon>

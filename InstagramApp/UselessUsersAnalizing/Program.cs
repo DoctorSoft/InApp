@@ -14,7 +14,7 @@ namespace UselessUsersAnalizing
         {
             var accounts = new[]
             {
-                /*AccountName.GrodnoOfficial,
+                AccountName.GrodnoOfficial,
                 AccountName.Kioto,
                 AccountName.MyGrodno,
                 AccountName.Ozerny,
@@ -22,9 +22,13 @@ namespace UselessUsersAnalizing
                 AccountName.SystemDoctor, 
                 AccountName.Gadanie, 
                 AccountName.Nazar, 
-                AccountName.Firuza,*/
+                AccountName.Firuza,
                 AccountName.GreenShop, 
-                //AccountName.MogilevTurism, 
+                AccountName.MogilevTurism, 
+                AccountName.Nikon, 
+                AccountName.AxFitness, 
+                AccountName.Karina, 
+                AccountName.Taxi, 
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(
