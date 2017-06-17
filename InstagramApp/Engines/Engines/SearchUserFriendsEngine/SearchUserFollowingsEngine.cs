@@ -35,7 +35,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
             {
                 return GetDefaultResult();
             }
-            
+
             Thread.Sleep(3000);
 
             var breakButtonExists = driver
@@ -56,13 +56,13 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 throw new CaptchaException();
             }
 
-            var followersButton = driver
+            /*var followersButton = driver
             .FindElements(By.ClassName("_s53mj"))
             .Where(element =>
             {
                 if (element.GetAttribute("href") != null)
                 {
-                    return element.GetAttribute("href").ToLower().Contains("following");
+                    return element.GetAttribute("href").ToLower().Contains("followers");
                 }
                 return false;
             })
@@ -91,47 +91,113 @@ namespace Engines.Engines.SearchUserFriendsEngine
             {
                 Thread.Sleep(100);
                 driver.Keyboard.SendKeys(Keys.PageDown);
-            }
+            }*/
+
+            //
 
             var hasNextPage = true;
             string endCursor = null;
             var userList = new List<string>();
 
+            var allCookies = driver.Manage().Cookies;
+            var cookies = "mid" + "=" + allCookies.GetCookieNamed("mid").Value + "; " +
+                          "sessionid" + "=" + allCookies.GetCookieNamed("sessionid").Value + "; " +
+                          "csrftoken" + "=" + allCookies.GetCookieNamed("csrftoken").Value + "; " +
+                          "s_network" + "=" + allCookies.GetCookieNamed("s_network").Value + "; " +
+                          "ds_user_id" + "=" + allCookies.GetCookieNamed("ds_user_id").Value + "; " +
+                          "ig_pr" + "=" + allCookies.GetCookieNamed("ig_pr").Value + "; " +
+                          "ig_vw" + "=" + allCookies.GetCookieNamed("ig_vw").Value + "; ";
+
+            cookies = cookies + cookies;
+
+            var allcookies = driver.Manage().Cookies;
+            var csfToken = allcookies.GetCookieNamed("csrftoken").Value;
+
+            var clientRest = new RestClient("https://www.instagram.com/");
+            // client.Authenticator = new HttpBasicAuthenticator(username, password);
+
+            var requestRest = new RestRequest(model.UserName + "/", Method.GET);
+
+            requestRest.AddCookie("mid", allCookies.GetCookieNamed("mid").Value);
+            requestRest.AddCookie("sessionid", allCookies.GetCookieNamed("sessionid").Value);
+            requestRest.AddCookie("csrftoken", allCookies.GetCookieNamed("csrftoken").Value);
+            requestRest.AddCookie("s_network", allCookies.GetCookieNamed("s_network").Value);
+            requestRest.AddCookie("ds_user_id", allCookies.GetCookieNamed("ds_user_id").Value);
+            requestRest.AddCookie("ig_pr", allCookies.GetCookieNamed("ig_pr").Value);
+            requestRest.AddCookie("ig_vw", allCookies.GetCookieNamed("ig_vw").Value);
+
+            // easily add HTTP Headers
+            requestRest.AddHeader("Origin", "https://www.instagram.com");
+            requestRest.AddHeader("Referer", "https://www.instagram.com/" + model.UserName + "/followers/");
+            requestRest.AddHeader("X-Instagram-AJAX", "1");
+            requestRest.AddHeader("User-Agent",
+                "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36");
+            requestRest.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            requestRest.AddHeader("X-Requested-With", "XMLHttpRequest");
+            requestRest.AddHeader("X-CSRFToken", csfToken);
+            requestRest.AddHeader("Accept-Encoding", "gzip, deflate, br");
+            requestRest.AddHeader("Accept-Language", "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
+            requestRest.AddHeader("Cookie", cookies);
+
+            // execute the request
+            //IRestResponse responseRest = clientRest.Execute(requestRest);
+            //var content = responseRest.Content; // 
+
+            //var regex = new Regex("end_cursor[^:]*:[^}]*");
+            //var preCodeResult = regex.Match(content).Value;
+            //"end_cursor\": \"AQDzfnfVpquG8r-0M1OHjiaVr2lxYPuQJzZYJQU1BAuQBsjIstiuBQMgYo9c70_q6rEFwwnPFbMczCgiHHkI_oYUO-OWCR_0TOPY-BW99AkRDw\""
+
+            //endCursor = null; //preCodeResult.Split(':').Last().Split('\"')[1];
+
+            // getting owner id
+            //var ownerId = allCookies.GetCookieNamed("ds_user_id").Value;//preOwnerIdResult.Split(':').Last().Split('\"')[1];
+
             while (hasNextPage)
             {
-                var allCookies = driver.Manage().Cookies;
-                var cookies = "mid" + "=" + allCookies.GetCookieNamed("mid").Value + "; " +
-                              "sessionid" + "=" + allCookies.GetCookieNamed("sessionid").Value + "; " +
-                              "csrftoken" + "=" + allCookies.GetCookieNamed("csrftoken").Value + "; " +
-                              "s_network" + "=" + allCookies.GetCookieNamed("s_network").Value + "; " +
-                              "ds_user_id" + "=" + allCookies.GetCookieNamed("ds_user_id").Value + "; " +
-                              "ig_pr" + "=" + allCookies.GetCookieNamed("ig_pr").Value + "; " +
-                              "ig_vw" + "=" + allCookies.GetCookieNamed("ig_vw").Value + "; ";
+                /*https://www.instagram.com/graphql/query/?query_id=17851374694183129&id=3219547324&first=10
+                 * 
+                 * 
+                 * https://www.instagram.com/graphql/query/?query_id=17874545323001329&id=3219547324&first=10
+                 * 
+                 * GET
+                 https://www.instagram.com/graphql/query/?
+                 * query_id=17851374694183129& 
+                 * id=2215418832&
+                 * first=100&
+                 * after=AQABy8iIQKxjl3JO5POUC8OKBSvt-djTUPixEi9MH5cAxUys0lOtYnjA-Vh3gh7jPkNy60w4eK89pVYsatPWYNE-Q2nyuh-Us7DTR5PTZ6nKkQ
+                 */
 
-                cookies = cookies + cookies;
+                /*
+                 * https://www.instagram.com/graphql/query/?query_id=17851374694183129&id=3219547324&first=20
+                 */
 
-                var allcookies = driver.Manage().Cookies;
-                var csfToken = allcookies.GetCookieNamed("csrftoken").Value;
+                /*
+                 * https://www.instagram.com/graphql/query/?
+                 * query_id=17851374694183129&
+                 * id=3152872290&
+                 * first=100&
+                 * after=AQB4fsn_VhdvEpK0RaflCu_05jL4jOg-KZOyuKtZghmRvnvgLTkcKTToP3n3aaFuF-yxB8QVjS8SixI-kSw7-WBCoLliCCfn1SOBP3AfHJdMLA
+                 */
 
-                var clientRest = new RestClient("https://www.instagram.com/");
+                clientRest = new RestClient("https://www.instagram.com/");
                 // client.Authenticator = new HttpBasicAuthenticator(username, password);
 
-                var requestRest = new RestRequest("query/", Method.POST);
+                // first request
+                //https://www.instagram.com/graphql/query/?query_id=17845312237175864&id=3219547324
+
+                if (endCursor == null)
+                {
+                    requestRest = new RestRequest("graphql/query/?query_id=" + /*model.MyId*/"17874545323001329" + "&id=" + model.Id + "&first=100", Method.GET);
+                }
+                else
+                {
+                    requestRest = new RestRequest("graphql/query/?query_id=" + /*model.MyId*/"17874545323001329" + "&id=" + model.Id + "&first=100&after=" + endCursor, Method.GET);
+                }
+
                 requestRest.Parameters.Clear();
 
-                var userCount = 20;
-                var startString =
-                    "ig_user(" + model.Id + ") {  follows.first(" + userCount +
-                    ") {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}";
-
-                var afterString =
-                    "ig_user(" + model.Id + ") {  follows.after(" + endCursor + ", " + userCount + 
-                    ") {    count,    page_info {      end_cursor,      has_next_page    },    nodes {      id,      is_verified,      followed_by_viewer,      requested_by_viewer,      full_name,      profile_pic_url,      username    }  }}";
-
-                var queryString = string.IsNullOrWhiteSpace(endCursor) ? startString : afterString;
-
-                requestRest.AddParameter("q", queryString);
-                requestRest.AddParameter("ref", "relationships::follow_list");
+                //requestRest.AddParameter("q", queryString);
+                //requestRest.AddParameter("ref", "relationships::follow_list");
 
                 // add parameters for all properties on an object
                 requestRest.AddCookie("mid", allCookies.GetCookieNamed("mid").Value);
@@ -160,11 +226,11 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 var content = responseRest.Content; // 
 
                 userList = userList.Union(ParseFromResponse(content)).ToList();
-                dynamic data = Json.Decode(content);
-                var follows = data.follows ?? data.followed_by;
-                var count = int.Parse(follows.count.ToString());
+                dynamic data = Json.Decode(content); ;
                 try
                 {
+                    var follows = data.data.user.edge_follow;
+                    //var count = int.Parse(follows.count.ToString());
                     var pageInfo = follows.page_info;
                     endCursor = pageInfo.end_cursor.ToString();
                     hasNextPage = bool.Parse(pageInfo.has_next_page.ToString());
@@ -184,7 +250,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
 
             driver.Keyboard.SendKeys(Keys.Escape);
 
-            return userList; 
+            return userList;
         }
     }
 }

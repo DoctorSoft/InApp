@@ -22,6 +22,7 @@ namespace DataBase.QueriesAndCommands.Queries.Users
             var users = context
                 .Users
                 .Where(model => model.UserStatus == UserStatus.ToDelete || (query.RemoveAllUsers && model.UserStatus == UserStatus.Normal))
+                .Where(model => !query.ExceptUsersList.Contains(model.Link))
                 .Select(model => model.Link)
                 .OrderBy(s => Guid.NewGuid())
                 .Take(query.MaxCount)

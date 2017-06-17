@@ -14,7 +14,7 @@ namespace NewUsersFiller
         {
             var accounts = new[]
             {
-                AccountName.__Store_Belarus
+                AccountName.Karina
             };
 
             const bool following = false; //подписки
@@ -22,20 +22,7 @@ namespace NewUsersFiller
 
             var links = new[]
             {
-                "https://www.instagram.com/yura.yaroshik",
-                "https://www.instagram.com/levongziryan",
-                "https://www.instagram.com/dmitry_miachikoff",
-                "https://www.instagram.com/vkotovby",
-                "https://www.instagram.com/luckinday",
-                "https://www.instagram.com/da_demidov",
-                "https://www.instagram.com/stanislove_melnikov",
-                "https://www.instagram.com/belyavskyanton",
-                "https://www.instagram.com/sergei_khozyashev",
-                "https://www.instagram.com/romanborodavkin",
-                "https://www.instagram.com/arthur_belousov",
-                "https://www.instagram.com/aleksandr_neson",
-                "https://www.instagram.com/lukanesko",
-                "https://www.instagram.com/vedushchiy_yevgeniy_gold"
+                "https://www.instagram.com/homelike_nails/"
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(

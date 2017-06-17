@@ -12,5 +12,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
         public string UserName { get; set; }
 
         public Action<int> ShowProcess { get; set; }
+
+        public string MyId { get; set; }
     }
 }

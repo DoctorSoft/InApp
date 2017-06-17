@@ -60,9 +60,9 @@ namespace TableCopyPaster
 
         public static void Main(string[] args)
         {
-            var source = new Grodno3StoreContext();
-            var destination = new TaxiContext();
-            CopyUsers(source, destination);
+            var source = new GadalkaTamaraContext();
+            var destination = new GrodnoOfficialContext();
+            CopyStars(source, destination);
         }
     }
 }

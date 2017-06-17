@@ -112,6 +112,7 @@
     <Compile Include="AugustovskiMigrations\201703021241479_AddOptions.Designer.cs">
       <DependentUpon>201703021241479_AddOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\InnerTools\StoreContexts\BialystokStoreContext.cs" />
     <Compile Include="TaxiMigrations\201704250711410_AddOptions.cs" />
     <Compile Include="TaxiMigrations\201704250711410_AddOptions.Designer.cs">
       <DependentUpon>201704250711410_AddOptions.cs</DependentUpon>

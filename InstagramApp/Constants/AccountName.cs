@@ -57,6 +57,7 @@
         __Store_Grodno_S13_Love_Auto = 2017,
         __Store_Grodno7 = 2018,
         __Store_Belarus = 2019,
+        __Store_Bialystok = 2020,
 
         __Reester = 3001,
         __FilterResult = 3002,

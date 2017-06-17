@@ -252,7 +252,7 @@ namespace InstagramApp
             }
         }
 
-        public WorkStatus UnfollowUserWithStatus(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        public WorkStatus UnfollowUserWithStatus(RemoteWebDriver driver, DataBaseContext context, int attempts, List<string> eceptUsersList)
         {
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
 
@@ -289,7 +289,8 @@ namespace InstagramApp
             {
                 MaxCount = 4,
                 BanTime = new TimeSpan(1, 0, 0, 0),
-                RemoveAllUsers = settings.RemoveAllUsers
+                RemoveAllUsers = settings.RemoveAllUsers,
+                ExceptUsersList = eceptUsersList
             }).ToList();
 
             var user = users[attempts];
@@ -320,7 +321,7 @@ namespace InstagramApp
                 {
                     if (attempts > 0)
                     {
-                        return UnfollowUserWithStatus(driver, context, attempts - 1);
+                        return UnfollowUserWithStatus(driver, context, attempts - 1, eceptUsersList);
                     }
                     else
                     {
@@ -339,7 +340,7 @@ namespace InstagramApp
 
         public void UnfollowUsers(RemoteWebDriver driver, DataBaseContext context, int attempts)
         {
-            UnfollowUserWithStatus(driver, context, attempts);
+            UnfollowUserWithStatus(driver, context, attempts, new List<string>());
         }
 
         public void FollowUsers(RemoteWebDriver driver, DataBaseContext context)
@@ -503,7 +504,14 @@ namespace InstagramApp
             }
         }
 
-        public WorkStatus FollorUserWithStatus(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        public class WorkResult
+        {
+            public WorkStatus WorkStatus { get; set; }
+
+            public string User { get; set; }
+        }
+
+        public WorkResult FollorUserWithStatus(RemoteWebDriver driver, DataBaseContext context, int attempts)
         {
             if (attempts == 3)
             {
@@ -532,7 +540,7 @@ namespace InstagramApp
                         WorkStatus = WorkStatus.Cancelled
                     });
 
-                    return WorkStatus.Cancelled;
+                    return new WorkResult {WorkStatus = WorkStatus.Cancelled, User = null};
                 }
             }
 
@@ -578,7 +586,7 @@ namespace InstagramApp
                             WorkStatus = WorkStatus.Success
                         });
 
-                        return WorkStatus.Success;
+                        return new WorkResult {WorkStatus = WorkStatus.Success, User = user};
                     }
                     else
                     {
@@ -596,7 +604,7 @@ namespace InstagramApp
                             });
                         }
 
-                        return WorkStatus.Cancelled;
+                        return new WorkResult {WorkStatus = WorkStatus.Cancelled, User = null};
                     }
                 }
 
@@ -626,7 +634,7 @@ namespace InstagramApp
                         });
                     }
 
-                    return WorkStatus.Cancelled;
+                    return new WorkResult {WorkStatus = WorkStatus.Cancelled, User = null};
                 }
 
                 result = new FollowUserEngine().Execute(driver, new FollowUserModel
@@ -648,7 +656,7 @@ namespace InstagramApp
                         WorkStatus = WorkStatus.Success
                     });
 
-                    return WorkStatus.Success;
+                    return new WorkResult {WorkStatus = WorkStatus.Success, User = user};
                 }
                 else
                 {
@@ -665,7 +673,7 @@ namespace InstagramApp
                             WorkStatus = WorkStatus.Cancelled
                         });
 
-                        return WorkStatus.Cancelled;
+                        return new WorkResult {WorkStatus = WorkStatus.Cancelled, User = null};
                     }
                 }
             }
@@ -839,6 +847,7 @@ namespace InstagramApp
             Thread.Sleep(1000);
 
             var settings = new GetProfileSettingsQueryHandler(context).Handle(new GetProfileSettingsQuery());
+            var spySettings = new GetProfileSettingsQueryHandler(spyContext).Handle(new GetProfileSettingsQuery());
             Thread.Sleep(1000);
 
             new RemoveAllUsersByStatusCommandHandler(buffer).Handle(new RemoveAllUsersByStatusCommand { UserStatus = UserStatus.Normal });
@@ -857,6 +866,7 @@ namespace InstagramApp
                     UserName = settings.Login,
                     Id = settings.InstagramtId.ToString(),
                     ShowProcess = showProcess,
+                    MyId = spySettings.InstagramtId.ToString()
                 });
 
                 attempt++;
@@ -881,7 +891,7 @@ namespace InstagramApp
                     UserLink = settings.HomePageUrl,
                     UserName = settings.Login,
                     Id = settings.InstagramtId.ToString(),
-                    ShowProcess = showProcess
+                    ShowProcess = showProcess,
                 });
 
                 attempt++;
