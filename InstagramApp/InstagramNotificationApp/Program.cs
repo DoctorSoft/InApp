@@ -117,11 +117,11 @@ namespace InstagramNotificationApp
                             else
                             {
                                 warning = true;
-                                NotificationService.NotificationService.SendNotification(
-                                    string.Format(
-                                        "Работа аккаунта {0} была нарушена из-за большого количества ошибок при подписках, переключаемся на другую задачу ({1})",
-                                        db.GetAccountName().ToString("G"), GetStatistic(failLimit, fails, circlesCount, followCountForCircle, unfollowCountForCircle, likeForCircle, follows, unfollows, likes, circle)),
-                                    receivers);
+//                                NotificationService.NotificationService.SendNotification(
+//                                    string.Format(
+//                                        "Работа аккаунта {0} была нарушена из-за большого количества ошибок при подписках, переключаемся на другую задачу ({1})",
+//                                        db.GetAccountName().ToString("G"), GetStatistic(failLimit, fails, circlesCount, followCountForCircle, unfollowCountForCircle, likeForCircle, follows, unfollows, likes, circle)),
+//                                    receivers);
                                 break;
                             }
                         }
@@ -160,11 +160,11 @@ namespace InstagramNotificationApp
                         if (fails > failLimit)
                         {
                             warning = true;
-                            NotificationService.NotificationService.SendNotification(
-                                string.Format(
-                                    "Работа аккаунта {0} была нарушена из-за большого количества ошибок при отписках, переключаемся на другую задачу ({1})",
-                                    db.GetAccountName().ToString("G"), GetStatistic(failLimit, fails, circlesCount, followCountForCircle, unfollowCountForCircle, likeForCircle, follows, unfollows, likes, circle)),
-                                receivers);
+//                            NotificationService.NotificationService.SendNotification(
+//                                string.Format(
+//                                    "Работа аккаунта {0} была нарушена из-за большого количества ошибок при отписках, переключаемся на другую задачу ({1})",
+//                                    db.GetAccountName().ToString("G"), GetStatistic(failLimit, fails, circlesCount, followCountForCircle, unfollowCountForCircle, likeForCircle, follows, unfollows, likes, circle)),
+//                                receivers);
                             break;
                         }
                     }
@@ -195,11 +195,11 @@ namespace InstagramNotificationApp
                         {
                             
                             warning = true;
-                            NotificationService.NotificationService.SendNotification(
-                                string.Format(
-                                    "Работа аккаунта {0} была нарушена из-за большого количества ошибок при лайках, переключаемся на другую задачу ({1})",
-                                    db.GetAccountName().ToString("G"), GetStatistic(failLimit, fails, circlesCount, followCountForCircle, unfollowCountForCircle, likeForCircle, follows, unfollows, likes, circle)),
-                                receivers);
+//                            NotificationService.NotificationService.SendNotification(
+//                                string.Format(
+//                                    "Работа аккаунта {0} была нарушена из-за большого количества ошибок при лайках, переключаемся на другую задачу ({1})",
+//                                    db.GetAccountName().ToString("G"), GetStatistic(failLimit, fails, circlesCount, followCountForCircle, unfollowCountForCircle, likeForCircle, follows, unfollows, likes, circle)),
+//                                receivers);
                             break;
                         }
                     }

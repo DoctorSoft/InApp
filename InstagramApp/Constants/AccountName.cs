@@ -26,6 +26,8 @@
         MogilevTurism = 27,
         AxFitness = 28,
         Taxi = 29,
+        Mayontak = 30,
+        MKGrodno = 31,
 
         _Bot_1 = 1001,
         _Bot_2 = 1002,
@@ -58,6 +60,8 @@
         __Store_Grodno7 = 2018,
         __Store_Belarus = 2019,
         __Store_Bialystok = 2020,
+        __Store_System = 2021,
+        __Store_Grodno_Coffee = 2022, 
 
         __Reester = 3001,
         __FilterResult = 3002,

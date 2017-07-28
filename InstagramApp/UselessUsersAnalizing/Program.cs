@@ -23,12 +23,9 @@ namespace UselessUsersAnalizing
                 AccountName.Gadanie, 
                 AccountName.Nazar, 
                 AccountName.Firuza,
-                AccountName.GreenShop, 
-                AccountName.MogilevTurism, 
-                AccountName.Nikon, 
-                AccountName.AxFitness, 
+                AccountName.GreenDozor,  
                 AccountName.Karina, 
-                AccountName.Taxi, 
+                AccountName.Mayontak, 
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(

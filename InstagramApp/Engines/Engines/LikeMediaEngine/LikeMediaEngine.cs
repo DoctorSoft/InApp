@@ -31,11 +31,11 @@ namespace Engines.Engines.LikeMediaEngine
 
             if (text == "Нравится")
             {
-                IList<IWebElement> likeButtons = driver.FindElements(By.ClassName("_ebwb5"));
+                IList<IWebElement> likeButtons = driver.FindElements(By.ClassName("coreSpriteHeartOpen"));
                 likeButtons.FirstOrDefault().Click();
             }
 
-            var followButton = driver
+            /*var followButton = driver
                 .FindElements(By.ClassName("_aj7mu"))
                 .First();
 
@@ -56,7 +56,7 @@ namespace Engines.Engines.LikeMediaEngine
                 {
                     UserLink = userLink
                 };
-            }
+            }*/
 
             return GetDefaultResult();
         }

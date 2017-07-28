@@ -12,17 +12,34 @@ namespace NewUsersFiller
     {
         static void Main(string[] args)
         {
+            // cool bases: "https://www.instagram.com/homelike_nails/" for Gomel
+
+            // taravel bases: "https://www.instagram.com/itakapl/" for Poland
+            // "https://www.instagram.com/airbaltic/" for baltic
+
+
+
+            //https://www.instagram.com/_natas.h.a_/ following
+            //https://www.instagram.com/anastasiaprokopovich/
+            //https://www.instagram.com/vadikes/ followers
+
+            //https://www.instagram.com/alexmikulik/ followers
+            //https://www.instagram.com/katrina_emelianenko/
+            //https://www.instagram.com/bestvscobelarus/
+            //https://www.instagram.com/gribalevalarisa/
+            //https://www.instagram.com/grodnonow/
+
             var accounts = new[]
             {
-                AccountName.Karina
+                AccountName.Karina,
             };
 
-            const bool following = false; //подписки
+            const bool following = true; //подписки
             const bool followers = true; //Подпищики
 
             var links = new[]
             {
-                "https://www.instagram.com/homelike_nails/"
+                "https://www.instagram.com/gomel_region/"
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(

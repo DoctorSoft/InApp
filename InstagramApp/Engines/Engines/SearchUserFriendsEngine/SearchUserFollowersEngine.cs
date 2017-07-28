@@ -103,7 +103,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
             var cookies = "mid" + "=" + allCookies.GetCookieNamed("mid").Value + "; " +
                           "sessionid" + "=" + allCookies.GetCookieNamed("sessionid").Value + "; " +
                           "csrftoken" + "=" + allCookies.GetCookieNamed("csrftoken").Value + "; " +
-                          "s_network" + "=" + allCookies.GetCookieNamed("s_network").Value + "; " +
+                          //"s_network" + "=" + allCookies.GetCookieNamed("s_network").Value + "; " +
                           "ds_user_id" + "=" + allCookies.GetCookieNamed("ds_user_id").Value + "; " +
                           "ig_pr" + "=" + allCookies.GetCookieNamed("ig_pr").Value + "; " +
                           "ig_vw" + "=" + allCookies.GetCookieNamed("ig_vw").Value + "; ";
@@ -121,7 +121,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
             requestRest.AddCookie("mid", allCookies.GetCookieNamed("mid").Value);
             requestRest.AddCookie("sessionid", allCookies.GetCookieNamed("sessionid").Value);
             requestRest.AddCookie("csrftoken", allCookies.GetCookieNamed("csrftoken").Value);
-            requestRest.AddCookie("s_network", allCookies.GetCookieNamed("s_network").Value);
+            //requestRest.AddCookie("s_network", allCookies.GetCookieNamed("s_network").Value);
             requestRest.AddCookie("ds_user_id", allCookies.GetCookieNamed("ds_user_id").Value);
             requestRest.AddCookie("ig_pr", allCookies.GetCookieNamed("ig_pr").Value);
             requestRest.AddCookie("ig_vw", allCookies.GetCookieNamed("ig_vw").Value);
@@ -202,7 +202,7 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 requestRest.AddCookie("mid", allCookies.GetCookieNamed("mid").Value);
                 requestRest.AddCookie("sessionid", allCookies.GetCookieNamed("sessionid").Value);
                 requestRest.AddCookie("csrftoken", allCookies.GetCookieNamed("csrftoken").Value);
-                requestRest.AddCookie("s_network", allCookies.GetCookieNamed("s_network").Value);
+                //requestRest.AddCookie("s_network", allCookies.GetCookieNamed("s_network").Value);
                 requestRest.AddCookie("ds_user_id", allCookies.GetCookieNamed("ds_user_id").Value);
                 requestRest.AddCookie("ig_pr", allCookies.GetCookieNamed("ig_pr").Value);
                 requestRest.AddCookie("ig_vw", allCookies.GetCookieNamed("ig_vw").Value);

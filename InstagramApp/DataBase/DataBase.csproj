@@ -113,6 +113,20 @@
       <DependentUpon>201703021241479_AddOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Contexts\InnerTools\StoreContexts\BialystokStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoCoffeeStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\SystemStoreContext.cs" />
+    <Compile Include="Contexts\MKGrodnoContext.cs" />
+    <Compile Include="Contexts\MayontakContext.cs" />
+    <Compile Include="MKGrodnoMigrations\201707270721423_AddOptions.cs" />
+    <Compile Include="MKGrodnoMigrations\201707270721423_AddOptions.Designer.cs">
+      <DependentUpon>201707270721423_AddOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MKGrodnoMigrations\MKGrodnoConfiguration.cs" />
+    <Compile Include="MayontakMigrations\201707202221344_AddOptions.cs" />
+    <Compile Include="MayontakMigrations\201707202221344_AddOptions.Designer.cs">
+      <DependentUpon>201707202221344_AddOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MayontakMigrations\MayontakConfiguration.cs" />
     <Compile Include="TaxiMigrations\201704250711410_AddOptions.cs" />
     <Compile Include="TaxiMigrations\201704250711410_AddOptions.Designer.cs">
       <DependentUpon>201704250711410_AddOptions.cs</DependentUpon>
@@ -996,6 +1010,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LikeApplicationMigrations\201610151607056_AddProxySpeedField.resx">
       <DependentUpon>201610151607056_AddProxySpeedField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MayontakMigrations\201707202221344_AddOptions.resx">
+      <DependentUpon>201707202221344_AddOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MKGrodnoMigrations\201707270721423_AddOptions.resx">
+      <DependentUpon>201707270721423_AddOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MogilevTurismMigrations\201703252137043_AddOptions.resx">
       <DependentUpon>201703252137043_AddOptions.cs</DependentUpon>

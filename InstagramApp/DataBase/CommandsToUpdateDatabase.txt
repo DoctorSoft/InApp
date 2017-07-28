@@ -23,6 +23,8 @@ add-migration -Name AddOptions -ConfigurationTypeName GreenShopConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName MogilevTurismConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName AxFitnessConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName TaxiConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName MayontakConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName MKGrodnoConfiguration
 
 
 CHECK IF ALL ACCOUNTS ARE COMMENTED!!!!
@@ -52,6 +54,8 @@ update-database -ConfigurationTypeName GreenShopConfiguration
 update-database -ConfigurationTypeName MogilevTurismConfiguration
 update-database -ConfigurationTypeName AxFitnessConfiguration
 update-database -ConfigurationTypeName TaxiConfiguration
+update-database -ConfigurationTypeName MayontakConfiguration
+update-database -ConfigurationTypeName MKGrodnoConfiguration
 
 
 
