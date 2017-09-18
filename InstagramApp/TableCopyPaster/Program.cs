@@ -61,7 +61,7 @@ namespace TableCopyPaster
         public static void Main(string[] args)
         {
             var source = new Grodno7StoreContext();
-            var destination = new FiruzaContext();
+            var destination = new GadanieContext();
             CopyUsers(source, destination);
         }
     }

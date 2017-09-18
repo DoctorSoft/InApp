@@ -27,6 +27,7 @@ namespace StarFollowingApp
 
             var users = new GetStarsQueryHandler(context).Handle(new GetStarsQuery {MaxCount = 1, ToFollow = true}); 
 
+
             foreach (var user in users)
             {
                 var result = new FollowUserEngine().Execute(driver, new FollowUserModel

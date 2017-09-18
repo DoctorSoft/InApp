@@ -5,6 +5,7 @@ using DataBase.Contexts;
 using DataBase.Contexts.InnerTools;
 using InstagramApp;
 using Tools.DatabaseSearcher;
+using System.Threading;
 
 namespace NewUsersFiller
 {
@@ -29,17 +30,25 @@ namespace NewUsersFiller
             //https://www.instagram.com/gribalevalarisa/
             //https://www.instagram.com/grodnonow/
 
+
+            //https://www.instagram.com/pedicur_kart/
+            //https://www.instagram.com/raskrutka_ins77/
+            //https://www.instagram.com/thegarden_astana/
+            //https://www.instagram.com/_liliya_pm_/
+            //https://www.instagram.com/makeup_irinagerda/
+
+
             var accounts = new[]
             {
-                AccountName.Karina,
+                AccountName.__Store_Minsk_Insta,
             };
 
-            const bool following = true; //подписки
+            const bool following = false; //подписки
             const bool followers = true; //Подпищики
 
             var links = new[]
             {
-                "https://www.instagram.com/gomel_region/"
+                "https://www.instagram.com/minskgram/",
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(

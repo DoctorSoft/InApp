@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using Constants;
 using DataBase.Contexts;
 using DataBase.Contexts.InnerTools;
@@ -26,6 +27,8 @@ namespace UselessUsersAnalizing
                 AccountName.GreenDozor,  
                 AccountName.Karina, 
                 AccountName.Mayontak, 
+                AccountName.Augustovski,
+                AccountName.MKGrodno
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(
@@ -38,7 +41,7 @@ namespace UselessUsersAnalizing
 
             var service = new InstagramService();
 
-            var spyContext = new WeHeartGrodnoContext(); // Spy !!!
+            var spyContext = new SportContext(); // Spy !!!
             var spyDriver = service.RegisterNewDriver(spyContext);
 
             while (true)
@@ -69,6 +72,7 @@ namespace UselessUsersAnalizing
                 finally
                 {
                     index = (index + 1) % count;
+                    Thread.Sleep(TimeSpan.FromMinutes(5));
                 }
             }
         }

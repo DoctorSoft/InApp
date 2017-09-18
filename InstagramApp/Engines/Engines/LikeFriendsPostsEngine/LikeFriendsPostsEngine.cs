@@ -19,7 +19,7 @@ namespace Engines.Engines.LikeFriendsPostsEngine
 
             for (var i = 0; i < 10; i++)
             {
-                IList<IWebElement> likes = driver.FindElements(By.ClassName("_soakw"));
+                IList<IWebElement> likes = driver.FindElements(By.CssSelector("._eszkz._l9yih"));
                 var realLikes = likes.Where((element, index) => index >= count).ToList();
                 count = likes.Count;
 

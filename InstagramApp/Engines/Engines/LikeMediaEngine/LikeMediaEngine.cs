@@ -19,13 +19,13 @@ namespace Engines.Engines.LikeMediaEngine
 
             try
             {
-                IList<IWebElement> likeSpans = driver.FindElements(By.ClassName("_soakw"));
+                IList<IWebElement> likeSpans = driver.FindElements(By.CssSelector("._eszkz._l9yih"));
                 text = likeSpans.FirstOrDefault().Text;
             }
             catch
             {
                 Thread.Sleep(500);
-                IList<IWebElement> likeSpans = driver.FindElements(By.ClassName("_soakw"));
+                IList<IWebElement> likeSpans = driver.FindElements(By.CssSelector("._eszkz._l9yih"));
                 text = likeSpans.FirstOrDefault().Text;
             }
 

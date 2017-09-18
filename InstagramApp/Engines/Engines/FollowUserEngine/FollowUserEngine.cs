@@ -33,10 +33,12 @@ namespace Engines.Engines.FollowUserEngine
             }
 
             var followButton = driver
-                .FindElements(By.ClassName("_ah57t"))
+                .FindElements(By.CssSelector("._qv64e._gexxb._r9b8f._njrw0"))
                 .First();
 
             Thread.Sleep(200);
+
+          
 
             if (followButton.Text.Contains("Подписаться"))
             {
@@ -50,7 +52,7 @@ namespace Engines.Engines.FollowUserEngine
             Thread.Sleep(500);
 
             followButton = driver
-                .FindElements(By.ClassName("_ah57t"))
+                .FindElements(By.CssSelector("._qv64e._t78yp._r9b8f._njrw0"))
                 .First();
 
             Thread.Sleep(200);

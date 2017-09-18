@@ -152,6 +152,8 @@ namespace Engines.Engines.SearchUserFriendsEngine
             // getting owner id
             //var ownerId = allCookies.GetCookieNamed("ds_user_id").Value;//preOwnerIdResult.Split(':').Last().Split('\"')[1];
 
+            var sleeepPoint = 5000;
+            var exceptionNumber = 0;
             while (hasNextPage)
             {
                 /*https://www.instagram.com/graphql/query/?query_id=17851374694183129&id=3219547324&first=10
@@ -237,10 +239,34 @@ namespace Engines.Engines.SearchUserFriendsEngine
                 }
                 catch (Exception exception)
                 {
+                    if (exceptionNumber < 3)
+                    {
+                        exceptionNumber++;
+                        try
+                        {
+                            if (data.status.ToString().Contains("fail"))
+                            {
+                                Thread.Sleep(TimeSpan.FromMinutes(5));
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            Thread.Sleep(TimeSpan.FromMinutes(1));
+                        }
+                        continue;
+                    }
                     return userList;
                 }
 
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
+                exceptionNumber = 0;
+
+                if (userList.Count > sleeepPoint)
+                {
+                    Thread.Sleep(TimeSpan.FromMinutes(2));
+                    sleeepPoint += 5000;
+                }
 
                 if (model.ShowProcess != null)
                 {

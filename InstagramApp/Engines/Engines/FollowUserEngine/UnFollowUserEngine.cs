@@ -3,6 +3,7 @@ using System.Threading;
 using Engines.Exceptions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using RestSharp.Extensions;
 
 namespace Engines.Engines.FollowUserEngine
 {
@@ -31,10 +32,10 @@ namespace Engines.Engines.FollowUserEngine
             {
                 throw new CaptchaException();
             }
-
+            
             var followButton = driver
-                .FindElements(By.ClassName("_ah57t"))
-                .First();
+                .FindElements(By.CssSelector("._qv64e._t78yp._r9b8f._njrw0"))
+                .First(element => element.Text.Contains("Подписки"));
 
             Thread.Sleep(200);
 
@@ -48,9 +49,9 @@ namespace Engines.Engines.FollowUserEngine
             driver.Navigate().GoToUrl(model.UserLink);
 
             Thread.Sleep(500);
-
+            
             followButton = driver
-                .FindElements(By.ClassName("_ah57t"))
+                .FindElements(By.CssSelector("._qv64e._gexxb._r9b8f._njrw0"))
                 .First();
 
             if (!followButton.Text.Contains("Подписаться"))

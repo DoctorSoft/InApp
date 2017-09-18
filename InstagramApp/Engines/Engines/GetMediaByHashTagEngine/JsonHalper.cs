@@ -103,24 +103,18 @@ namespace Engines.Engines.GetMediaByHashTagEngine
 
             foreach (var newImageSection in tagPages)
             {
-                foreach (var sections in newImageSection)
+                foreach (var sections in newImageSection["node"])
                 {
-                    foreach (var section in sections)
+                    if (!sections.Key.Equals("shortcode"))
                     {
-                        foreach (var subSection in section)
-                        {
-                            if (!subSection.Key.Equals("code"))
-                            {
-                                continue;
-                            }
-
-                            var srcElement = subSection.Value;
-                            var imageSrc = string.Format("https://www.instagram.com/p/{0}/", srcElement.ToString());
-                            result.Add(imageSrc);
-
-                            break;
-                        }
+                        continue;
                     }
+
+                    var srcElement = sections.Value;
+                    var imageSrc = string.Format("https://www.instagram.com/p/{0}/", srcElement.ToString());
+                    result.Add(imageSrc);
+
+                    break;
                 }
             }
 
