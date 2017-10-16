@@ -113,6 +113,7 @@
       <DependentUpon>201703021241479_AddOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Contexts\InnerTools\StoreContexts\BialystokStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoOct2017StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoCoffeeStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\MinskInstaContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\SystemStoreContext.cs" />

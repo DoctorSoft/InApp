@@ -7,13 +7,13 @@ namespace StoreContextCreator
     {
         public static void Main(string[] args)
         {
-            var store = AccountName.__Store_Minsk_Insta;
+            var store = AccountName.__Store_Grodno_Oct_2017;
             var name = "__" + store.ToString("G") + "_User";
 
             var context = new SportContext(); // Bot
 
             var command = string.Format(
-                    @"USE [SystemDoctor]
+                    @"USE [systemdo_systemdoc]
 
                     SET ANSI_NULLS ON
 

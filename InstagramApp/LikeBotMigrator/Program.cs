@@ -9,7 +9,7 @@ namespace LikeBotMigrator
     {
         public static void Main(string[] args)
         {
-            var connectionString = "Data Source=v02.bizneshost.by,32433;Initial Catalog=SystemDoctor;Persist Security Info=True;User ID=systemdo;Password=3Yk6lj4aM4";
+            var connectionString = "Data Source=v04.bizneshost.by,32433;Initial Catalog=systemdo_systemdoc;Persist Security Info=True;User ID=systemdo_systemdoc;Password=aX3lxzsikvyjngpmtoeb";
 
             var bots = Enum.GetValues(typeof(AccountName)).Cast<AccountName>().Where(name => (int)name > 1000).ToList();
 

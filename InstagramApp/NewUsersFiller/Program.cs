@@ -40,7 +40,7 @@ namespace NewUsersFiller
 
             var accounts = new[]
             {
-                AccountName.__Store_Minsk_Insta,
+                AccountName.Gadanie,
             };
 
             const bool following = false; //подписки
@@ -48,7 +48,7 @@ namespace NewUsersFiller
 
             var links = new[]
             {
-                "https://www.instagram.com/minskgram/",
+                "https://www.instagram.com/homelike_nails/"
             };
 
             var bases = DataBaseSearcher.GetTypesWithAttribute(

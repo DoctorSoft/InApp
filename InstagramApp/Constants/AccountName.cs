@@ -63,6 +63,7 @@
         __Store_System = 2021,
         __Store_Grodno_Coffee = 2022,
         __Store_Minsk_Insta = 2023, 
+        __Store_Grodno_Oct_2017 = 2024,
 
         __Reester = 3001,
         __FilterResult = 3002,
