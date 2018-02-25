@@ -160,9 +160,17 @@ namespace Engines.Engines.GetUserInfoEngine
                         .Replace("=", "")
                         .Trim();
 
-                var followerCount = fBy.ToLower().Contains("k") ? double.Parse(fBy.ToLower().Replace("k", "").Replace(".", ",")) * 1000 : 
+
+                regex = new Regex("followed_by[^_]*:[^}]*");
+                var f_by = regex.Match(page).Value;
+                regex = new Regex(":[^:]*$");
+                f_by = regex.Match(f_by).Value;
+                f_by = f_by.Trim().Replace(" ", "").Replace(":", "");
+
+                var followerCount = double.Parse(f_by);
+                /*var followerCount = fBy.ToLower().Contains("k") ? double.Parse(fBy.ToLower().Replace("k", "").Replace(".", ",")) * 1000 : 
                                     fBy.ToLower().Contains("m") ? double.Parse(fBy.ToLower().Replace("m", "").Replace(".", ",")) * 1000000 :
-                                    double.Parse(fBy);
+                                    double.Parse(fBy);*/
 
                 var followingCount = fTo.ToLower().Contains("k") ? double.Parse(fTo.ToLower().Replace("k", "").Replace(".", ",")) * 1000 :
                                     fTo.ToLower().Contains("m") ? double.Parse(fTo.ToLower().Replace("m", "").Replace(".", ",")) * 1000000 :

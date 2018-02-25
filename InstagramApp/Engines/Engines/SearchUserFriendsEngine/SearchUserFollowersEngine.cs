@@ -258,6 +258,11 @@ namespace Engines.Engines.SearchUserFriendsEngine
                     return userList;
                 }
 
+                if (userList.Count > 50000)
+                {
+                    return userList;
+                }
+
                 Thread.Sleep(1000);
                 exceptionNumber = 0;
 

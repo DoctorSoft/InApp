@@ -23,12 +23,15 @@ namespace UselessUsersAnalizing
                 AccountName.SystemDoctor, 
                 AccountName.Gadanie, 
                 AccountName.Nazar, 
-                AccountName.Firuza,
-                AccountName.GreenDozor,  
+                AccountName.Firuza, 
                 AccountName.Karina, 
                 AccountName.Mayontak, 
                 AccountName.Augustovski,
-                AccountName.MKGrodno
+                AccountName.MKGrodno,
+                AccountName.Plazma, 
+                AccountName.Alina, 
+                AccountName.Karina2,
+                AccountName.HappyLadySecret, 
             };
             
             var bases = DataBaseSearcher.GetTypesWithAttribute(

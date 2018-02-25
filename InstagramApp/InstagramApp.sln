@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramNotificationApp", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService", "NotificationService\NotificationService.csproj", "{CDAA09B1-FA44-4061-BD7B-F8644D0604B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramNotificationAppForTesting", "InstagramNotificationAppForTesting\InstagramNotificationAppForTesting.csproj", "{3F19F675-3DA4-4D01-B311-CCA39AD97E2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{CDAA09B1-FA44-4061-BD7B-F8644D0604B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDAA09B1-FA44-4061-BD7B-F8644D0604B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDAA09B1-FA44-4061-BD7B-F8644D0604B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F19F675-3DA4-4D01-B311-CCA39AD97E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F19F675-3DA4-4D01-B311-CCA39AD97E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F19F675-3DA4-4D01-B311-CCA39AD97E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F19F675-3DA4-4D01-B311-CCA39AD97E2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

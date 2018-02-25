@@ -245,3 +245,13 @@ textarea {
     padding-bottom: 15px;
     margin-left: 10px;
 }
+
+.red-bold {
+    color: red;
+    font-weight: bold
+}
+
+.green-bold {
+    color: green;
+    font-weight: bold
+}

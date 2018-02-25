@@ -83,7 +83,7 @@ namespace DataBase.MayontakMigrations
 
             DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
 
-            var colours = Enum.GetValues(typeof (KnownColor)).Cast<KnownColor>().Select(color => new ColourDbModel
+            /*var colours = Enum.GetValues(typeof (KnownColor)).Cast<KnownColor>().Select(color => new ColourDbModel
             {
                 Name = color.ToString("G")
             });
@@ -98,7 +98,7 @@ namespace DataBase.MayontakMigrations
                 Name = s,
             });
 
-            context.ContentTypes.AddRange(contentTypes);
+            context.ContentTypes.AddRange(contentTypes);*/
         }
     }
 }

@@ -29,7 +29,9 @@ namespace Engines.Engines.LikeMediaEngine
                 text = likeSpans.FirstOrDefault().Text;
             }
 
-            if (text == "Нравится")
+            var words = new[] { "нравится", "like" };
+            var btnText = text.ToLower();
+            if (words.Any(s => s == btnText))
             {
                 IList<IWebElement> likeButtons = driver.FindElements(By.ClassName("coreSpriteHeartOpen"));
                 likeButtons.FirstOrDefault().Click();

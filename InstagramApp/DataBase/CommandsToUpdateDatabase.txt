@@ -25,6 +25,11 @@ add-migration -Name AddOptions -ConfigurationTypeName AxFitnessConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName TaxiConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName MayontakConfiguration
 add-migration -Name AddOptions -ConfigurationTypeName MKGrodnoConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName PlazmaConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName AlinaConfiguration
+add-migration -Name AddOptions -ConfigurationTypeName Karina2Configuration 
+add-migration -Name AddOptions -ConfigurationTypeName HappyLadySecretConfiguration 
+
 
 
 CHECK IF ALL ACCOUNTS ARE COMMENTED!!!!
@@ -56,6 +61,12 @@ update-database -ConfigurationTypeName AxFitnessConfiguration
 update-database -ConfigurationTypeName TaxiConfiguration
 update-database -ConfigurationTypeName MayontakConfiguration
 update-database -ConfigurationTypeName MKGrodnoConfiguration
+update-database -ConfigurationTypeName PlazmaConfiguration
+update-database -ConfigurationTypeName AlinaConfiguration
+update-database -ConfigurationTypeName Karina2Configuration 
+update-database -ConfigurationTypeName HappyLadySecretConfiguration 
+
+
 
 
 

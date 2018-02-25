@@ -18,6 +18,11 @@ namespace DataBase.QueriesAndCommands.Commands.Users
         {
             var userToDelete = context.Users.FirstOrDefault(model => model.Link.ToUpper() == command.UserLink.ToUpper());
 
+            if (userToDelete == null)
+            {
+                return new VoidCommandResponse();
+            }
+
             context.Users.Remove(userToDelete);
 
             context.SaveChanges();

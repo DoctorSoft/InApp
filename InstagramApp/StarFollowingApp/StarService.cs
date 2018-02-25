@@ -1,5 +1,4 @@
 ﻿using Constants;
-using DataBase.Contexts;
 using DataBase.Contexts.InnerTools;
 using DataBase.QueriesAndCommands.Commands.Functionality;
 using DataBase.QueriesAndCommands.Commands.Stars;
@@ -40,7 +39,7 @@ namespace StarFollowingApp
                     Link = user
                 });
 
-                if (result)
+                if (result == true)
                 {
                     new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                     {

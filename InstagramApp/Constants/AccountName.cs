@@ -3,31 +3,35 @@
     public enum AccountName
     {
         Ozerny = 1,
-        Galaxy = 2,
+        Galaxy = 5002, //hidden
         Kioto = 3,
-        Nazar = 4,
+        Nazar = 5004, //hidden
         Karina = 6,
-        SalsaRika = 7,
-        Augustovski = 8,
-        Nikon = 9,
-        GreenDozor = 10,
+        SalsaRika = 5007, //hidden
+        Augustovski = 5008, //hidden
+        Nikon = 5009, //hidden
+        GreenDozor = 5010, //hidden
         Gadanie = 14,
-        Anastasiya = 15,
-        Sport = 17,
+        Anastasiya = 5015,  //hidden
+        Sport = 17, 
         GrodnoOfficial = 18,
         MyGrodno = 19,
-        Sto = 20,
-        Sto2 = 21,
+        Sto = 5020, //hidden
+        Sto2 = 5021, //hidden
         Firuza = 22,
-        GadalkaTamara = 23,
-        WeHeartGrodno = 24,
+        GadalkaTamara = 5023, //hidden
+        WeHeartGrodno = 5024, //hidden
         SystemDoctor = 25,
-        GreenShop = 26,
-        MogilevTurism = 27,
-        AxFitness = 28,
-        Taxi = 29,
+        GreenShop = 5026, //hidden
+        MogilevTurism = 5027, //hidden
+        AxFitness = 5028, //hidden
+        Taxi = 5029, //hidden
         Mayontak = 30,
         MKGrodno = 31,
+        Plazma = 32,
+        Alina = 33,
+        Karina2 = 34,
+        HappyLadySecret = 35,
 
         _Bot_1 = 1001,
         _Bot_2 = 1002,
@@ -64,6 +68,10 @@
         __Store_Grodno_Coffee = 2022,
         __Store_Minsk_Insta = 2023, 
         __Store_Grodno_Oct_2017 = 2024,
+        __Store_Moscow_Oct_2017 = 2025,
+        __Stroe_Magic_Base_2018 = 2026,
+        __Shop_Feb_2018 = 2027,
+        __Store_Travel_Feb_2018 = 2028,
 
         __Reester = 3001,
         __FilterResult = 3002,

@@ -10,17 +10,80 @@
     </div>
 </div>
 
-<hr/>
+<hr />
 
 <div class="row">
 
     @foreach (var account in Model)
     {
-        <a href="@Url.Action("Index", "AccountMainPage", new { accountId = account.AccountId })" class="no-line-link">
+        <a href="@Url.Action("Index", "AccountMainPage", new {accountId = account.AccountId})" class="no-line-link">
             <div class="panel panel-primary account-list-line">
                 <div class="panel-body">@account.Name</div>
             </div>
         </a>
+        <hr />
+        <span><a href="@account.Url" target="_blank">@account.Url</a></span>
+        <hr />
+        <span> Proxy Name: @account.ProxyLogin</span>
+        <br />
+        <span> Proxy Password: @account.ProxyPassword</span>
+        <hr />
+        <span>
+            @if (account.Followers > 10000)
+            {
+                <span class="green-bold">Followers: @account.Followers </span>
+            }
+            else
+            {
+                <span>Followers: @account.Followers </span>
+            }
+            
+            @if (account.Difference <= 0)
+            {
+                <span class="red-bold">(@account.Difference)</span>
+            }
+            else
+            {
+                if (account.Difference > 20)
+                {
+                    <span class="green-bold">(+@account.Difference)</span>
+                }
+                else
+                {
+                    <span>(+@account.Difference)</span>
+                }
+            }
+        </span>
+        <br />
+        if (account.Following > 2500 && account.Following < 6500)
+        {
+            <span> Following: @account.Following </span>
+        }
+        else
+        {
+            <span class="red-bold"> Following: @account.Following</span>
+        }
+        <br />
+        if (account.UsersToFollow < 12000)
+        {
+            <span class="red-bold"> Base: @account.UsersToFollow</span>
+        }
+        else
+        {
+            if (account.UsersToFollow > 35000)
+            {
+                <span class="green-bold"> Base: @account.UsersToFollow</span>
+            }
+            else
+            {
+                <span> Base: @account.UsersToFollow</span>
+            }
+        }
+        <hr />
+        <br />
+        <br />
+        <br />
+        <br />
     }
 
 </div>

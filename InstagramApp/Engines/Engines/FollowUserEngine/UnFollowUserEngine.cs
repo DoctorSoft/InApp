@@ -35,11 +35,13 @@ namespace Engines.Engines.FollowUserEngine
             
             var followButton = driver
                 .FindElements(By.CssSelector("._qv64e._t78yp._r9b8f._njrw0"))
-                .First(element => element.Text.Contains("Подписки"));
+                .First();
 
             Thread.Sleep(200);
 
-            if (!followButton.Text.Contains("Подписаться"))
+            var words = new[] { "подписаться", "follow" };
+            var btnText = followButton.Text.ToLower();
+            if (words.All(s => s != btnText))
             {
                 followButton.Click();
             }
@@ -54,7 +56,8 @@ namespace Engines.Engines.FollowUserEngine
                 .FindElements(By.CssSelector("._qv64e._gexxb._r9b8f._njrw0"))
                 .First();
 
-            if (!followButton.Text.Contains("Подписаться"))
+            btnText = followButton.Text.ToLower();
+            if (words.All(s => s != btnText))
             {
                 return false;
             }

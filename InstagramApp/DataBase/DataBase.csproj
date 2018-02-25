@@ -64,6 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlinaMigrations\201801201944458_AddOptions.cs" />
+    <Compile Include="AlinaMigrations\201801201944458_AddOptions.Designer.cs">
+      <DependentUpon>201801201944458_AddOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnastasiyaMigrations\201611201919392_Init.cs" />
     <Compile Include="AnastasiyaMigrations\201611201919392_Init.Designer.cs">
       <DependentUpon>201611201919392_Init.cs</DependentUpon>
@@ -113,12 +117,36 @@
       <DependentUpon>201703021241479_AddOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Contexts\InnerTools\StoreContexts\BialystokStoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\MagicBaseContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\Travel2018StoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\ShopFeb2018StoreContext.cs" />
+    <Compile Include="Contexts\InnerTools\StoreContexts\MoscowOct2017StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoOct2017StoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\GrodnoCoffeeStoreContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\MinskInstaContext.cs" />
     <Compile Include="Contexts\InnerTools\StoreContexts\SystemStoreContext.cs" />
+    <Compile Include="Contexts\AlinaContext.cs" />
+    <Compile Include="Contexts\Karina2Context.cs" />
+    <Compile Include="Contexts\HappyLadySecretContext.cs" />
+    <Compile Include="Contexts\PlazmaContext.cs" />
     <Compile Include="Contexts\MKGrodnoContext.cs" />
     <Compile Include="Contexts\MayontakContext.cs" />
+    <Compile Include="AlinaMigrations\AlinaConfiguration.cs" />
+    <Compile Include="HappyLadySecretMigrations\201802220655309_AddOptions.cs" />
+    <Compile Include="HappyLadySecretMigrations\201802220655309_AddOptions.Designer.cs">
+      <DependentUpon>201802220655309_AddOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Karina2Migrations\201801252141124_AddOptions.cs" />
+    <Compile Include="Karina2Migrations\201801252141124_AddOptions.Designer.cs">
+      <DependentUpon>201801252141124_AddOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Karina2Migrations\Karina2Configuration.cs" />
+    <Compile Include="HappyLadySecretMigrations\HappyLadySecretConfiguration.cs" />
+    <Compile Include="PlazmaMigrations\201712062208130_AddOptions.cs" />
+    <Compile Include="PlazmaMigrations\201712062208130_AddOptions.Designer.cs">
+      <DependentUpon>201712062208130_AddOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlazmaMigrations\PlazmaConfiguration.cs" />
     <Compile Include="MKGrodnoMigrations\201707270721423_AddOptions.cs" />
     <Compile Include="MKGrodnoMigrations\201707270721423_AddOptions.Designer.cs">
       <DependentUpon>201707270721423_AddOptions.cs</DependentUpon>
@@ -839,6 +867,9 @@
     <Content Include="CommandsToUpdateDatabase.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AlinaMigrations\201801201944458_AddOptions.resx">
+      <DependentUpon>201801201944458_AddOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AnastasiyaMigrations\201611201919392_Init.resx">
       <DependentUpon>201611201919392_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -971,6 +1002,12 @@
     <EmbeddedResource Include="GrodnoOfficialMigrations\201703021243343_AddOptions.resx">
       <DependentUpon>201703021243343_AddOptions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HappyLadySecretMigrations\201802220655309_AddOptions.resx">
+      <DependentUpon>201802220655309_AddOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Karina2Migrations\201801252141124_AddOptions.resx">
+      <DependentUpon>201801252141124_AddOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KarinaMigrations\201611201918242_Init.resx">
       <DependentUpon>201611201918242_Init.cs</DependentUpon>
     </EmbeddedResource>
@@ -1093,6 +1130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OzernyMigrations\201703021239586_AddOptions.resx">
       <DependentUpon>201703021239586_AddOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlazmaMigrations\201712062208130_AddOptions.resx">
+      <DependentUpon>201712062208130_AddOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalsaRikaMigrations\201611201918308_Init.resx">
       <DependentUpon>201611201918308_Init.cs</DependentUpon>

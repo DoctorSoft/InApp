@@ -16,7 +16,7 @@ namespace DataBase.MKGrodnoMigrations
 
         protected override void Seed(DataBase.Contexts.MKGrodnoContext context)
         {
-            context.ProfileSettings.RemoveRange(context.ProfileSettings);
+            /*context.ProfileSettings.RemoveRange(context.ProfileSettings);
             var settings = new ProfileSettingsDbModel
             {
                 HomePageUrl = "https://www.instagram.com/grodno_mk/",
@@ -67,7 +67,7 @@ namespace DataBase.MKGrodnoMigrations
             };
             context.Features.AddRange(features);
 
-            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);
+            DefaultFunctionalityFiller.FillDefaultFunctionlity(context);*/
         }
     }
 }

@@ -53,11 +53,22 @@ namespace InstagramApp
                 return new ChromeDriver();
             }
 
-            var proxy = new Proxy { SslProxy = settings.Proxy };
+            var proxy = new Proxy
+            {
+                SslProxy = settings.Proxy,
+                Kind = ProxyKind.Manual,
+                IsAutoDetect = false
+            };
 
             var chromeOptions = new ChromeOptions { Proxy = proxy };
 
+            chromeOptions.AddArguments(string.Format("--proxy-server=http://{0}:{1}@{2}", settings.ProxyLogin, settings.ProxyPassword, settings.Proxy));
+            chromeOptions.AddArgument("ignore-certificate-errors");
+            chromeOptions.AddArgument("--disable-infobars");
+
             var driver = new ChromeDriver(chromeOptions);
+
+            //driver.Navigate().GoToUrl(string.Format("http://{0}:{1}@{2}", settings.ProxyLogin, settings.ProxyPassword, settings.Proxy));
 
             new SetProxyEngine().Execute(driver, new SetProxyEngineModel
             {
@@ -511,9 +522,9 @@ namespace InstagramApp
             public string User { get; set; }
         }
 
-        public WorkResult FollorUserWithStatus(RemoteWebDriver driver, DataBaseContext context, int attempts)
+        public WorkResult FollorUserWithStatus(RemoteWebDriver driver, DataBaseContext context, int attempts, bool used = false)
         {
-            if (attempts == 3)
+            if (!used)
             {
                 new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
                 {
@@ -544,12 +555,12 @@ namespace InstagramApp
                 }
             }
 
-            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 4 }).ToList();
+            var users = new GetUsersToFollowQueryHandler(context).Handle(new GetUsersToFollowQuery { MaxCount = 10 }).ToList();
 
             var user = users[attempts];
 
             {
-                var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
+                /*var userInfo = new GetUserInfoEngine().Execute(driver, new GetUserInfoEngineModel
                 {
                     UserLink = user
                 });
@@ -561,18 +572,18 @@ namespace InstagramApp
                     {
                         Link = user
                     });
-                }
+                }*/
 
-                bool result;
+                bool? result;
 
-                if (userInfo.IsStar)
+                /*if (userInfo.IsStar)
                 {
                     result = new FollowUserEngine().Execute(driver, new FollowUserModel
                     {
                         UserLink = user
                     });
 
-                    if (result)
+                    if (result == )
                     {
                         new MarkUserAsStarCommandHandler(context).Handle(new MarkUserAsStarCommand
                         {
@@ -606,9 +617,9 @@ namespace InstagramApp
 
                         return new WorkResult {WorkStatus = WorkStatus.Cancelled, User = null};
                     }
-                }
+                }*/
 
-                var access = new CheckFeaturesAccessQueryHandler(context).Handle(new CheckFeaturesAccessQuery()
+                /*var access = new CheckFeaturesAccessQueryHandler(context).Handle(new CheckFeaturesAccessQuery()
                 {
                     FeaturesName = FeaturesName.CheckSpammers
                 });
@@ -635,34 +646,47 @@ namespace InstagramApp
                     }
 
                     return new WorkResult {WorkStatus = WorkStatus.Cancelled, User = null};
-                }
+                }*/
 
                 result = new FollowUserEngine().Execute(driver, new FollowUserModel
                 {
                     UserLink = user
                 });
 
-                if (result)
+                if (result == true || result == false)
                 {
-                    new MarkUserAsNormalCommandHandler(context).Handle(new MarkUserAsNormalCommand
+                    if (result == false)
                     {
-                        UserLink = user
-                    });
+                        new RemoveUserCommandHandler(context).Handle(new RemoveUserCommand
+                        {
+                            UserLink = user
+                        });
 
-                    new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                        return FollorUserWithStatus(driver, context, attempts, true);
+                    }
+                    else
                     {
-                        Note = "Success following users: " + user,
-                        Name = FunctionalityName.FollowUsers,
-                        WorkStatus = WorkStatus.Success
-                    });
+                        new MarkUserAsNormalCommandHandler(context).Handle(new MarkUserAsNormalCommand
+                        {
+                            UserLink = user
+                        });
 
-                    return new WorkResult {WorkStatus = WorkStatus.Success, User = user};
+                        new SetFunctionalityRecordCommandHandler(context).Handle(new SetFunctionalityRecordCommand
+                        {
+                            Note = "Success following users: " + user,
+                            Name = FunctionalityName.FollowUsers,
+                            WorkStatus = WorkStatus.Success
+                        });
+
+                        return new WorkResult { WorkStatus = WorkStatus.Success, User = user };
+                        
+                    }
                 }
                 else
                 {
                     if (attempts > 0)
                     {
-                        return FollorUserWithStatus(driver, context, attempts - 1);
+                        return FollorUserWithStatus(driver, context, attempts - 1, true);
                     }
                     else
                     {
